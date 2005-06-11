@@ -1,0 +1,79 @@
+<tmpl_include file="head.html">
+   <table width=85% align=center>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_left_up.gif" width="3" height="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"><img src="{tmpl_var name='IMAGES_DIR'}bridge_top.gif" width="3" height="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_right_up.gif" width="4" height="3"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_left.gif"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}icons/solar-dish.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bridge_bar_vertical.gif"></td>
+       <td class="scoretable_header"><img src="{tmpl_var name='IMAGES_DIR'}text/search-results.gif"><br><tmpl_var name="clanname"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}bridge_left.gif" width="3" height="2"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bridge_bar_horizontal.gif" colspan="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif" width="4" height="2"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_left.gif"></td>  
+       <td class="rahmen" colspan="3">
+        <table class="scoretable">
+				 <tr class=head>
+<tmpl_if name="isPlayerSearch">   
+   <tr>
+     <th class=scoretable_number>ID</th>
+     <th class=scoretable>Player</th>
+     <th class=scoretable>since</th>
+   </tr>
+   <tmpl_loop name="searchresults">
+   <tmpl_if name="__EVEN__">
+   <tr class="scoretable_hell">
+   <tmpl_else>
+   <tr class="scoretable_dunkel">
+   </tmpl_if>
+     <td class=number><tmpl_var name="id"></td>
+     <td><img src="{tmpl_var name='playerimg'}" align=absmiddle hspace=2><a href="{tmpl_var name='playerdetaillink'}"><tmpl_var name="name"></a></td>
+     <td class=number><tmpl_var name="time"></td>
+   </tr>
+   </tmpl_loop>
+</tmpl_if>
+<tmpl_if name="isGameSearch">   
+   <tr class=head>
+     <th class=scoretable_number>ID</th>
+     <th class=scoretable>Servername</th>
+     <th class=scoretable>Mod</th>
+     <th class=scoretable>Map</th>
+     <th class=scoretable>GameMode</th>
+     <th class=scoretable>Starttime</th>
+   </tr>  
+   <tmpl_loop name="searchresults">
+   <tmpl_if name="__EVEN__">
+   <tr class="light">
+   <tmpl_else>
+   <tr class="dark">
+   </tmpl_if>
+     <td><tmpl_var name="id"></td>
+     <td><a href="{tmpl_var name='gamedetaillink'}"><tmpl_var name="servername"></td>
+     <td><tmpl_var name="mod"></td>
+     <td><tmpl_var name="map"></td>     
+     <td><tmpl_var name="game_mode"></td>          
+     <td><tmpl_var name="time"></td>               
+   </tr>
+   </tmpl_loop>
+</tmpl_if>
+        </table>
+       </td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_left_down.gif" width="3" height="5"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_down.gif" colspan="3"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_right_down.gif" width="4" height="5"></td>
+     </tr>
+   </table>		
+<tmpl_include file="foot.html">

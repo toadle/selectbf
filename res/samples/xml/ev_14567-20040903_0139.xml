@@ -1,0 +1,1895 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<bf:log version="1.1" xmlns:bf="http://www.dice.se/xmlns/bf/1.1">
+<bf:round timestamp="20.3427">
+<bf:server>
+  <bf:setting name="server name">DC 0.7 LostVillage &lt;S&gt;A&lt;S&gt; sv1</bf:setting>
+  <bf:setting name="port">14567</bf:setting>
+  <bf:setting name="dedicated">1</bf:setting>
+  <bf:setting name="modid">desertcombat</bf:setting>
+  <bf:setting name="mapid">Desertcombat</bf:setting>
+  <bf:setting name="map">dc_lostvillage</bf:setting>
+  <bf:setting name="game mode">GPM_CQ</bf:setting>
+  <bf:setting name="gametime">0</bf:setting>
+  <bf:setting name="maxplayers">36</bf:setting>
+  <bf:setting name="scorelimit">0</bf:setting>
+  <bf:setting name="norounds">10</bf:setting>
+  <bf:setting name="spawntime">10</bf:setting>
+  <bf:setting name="spawndelay">5</bf:setting>
+  <bf:setting name="gamestartdelay">14</bf:setting>
+  <bf:setting name="roundstartdelay">10</bf:setting>
+  <bf:setting name="soldierff">50</bf:setting>
+  <bf:setting name="vehicleff">50</bf:setting>
+  <bf:setting name="ticketratio">301</bf:setting>
+  <bf:setting name="internet">1</bf:setting>
+  <bf:setting name="alliedtr">1</bf:setting>
+  <bf:setting name="axistr">1</bf:setting>
+  <bf:setting name="coopskill">50</bf:setting>
+  <bf:setting name="coopcpu">100</bf:setting>
+  <bf:setting name="reservedslots">0</bf:setting>
+  <bf:setting name="allownosecam">1</bf:setting>
+  <bf:setting name="freecamera">0</bf:setting>
+  <bf:setting name="externalviews">1</bf:setting>
+  <bf:setting name="autobalance">0</bf:setting>
+  <bf:setting name="tagdistance">75</bf:setting>
+  <bf:setting name="tagdistancescope">150</bf:setting>
+  <bf:setting name="kickback">0.5</bf:setting>
+  <bf:setting name="kickbacksplash">0.5</bf:setting>
+  <bf:setting name="soldierffonsplash">50</bf:setting>
+  <bf:setting name="vehicleffonsplash">50</bf:setting>
+  <bf:setting name="hitindication">1</bf:setting>
+  <bf:setting name="tkpunish">0</bf:setting>
+  <bf:setting name="crosshairpoint">1</bf:setting>
+  <bf:setting name="deathcamtype">0</bf:setting>
+  <bf:setting name="contentcheck">0</bf:setting>
+  <bf:setting name="sv_punkbuster">1</bf:setting>
+</bf:server>
+<bf:event name="createPlayer" timestamp="32.7703">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">[GMJ]spanker.</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="roundInit" timestamp="34.3503">
+    <bf:param type="int" name="tickets_team1">744</bf:param>
+    <bf:param type="int" name="tickets_team2">744</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="38.5901">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">JebusPriest</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="39.11">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="string" name="keyhash">bc529ae687ece58d9990c826dd9dc81c</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="44.92">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="string" name="keyhash">40b810c7f087b8e1fdb1a0774d2c7057</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="57.7201">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">Pepe ( GER )</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="64.2799">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="string" name="keyhash">b5c525865523cd333bb222e6f2f1abeb</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="66.7034">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1176.81/76.29/1051.69</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="66.7059">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1176.81/76.29/1051.69</bf:param>
+    <bf:param type="string" name="kit">Iraq_AT</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="67.6801">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">S.S. MacGyver</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="68.3002">
+    <bf:param type="int" name="player_id">3</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">Zeratul</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="68.5815">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1177.96/77.3107/1048.66</bf:param>
+    <bf:param type="string" name="score_type">Death</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="68.5824">
+    <bf:param type="string" name="vehicle">IraqSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1177.96/77.3107/1048.66</bf:param>
+</bf:event>
+<bf:event name="restartMap" timestamp="68.5867">
+    <bf:param type="int" name="tickets_team1">744</bf:param>
+    <bf:param type="int" name="tickets_team2">744</bf:param>
+</bf:event>
+</bf:round>
+<bf:round timestamp="68.6223">
+<bf:server>
+  <bf:setting name="server name">DC 0.7 LostVillage &lt;S&gt;A&lt;S&gt; sv1</bf:setting>
+  <bf:setting name="port">14567</bf:setting>
+  <bf:setting name="dedicated">1</bf:setting>
+  <bf:setting name="modid">desertcombat</bf:setting>
+  <bf:setting name="mapid">Desertcombat</bf:setting>
+  <bf:setting name="map">dc_lostvillage</bf:setting>
+  <bf:setting name="game mode">GPM_CQ</bf:setting>
+  <bf:setting name="gametime">0</bf:setting>
+  <bf:setting name="maxplayers">36</bf:setting>
+  <bf:setting name="scorelimit">0</bf:setting>
+  <bf:setting name="norounds">10</bf:setting>
+  <bf:setting name="spawntime">10</bf:setting>
+  <bf:setting name="spawndelay">5</bf:setting>
+  <bf:setting name="gamestartdelay">14</bf:setting>
+  <bf:setting name="roundstartdelay">10</bf:setting>
+  <bf:setting name="soldierff">50</bf:setting>
+  <bf:setting name="vehicleff">50</bf:setting>
+  <bf:setting name="ticketratio">301</bf:setting>
+  <bf:setting name="internet">1</bf:setting>
+  <bf:setting name="alliedtr">1</bf:setting>
+  <bf:setting name="axistr">1</bf:setting>
+  <bf:setting name="coopskill">50</bf:setting>
+  <bf:setting name="coopcpu">100</bf:setting>
+  <bf:setting name="reservedslots">0</bf:setting>
+  <bf:setting name="allownosecam">1</bf:setting>
+  <bf:setting name="freecamera">0</bf:setting>
+  <bf:setting name="externalviews">1</bf:setting>
+  <bf:setting name="autobalance">0</bf:setting>
+  <bf:setting name="tagdistance">75</bf:setting>
+  <bf:setting name="tagdistancescope">150</bf:setting>
+  <bf:setting name="kickback">0.5</bf:setting>
+  <bf:setting name="kickbacksplash">0.5</bf:setting>
+  <bf:setting name="soldierffonsplash">50</bf:setting>
+  <bf:setting name="vehicleffonsplash">50</bf:setting>
+  <bf:setting name="hitindication">1</bf:setting>
+  <bf:setting name="tkpunish">0</bf:setting>
+  <bf:setting name="crosshairpoint">1</bf:setting>
+  <bf:setting name="deathcamtype">0</bf:setting>
+  <bf:setting name="contentcheck">0</bf:setting>
+  <bf:setting name="sv_punkbuster">1</bf:setting>
+</bf:server>
+<bf:event name="playerKeyHash" timestamp="74.32">
+    <bf:param type="int" name="player_id">3</bf:param>
+    <bf:param type="string" name="keyhash">c36eefc2d4ef5cc4af19ac1df32767e1</bf:param>
+</bf:event>
+<bf:event name="disconnectPlayer" timestamp="74.4999">
+    <bf:param type="int" name="player_id">3</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="74.5002">
+    <bf:param type="int" name="player_id">3</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="vehicle">MultiPlayerFreeCamera</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyPlayer" timestamp="74.5004">
+    <bf:param type="int" name="player_id">3</bf:param>
+    <bf:param type="string" name="player_location">(unknown)</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="74.6199">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="string" name="keyhash">cfc0ecf065bf9396898ffbfc436f44f4</bf:param>
+</bf:event>
+<bf:event name="roundInit" timestamp="82.6004">
+    <bf:param type="int" name="tickets_team1">744</bf:param>
+    <bf:param type="int" name="tickets_team2">744</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="82.6434">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1192.55/71.98/1055.42</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="82.6458">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1192.55/71.98/1055.42</bf:param>
+    <bf:param type="string" name="kit">Iraq_AT</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="82.7436">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">861.82/76.78/679.55</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="82.746">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">861.82/76.78/679.55</bf:param>
+    <bf:param type="string" name="kit">Us_Assault</bf:param>
+</bf:event>
+<bf:event name="chat" timestamp="97.1602">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1184.02/73/1023.38</bf:param>
+    <bf:param type="int" name="team">0</bf:param>
+    <bf:param type="string" name="text">come baaaack</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="100.18">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">839.5/78.6808/710.538</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Gunner2</bf:param>
+    <bf:param type="int" name="pco_id">1</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="101.58">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">839.5/78.6808/710.538</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Gunner2</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="101.581">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">841/78.7999/706.728</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="112.644">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">874.59/76.8/703.25</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="112.646">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">874.59/76.8/703.25</bf:param>
+    <bf:param type="string" name="kit">Us_Assault</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="117.28">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">879/78.7999/678.728</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="125.18">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">1073.45/306.246/854.178</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="chat" timestamp="129.72">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1040.01/73/982.535</bf:param>
+    <bf:param type="int" name="team">0</bf:param>
+    <bf:param type="string" name="text">yay people</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="135.142">
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1123.5/76.5277/873.611</bf:param>
+</bf:event>
+<bf:event name="setTeam" timestamp="137.22">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="142.644">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">870.24/76.8/670.08</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="142.647">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">870.24/76.8/670.08</bf:param>
+    <bf:param type="string" name="kit">Us_Assault</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="145.042">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1039.93/73/923.319</bf:param>
+    <bf:param type="string" name="vehicle">USSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1058.85/72.8284/919.087</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="145.042">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1039.93/73/923.319</bf:param>
+    <bf:param type="string" name="score_type">Kill</bf:param>
+    <bf:param type="int" name="victim_id">1</bf:param>
+    <bf:param type="string" name="weapon">RPG7</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="145.042">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">1058.85/72.8284/919.087</bf:param>
+    <bf:param type="string" name="score_type">DeathNoMsg</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="145.043">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1039.93/73/923.319</bf:param>
+    <bf:param type="string" name="vehicle">USSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1058.85/72.8284/919.087</bf:param>
+</bf:event>
+<bf:event name="chat" timestamp="154.32">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">870.24/77.8/674.434</bf:param>
+    <bf:param type="int" name="team">0</bf:param>
+    <bf:param type="string" name="text">see, everyone got kicked off the server</bf:param>
+</bf:event>
+<bf:event name="chat" timestamp="159.42">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1110.06/73/943.182</bf:param>
+    <bf:param type="int" name="team">0</bf:param>
+    <bf:param type="string" name="text">yeah</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="159.84">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">863.03/78.8931/707.155</bf:param>
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="chat" timestamp="169.7">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1109.84/73/945.11</bf:param>
+    <bf:param type="int" name="team">0</bf:param>
+    <bf:param type="string" name="text">this server got flaky a ouple months ago</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="172.645">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">874.59/76.8/703.25</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="172.647">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">874.59/76.8/703.25</bf:param>
+    <bf:param type="string" name="kit">Us_Assault</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="176.82">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">863.03/78.9328/707.141</bf:param>
+    <bf:param type="string" name="vehicle">H6CoPilot</bf:param>
+    <bf:param type="int" name="pco_id">1</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="179.58">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">863.03/78.9328/707.141</bf:param>
+    <bf:param type="string" name="vehicle">H6CoPilot</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="chat" timestamp="180.26">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">863.03/79.1648/707.154</bf:param>
+    <bf:param type="int" name="team">0</bf:param>
+    <bf:param type="string" name="text">i got connection problems 4 times last game</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="182.74">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1205.83/75.8392/997.119</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="186.72">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">839.5/78.6808/710.538</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Gunner2</bf:param>
+    <bf:param type="int" name="pco_id">1</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="188.34">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">839.5/78.6808/710.538</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Gunner2</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="188.34">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">841/78.7999/706.728</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="191.48">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">979.335/163.34/955.499</bf:param>
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="193.481">
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">981.418/90.8965/1004.82</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="213.88">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">1097.38/160.296/1078.96</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="218.341">
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1094.07/79.0169/1121.61</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="219.921">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1180.86/77.2914/1048.67</bf:param>
+    <bf:param type="string" name="vehicle">IraqSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1184.65/72.9673/1034.49</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="219.922">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1180.86/77.2914/1048.67</bf:param>
+    <bf:param type="string" name="score_type">Kill</bf:param>
+    <bf:param type="int" name="victim_id">0</bf:param>
+    <bf:param type="string" name="weapon">M16</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="219.922">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1184.65/72.9673/1034.49</bf:param>
+    <bf:param type="string" name="score_type">DeathNoMsg</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="219.923">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1180.86/77.2914/1048.67</bf:param>
+    <bf:param type="string" name="vehicle">IraqSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1184.65/72.9673/1034.49</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="232.644">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1098.35/72/1063.83</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="232.646">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1098.35/72/1063.83</bf:param>
+    <bf:param type="string" name="kit">Iraq_AT</bf:param>
+</bf:event>
+<bf:event name="chat" timestamp="233.92">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1098.35/73.1896/1063.83</bf:param>
+    <bf:param type="int" name="team">0</bf:param>
+    <bf:param type="string" name="text">thrilling</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="236.083">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1180.17/77.3272/1052.39</bf:param>
+    <bf:param type="string" name="score_type">Attack</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="236.3">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">1020.33/73/1008.86</bf:param>
+    <bf:param type="string" name="score_type">Attack</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="chat" timestamp="239.54">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">1020.33/73/1008.86</bf:param>
+    <bf:param type="int" name="team">0</bf:param>
+    <bf:param type="string" name="text">yeah this is dumb</bf:param>
+</bf:event>
+<bf:event name="chat" timestamp="240.54">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1180.17/77.3272/1052.39</bf:param>
+    <bf:param type="int" name="team">0</bf:param>
+    <bf:param type="string" name="text">lol</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="244.041">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1173.17/77.2542/1047.89</bf:param>
+    <bf:param type="string" name="vehicle">IraqSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1141.37/72.9673/1052.17</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="244.041">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1173.17/77.2542/1047.89</bf:param>
+    <bf:param type="string" name="score_type">Kill</bf:param>
+    <bf:param type="int" name="victim_id">0</bf:param>
+    <bf:param type="string" name="weapon">M16</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="244.041">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1141.37/72.9673/1052.17</bf:param>
+    <bf:param type="string" name="score_type">DeathNoMsg</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="244.042">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1173.17/77.2542/1047.89</bf:param>
+    <bf:param type="string" name="vehicle">IraqSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1141.37/72.9673/1052.17</bf:param>
+</bf:event>
+<bf:event name="chat" timestamp="246.28">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">1020.33/73/1008.86</bf:param>
+    <bf:param type="int" name="team">0</bf:param>
+    <bf:param type="string" name="text">later guys</bf:param>
+</bf:event>
+<bf:event name="chat" timestamp="249.44">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1141.37/102.967/1052.17</bf:param>
+    <bf:param type="int" name="team">0</bf:param>
+    <bf:param type="string" name="text">bye</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="254.721">
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1210.41/73.7749/1013.41</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="259">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">996.818/73.195/1165.07</bf:param>
+    <bf:param type="string" name="score_type">Attack</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="262.644">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1094.41/77.97/1064.47</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="262.646">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1094.41/77.97/1064.47</bf:param>
+    <bf:param type="string" name="kit">Iraq_AT</bf:param>
+</bf:event>
+<bf:event name="chat" timestamp="263.36">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1094.41/78.9846/1064.49</bf:param>
+    <bf:param type="int" name="team">0</bf:param>
+    <bf:param type="string" name="text">this will be a stunning victory!</bf:param>
+</bf:event>
+<bf:event name="radioMessage" timestamp="263.98">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">1023.07/73/1007.81</bf:param>
+    <bf:param type="int" name="message">59</bf:param>
+    <bf:param type="int" name="broadcast">1</bf:param>
+</bf:event>
+<bf:event name="radioMessage" timestamp="266.281">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">1023.07/73/1007.81</bf:param>
+    <bf:param type="int" name="message">59</bf:param>
+    <bf:param type="int" name="broadcast">1</bf:param>
+</bf:event>
+<bf:event name="radioMessage" timestamp="267.4">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">1023.07/73/1007.81</bf:param>
+    <bf:param type="int" name="message">8</bf:param>
+    <bf:param type="int" name="broadcast">1</bf:param>
+</bf:event>
+<bf:event name="radioMessage" timestamp="268.14">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">1023.07/73/1007.81</bf:param>
+    <bf:param type="int" name="message">2</bf:param>
+    <bf:param type="int" name="broadcast">1</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="272.921">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1098.45/72.9673/1059.1</bf:param>
+    <bf:param type="string" name="vehicle">IraqSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1099.6/73.0413/1059.11</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="272.921">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1098.45/72.9673/1059.1</bf:param>
+    <bf:param type="string" name="score_type">Kill</bf:param>
+    <bf:param type="int" name="victim_id">0</bf:param>
+    <bf:param type="string" name="weapon">M16</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="272.921">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1099.6/73.0413/1059.11</bf:param>
+    <bf:param type="string" name="score_type">DeathNoMsg</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="272.922">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1098.45/72.9673/1059.1</bf:param>
+    <bf:param type="string" name="vehicle">IraqSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1099.6/73.0413/1059.11</bf:param>
+</bf:event>
+<bf:event name="disconnectPlayer" timestamp="277.82">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">1023.07/73/1007.81</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="277.82">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">1023.07/73/1007.81</bf:param>
+    <bf:param type="string" name="score_type">Death</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="277.821">
+    <bf:param type="string" name="vehicle">USSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1023.07/73/1007.81</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="277.821">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">0/0/0</bf:param>
+    <bf:param type="string" name="vehicle">MultiPlayerFreeCamera</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyPlayer" timestamp="277.821">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="string" name="player_location">(unknown)</bf:param>
+</bf:event>
+<bf:event name="chat" timestamp="278.24">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1094.01/73.1896/1062.44</bf:param>
+    <bf:param type="int" name="team">0</bf:param>
+    <bf:param type="string" name="text">hrhr</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="282.12">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">salty peanuts</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="chat" timestamp="284">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1099.6/103.041/1059.11</bf:param>
+    <bf:param type="int" name="team">0</bf:param>
+    <bf:param type="string" name="text">yawn.</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="288.44">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="string" name="keyhash">925892919e39b4c78d33094bb5874254</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="300.141">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1103.98/73.1896/1061.49</bf:param>
+    <bf:param type="string" name="score_type">Attack</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="301.54">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">1034.11/73.4/972.11</bf:param>
+    <bf:param type="string" name="vehicle">Stationary_Browning</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="chat" timestamp="302.4">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1099.6/103.041/1059.11</bf:param>
+    <bf:param type="int" name="team">0</bf:param>
+    <bf:param type="string" name="text">yawn</bf:param>
+</bf:event>
+<bf:event name="disconnectPlayer" timestamp="305.08">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1099.6/103.041/1059.11</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="305.08">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">1099.6/103.041/1059.11</bf:param>
+    <bf:param type="string" name="vehicle">MultiPlayerFreeCamera</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyPlayer" timestamp="305.08">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="string" name="player_location">(unknown)</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="312.14">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">1034.11/73.4/972.11</bf:param>
+    <bf:param type="string" name="vehicle">Stationary_Browning</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="chat" timestamp="312.34">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1109.99/73/1008.06</bf:param>
+    <bf:param type="int" name="team">0</bf:param>
+    <bf:param type="string" name="text">lol</bf:param>
+</bf:event>
+<bf:event name="disconnectPlayer" timestamp="338.2">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">1095.89/73/972.618</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="338.2">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">1095.89/73/972.618</bf:param>
+    <bf:param type="string" name="score_type">Death</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="338.201">
+    <bf:param type="string" name="vehicle">USSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1095.89/73/972.618</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="338.201">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">0/0/0</bf:param>
+    <bf:param type="string" name="vehicle">MultiPlayerFreeCamera</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyPlayer" timestamp="338.201">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="string" name="player_location">(unknown)</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="344.1">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1121.89/74.2774/953.335</bf:param>
+    <bf:param type="string" name="score_type">Attack</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="352.643">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">1225.57/71.97/920.65</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="352.645">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">1225.57/71.97/920.65</bf:param>
+    <bf:param type="string" name="kit">Iraq_Assault</bf:param>
+</bf:event>
+<bf:event name="disconnectPlayer" timestamp="367.08">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">1225.57/73/920.65</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="367.08">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">1225.57/73/920.65</bf:param>
+    <bf:param type="string" name="score_type">Death</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="367.081">
+    <bf:param type="string" name="vehicle">IraqSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1225.57/73/920.65</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="367.081">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">0/0/0</bf:param>
+    <bf:param type="string" name="vehicle">MultiPlayerFreeCamera</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyPlayer" timestamp="367.081">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="string" name="player_location">(unknown)</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="370.36">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1131.36/73/938.582</bf:param>
+    <bf:param type="string" name="score_type">Death</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="370.36">
+    <bf:param type="string" name="vehicle">USSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1131.36/73/938.582</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="374.5">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">luck_shot</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="382.643">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">861.82/76.78/679.55</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="382.645">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">861.82/76.78/679.55</bf:param>
+    <bf:param type="string" name="kit">Us_Assault</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="382.919">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="string" name="keyhash">a51a69b4002926190832a7ad6ab4a36c</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="390.48">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">877.5/78.6808/682.538</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Gunner2</bf:param>
+    <bf:param type="int" name="pco_id">1</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="disconnectPlayer" timestamp="390.919">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="390.92">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="vehicle">MultiPlayerFreeCamera</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyPlayer" timestamp="390.92">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="string" name="player_location">(unknown)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="394.28">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">877.5/78.6808/682.538</bf:param>
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">863.03/78.8931/707.155</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="405.64">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">877.5/78.6808/682.538</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">841/78.7999/706.728</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="411.519">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">877.5/78.6808/682.538</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Gunner2</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="411.52">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">879/78.7999/678.728</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="473.819">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">874.375/102.973/756.828</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="476.18">
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">850.055/81.2197/720.087</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="482.279">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">863.03/78.8931/707.155</bf:param>
+    <bf:param type="string" name="vehicle">H6CoPilot</bf:param>
+    <bf:param type="int" name="pco_id">1</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="484.679">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">863.03/78.8931/707.155</bf:param>
+    <bf:param type="string" name="vehicle">H6CoPilot</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="484.68">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">863.03/78.8931/707.155</bf:param>
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="538.92">
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1122.1/86.5375/981.843</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="538.92">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1122.1/86.5375/981.843</bf:param>
+    <bf:param type="string" name="score_type">Death</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="538.921">
+    <bf:param type="string" name="vehicle">USSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1122.91/86.8269/982.577</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="547.643">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">829.38/76.77/698.45</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="547.645">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">829.38/76.77/698.45</bf:param>
+    <bf:param type="string" name="kit">Us_Assault</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="551.219">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">841/78.9797/706.719</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Rear_Passenger1</bf:param>
+    <bf:param type="int" name="pco_id">3</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="552.139">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">841/78.9797/706.719</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Rear_Passenger1</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="552.14">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">841/78.7999/706.728</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="554.079">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">841/78.8794/706.695</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="558.779">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">863.03/79.4036/707.12</bf:param>
+    <bf:param type="string" name="vehicle">H6CoPilot</bf:param>
+    <bf:param type="int" name="pco_id">1</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="560.179">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">863.03/78.8979/707.171</bf:param>
+    <bf:param type="string" name="vehicle">H6CoPilot</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="560.18">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">863.03/78.8979/707.171</bf:param>
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="560.639">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">863.03/78.9005/707.155</bf:param>
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="560.64">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">863.03/78.9005/707.155</bf:param>
+    <bf:param type="string" name="vehicle">H6CoPilot</bf:param>
+    <bf:param type="int" name="pco_id">1</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="563.739">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">863.03/78.8931/707.156</bf:param>
+    <bf:param type="string" name="vehicle">H6CoPilot</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="563.74">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">863.03/78.8931/707.156</bf:param>
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="616.88">
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1244.37/84.7853/1091.01</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="616.88">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1244.37/84.7853/1091.01</bf:param>
+    <bf:param type="string" name="score_type">Death</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="616.881">
+    <bf:param type="string" name="vehicle">USSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1244.81/85.0759/1092.02</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="622.642">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">857.86/76.8/678.04</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="622.645">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">857.86/76.8/678.04</bf:param>
+    <bf:param type="string" name="kit">Us_Assault</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="641.28">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">859.88/78.025/701.633</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">841.859/78.8379/706.26</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="643.079">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">863.03/78.8931/707.155</bf:param>
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="796.719">
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1114.14/75.262/855.279</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="796.72">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1114.14/75.262/855.279</bf:param>
+    <bf:param type="string" name="score_type">Death</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="796.721">
+    <bf:param type="string" name="vehicle">USSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1113.79/75.8986/856.154</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="802.642">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">870.24/76.8/670.08</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="802.644">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">870.24/76.8/670.08</bf:param>
+    <bf:param type="string" name="kit">Us_Assault</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="827.039">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">873.704/78.025/679.359</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">839.165/78.7999/707.144</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="828.719">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">877.5/78.6808/682.538</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Gunner2</bf:param>
+    <bf:param type="int" name="pco_id">1</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="829.779">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">877.5/78.6808/682.538</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Gunner2</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="829.779">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">879/78.7999/678.728</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="876.119">
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">975.442/85.0127/1061.18</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="876.119">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">975.442/85.0127/1061.18</bf:param>
+    <bf:param type="string" name="score_type">Death</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="876.121">
+    <bf:param type="string" name="vehicle">USSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">979.531/82.9557/1063.74</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="892.642">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">853.1/76.78/708.67</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="892.644">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">853.1/76.78/708.67</bf:param>
+    <bf:param type="string" name="kit">Us_Assault</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="896.979">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">841/78.9797/706.719</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Rear_Passenger1</bf:param>
+    <bf:param type="int" name="pco_id">3</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="897.839">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">841/78.9797/706.719</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Rear_Passenger1</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="897.839">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">841/78.7999/706.728</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="1088.24">
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1176.34/78.1009/1060.26</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="1088.24">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1176.34/78.1009/1060.26</bf:param>
+    <bf:param type="string" name="score_type">Death</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="1088.24">
+    <bf:param type="string" name="vehicle">USSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1179.17/73.6909/1060.45</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="1102.64">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">839.7/76.77/679.28</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="1102.64">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">839.7/76.77/679.28</bf:param>
+    <bf:param type="string" name="kit">Us_Assault</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="1143.34">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">863.03/78.8931/707.155</bf:param>
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="1155.48">
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">863.032/74.1318/892.822</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="1155.48">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">863.032/74.1318/892.822</bf:param>
+    <bf:param type="string" name="score_type">Death</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="1155.48">
+    <bf:param type="string" name="vehicle">USSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">863.401/74.9488/893.521</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="1162.64">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">862.04/76.76/687.7</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="1162.64">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">862.04/76.76/687.7</bf:param>
+    <bf:param type="string" name="kit">Us_Assault</bf:param>
+</bf:event>
+<bf:event name="disconnectPlayer" timestamp="1172.28">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">862.04/77.8/687.7</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="1172.28">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">862.04/77.8/687.7</bf:param>
+    <bf:param type="string" name="score_type">Death</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="1172.28">
+    <bf:param type="string" name="vehicle">USSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">862.04/77.8/687.7</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="1172.28">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">0/0/0</bf:param>
+    <bf:param type="string" name="vehicle">MultiPlayerFreeCamera</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyPlayer" timestamp="1172.28">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="string" name="player_location">(unknown)</bf:param>
+</bf:event>
+<bf:roundstats timestamp="1245.64">
+  <bf:winningteam>2</bf:winningteam>
+  <bf:victorytype>4</bf:victorytype>
+  <bf:teamtickets team="1">0</bf:teamtickets>
+  <bf:teamtickets team="2">825</bf:teamtickets>
+</bf:roundstats>
+</bf:round>
+<bf:event name="restartMap" timestamp="1255.68">
+    <bf:param type="int" name="tickets_team1">744</bf:param>
+    <bf:param type="int" name="tickets_team2">744</bf:param>
+</bf:event>
+<bf:round timestamp="1255.71">
+<bf:server>
+  <bf:setting name="server name">DC 0.7 LostVillage &lt;S&gt;A&lt;S&gt; sv1</bf:setting>
+  <bf:setting name="port">14567</bf:setting>
+  <bf:setting name="dedicated">1</bf:setting>
+  <bf:setting name="modid">desertcombat</bf:setting>
+  <bf:setting name="mapid">Desertcombat</bf:setting>
+  <bf:setting name="map">dc_lostvillage</bf:setting>
+  <bf:setting name="game mode">GPM_CQ</bf:setting>
+  <bf:setting name="gametime">0</bf:setting>
+  <bf:setting name="maxplayers">36</bf:setting>
+  <bf:setting name="scorelimit">0</bf:setting>
+  <bf:setting name="norounds">10</bf:setting>
+  <bf:setting name="spawntime">10</bf:setting>
+  <bf:setting name="spawndelay">5</bf:setting>
+  <bf:setting name="gamestartdelay">14</bf:setting>
+  <bf:setting name="roundstartdelay">10</bf:setting>
+  <bf:setting name="soldierff">50</bf:setting>
+  <bf:setting name="vehicleff">50</bf:setting>
+  <bf:setting name="ticketratio">301</bf:setting>
+  <bf:setting name="internet">1</bf:setting>
+  <bf:setting name="alliedtr">1</bf:setting>
+  <bf:setting name="axistr">1</bf:setting>
+  <bf:setting name="coopskill">50</bf:setting>
+  <bf:setting name="coopcpu">100</bf:setting>
+  <bf:setting name="reservedslots">0</bf:setting>
+  <bf:setting name="allownosecam">1</bf:setting>
+  <bf:setting name="freecamera">0</bf:setting>
+  <bf:setting name="externalviews">1</bf:setting>
+  <bf:setting name="autobalance">0</bf:setting>
+  <bf:setting name="tagdistance">75</bf:setting>
+  <bf:setting name="tagdistancescope">150</bf:setting>
+  <bf:setting name="kickback">0.5</bf:setting>
+  <bf:setting name="kickbacksplash">0.5</bf:setting>
+  <bf:setting name="soldierffonsplash">50</bf:setting>
+  <bf:setting name="vehicleffonsplash">50</bf:setting>
+  <bf:setting name="hitindication">1</bf:setting>
+  <bf:setting name="tkpunish">0</bf:setting>
+  <bf:setting name="crosshairpoint">1</bf:setting>
+  <bf:setting name="deathcamtype">0</bf:setting>
+  <bf:setting name="contentcheck">0</bf:setting>
+  <bf:setting name="sv_punkbuster">1</bf:setting>
+</bf:server>
+<bf:event name="roundInit" timestamp="1269.71">
+    <bf:param type="int" name="tickets_team1">744</bf:param>
+    <bf:param type="int" name="tickets_team2">744</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="1335.25">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">RIPSWADS</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="disconnectPlayer" timestamp="1335.27">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="1335.27">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="vehicle">MultiPlayerFreeCamera</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyPlayer" timestamp="1335.27">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="string" name="player_location">(unknown)</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="1352.11">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">RIPSWADS</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="1358.67">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="string" name="keyhash">154e34b3d7ee21f596adc2e5047dcf11</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="1390.07">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">870.24/76.8/670.08</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="1390.07">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">870.24/76.8/670.08</bf:param>
+    <bf:param type="string" name="kit">Us_Assault</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="1394.11">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">877.5/78.6808/682.538</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Gunner2</bf:param>
+    <bf:param type="int" name="pco_id">1</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="1425.85">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">877.5/78.6808/682.538</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Gunner2</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="1431.21">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">863.03/78.8931/707.155</bf:param>
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="1454.17">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">909.897/75.8743/982.525</bf:param>
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="1455.67">
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">910.527/75.1854/984.755</bf:param>
+</bf:event>
+<bf:event name="disconnectPlayer" timestamp="1482.41">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1008.98/73/989.65</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="1482.41">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1008.98/73/989.65</bf:param>
+    <bf:param type="string" name="score_type">Death</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="1482.41">
+    <bf:param type="string" name="vehicle">USSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1008.98/73/989.65</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="1482.41">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">0/0/0</bf:param>
+    <bf:param type="string" name="vehicle">MultiPlayerFreeCamera</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyPlayer" timestamp="1482.41">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="string" name="player_location">(unknown)</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="3271.89">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">[-=AcL=-]snake</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="3278.17">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="string" name="keyhash">079a46244c06ea1aa5b532fe1a9f4d61</bf:param>
+</bf:event>
+<bf:event name="disconnectPlayer" timestamp="3304.71">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="3304.71">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="vehicle">MultiPlayerFreeCamera</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyPlayer" timestamp="3304.71">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="string" name="player_location">(unknown)</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="3919.09">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">NoCtu=KS=</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="3925.37">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="string" name="keyhash">c421377c02c69f524efaaa81f6caf43d</bf:param>
+</bf:event>
+<bf:event name="disconnectPlayer" timestamp="3977.87">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="3977.87">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="vehicle">MultiPlayerFreeCamera</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyPlayer" timestamp="3977.87">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="string" name="player_location">(unknown)</bf:param>
+</bf:event>
+<bf:roundstats timestamp="4618.27">
+  <bf:winningteam>1</bf:winningteam>
+  <bf:victorytype>4</bf:victorytype>
+  <bf:teamtickets team="1">744</bf:teamtickets>
+  <bf:teamtickets team="2">0</bf:teamtickets>
+</bf:roundstats>
+</bf:round>
+<bf:event name="restartMap" timestamp="4628.31">
+    <bf:param type="int" name="tickets_team1">744</bf:param>
+    <bf:param type="int" name="tickets_team2">744</bf:param>
+</bf:event>
+<bf:round timestamp="4628.34">
+<bf:server>
+  <bf:setting name="server name">DC 0.7 LostVillage &lt;S&gt;A&lt;S&gt; sv1</bf:setting>
+  <bf:setting name="port">14567</bf:setting>
+  <bf:setting name="dedicated">1</bf:setting>
+  <bf:setting name="modid">desertcombat</bf:setting>
+  <bf:setting name="mapid">Desertcombat</bf:setting>
+  <bf:setting name="map">dc_lostvillage</bf:setting>
+  <bf:setting name="game mode">GPM_CQ</bf:setting>
+  <bf:setting name="gametime">0</bf:setting>
+  <bf:setting name="maxplayers">36</bf:setting>
+  <bf:setting name="scorelimit">0</bf:setting>
+  <bf:setting name="norounds">10</bf:setting>
+  <bf:setting name="spawntime">10</bf:setting>
+  <bf:setting name="spawndelay">5</bf:setting>
+  <bf:setting name="gamestartdelay">14</bf:setting>
+  <bf:setting name="roundstartdelay">10</bf:setting>
+  <bf:setting name="soldierff">50</bf:setting>
+  <bf:setting name="vehicleff">50</bf:setting>
+  <bf:setting name="ticketratio">301</bf:setting>
+  <bf:setting name="internet">1</bf:setting>
+  <bf:setting name="alliedtr">1</bf:setting>
+  <bf:setting name="axistr">1</bf:setting>
+  <bf:setting name="coopskill">50</bf:setting>
+  <bf:setting name="coopcpu">100</bf:setting>
+  <bf:setting name="reservedslots">0</bf:setting>
+  <bf:setting name="allownosecam">1</bf:setting>
+  <bf:setting name="freecamera">0</bf:setting>
+  <bf:setting name="externalviews">1</bf:setting>
+  <bf:setting name="autobalance">0</bf:setting>
+  <bf:setting name="tagdistance">75</bf:setting>
+  <bf:setting name="tagdistancescope">150</bf:setting>
+  <bf:setting name="kickback">0.5</bf:setting>
+  <bf:setting name="kickbacksplash">0.5</bf:setting>
+  <bf:setting name="soldierffonsplash">50</bf:setting>
+  <bf:setting name="vehicleffonsplash">50</bf:setting>
+  <bf:setting name="hitindication">1</bf:setting>
+  <bf:setting name="tkpunish">0</bf:setting>
+  <bf:setting name="crosshairpoint">1</bf:setting>
+  <bf:setting name="deathcamtype">0</bf:setting>
+  <bf:setting name="contentcheck">0</bf:setting>
+  <bf:setting name="sv_punkbuster">1</bf:setting>
+</bf:server>
+<bf:event name="roundInit" timestamp="4642.34">
+    <bf:param type="int" name="tickets_team1">744</bf:param>
+    <bf:param type="int" name="tickets_team2">744</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="5511.28">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">OMX_Dulfer</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="5512.7">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="string" name="keyhash">9c34552fe74b8b19c7bd820a07bec573</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="5604.72">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">857.86/76.8/678.04</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="5604.73">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">857.86/76.8/678.04</bf:param>
+    <bf:param type="string" name="kit">Us_Assault</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="5612.38">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">842.5/78.6808/710.538</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Gunner</bf:param>
+    <bf:param type="int" name="pco_id">2</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="5613.98">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">842.5/78.6808/710.538</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Gunner</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="5613.98">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">841/78.7999/706.728</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="5645.62">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">993.802/73.8376/1147.37</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="5665.68">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">998.814/73/1163.3</bf:param>
+    <bf:param type="string" name="score_type">Attack</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="5676.28">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">993.805/73.7749/1147.38</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="5761.18">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1024.03/73.8376/990.77</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="5783.8">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1021.8/73/1000.42</bf:param>
+    <bf:param type="string" name="score_type">Attack</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="5787.32">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1024.03/73.7749/990.765</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="5791.72">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1024.04/73.8538/990.822</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="5791.72">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1023.56/73.7633/986.756</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Gunner2</bf:param>
+    <bf:param type="int" name="pco_id">1</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="5884.58">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1023.36/73.7542/986.87</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Gunner2</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="5884.58">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1023.96/73.811/990.922</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="5912.14">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1088.03/73.8377/949.051</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="5912.14">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1092.1/73.7382/949.502</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Gunner</bf:param>
+    <bf:param type="int" name="pco_id">2</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="5936.14">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1092.11/73.6558/949.497</bf:param>
+    <bf:param type="string" name="vehicle">UH-60_Gunner</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="5936.14">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1088.04/73.7749/949.045</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="5962.32">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1115.68/76.7171/966.127</bf:param>
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="5962.38">
+    <bf:param type="string" name="vehicle">UH-60</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1115.58/76.4519/966.369</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="5977.54">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1118.04/73/955.639</bf:param>
+    <bf:param type="string" name="score_type">Attack</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="6037.5">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1104.62/73.1247/1046.53</bf:param>
+    <bf:param type="string" name="score_type">Attack</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="6072.3">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1180.73/73.7565/1047.05</bf:param>
+    <bf:param type="string" name="score_type">Attack</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="disconnectPlayer" timestamp="6430.92">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1177.25/74.2483/1015.46</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="6430.92">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1177.25/74.2483/1015.46</bf:param>
+    <bf:param type="string" name="score_type">Death</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="6430.92">
+    <bf:param type="string" name="vehicle">USSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1177.25/74.2483/1015.46</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="6430.92">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1177.27/74.4807/1015.51</bf:param>
+    <bf:param type="string" name="vehicle">MultiPlayerFreeCamera</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyPlayer" timestamp="6430.92">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="string" name="player_location">(unknown)</bf:param>
+</bf:event>
+<bf:roundstats timestamp="6969.54">
+  <bf:winningteam>2</bf:winningteam>
+  <bf:victorytype>4</bf:victorytype>
+  <bf:teamtickets team="1">0</bf:teamtickets>
+  <bf:teamtickets team="2">532</bf:teamtickets>
+</bf:roundstats>
+</bf:round>
+<bf:event name="restartMap" timestamp="6979.58">
+    <bf:param type="int" name="tickets_team1">744</bf:param>
+    <bf:param type="int" name="tickets_team2">744</bf:param>
+</bf:event>
+<bf:round timestamp="6979.61">
+<bf:server>
+  <bf:setting name="server name">DC 0.7 LostVillage &lt;S&gt;A&lt;S&gt; sv1</bf:setting>
+  <bf:setting name="port">14567</bf:setting>
+  <bf:setting name="dedicated">1</bf:setting>
+  <bf:setting name="modid">desertcombat</bf:setting>
+  <bf:setting name="mapid">Desertcombat</bf:setting>
+  <bf:setting name="map">dc_lostvillage</bf:setting>
+  <bf:setting name="game mode">GPM_CQ</bf:setting>
+  <bf:setting name="gametime">0</bf:setting>
+  <bf:setting name="maxplayers">36</bf:setting>
+  <bf:setting name="scorelimit">0</bf:setting>
+  <bf:setting name="norounds">10</bf:setting>
+  <bf:setting name="spawntime">10</bf:setting>
+  <bf:setting name="spawndelay">5</bf:setting>
+  <bf:setting name="gamestartdelay">14</bf:setting>
+  <bf:setting name="roundstartdelay">10</bf:setting>
+  <bf:setting name="soldierff">50</bf:setting>
+  <bf:setting name="vehicleff">50</bf:setting>
+  <bf:setting name="ticketratio">301</bf:setting>
+  <bf:setting name="internet">1</bf:setting>
+  <bf:setting name="alliedtr">1</bf:setting>
+  <bf:setting name="axistr">1</bf:setting>
+  <bf:setting name="coopskill">50</bf:setting>
+  <bf:setting name="coopcpu">100</bf:setting>
+  <bf:setting name="reservedslots">0</bf:setting>
+  <bf:setting name="allownosecam">1</bf:setting>
+  <bf:setting name="freecamera">0</bf:setting>
+  <bf:setting name="externalviews">1</bf:setting>
+  <bf:setting name="autobalance">0</bf:setting>
+  <bf:setting name="tagdistance">75</bf:setting>
+  <bf:setting name="tagdistancescope">150</bf:setting>
+  <bf:setting name="kickback">0.5</bf:setting>
+  <bf:setting name="kickbacksplash">0.5</bf:setting>
+  <bf:setting name="soldierffonsplash">50</bf:setting>
+  <bf:setting name="vehicleffonsplash">50</bf:setting>
+  <bf:setting name="hitindication">1</bf:setting>
+  <bf:setting name="tkpunish">0</bf:setting>
+  <bf:setting name="crosshairpoint">1</bf:setting>
+  <bf:setting name="deathcamtype">0</bf:setting>
+  <bf:setting name="contentcheck">0</bf:setting>
+  <bf:setting name="sv_punkbuster">1</bf:setting>
+</bf:server>
+<bf:event name="roundInit" timestamp="6993.61">
+    <bf:param type="int" name="tickets_team1">744</bf:param>
+    <bf:param type="int" name="tickets_team2">744</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="8226.93">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">BloodNGuts</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="8233.42">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="string" name="keyhash">fee80557f255e6b21e0065f576465430</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="8283.65">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">853.1/76.78/708.67</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="8283.65">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">853.1/76.78/708.67</bf:param>
+    <bf:param type="string" name="kit">Us_Assault</bf:param>
+</bf:event>
+<bf:event name="enterVehicle" timestamp="8286.11">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">863.03/78.8931/707.155</bf:param>
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="int" name="pco_id">0</bf:param>
+    <bf:param type="int" name="is_default">0</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="8307.1">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1003.77/80.5131/1174.12</bf:param>
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="8308.85">
+    <bf:param type="string" name="vehicle">MH-6</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1008.62/73.6803/1197.49</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="8310.15">
+    <bf:param type="string" name="vehicle">USSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1002.15/73.4623/1207.51</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="8310.15">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">1002.15/73.4623/1207.51</bf:param>
+    <bf:param type="string" name="score_type">Death</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="8310.15">
+    <bf:param type="string" name="vehicle">USSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">1002.15/73.4623/1207.51</bf:param>
+</bf:event>
+<bf:event name="spawnEvent" timestamp="8328.65">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">874.59/76.8/703.25</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="pickupKit" timestamp="8328.65">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">874.59/76.8/703.25</bf:param>
+    <bf:param type="string" name="kit">Us_Assault</bf:param>
+</bf:event>
+<bf:event name="disconnectPlayer" timestamp="8342.44">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">874.59/77.8/703.25</bf:param>
+</bf:event>
+<bf:event name="scoreEvent" timestamp="8342.44">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">874.59/77.8/703.25</bf:param>
+    <bf:param type="string" name="score_type">Death</bf:param>
+    <bf:param type="string" name="weapon">(none)</bf:param>
+</bf:event>
+<bf:event name="destroyVehicle" timestamp="8342.45">
+    <bf:param type="string" name="vehicle">USSoldier</bf:param>
+    <bf:param type="vec3" name="vehicle_pos">874.59/77.8/703.25</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="8342.45">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">0/0/0</bf:param>
+    <bf:param type="string" name="vehicle">MultiPlayerFreeCamera</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyPlayer" timestamp="8342.45">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="string" name="player_location">(unknown)</bf:param>
+</bf:event>
+<bf:roundstats timestamp="10338.4">
+  <bf:winningteam>1</bf:winningteam>
+  <bf:victorytype>4</bf:victorytype>
+  <bf:teamtickets team="1">744</bf:teamtickets>
+  <bf:teamtickets team="2">0</bf:teamtickets>
+</bf:roundstats>
+</bf:round>
+<bf:event name="restartMap" timestamp="10348.4">
+    <bf:param type="int" name="tickets_team1">744</bf:param>
+    <bf:param type="int" name="tickets_team2">744</bf:param>
+</bf:event>
+<bf:round timestamp="10348.4">
+<bf:server>
+  <bf:setting name="server name">DC 0.7 LostVillage &lt;S&gt;A&lt;S&gt; sv1</bf:setting>
+  <bf:setting name="port">14567</bf:setting>
+  <bf:setting name="dedicated">1</bf:setting>
+  <bf:setting name="modid">desertcombat</bf:setting>
+  <bf:setting name="mapid">Desertcombat</bf:setting>
+  <bf:setting name="map">dc_lostvillage</bf:setting>
+  <bf:setting name="game mode">GPM_CQ</bf:setting>
+  <bf:setting name="gametime">0</bf:setting>
+  <bf:setting name="maxplayers">36</bf:setting>
+  <bf:setting name="scorelimit">0</bf:setting>
+  <bf:setting name="norounds">10</bf:setting>
+  <bf:setting name="spawntime">10</bf:setting>
+  <bf:setting name="spawndelay">5</bf:setting>
+  <bf:setting name="gamestartdelay">14</bf:setting>
+  <bf:setting name="roundstartdelay">10</bf:setting>
+  <bf:setting name="soldierff">50</bf:setting>
+  <bf:setting name="vehicleff">50</bf:setting>
+  <bf:setting name="ticketratio">301</bf:setting>
+  <bf:setting name="internet">1</bf:setting>
+  <bf:setting name="alliedtr">1</bf:setting>
+  <bf:setting name="axistr">1</bf:setting>
+  <bf:setting name="coopskill">50</bf:setting>
+  <bf:setting name="coopcpu">100</bf:setting>
+  <bf:setting name="reservedslots">0</bf:setting>
+  <bf:setting name="allownosecam">1</bf:setting>
+  <bf:setting name="freecamera">0</bf:setting>
+  <bf:setting name="externalviews">1</bf:setting>
+  <bf:setting name="autobalance">0</bf:setting>
+  <bf:setting name="tagdistance">75</bf:setting>
+  <bf:setting name="tagdistancescope">150</bf:setting>
+  <bf:setting name="kickback">0.5</bf:setting>
+  <bf:setting name="kickbacksplash">0.5</bf:setting>
+  <bf:setting name="soldierffonsplash">50</bf:setting>
+  <bf:setting name="vehicleffonsplash">50</bf:setting>
+  <bf:setting name="hitindication">1</bf:setting>
+  <bf:setting name="tkpunish">0</bf:setting>
+  <bf:setting name="crosshairpoint">1</bf:setting>
+  <bf:setting name="deathcamtype">0</bf:setting>
+  <bf:setting name="contentcheck">0</bf:setting>
+  <bf:setting name="sv_punkbuster">1</bf:setting>
+</bf:server>
+<bf:event name="roundInit" timestamp="10362.4">
+    <bf:param type="int" name="tickets_team1">744</bf:param>
+    <bf:param type="int" name="tickets_team2">744</bf:param>
+</bf:event>
+<bf:roundstats timestamp="13714.8">
+  <bf:winningteam>1</bf:winningteam>
+  <bf:victorytype>4</bf:victorytype>
+  <bf:teamtickets team="1">744</bf:teamtickets>
+  <bf:teamtickets team="2">0</bf:teamtickets>
+</bf:roundstats>
+</bf:round>
+<bf:event name="restartMap" timestamp="13724.8">
+    <bf:param type="int" name="tickets_team1">744</bf:param>
+    <bf:param type="int" name="tickets_team2">744</bf:param>
+</bf:event>
+<bf:round timestamp="13724.8">
+<bf:server>
+  <bf:setting name="server name">DC 0.7 LostVillage &lt;S&gt;A&lt;S&gt; sv1</bf:setting>
+  <bf:setting name="port">14567</bf:setting>
+  <bf:setting name="dedicated">1</bf:setting>
+  <bf:setting name="modid">desertcombat</bf:setting>
+  <bf:setting name="mapid">Desertcombat</bf:setting>
+  <bf:setting name="map">dc_lostvillage</bf:setting>
+  <bf:setting name="game mode">GPM_CQ</bf:setting>
+  <bf:setting name="gametime">0</bf:setting>
+  <bf:setting name="maxplayers">36</bf:setting>
+  <bf:setting name="scorelimit">0</bf:setting>
+  <bf:setting name="norounds">10</bf:setting>
+  <bf:setting name="spawntime">10</bf:setting>
+  <bf:setting name="spawndelay">5</bf:setting>
+  <bf:setting name="gamestartdelay">14</bf:setting>
+  <bf:setting name="roundstartdelay">10</bf:setting>
+  <bf:setting name="soldierff">50</bf:setting>
+  <bf:setting name="vehicleff">50</bf:setting>
+  <bf:setting name="ticketratio">301</bf:setting>
+  <bf:setting name="internet">1</bf:setting>
+  <bf:setting name="alliedtr">1</bf:setting>
+  <bf:setting name="axistr">1</bf:setting>
+  <bf:setting name="coopskill">50</bf:setting>
+  <bf:setting name="coopcpu">100</bf:setting>
+  <bf:setting name="reservedslots">0</bf:setting>
+  <bf:setting name="allownosecam">1</bf:setting>
+  <bf:setting name="freecamera">0</bf:setting>
+  <bf:setting name="externalviews">1</bf:setting>
+  <bf:setting name="autobalance">0</bf:setting>
+  <bf:setting name="tagdistance">75</bf:setting>
+  <bf:setting name="tagdistancescope">150</bf:setting>
+  <bf:setting name="kickback">0.5</bf:setting>
+  <bf:setting name="kickbacksplash">0.5</bf:setting>
+  <bf:setting name="soldierffonsplash">50</bf:setting>
+  <bf:setting name="vehicleffonsplash">50</bf:setting>
+  <bf:setting name="hitindication">1</bf:setting>
+  <bf:setting name="tkpunish">0</bf:setting>
+  <bf:setting name="crosshairpoint">1</bf:setting>
+  <bf:setting name="deathcamtype">0</bf:setting>
+  <bf:setting name="contentcheck">0</bf:setting>
+  <bf:setting name="sv_punkbuster">1</bf:setting>
+</bf:server>
+<bf:event name="roundInit" timestamp="13738.8">
+    <bf:param type="int" name="tickets_team1">744</bf:param>
+    <bf:param type="int" name="tickets_team2">744</bf:param>
+</bf:event>

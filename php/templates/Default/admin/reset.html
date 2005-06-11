@@ -1,0 +1,29 @@
+<tmpl_include file="frame_head.html">
+      <p>
+        <h3>Reset Stats</h3><p>
+        <tmpl_include name="messages.inc">
+		<form action="{tmpl_var name='form_action'}" method=post>
+        <table class=admin width=100%>
+         <tr>
+		  <td class=help_text colspan=3>
+			Here you can reset your <b>select(<i>bf</i>)</b>-Stats.<br>
+			<b>PLEASE NOTE:</b> This process will delete all data that are currently showing in you stats and is <b>NOT</b> reversible.<br>
+			<i>(Sure, if you made a backup then it is)</i>
+		  </td>
+         </tr>         
+         <tr class=light>
+          <td class=admin_clear>I'm <b>sure</b> that I want to do this:</td>
+          <td class=admin_clear><input type=checkbox name={tmpl_var name='param_sure'}></td>
+          <td class=admin_clear width=55%>&nbsp;</td>          
+         </tr>        
+         <tr class=light>
+          <td class=admin_clear>I'm <b><i>really</i> sure</b> that I want to do this:</td>
+          <td class=admin_clear><input type=checkbox name={tmpl_var name='param_reallysure'}></td>
+          <td class=admin_clear>&nbsp;</td>          
+         </tr>        
+         <tr>
+          <td class=admin_clear colspan=3><input type=submit value="Reset Stats"></td>
+         </tr>         
+        </table> 
+        </form>      
+<tmpl_include file="frame_foot.html">	  

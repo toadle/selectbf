@@ -1,0 +1,368 @@
+RELEASE NOTES
+---------------
+
+Version
+--------
+
+
+4.0.1 RC1
+ |
+ |
+ |-- vlibSearchToSQL new class
+ |    This class is an **EXPERIMENTAL** new class for taking a boolean search term,
+ |      i.e.: cats -dogs
+ |    turns it into a string that you can add to your WHERE clause.
+ |
+ |-- For a list of all other changes, please see the changelog.
+ |
+ |
+ ----------------------------------------------------------------------------------------------------------
+
+4.0.0 bug fixes, feature enhancements and vLIB moves to sourceforge.net
+ |
+ |
+ |-- vLIB moves up a major version as it moves to sourceforge
+ |    The entire vLIB source is now hosted at http://sourceforge.net/projects/vlib.
+ |    This is seen as a big move to opening up vLIB to other developers. Anyone can access the latest CVS releases
+ |    with anonymous access: cvs -z3 -d:pserver:anonymous@cvs.vlib.sourceforge.net:/cvsroot/vlib co vlib
+ |
+ |-- vlibTemplateDebug feature enhancement
+ |    now opens up the debug module in a javascript window. This is a lot easier to use.
+ |
+ |-- vlibTemplate bugfix
+ |    fixed a bug that prevented the use of adding multiple loops at the same time using the 3-way-loop structure.
+ |
+ |-- vlibMimeMail bugfix
+ |    fixed the validateEmail to use preg_match. Before it was case-sensitive and thus not validating correctly.
+ |
+ |-- vlibDate feature enhancement
+ |    added Arabic language pack (docs updated).
+ |
+ |-- vlibTemplate bugfix
+ |    changed setVar() to use !== when verifying whether a var has been set. This allows number 0 to be set and
+ |    output. Also changed if(!empty($value)) to if(isset($value)) in _parseif() function to allow a 0 to be parsed
+ |	  using the extended <TMPL_IF> syntax, i.e. <TMPL_IF name="amount" value="0">.
+ |
+ |-- vlibIni/vlibTemplate feature enhancement
+ |    added a new option, 'ENABLE_PHPINCLUDE'. When it's set to '0', will disable the use of the <TMPL_PHPINCLUDE>
+ |    tag (docs updated)
+ |    NB: vlibTemplate still doesn't try to strip out php form the template and normal security measures should still
+ |        be taken.
+ |
+ |-- vLIB distribution change
+ |    vLIB will now be distributed with the new documentation. Within the distribution archive, all files will be
+ |    contained in a root directory reflecting the current version, i.e. vLIB_4-0-0.
+ |
+ |-- vLIB documentation addition
+ |    a new FAQ.html file will be available in the docs directory of each distribution. This will contain frequently
+ |    asked questions and answers.
+ |
+ ----------------------------------------------------------------------------------------------------------
+
+3.0.10 Performance enhancement
+ |
+ |
+ |-- vlibTemplate bug fix
+ |    Fixed a bug that meant that when including templates using <TMPL_INCLUDE>, the vars were not shown. This
+ |    was caused by the changes made to the <TMPL_INCLUDE> functionality and the extract()ing of the $this->_vars
+ |    array which were modified in the last 2 releases. The extract()ing has been removed for the time being as
+ |    this was not as big a performance increase as the <TMPL_INCLUDE> changes.
+ |
+ ----------------------------------------------------------------------------------------------------------
+
+3.0.9 Performance enhancement
+ |
+ |
+ |-- vlibTemplate performance enhancement
+ |    Updated the way vlibTemplate handles <TMPL_INCLUDE>'s. Before this version, vlibTemplate would scan
+ |	  through each file every time it was called (even from cache) and preg_replace the <TMPL_INCLUDE> tag
+ |	  with the template file.
+ |	  Now, the <TMPL_INCLUDE> tag is is parsed just once, on the main parse of the file, and then the template
+ |	  is read in by. This saves the need of scanning through the file each time searching for <TMPL_INCLUDE>
+ |	  tags using preg_replace, it's all done on the main evaluation.
+ |	  On large template, this can knock off 75% from the time it takes to parse the file.. with my tests anyway.
+ |
+ ----------------------------------------------------------------------------------------------------------
+
+3.0.8
+ |
+ |
+ |-- vlibTemplate feature enhancement
+ |    vlibTemplate now supports an extended TMPL_IF syntax. The new OPTIONAL syntax gives you the opportunity
+ |    to compare the value of a var name to a number or string. There are 2 attributes that apply to the new
+ |    functionality; OP and VALUE. OP is the comparison OPerator that you want to use. The default is '=='
+ |    and the supported operators are '==', '!=', '<>', '<', '>', '<=' and '>='. VALUE is the string or number
+ |    that you want to compare to (containing any characters except quotes), i.e.:
+ |       <TMPL_IF name="my_email" value="vlib@activefish.com">... or <TMPL_IF name="price" op=">" value="50.00">..
+ |    NB: to avoid any errors, always encapsulate the values of OP and VALUE in quotes.
+ |
+ |
+ |-- vlibTemplate feature enhancement
+ |    newTemplate now resets internal parsing variables. This enables multiple template functionality on
+ |    the PHP side, i.e. you can create a template object using 1 template, then once you've parsed it,
+ |    you can call $tmpl->newTemplate('./path/to/template'); and it's as if you started again, however all of
+ |    the variable and loops and options that you set previously will still be in place.
+ |
+ |
+ |-- vlibDate new language pack
+ |    Stefan Isarie has kindly added a Romanian language pack to vlibDate.
+ |
+ |
+ |-- vlibTemplateCache internal enhancement and bugfix
+ |    vlibTemplateCache now locks files when writing the cache. Also fixed a bug with the naming mechanisms behind
+ |    the caching system which, in some circumstances, would cause multiple cached files for 1 single template.
+ |
+ |
+ |-- vlibDate language pack fix
+ |    BuStEl posted another fix for the Dutch language pack to the Forum.
+ |
+ |
+ |-- vlibTemplate internal enhancement
+ |    changed internal working of fastPrint to avoid duplication of code.
+ |
+ |
+ |-- vlibTemplate performance enhancement
+ |    changed internal workings of all parsing functions. vlibTemplate now extracts() all vars in the
+ |    $this->_vars array which is used by vlibTemplate to contains all global variables. This is a quicker
+ |    way for PHP to process calls instead of searching through an array looking for each value.
+ |
+ |
+ |-- vlibTemplate feature enhancement
+ |    2 new escaping mechanisms have been added, 'hex' and 'hexentity'. These can be especially handy when
+ |    publishing an email address to the web, i.e.
+ |    <a href="mailto:{tmpl_var name='email' escape='hex'}">
+ |      <tmpl_var name='email' escape='hexentity'></a>
+ |    now if the var 'email' is set to 'email@example.com', in the HTML source you will see:
+ |    <a href="mailto:%65%6d%61%69%6c%40%65%78%61%6d%70%6c%65%2e%63%6f%6d">
+ |      &#x65;&#x6d;&#x61;&#x69;&#x6c;&#x40;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#x6d;</a>
+ |    This still works perfectly in a browser, but will be much harder for spiders to collect your email address.
+ |    For an example have a look at the vLIB homepage. Wherever you see vlib@activefish.com, it's hex-encoded.
+ |
+ |
+ |-- vLIB temporary change to downloadable archives
+ |    I'm currently looking into a new format for writing the docs. Until I've sorted this out, the docs will
+ |    only be available at http://vlib.activefish.com.
+ |
+ |
+ |-- vLIB documentation update
+ |    Updated vlibTemplate and vlibDate documentation to reflect new changes.
+ |
+ ----------------------------------------------------------------------------------------------------------
+
+
+3.0.7 (a quick bug fix release)
+ |
+ |
+ |-- vlibMimemail bug fix
+ |    Fixed a bug with the Mime format. All emails now have a multipart/alternative section.
+ |
+ ----------------------------------------------------------------------------------------------------------
+
+
+3.0.6
+ |
+ |
+ |-- vlibMimeMail bug fix
+ |    Updated the inner workings of vlibMimeMail to produce more standard compliant Mime code.
+ |
+ |
+ |-- vlibMimeMail feature enhancement
+ |    attach now works with remote files, i.e. $mail->attach('http://example.com/example.xls');
+ |
+ |
+ |-- vlibTemplateCache enhancements
+ |    Updated the vlibTemplateCache class to cache each individual template seperately. Before it would include
+ |    all the files included using <tmpl_include> and then would cache one script. Now it caches each individual
+ |    file. It also recognizes when a template has changed and automatically updates the cached file. All these
+ |    changes mean better maintainability.
+ |
+ |
+ |-- vlibDate language pack fix
+ |    Paul Font Freide submitted a fix to the forum for the Dutch language pack.
+ |
+ |
+ |-- vlibTemplate magic_quotes_runtime handler
+ |    Now switches off magic_quotes_runtime before reading in the template file, and then resets magic_quotes_runtime
+ |    to it's original setting.
+ |
+ ----------------------------------------------------------------------------------------------------------
+
+
+3.0.5
+ |
+ |
+ |-- vlibMimeMail enhancement
+ |    Added a boolean parameter to the instantiation call for vlibMimeMail. When set to true, vlibMimeMail
+ |    will compile the email in a way which will hopefully enable the email to by pass the bug in Windows
+ |    which causes the mail to fail if used with Cc or Bcc headers or if the 1st parameter passed to mail()
+ |    is in the format; "rcpt name" <rcpt_email>.
+ |    Instantiation example: $mail = new vlibMimeMail(true); (docs updated)
+ |
+ |
+ |-- vlibMimeMail bug fix
+ |    Fixed a bug which caused empty Cc: and Bcc: headers to output when not specified.
+ |
+ ----------------------------------------------------------------------------------------------------------
+
+
+3.0.4 (feature enhancements, bug fixes, BIG change to ini.php)
+ |
+ |
+ |-- change to the ini.php
+ |    ini.php has been renamed to vlibIni.php and made into a class. This class is now included once,
+ |    compared to the old "include it when we need it" way, thus improving performace.
+ |    I know that this can be perceived as a big change but it really isn't. Although all ini.php
+ |    files MUST be updated for the new version of vLIB to work.
+ |                              ** Sorry for the inconvenience **
+ |
+ |
+ |-- vlibTemplate performance enhancement
+ |    Changed the regex in vlibTemplate::_intiParse() causing a slight speed improvement.
+ |
+ |
+ |-- vlibTemplate feature enhancements
+ |    added new setDbLoop() function and added more functionality to the 3-stage method
+ |    of adding a loop.
+ |    Also added 3 more escape methods; rawurl, 1 and 0. 1 and 0 to comply with Perls HTML::Template
+ |    Also change fastPrint() to handle gz compression.
+ |
+ |
+ |-- vlibMimeMail bug fix
+ |    Fixed a bug with address formats from; name <email> .. to; "name" <email>.
+ |
+ |
+ |-- vlibMimeMail feature enhancements
+ |    Added 4th parameter to attach() allowing you to specify the Content-ID. If not specified then
+ |    a random string is generated and used. attach() now also returns this content-id.
+ |    4 new functions added; clearTo(), clearCc(), clearBcc() and clearAll() allowing user to clear the
+ |    current list of addresses for the email.
+ |
+ |
+ |-- vlibDate bug fix
+ |    Updated French language pack as this was incorrect. Also updated the getSuffix() function which
+ |    caused the suffixes to be generated from the month number and not the day number???
+ |
+ |
+ |-- vlibDate feature enhancements
+ |    Addes 3rd parameter to weekOfYear() which allows user to control whether the week starts on Sunday
+ |    or Monday. Also added new coversion specifier %W which handles new week of year starting on Monday.
+ |
+ |
+ |-- vLIB general code cleanup
+ |    The main classes were cleaned up so that they look nicer, and perform in a more standard way.
+ |
+ ----------------------------------------------------------------------------------------------------------
+
+
+3.0.3 (a quick documentation fix release)
+ |
+ |
+ |-- vlibTemplate doc fix
+ |    Fixed a bug in a documentation example.
+ |
+ ----------------------------------------------------------------------------------------------------------
+
+
+3.0.2 (a quick bug fix release)
+ |
+ |
+ |-- vlibMimemail bug fix
+ |    Fixed a bug which cause the email format to be; email <name> .. instead of ; name <email>
+ |
+ ----------------------------------------------------------------------------------------------------------
+
+
+
+3.0.1 (a few bug fixes and enhancements)
+ |
+ |
+ |-- vlibTemplate feature inhancement
+ |    Added 3 functions allowing for an easier way to add loops.
+ |    Suggested by Claus Van Beek, http://www.clausvb.de.
+ |
+ |
+ |-- documentation
+ |    added new functions to the docs, and the link to Claus Van Beek's online documentation
+ |    in German.
+ |
+ |
+ |-- vlibMimeMail bug fix
+ |    Fixed a simple bug caused when attaching multiple attachments.
+ |    Bug found by Francesco Defilippo.
+ |
+ |
+ |-- examples update
+ |    Updated the examples, adding a new one for the new loops, and fixing 1 broken link
+ |    in the vlibTemplate_include1.html template file.
+ |
+ ----------------------------------------------------------------------------------------------------------
+
+
+3.0.0 (upgraded to new major version due to changes in naming mechanisms)
+ |
+ |
+ |-- vLIB naming mechanisms
+ |    as of 3.0.0 all vLIB class will start with vlib (lower case), i.e. vTemplate will now be vlibTemplate.
+ |    This is to avoid confusion with other classes which use similar names.
+ |
+ |
+ |-- vlibTemplate, new Global Context Variable
+ |    with the options TIME_PARSE and GLOBAL_CONTEXT_VARS both set to 1, a global variable called
+ |    __PARSE_TIME__ (2 underscores either side) will be set with the time taken to parse the template.
+ |
+ |
+ |-- vlibMimeMail new class
+ |    a new class to help with sending MIME encoded email with attachements, HTML mail, priority
+ |    setting and more. Please see the documentation.
+ |
+ |
+ |-- documentation
+ |    added new documentation for vlibMimeMail.
+ |
+ |
+ |-- vlibTemplateCache bug fix
+ |    bug reported by vscope in the forums which caused a problem with the caching due to the fact that
+ |    when PHP is installed as a CGI on Win32 or on IIS and possibly other server, the $PHP_SELF variable
+ |    includes the entire path to the executable, then to the script.
+ |    We now use $PATH_INFO if it's available, as it is in CGI and IIS but not as apache module, or $PHP_SELF
+ |    otherwise.
+ |
+ |
+ |-- vlibDate new class
+ |    a new class for manipulating dates outside of the 1970-2038 32-bit date range.
+ |    This class supports dates between 0001 and 9999 and has many functions to manipulate the date
+ |    and the way it's displayed. Please see the documentation.
+ |
+ |
+ |-- documentation
+ |    added new documentation for vlibDate.
+ |
+ |
+ |-- examples
+ |    restructured the examples directory and added examples for vlibMimeMail and vlibDate.
+ |    It is now possible to view the source of the examples whilst browsing.
+ |
+ ----------------------------------------------------------------------------------------------------------
+
+
+2.0.2
+ |
+ |
+ |-- vTemplate performance
+ |    made a 'MINOR' change to main pcre call which boosts performance by up to 80%.
+ |
+ |
+ |-- vTemplate performance
+ |    changed way in which vTemplate reads files into a var using fopen, fread, fclose
+ |    instead of implode(file()). Overall performace changes are minimal but this way of
+ |    reading the data is up to 30% faster.
+ |
+ ----------------------------------------------------------------------------------------------------------
+
+
+2.0.1
+ |
+ |
+ |-- Released vLIB.
+ |
+ ----------------------------------------------------------------------------------------------------------

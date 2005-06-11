@@ -1,0 +1,62 @@
+body 			{ font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; color: #000000; background: url("../images/back.gif")}
+table 			{ font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; border: 0px;border-style: solid; border-collapse:collapse; padding : 0px; border-spacing: 0px}
+table.scoretable	{ width: 100%}
+th 			{ font-family: Verdana, Arial, Helvetica, sans-serif; font-style: normal; font-weight: bold; font-size: 10px; text-align: left; vertical-align: middle; padding: 2px}
+th.scoretable 		{ color: #CCCCCC; background: url("../images/scoretable_th_back.gif"); }
+th.scoretable_dark	{ color: #CCCCCC; background: url("../images/scoretable_th_dark.gif"); padding: 0px;}
+th.scoretable_number    { color: #CCCCCC; background: url("../images/scoretable_th_back.gif"); text-align: right; }
+td 			{ font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; padding: 2px; vertical-align:top}
+td.h_center		{ vertical-align:middle; }
+td.search		{ vertical-align:middle}
+td.number		{ text-align: right; }
+td.scoretable_header    { width: 100%; text-align: right; background: url("../images/camouflage.gif") }
+tr.scoretable_hell 	{ background-color: #EFEFEF}
+tr.scoretable_dunkel 	{ background-color: #E0E0E0}
+.light 	{ background-color: #EFEFEF}
+.dark 	{ background-color: #E0E0E0}
+td.rahmen		{ padding: 0px }
+td.roundicon		{ padding: 0px; text-align: center; vertical-align:middle; width: 42px }
+td.seperator		{ padding: 0px; background-color: #E2E2E2 }
+img			{ border-width: 0px; }
+a			{ color: #222222; text-decoration: none } 
+a:visited		{ color: #555555 } 
+a:hover			{ text-decoration: underline }
+a.scoretable		{ color: #CCCCCC; }
+a.scoretable:visited	{ color: #CCCCCC; }
+a.scoretable:visited	{ color: #CCCCCC; }
+tr.axis { background-color: #FEBBB8; background: url("../images/scoretable_th_axis_back.gif");}
+tr.axis_hell { background-color: #FEBBB8; }
+tr.axis_dunkel { background-color: #DC9996; }
+th.allied {  font-weight: bold; color: #0000CC}
+th.axis { font-weight: bold; color: #FF0000}
+th.teamstats { font-weight: bold; color: #FFFFFF}
+tr.allied { background-color: #93C9FF; background: url("../images/scoretable_th_allied_back.gif");}
+tr.allied_hell { background-color: #93C9FF; }
+tr.allied_dunkel { background-color: #71A7DD; }
+input { background-color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif; font-style: normal; font-size: 10px;}
+select { background-color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif; font-style: normal; font-size: 10px;}
+.navbarbutton { background-color: #EFEFEF; border-width:1px; border-style:solid; border-collapse:collapse; border-color:#333333; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; text-align:center}
+td.admin {
+	text-align: left;
+	border: 1px solid #000000;
+	padding: 2px;
+	vertical-align: top;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	color: #000000;
+}
+td.admin_clear {
+	text-align: left;
+	border: 1px none #CCCCCC;
+	padding: 2px;
+	vertical-align: middle;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	color: #000000;
+}
+tr.msg { background-color: #FEBBB8; background: url("../images/scoretable_th_msg_back.gif");}
+tr.error { background-color: #FEBBB8; background: url("../images/scoretable_th_error_back.gif");}

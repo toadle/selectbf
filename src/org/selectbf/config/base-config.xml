@@ -1,0 +1,31 @@
+<selectbf-config>
+ <!--DATABASE CONFIGURATION-->
+ <database user="user" password="password" database="database" port="3306">localhost</database>
+
+ <!--FILE MANAGEMENT-->
+ <after-parsing>remain</after-parsing>
+ <archive-folder>\archive\</archive-folder>
+ <after-download>remain</after-download>
+ <delete-decompressed-xml-files>true</delete-decompressed-xml-files>
+ <rename-at-error>false</rename-at-error>
+ 
+ <!--DATA MANAGEMENT-->
+ <log-bots>false</log-bots>
+ <trim-database days="5" keep-players="false">false</trim-database>
+ <skip-empty-rounds>false</skip-empty-rounds>
+ <lan-mode>false</lan-mode>
+ 
+ <!--OTHER STUFF-->
+ <consistency-check>true</consistency-check>
+ <memory-safer>true</memory-safer>
+ 
+ <!--LOG SOURCES-->
+ <!-- 
+ 	PLEASE NOTE: None of these are mandatory, if you don't want a source, delete it.
+ 	Also you can add as much sources as you want.
+ --> 	
+ <logs>
+  <dir live="false">c:\battlefield\mods\bf1942\logs</dir>
+  <ftp host="127.0.0.1" port="21" user="user" password="password" live="false">/mods/bf1942/logs</ftp>
+ </logs>
+</selectbf-config>

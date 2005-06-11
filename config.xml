@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selectbf-config>
+  <!--DATABASE CONFIGURATION-->
+  <database user="root" password="" database="selectbf" port="3306">asdasd</database>
+  <!--FILE MANAGEMENT-->
+  <after-parsing>remain</after-parsing>
+  <archive-folder>\archive\</archive-folder>
+  <after-download>remain</after-download>
+  <delete-decompressed-xml-files>true</delete-decompressed-xml-files>
+  <rename-at-error>false</rename-at-error>
+  <!--DATA MANAGEMENT-->
+  <log-bots>false</log-bots>
+  <trim-database days="0" keep-players="false">false</trim-database>
+  <skip-empty-rounds>false</skip-empty-rounds>
+  <lan-mode>false</lan-mode>
+  <!--OTHER STUFF-->
+  <consistency-check>true</consistency-check>
+  <memory-safer>true</memory-safer>
+  <!--LOG SOURCES-->
+  <!-- 
+ 	PLEASE NOTE: None of these are mandatory, if you don't want a source, delete it.
+ 	Also you can add as much sources as you want.
+ -->
+  <logs>
+    <dir live="false">d:\java\select(bf)\res\samples\process</dir>
+  </logs>
+</selectbf-config>
+

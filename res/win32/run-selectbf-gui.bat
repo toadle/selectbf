@@ -1,0 +1,1 @@
+java -cp selectbf.jar;swt.jar;lib/commons-beanutils-1.7dev.jar;lib/commons-logging-1.0.4.jar;lib/commons-net-1.3.0.jar;lib/jakarta-oro-2.0.8.jar;lib/jdom.jar;lib/log4j-1.2.9.jar;lib/mysql-connector-java-3.1.7-bin.jar;lib/commons-collections-3.1.jar org.selectbf.gui.SelectBfGui

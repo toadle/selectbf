@@ -1,0 +1,234 @@
+<tmpl_include file="head.html">
+ <table width="95%" border="1" align="center">
+   <tr class="head">
+     <th colspan="18" class="super" scope="col">Ranking</th>
+   </tr>
+   <tr class=head>
+     <th>Rank</th>
+     <th>Player</th>
+     <th><tmpl_if name="points_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='points_link'}">Points</a></th>     
+     <th><tmpl_if name="avgscore_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='avgscore_link'}">S/R</a></th>
+     <th><tmpl_if name="score_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='score_link'}">Score</a></th>
+     <th><tmpl_if name="kills_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='kills_link'}">Kills</a></th>
+     <th><tmpl_if name="deaths_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='deaths_link'}">Deaths</a></th>
+     <th><tmpl_if name="kdrate_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='kdrate_link'}">K/D</a></th>
+     <th><tmpl_if name="first_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='first_link'}"><img src="{tmpl_var name='IMAGES_DIR'}star_gold.gif"></a></th>
+     <th><tmpl_if name="second_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='second_link'}"><img src="{tmpl_var name='IMAGES_DIR'}star_silver.gif"></a></th>
+     <th><tmpl_if name="third_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='third_link'}"><img src="{tmpl_var name='IMAGES_DIR'}star_bronze.gif"></a></th>
+     <th><tmpl_if name="tks_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='tks_link'}">TKs</a></th>
+     <th><tmpl_if name="attacks_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='attacks_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Basepoint Conquers"></a></th>
+     <th><tmpl_if name="captures_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='captures_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_captures.gif" alt="Flag Captures"></a></th>
+     <th><tmpl_if name="objectives_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='objectives_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_objectives.gif" alt="Objectives achieved"></a></th>     
+     <th><tmpl_if name="rounds_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='rounds_link'}"><img src="{tmpl_var name='IMAGES_DIR'}joystick_icon.gif" alt="Rounds played"></a></th>
+     <th><tmpl_if name="heals_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='heals_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_heals.gif" alt="Heals"></a></th>
+     <th><tmpl_if name="repairs_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='repairs_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_repairs.gif" alt="Repairs"></a></th>
+   </tr>
+<tmpl_if name="ranking">
+<tmpl_loop name="ranking">
+  <tmpl_if name="__EVEN__">
+   <tr class="light">
+  <tmpl_else>
+   <tr class="dark">
+  </tmpl_if>
+     <td class=number><tmpl_var name='rank'></td>
+     <td><a href="{tmpl_var name='playerdetaillink'}"><nobr><img src="{tmpl_var name='playerimg'}" hspace=2 align=absmiddle><tmpl_var name='name'></nobr></a>&nbsp;<tmpl_var name="awards_withoutstars" escape="none"></td>
+	 <td class=important_number><tmpl_var name='points'></td>     
+	 <td class=important_number><tmpl_var name='avgscore'></td>
+     <td class=important_number><tmpl_var name='score'></td>
+     <td class=important_number><tmpl_var name='kills'></td>
+     <td class=important_number><tmpl_var name='deaths'></td>
+     <td class=important_number><tmpl_var name='kdrate'></td>
+     <td class=number><tmpl_var name='first'></td>
+     <td class=number><tmpl_var name='second'></td>
+     <td class=number><tmpl_var name='third'></td>
+     <td class=number><tmpl_var name='tks'></td>
+     <td class=number><tmpl_var name='attacks'></td>
+     <td class=number><tmpl_var name='captures'></td>
+     <td class=number><tmpl_var name='objectives'></td>     
+     <td class=number><tmpl_var name='rounds'></td>
+     <td class=number><tmpl_var name='heals'></td>
+     <td class=number><tmpl_var name='otherrepairs'></td>
+   </tr>
+</tmpl_loop>
+</tmpl_if>
+   <tr class="head">
+    <td colspan="18" class="navbar">
+     <table class="navbar" width=100%>
+      <tr class="head">
+	  <th width=15% class=navbar><tmpl_if name="RankPreviousButtonLink"><a href="{tmpl_var name="RankPreviousButtonLink"}" class="white"><img src="{tmpl_var name='IMAGES_DIR'}arrow_left.gif" hspace=2>previous</a><tmpl_else>&nbsp;</tmpl_if></th>
+	  <th colspan=14  width=70% class=navbar>
+	   <center>         
+	  <tmpl_loop name="navbarinforank">
+	   <tmpl_if name="link">
+	    <a href="{tmpl_var name="link"}" class="white"><tmpl_var name="text"></a>&nbsp;
+	   <tmpl_else>
+	    <tmpl_var name="text">&nbsp;
+	   </tmpl_if>
+	  </tmpl_loop>
+	   </center>
+	  </th>
+	  <th class=number width=15% class=navbar><tmpl_if name="RankNextButtonLink"><a href="{tmpl_var name="RankNextButtonLink"}" class="white">next<img src="{tmpl_var name='IMAGES_DIR'}arrow_right.gif" hspace=2></a><tmpl_else>&nbsp;</tmpl_if></th>
+	  </tr>
+	 </table>
+	</td>
+   </tr>
+ </table>
+ <p>
+ <table width="95%" border="1" align="center">
+   <tr class="head">
+     <th colspan="12" class="super" scope="col">Last Games<a name="games">&nbsp;</a></th>
+   </tr>
+   <tr class=head>
+     <th>Game started</th>
+     <th>Server Name</th>
+     <th>Mod</th>
+     <th>Map</th>
+     <th>GameMode</th>
+     <th><img src="{tmpl_var name='IMAGES_DIR'}joystick_icon.gif" align=absmiddle hspace="2" alt="Number of Rounds"></th>
+   </tr>
+<tmpl_if name="games">
+<tmpl_loop name="games">
+  <tmpl_if name="__EVEN__">
+   <tr class="light">
+  <tmpl_else>
+   <tr class="dark">
+  </tmpl_if>
+     <td><tmpl_var name="date"></td>
+     <td><img src="{tmpl_var name='IMAGES_DIR'}joystick_icon.gif" align=absmiddle hspace="2"><a href="{tmpl_var name="gamedetaillink"}"><tmpl_var name="servername"></a></td>
+     <td><tmpl_var name="mod"><img src="{tmpl_var name='modimg'}" align=absmiddle hspace="2"></td>
+     <td><tmpl_var name="map"></td>
+     <td><tmpl_var name="game_mode"></td>
+     <td class=important_number><tmpl_var name="rounds"></td>
+   </tr>
+</tmpl_loop>
+   <tr class="head">
+    <td colspan="16" class="navbar">
+     <table class="navbar" width=100%>
+      <tr class="head">
+	  <th width=15% class=navbar><tmpl_if name="GamePreviousButtonLink"><a href="{tmpl_var name="GamePreviousButtonLink"}#games" class="white"><img src="{tmpl_var name='IMAGES_DIR'}arrow_left.gif" hspace=2>previous</a><tmpl_else>&nbsp;</tmpl_if></th>
+	  <th colspan=14  width=70% class=navbar>
+	   <center>         
+	   <tmpl_loop name="navbarinfogames">
+	   <tmpl_if name="link">
+	   <a href="{tmpl_var name="link"}#games" class=white><tmpl_var name="text"></a>&nbsp;
+	   <tmpl_else>
+	   <tmpl_var name="text">&nbsp;
+	   </tmpl_if>
+	   </tmpl_loop>
+	   </center>
+	  </th>
+	  <th class=number width=15% class=navbar><tmpl_if name="GameNextButtonLink"><a href="{tmpl_var name="GameNextButtonLink"}#games" class="white">next<img src="{tmpl_var name='IMAGES_DIR'}arrow_right.gif" hspace=2></a><tmpl_else>&nbsp;</tmpl_if></th>
+	  </tr>
+	 </table>
+	</td>
+   </tr>
+</tmpl_if>
+  </table>
+  <p>
+  <table width="95%" border="1" align="center">
+   <tr class="head">
+     <th class="super" scope="col" colspan=10>Search</th>
+   </tr>
+   <tr class=head>
+      <th colspan=10>Search for Players</th>
+    </tr>
+    <tr>
+    <form action="{tmpl_var name="search_action"}" method=get>
+      <td><b>Playername:</b></td>
+      <td colspan=9><input type="text" name=playername size=60 class=formelement><input type="hidden" name={tmpl_var name="search_param_searchtype"} value="{tmpl_var name="search_type_players"}" class=formelement></td>
+    </form>
+    </tr>
+    <tr class=head>
+     <th colspan=10>Search for Games</th>
+    </tr>
+     <form action="{tmpl_var name="search_action"}" method=get>
+      <input type=hidden name={tmpl_var name="search_param_searchtype"} value="{tmpl_var name="search_type_games"}">
+    <tr>
+       <td class=important width=10%>
+        Servername:
+       </td>    
+      <td width=10%><input type="text" name={tmpl_var name="search_param_servername"} length=30 class=formelement></td>
+       <td class=important width=10%>
+        Day:
+       </td>    
+      <td width=10%>
+        <select name="{tmpl_var name="search_param_day"}" class=formelement>
+         <option value=nothing selected>&nbsp;</option>
+	     <option>01</option>
+	     <option>02</option>
+	     <option>03</option>
+	     <option>04</option>
+ 	     <option>05</option>
+ 		 <option>06</option>
+	     <option>07</option>
+	     <option>08</option>
+	     <option>09</option>
+	     <option>10</option>
+	     <option>11</option>
+	     <option>12</option>
+	     <option>13</option>
+	     <option>14</option>
+	     <option>15</option>
+	     <option>16</option>
+	     <option>17</option>
+	     <option>18</option>
+	     <option>19</option>
+	     <option>20</option>
+	     <option>21</option>
+	     <option>22</option>
+	     <option>23</option>
+	     <option>24</option>
+	     <option>25</option>
+	     <option>26</option>
+	     <option>27</option>
+	     <option>28</option>
+	     <option>29</option>
+	     <option>30</option>			   			   			   			   			   			   			   			   			   			   			   			   			   			   			   			   			   			   			   			   			   			   			   			   			   			   			   			   			   
+	     <option>31</option>			   
+        </select>
+       </td>
+       <td class=important width=10%>
+        Month:
+       </td>           
+       <td width=10%>
+      <select name={tmpl_var name="search_param_month"} class=formelement>
+       <option value=nothing selected>&nbsp;</option>
+       <option value=01>January</option>
+       <option value=02>February</option>
+       <option value=03>March</option>
+       <option value=04>April</option>
+       <option value=05>May</option>
+       <option value=06>June</option>
+       <option value=07>July</option>
+       <option value=08>August</option>
+       <option value=09>September</option>
+       <option value=10>Oktober</option>
+       <option value=11>November</option>
+       <option value=12>December</option>
+      </select>
+       </td>
+       <td class=important width=10%>
+        Year:
+       </td>       
+       <td>
+      <select name={tmpl_var name="search_param_year"} class=formelement>
+       <option value=nothing selected>&nbsp;</option>
+       <option>2002</option>
+       <option>2003</option>
+       <option>2004</option>
+      </select>
+       </td>
+       <td class=important width=10%>
+        Mod:
+       </td>
+     <td width=10%>
+      <select name={tmpl_var name="search_param_mod"} class=formelement>
+	  <tmpl_loop name="search_mods">
+    	<option><tmpl_var name="name"></option>
+	  </tmpl_loop>
+      </select>
+     </td>
+    </tr>
+   </form>
+ </table> 
+<tmpl_include file="foot.html">

@@ -1,0 +1,93 @@
+<tmpl_include file="frame_head.html">
+      <p>
+        <h3>Display-Settings</h3><p>
+        <tmpl_include name="messages.inc">
+		<form action="{tmpl_var name='form_action'}" method=post>
+        <table class=admin width=100%>
+         <tr>
+		  <td class=help_text colspan=3>
+			This value defines how many rounds a player must have played to appear in the stats.
+		  </td>
+         </tr>         
+         <tr class=light>
+          <td class=admin_clear><b>Current "Minimum Rounds"-value:</b></td>
+          <td class=admin_clear><i><tmpl_var name="minrounds"></i></td>
+          <td class=admin_clear width=55%>&nbsp;</td>          
+         </tr>        
+         <tr class=light>
+          <td class=admin_clear>New "Minimum-Rounds"-value:</td>
+          <td class=admin_clear><input type=text name={tmpl_var name='param_minrounds'} value="{tmpl_var name='minrounds'}"></td>
+          <td class=admin_clear>&nbsp;</td>          
+         </tr>         
+         <tr>
+		  <td class=help_text colspan=3>
+			This value defines how many stars are displayed in the <i>awards</i> before the display breaks to "<i>N</i>x<b>star</b>".
+		  </td>
+         </tr>         
+         <tr class=light>
+          <td class=admin_clear><b>Current number of stars:</b></td>
+          <td class=admin_clear><i><tmpl_var name="starnumber"></i></td>
+          <td class=admin_clear width=55%>&nbsp;</td>          
+         </tr>        
+         <tr class=light>
+          <td class=admin_clear>New number of stars:</td>
+          <td class=admin_clear><input type=text name={tmpl_var name='param_starnumber'} value="{tmpl_var name='starnumber'}"></td>
+          <td class=admin_clear>&nbsp;</td>          
+         </tr>
+         <tr>
+		  <td class=help_text colspan=3>
+			Define the column that the ranking is sorted by at startup.
+		  </td>
+         </tr>         
+         <tr class=light>
+          <td class=admin_clear><b>Current Column:</b></td>
+          <td class=admin_clear><i><tmpl_var name="orderbycolumn"></i></td>
+          <td class=admin_clear width=55%>&nbsp;</td>          
+         </tr>        
+         <tr class=light>
+          <td class=admin_clear>New Column:</td>
+          <td class=admin_clear>
+           <select name="{tmpl_var name='param_orderbycolumn'}">
+            <tmpl_loop name="orderbycolumns">
+             <option <tmpl_if name="selected">selected</tmpl_if>><tmpl_var name="name"></option>
+            </tmpl_loop>
+           </select>
+          </td>
+          <td class=admin_clear>&nbsp;</td>          
+         </tr>
+		 <!--Added By Gary Chiu-->
+    <tr> 
+      <td class=help_text colspan=3>This value defines how many members and rounds 
+        counded &quot;Clan Ranking&quot; in.</td>
+    </tr>
+    <tr class=light> 
+      <td class=admin_clear nowrap><b>Current "Minimum Clan's Members&quot; -value:</b></td>
+      <td class=admin_clear><i><tmpl_var name="minclanmembers"></i></td>
+      <td class=admin_clear width=55%>&nbsp;</td>
+    </tr>
+    <tr class=light> 
+      <td class=admin_clear>New "Minimum-Clan-Member"-value:</td>
+      <td class=admin_clear> 
+        <input type=text name={tmpl_var name='param_minclanmembers'} value="{tmpl_var name='minclanmembers'}">
+      </td>
+      <td class=admin_clear>&nbsp;</td>
+    </tr>
+    <tr class=light> 
+      <td class=admin_clear nowrap><b>Current "Minimum Clan's Rounds&quot; -value:</b></td>
+      <td class=admin_clear><i><tmpl_var name="minclanrounds"></i></td>
+      <td class=admin_clear width=55%>&nbsp;</td>
+    </tr>
+    <tr class=light> 
+      <td class=admin_clear>New "Minimum-Clan-Rounds"-value:</td>
+      <td class=admin_clear> 
+        <input type=text name={tmpl_var name='param_minclanrounds'} value="{tmpl_var name='minclanrounds'}">
+      </td>
+      <td class=admin_clear>&nbsp;</td>
+    </tr>
+	<!--End-->
+         <tr>
+          <td class=admin_clear colspan=3><input type=submit value="Save Settings"></td>
+         </tr>         
+        </table> 
+        </form>      
+<tmpl_include file="frame_foot.html">	  

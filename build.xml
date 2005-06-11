@@ -1,0 +1,108 @@
+<project name="select(bf) Ant Tasks" default="create_release" basedir=".">
+ <property name="php_dir" value="php" />
+ <property name="build_dir" value="build" />
+ <property name="classes_dir" value="${build_dir}/classes" />	
+ <property name="resource_dir" value="res" />
+ <property name="src_dir" value="src" />	
+ <property name="lib_dir" value="lib" />
+ <property name="archive_name" value="select(bf)" />	
+ <path id="classpath">
+	<fileset dir="${lib_dir}">
+		<include name="*.jar" />
+	</fileset>
+	<pathelement path="${java.class.path}" />
+ </path>	
+
+ <!--creates Java-Build dir-->
+ <target name="prepare">
+  <mkdir dir="./${build_dir}"/>
+ </target>
+ 
+ <!--compiles the Parser to the Java-Build dir-->
+	<target name="compile" description="Compiles the Parser">
+		<echo message="Building Parser"/>		
+		<mkdir dir="${build_dir}/classes" />
+		<javac srcdir="${src_dir}" destdir="${build_dir}" deprecation="on" debug="on">
+			<classpath refid="classpath" />
+			<compilerarg value="-target 1.4"/>
+			<compilerarg value="-source 1.4"/>			
+		</javac>
+	</target>
+ 
+ <!--JARs up the compiled Parser-classes in the Java-Build dir-->
+ <target name="jar_parser" depends="prepare,delete_thumbsdb">
+  <delete file="${build_dir}\selectbf.jar"/>
+  <jar jarfile="${build_dir}\selectbf.jar" basedir="${classes_dir}">
+   <manifest>
+    <attribute name="Manifest-Version" value="1.0"/>
+	<attribute name="Sealed" value="true"/>
+	<attribute name="Main-Class" value="org.selectbf.SelectBf" />   
+   </manifest>
+  </jar>
+ </target>
+	
+ <target name="create_win32">
+	<ant target="create_base">
+		<property name="base_dir" value="win32" />
+	</ant>
+ 	<copy todir="./${build_dir}/win32">
+		<fileset dir="${resource_dir}/win32">
+			<include name="*.bat" />			
+			<include name="*.exe" />
+		</fileset>
+		<fileset dir="${resource_dir}/win32/swt">
+			<include name="*"/>	
+		</fileset> 		
+ 	</copy>
+ </target>
+
+ <target name="create_base" depends="jar_parser">
+ 	<mkdir dir="./${build_dir}/${base_dir}"/> 	
+ 	<copy todir="./${build_dir}/${base_dir}" file="./${resource_dir}/conf/config.xml"/> 	
+ 	<copy todir="./${build_dir}/${base_dir}" file="./${build_dir}/selectbf.jar"/>
+ 	<mkdir dir="./${build_dir}/${base_dir}/lib"/>
+ 	<copy todir="./${build_dir}/${base_dir}/lib">
+ 		<fileset dir="${lib_dir}">
+ 			<include name="*.jar"/>
+ 		</fileset>
+ 	</copy> 	
+ 	<mkdir dir="./${build_dir}/${base_dir}/php"/>
+ 	<copy todir="./${build_dir}/${base_dir}/php">
+ 		<fileset dir="${php_dir}">
+ 			<include name="**"/>
+ 		</fileset>
+ 	</copy> 
+ 	<copy todir="./${build_dir}/${base_dir}/doc">
+ 		<fileset dir="${resource_dir}/doc">
+ 			<include name="*.pdf"/>
+ 			<include name="*.txt"/> 			
+ 		</fileset>
+ 	</copy>  	
+ </target>
+	
+ <target name="zip" depends="create_win32" >
+ 	<zip destfile="${build_dir}/${archive_name}.zip" basedir="${build_dir}/win32">
+ 		<include name="**/*"/>
+ 	</zip>
+ </target>
+
+ <target name="clean">
+ 	<delete>
+ 	 <fileset dir="${build_dir}">
+ 	 	<include name="*"/>
+ 	 </fileset>	
+ 	</delete>
+ 	<delete dir="${build_dir}/win32"/>
+ </target>
+
+ <target name="create_release" depends="clean, zip" />
+	
+ <target name="delete_thumbsdb">
+ 	<delete>
+ 		<fileset dir=".">
+ 			<include name="**/Thumbs.db"/>
+ 		</fileset>
+ 	</delete>
+ </target>
+  
+</project>

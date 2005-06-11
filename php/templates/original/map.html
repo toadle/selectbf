@@ -1,0 +1,353 @@
+<tmpl_include file="head.html">
+   <table width=85% align=center>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_left_up.gif" width="3" height="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"><img src="{tmpl_var name='IMAGES_DIR'}bridge_top.gif" width="3" height="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_right_up.gif" width="4" height="3"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_left.gif"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}icons/plane.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bridge_bar_vertical.gif"></td>
+       <td class="scoretable_header"><img src="{tmpl_var name='IMAGES_DIR'}text/map-statistic.gif"><br><tmpl_var name="head"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}bridge_left.gif" width="3" height="2"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bridge_bar_horizontal.gif" colspan="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif" width="4" height="2"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_left.gif"></td>  
+       <td class="rahmen" colspan="3">
+        <table class="scoretable">
+				 <tr>
+					 <th colspan=8 class="scoretable" scope="col"><tmpl_var name="mapname"></th>
+				 </tr>
+				 <tr class=scoretable_hell>
+					 <td colspan=8><center><img src="{tmpl_var name='screen'}"></center></td>
+				 </tr>
+					 <tr class=axis>
+						 <th class=teamstats width="85%" colspan=8><b>Axis</b></th>
+					 </tr>
+					 <tr class=axis_hell>
+						 <td width=15%>won rounds: </td>
+						 <td colspan=7><tmpl_var name="wins_team1"></td>
+					 </tr>
+					 <tr class=axis_hell>
+						 <td><b>Kills:</b></td>
+						 <td colspan=7><tmpl_var name="kills_team1"></td>
+					 </tr>
+					 <tr class=axis_hell>
+						 <td><b>Deaths:</b></td>
+						 <td colspan=7><tmpl_var name="deaths_team1"></td>
+					 </tr>
+					 <tr class=axis_hell>
+						 <td><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Basepoint Conquers"></td>
+						 <td colspan=7><tmpl_var name="attacks_team1"></td>
+					 </tr>
+					 <tr class=axis_dunkel>
+						 <td colspan=8><u>on Axis win</u></td>
+					 </tr>
+					 <tr class=axis_hell>
+						 <td class="axis">&Oslash; Tickets Axis</td>
+						 <td colspan=7><tmpl_var name="win_team1_end_tickets_team1"></td>
+					 </tr>
+					 <tr class=axis_hell>
+						 <td class="allied">&Oslash; Tickets Allies</td>
+						 <td colspan=7><tmpl_var name="win_team1_end_tickets_team2"></td>
+					 </tr>
+					 <tr class=allied colspan=2>
+						 <th class=teamstats colspan=8><b>Allies</b></th>
+					 </tr>
+					 <tr class=allied_hell>
+						 <td width=15%>won rounds: </td>
+						 <td colspan=7><tmpl_var name="wins_team2"></td>
+					 </tr>
+					 <tr class=allied_hell>
+						 <td><b>Kills:</b></td>
+						 <td colspan=7><tmpl_var name="kills_team2"></td>
+					 </tr>
+					 <tr class=allied_hell>
+						 <td><b>Deaths:</b></td>
+						 <td colspan=7><tmpl_var name="deaths_team2"></td>
+					 </tr>
+					 <tr class=allied_hell>
+						 <td><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Basepoint Conquers"></td>
+						 <td colspan=7><tmpl_var name="attacks_team2"></td>
+					 </tr>
+					 <tr class=allied_dunkel>
+						 <td colspan=8><u>on Allies win</u></td>
+					 </tr>
+					 <tr class=allied_hell>
+						 <td class=axis>&Oslash; Tickets Axis</td>
+						 <td colspan=7><tmpl_var name="win_team2_end_tickets_team1"></td>
+					 </tr>
+					 <tr class=allied_hell>
+						 <td class=allied><span class="axis_blue">&Oslash; Tickets Axis</td>
+						 <td colspan=7><tmpl_var name="win_team2_end_tickets_team2"></td>
+					 </tr>
+			
+				 <tr class=scoretable_hell>
+					 <th colspan=8>Best {tmpl_var name='TopRoundsValue'} Round{tmpl_var name='TopRoundsS'} on this map</th>
+				 </tr>
+				 <tr>
+					 <th class=scoretable_number>Player</th>
+					 <th class=scoretable_number>Score</th>
+					 <th class=scoretable_number>Kills</th>
+					 <th class=scoretable_number>Deaths</th>
+					 <th class=scoretable_number>Attacks</th>
+					 <th class=scoretable_number>TKs</th>
+					 <th class=scoretable>Game</th>     
+					 <th class=scoretable_number>time</th>     
+				 </tr> 
+			<tmpl_loop name="BestRounds">
+				 <tmpl_if name="__EVEN__">
+				 <tr class="scoretable_hell">
+				 <tmpl_else>
+				 <tr class="scoretable_dunkel">
+				 </tmpl_if>  
+					 <td><nobr><img src="{tmpl_var name='playerimg'}" align=absmiddle hspace=2><a href="{tmpl_var name='playerdetaillink'}"><tmpl_var name="name"></a></nobr></td>
+					 <td class=number><tmpl_var name="score"></td>
+					 <td class=number><tmpl_var name="kills"></td>
+					 <td class=number><tmpl_var name="deaths"></td>
+					 <td class=number><tmpl_var name="attacks"></td>
+					 <td class=number><tmpl_var name="tks"></td>
+					 <td><a href="game.php?id={tmpl_var name='id'}"><tmpl_var name="servername"></a></td>
+					 <td class=number><tmpl_var name="time"></td>
+				 </tr>    
+			</tmpl_loop>   
+			 </table>  
+       </td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}/bar_vertical_right.gif"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}/edge_left_down.gif" width="3" height="5"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}/bar_horizontal_down.gif" colspan="3"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}/edge_right_down.gif" width="4" height="5"></td>
+     </tr>
+   </table> 			 
+			 <p>
+			 <tmpl_if name="kills">
+   <table width=85% align=center>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_left_up.gif" width="3" height="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"><img src="{tmpl_var name='IMAGES_DIR'}bridge_top.gif" width="3" height="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_right_up.gif" width="4" height="3"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_left.gif"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}icons/gun.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bridge_bar_vertical.gif"></td>
+       <td class="scoretable_header"><img src="{tmpl_var name='IMAGES_DIR'}text/top-killers.gif"><br><tmpl_var name="head"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}bridge_left.gif" width="3" height="2"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bridge_bar_horizontal.gif" colspan="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif" width="4" height="2"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_left.gif"></td>  
+       <td class="rahmen" colspan="3">
+        <table class="scoretable">
+         <tr>
+					 <th class=scoretable_number>Rank</th>
+					 <th class=scoretable>Player</th>
+					 <th class=scoretable_number>Kills</th>
+					 <th class=scoretable>&nbsp;</th>
+				 </tr>   
+				 <tmpl_loop name="kills">
+				 <tmpl_if name="__EVEN__">
+				 <tr class="scoretable_hell">
+				 <tmpl_else>
+				 <tr class="scoretable_dunkel">
+				 </tmpl_if>   
+					 <td class=number><tmpl_var name="__ROWNUM__"></td>
+					 <td><img src="{tmpl_var name='playerimg'}" align=absmiddle hspace=2><a href="{tmpl_var name='playerdetaillink'}"><tmpl_var name="name"></a></td>
+					 <td class=number><tmpl_var name="count"></td>
+					 <td><tmpl_var name="bar" escape="none"></td>
+				 </tr>
+				 </tmpl_loop>
+			 </table>  
+       </td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}/bar_vertical_right.gif"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}/edge_left_down.gif" width="3" height="5"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}/bar_horizontal_down.gif" colspan="3"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}/edge_right_down.gif" width="4" height="5"></td>
+     </tr>
+   </table> 		 
+			 <p>
+			 </tmpl_if>
+			 <tmpl_if name="attacks">
+   <table width=85% align=center>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_left_up.gif" width="3" height="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"><img src="{tmpl_var name='IMAGES_DIR'}bridge_top.gif" width="3" height="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_right_up.gif" width="4" height="3"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_left.gif"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}icons/beach-attack.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bridge_bar_vertical.gif"></td>
+       <td class="scoretable_header"><img src="{tmpl_var name='IMAGES_DIR'}text/top-attackers.gif"><br><tmpl_var name="head"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}bridge_left.gif" width="3" height="2"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bridge_bar_horizontal.gif" colspan="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif" width="4" height="2"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_left.gif"></td>  
+       <td class="rahmen" colspan="3">
+        <table class="scoretable">
+				 <tr>
+					 <th class=scoretable_number>Rank</th>
+					 <th class=scoretable>Player</th>
+					 <th class=scoretable_number>Attacks</th>
+					 <th class=scoretable>&nbsp;</th>
+				 </tr>   
+				 <tmpl_loop name="attacks">
+				 <tmpl_if name="__EVEN__">
+				 <tr class="scoretable_hell">
+				 <tmpl_else>
+				 <tr class="scoretable_dunkel">
+				 </tmpl_if>   
+					 <td class=number><tmpl_var name="__ROWNUM__"></td>
+					 <td><img src="{tmpl_var name='playerimg'}" align=absmiddle hspace=2><a href="{tmpl_var name='playerdetaillink'}"><tmpl_var name="name"></a></td>
+					 <td class=number><tmpl_var name="count"></td>
+					 <td><tmpl_var name="bar" escape="none"></td>
+				 </tr>
+				 </tmpl_loop>
+			 </table>  
+       </td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}/bar_vertical_right.gif"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}/edge_left_down.gif" width="3" height="5"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}/bar_horizontal_down.gif" colspan="3"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}/edge_right_down.gif" width="4" height="5"></td>
+     </tr>
+   </table> 	  
+			 <p>
+			 </tmpl_if>
+			 <tmpl_if name="deaths">
+   <table width=85% align=center>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_left_up.gif" width="3" height="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"><img src="{tmpl_var name='IMAGES_DIR'}bridge_top.gif" width="3" height="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_right_up.gif" width="4" height="3"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_left.gif"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}icons/dead-soldier.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bridge_bar_vertical.gif"></td>
+       <td class="scoretable_header"><img src="{tmpl_var name='IMAGES_DIR'}text/most-deaths.gif"><br><tmpl_var name="head"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}bridge_left.gif" width="3" height="2"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bridge_bar_horizontal.gif" colspan="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif" width="4" height="2"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_left.gif"></td>  
+       <td class="rahmen" colspan="3">
+        <table class="scoretable">
+					 <th class=scoretable_number>Rank</th>
+					 <th class=scoretable>Player</th>
+					 <th class=scoretable_number>Deaths</th>
+					 <th class=scoretable>&nbsp;</th>
+				 </tr>   
+				 <tmpl_loop name="deaths">
+				 <tmpl_if name="__EVEN__">
+				 <tr class="scoretable_hell">
+				 <tmpl_else>
+				 <tr class="scoretable_dunkel">
+				 </tmpl_if>   
+					 <td class=number><tmpl_var name="__ROWNUM__"></td>
+					 <td><img src="{tmpl_var name='playerimg'}" align=absmiddle hspace=2><a href="{tmpl_var name='playerdetaillink'}"><tmpl_var name="name"></a></td>
+					 <td class=number><tmpl_var name="count"></td>
+					 <td><tmpl_var name="bar" escape="none"></td>
+				 </tr>
+				 </tmpl_loop>
+				 </table>
+       </td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}/bar_vertical_right.gif"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}/edge_left_down.gif" width="3" height="5"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}/bar_horizontal_down.gif" colspan="3"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}/edge_right_down.gif" width="4" height="5"></td>
+     </tr>
+   </table> 	   
+			 <p>
+			 </tmpl_if>
+			 <tmpl_if name="tks">
+   <table width=85% align=center>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_left_up.gif" width="3" height="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"><img src="{tmpl_var name='IMAGES_DIR'}bridge_top.gif" width="3" height="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_right_up.gif" width="4" height="3"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_left.gif"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}icons/tank-expl.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bridge_bar_vertical.gif"></td>
+       <td class="scoretable_header"><img src="{tmpl_var name='IMAGES_DIR'}text/most-tks.gif"><br><tmpl_var name="head"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}bridge_left.gif" width="3" height="2"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bridge_bar_horizontal.gif" colspan="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif" width="4" height="2"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_left.gif"></td>  
+       <td class="rahmen" colspan="3">
+        <table class="scoretable">
+				 <tr>
+					 <th class=scoretable_number>Rank</th>
+					 <th class=scoretable>Player</th>
+					 <th class=scoretable_number>TKs</th>
+					 <th class=scoretable>&nbsp;</th>
+				 </tr>   
+				 <tmpl_loop name="tks">
+				 <tmpl_if name="__EVEN__">
+				 <tr class="scoretable_hell">
+				 <tmpl_else>
+				 <tr class="scoretable_dunkel">
+				 </tmpl_if>   
+					 <td class=number><tmpl_var name="__ROWNUM__"></td>
+					 <td><img src="{tmpl_var name='playerimg'}" align=absmiddle hspace=2><a href="{tmpl_var name='playerdetaillink'}"><tmpl_var name="name"></a></td>
+					 <td class=number><tmpl_var name="count"></td>
+					 <td><tmpl_var name="bar" escape="none"></td>
+				 </tr>
+				 </tmpl_loop>
+				 </table>
+       </td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}/bar_vertical_right.gif"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}/edge_left_down.gif" width="3" height="5"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}/bar_horizontal_down.gif" colspan="3"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}/edge_right_down.gif" width="4" height="5"></td>
+     </tr>
+   </table>  
+			 <p> 
+			 </tmpl_if>
+
+<tmpl_include file="foot.html">

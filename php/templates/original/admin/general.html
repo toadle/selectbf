@@ -1,0 +1,50 @@
+<tmpl_include file="frame_head.html">
+      <p>
+        <h3>General-Settings</h3><p>
+        <tmpl_include name="messages.inc">
+		<form action="{tmpl_var name='form_action'}" method=post>
+        <table class=admin width=100%>
+         <tr>
+		  <td class=help_text colspan=3>
+			Set your desired Site-Title prefix here. <b>select(<i>bf</i>)</b> will set the further site-title for you.
+		  </td>
+         </tr>         
+         <tr class=light>
+          <td class=admin_clear><b>Current Title-Prefix:</b></td>
+          <td class=admin_clear><i><tmpl_var name="titleprefix"></i></td>
+          <td class=admin_clear>&nbsp;</td>          
+         </tr>        
+         <tr class=light>
+          <td class=admin_clear>New Title-Prefix</td>
+          <td class=admin_clear><input type=text name={tmpl_var name='param_titleprefix'} value="{tmpl_var name='titleprefix'}"</td>
+          <td class=admin_clear>&nbsp;</td>          
+         </tr>         
+         <tr>
+		  <td class=help_text colspan=3>
+		   This value defines the Level of Debugging Informations that will be displayed in the
+		   stats. Meaning the higher you set the value the <b>more</b> info-messages will pop up.
+		   A common and useful value is <b>1</b>!
+		  </td>
+         </tr>         
+         <tr class=light>
+          <td class=admin_clear><b>Current Debug-Level:</b></td>
+          <td class=admin_clear><i><tmpl_var name="debuglevel"></i></td>
+          <td class=admin_clear>&nbsp;</td>          
+         </tr>
+         <tr class=light>
+          <td class=admin_clear>Select Debug-Level:</td>
+          <td class=admin_clear>
+           <select name="{tmpl_var name='param_debuglevel'}">
+			<tmpl_loop name="debuglevels">  
+			 <option <tmpl_if name="selected">selected</tmpl_if>><tmpl_var name="level"></option>
+			</tmpl_loop>                               
+           </select>
+          </td>
+          <td class=admin_clear width=55%>&nbsp;</td>          
+         </tr>  
+         <tr>
+          <td class=admin_clear colspan=3><input type=submit value="Save Settings"></td>
+         </tr>         
+        </table> 
+        </form>      
+<tmpl_include file="frame_foot.html">	  

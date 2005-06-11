@@ -1,0 +1,96 @@
+<tmpl_include file="frame_head.html">
+      <p>
+        <h3>Categories</h3><p>
+        <tmpl_include name="messages.inc">
+        <table class=admin width=100%>
+         <tr>
+		  <td class=help_text>
+			Here you can create <i>Weapon-Categories</i> for the <b>Weapons</b> 
+			that appear in the Battlefield-Logs. This way you are able to create 
+			your own results on the weapons-page. <b>select(<i>bf</i>)</b> will 
+			collect the data you marked for you and makes them available on the 
+			weapons page with you specified name. <b>The only thing you have to do
+			is adding a showing-table to your template!</b>
+		  </td>
+		 </tr>
+        </table>
+        <h2>Create new Category</h2>        
+        <table class=admin>
+         <form action="{tmpl_var name='form_action'}" method=post>
+         <input type=hidden name="{tmpl_var name='param_todo'}" value="{tmpl_var name='todo_value_new_category'}">
+         <tr class=dark>
+          <td class=admin>Category Name:</td>
+          <td class=admin><input type="text" name="{tmpl_var name='param_category_name'}"></td>
+         </tr>
+         <tr class=dark>
+          <td class=admin>Collect Data:</td>
+          <td class=admin><input type="checkbox" name="{tmpl_var name='param_collectdata'}" value="1"></td>
+         </tr>
+         <tr class=dark>
+          <td class=admin>Datasource Name:</td>
+          <td class=admin><input type="text" name="{tmpl_var name='param_datasource_name'}"></td>
+         </tr>         
+         <tr class=light>
+          <td colspan=2 class=admin><input type=submit value="Create"></td>
+         </tr>
+         </form>
+        </table>
+        <h2>Existing Categories</h2>
+        <tmpl_if name="categories">
+        <tmpl_loop name="categories">
+        <table class=navbar width=250>
+         <tr>
+          <th colspan=2 class=scoretable>
+            Category: "<tmpl_var name="name">"<br>
+          </th>
+         </tr>
+         <form name="form{tmpl_var name='id'}" action="{tmpl_var name='form_action'}" method=post>
+         <input type="hidden" name="{tmpl_var name='param_category_id'}" value="{tmpl_var name='id'}">
+         <input type="hidden" name="{tmpl_var name='param_todo'}" value="{tmpl_var name='todo_value_change_collect'}">
+         <tr class=dark>
+          <td class=admin>
+            <b>Collect Data:</b><select name="{tmpl_var name='param_collectdata'}" onChange="javascript:document.form{tmpl_var name='id'}.submit()"><tmpl_loop name="collect_data"><option value="{tmpl_var name='value'}" <tmpl_if name="selected">selected</tmpl_if>><tmpl_var name="option"></option></tmpl_loop></select><br>
+			<b>Datasource:</b> "<tmpl_var name="datasource_name">"<br>
+          </td>
+          <td class=admin><a href="{tmpl_var name='deletelink'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_delete.gif"></a></td>
+         </tr>
+		 </form>
+          <tmpl_if name="members">
+          <tmpl_loop name="members">
+          <tr class="light">
+           <td class=admin><tmpl_var name="member"></td>
+           <td class=admin><a href="{tmpl_var name='deletelink'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_delete.gif"></a></td>
+          </tr>
+          </tmpl_loop>         
+          <tmpl_else>
+          <tr class="light">
+           <td class=admin colspan=2><i>No members specified</i></td>
+          </tr>
+          </tmpl_if>
+          <tmpl_if name="uncategorized">
+          <form action="{tmpl_var name='form_action'}" method=post>
+          <input type="hidden" name="{tmpl_var name='param_category_id'}" value="{tmpl_var name='id'}">
+          <input type="hidden" name="{tmpl_var name='param_todo'}" value="{tmpl_var name='todo_value_new_member'}">
+          <tr class=dark>
+           <td class=admin>
+            <select name="{tmpl_var name='param_member'}">
+            <tmpl_loop name="uncategorized">
+             <option><tmpl_var name="weapon"></option>
+            </tmpl_loop>
+            </select>
+           </td>
+           <td class=admin>
+            <input type="submit" value="Add">
+           </td>
+          </tr>
+          </form>
+          </tmpl_if>
+        </table>
+        <p>
+        </tmpl_loop>
+        <tmpl_else>
+        <b>No categories</b> created yet!
+        </tmpl_if>
+
+            
+<tmpl_include file="frame_foot.html">	  

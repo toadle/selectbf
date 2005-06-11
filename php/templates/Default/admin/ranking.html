@@ -1,0 +1,113 @@
+<tmpl_include file="frame_head.html">
+      <p>
+        <h3>Ranking-Formula</h3><p>
+        <tmpl_include name="messages.inc">
+		<form action="{tmpl_var name='form_action'}" method=post>
+        <table class=admin width=100%>
+         <tr>
+		  <td class=help_text colspan=3>
+			This value defines how the points for ranking a player are calculated.<br>
+			<b>PLEASE NOTE:</b>
+			You'll have to construct a SQL-conform Formula in order for this to work.
+			If you mess up the formula you might get displaying-problems. In that case
+			come back here and chage it back.<p>
+			Allowed variables (all based on per-player) and mathematic operations for the formula are:<br>
+			<table class=admin>
+			  <tr>
+			    <td><b><u>Math:</u></b></td>
+			    <td>*,/,+,-,(,) and numeric values</td>
+			  </tr>
+			  <tr>
+			    <td colspan=2><b><u>Variables:</u></b></td>
+			  </tr>
+			  <tr>
+			    <td><b>score</b></td>
+			    <td>Total Score</td>
+			  </tr>
+			  <tr>
+			    <td><b>tks</b></td>
+			    <td>Total TKs</td>
+			  </tr>
+			  <tr>
+			    <td><b>kills</b></td>
+			    <td>Total Kills</td>
+			  </tr>
+			  <tr>
+			    <td><b>deaths</b></td>
+			    <td>Total Deaths</td>
+			  </tr>
+			  <tr>
+			    <td><b>captures</b></td>
+			    <td>Total Captures</td>
+			  </tr>
+			  <tr>
+			    <td><b>attacks</b></td>
+			    <td>Total Attacks</td>
+			  </tr>
+			  <tr>
+			    <td><b>objectives</b></td>
+			    <td>Total achieved Objectives</td>
+			  </tr>
+			  <tr>
+			    <td><b>heals</b></td>
+			    <td>Total Number of Heals</td>
+			  </tr>
+			  <tr>
+			    <td><b>selfheals</b></td>
+			    <td>Total Number of Self-Heals</td>
+			  </tr>
+			  <tr>
+			    <td><b>repairs</b></td>
+			    <td>Total Number of Repairs</td>
+			  </tr>
+			  <tr>
+			    <td><b>otherrepairs</b></td>
+			    <td>Total Number of Repairs to others</td>
+			  </tr>
+			  <tr>
+			    <td><b>rounds_played</b></td>
+			    <td>Total Number of Rounds-played</td>
+			  </tr>
+			  <tr>
+			    <td><b>kdrate</b></td>
+			    <td>The Kill/Death Rate</td>
+			  </tr>
+			  <tr>
+			    <td><b>first</b></td>
+			    <td>Total Number of being first in Battlefield End-Of-Game-Ranking</td>
+			  </tr>
+			  <tr>
+			    <td><b>second</b></td>
+			    <td>Total Number of being second in Battlefield End-Of-Game-Ranking</td>
+			  </tr>
+			  <tr>
+			    <td><b>third</b></td>
+			    <td>Total Number of being third in Battlefield End-Of-Game-Ranking</td>
+			  </tr>
+			</table>			  
+		  </td>
+         </tr>         
+         <tr class=light>
+          <td class=admin_clear><b>Current Ranking-Formula:</b></td>
+          <td class=admin_clear><i><tmpl_var name="formula"></i></td>
+          <td class=admin_clear width=55%>&nbsp;</td>          
+         </tr>        
+         <tr class=light>
+          <td class=admin_clear>New "Formula"-value:</td>
+          <td class=admin_clear><input type=text name={tmpl_var name='param_formula'} value="{tmpl_var name='input_formula'}" size=75></td>
+          <td class=admin_clear>&nbsp;</td>          
+         </tr>         
+         <tr class=light>
+          <td class=admin_clear>Rounding Level for Points</td>
+          <td class=admin_clear colspan=2><input type=radio name={tmpl_var name='param_round'} value="{tmpl_var name='input_round1'}" {tmpl_var name='input_round1a'}>Whole Number<br><input type=radio name={tmpl_var name='param_round'} value="{tmpl_var name='input_round2'}" {tmpl_var name='input_round2a'}>No Rounding<br><input type=radio name={tmpl_var name='param_round'} value="{tmpl_var name='input_round3'}" {tmpl_var name='input_round3a'}>Other (insert number of decimal places below)</td>
+		 </tr>
+         <tr class=light>
+          <td class=admin_clear>Number of decimal for Points Rounding</td>
+          <td class=admin_clear colspan=2><input type=text name={tmpl_var name='param_roundnumber'} value="<tmpl_var name="roundingnumber">"></td>
+		 </tr>
+         <tr>
+          <td class=admin_clear colspan=3><input type=submit value="Check & Save Formula"></td>
+         </tr>         
+        </table> 
+        </form>      
+<tmpl_include file="frame_foot.html">	  

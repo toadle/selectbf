@@ -1,0 +1,740 @@
+------------------------------------------------------------------------------------------
+select(bf) A Battelfield 1942 XML Log Parsing Tool and Statistics generator
+
+Copyright (C) 2003  Tim Adler
+
+Version 0.3b -> NOTE: This file is outdated, only here because it might still be of help!
+
+http://www.selectbf.org
+------------------------------------------------------------------------------------------
+select(bf) is published under the conditions of the General Public License (GPL)
+Therefore this program is distributed in the hope that it will be useful, but 
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or 
+FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+select(bf) makes use of some other projects that are believed to be be freely available. 
+They are either packed with select(bf) as a library or integrated with the code.
+There to mention: 
+
+Connector/J available under GPL (http://www.mysql.com/)
+
+JDOM available under Apache-style open source license (http://www.jdom.org/)
+
+JZLIB available under GPL (http://www.jcraft.com/jzlib/)
+
+Jakarta Commons/Net available under Apache Software License, Version 1.1 (http://jakarta.apache.org)
+
+Please see further below for license informations regarding the above products!
+
+
+
+Also included is a version of vLib Template (http://vlib.activefish.com).
+
+------------------------------------------------------------------------------------------
+NOTICE: No license harm is intended with select(bf) so, if you don't agree with 
+how select(bf) does things, please contact tim@s-h-i-n-y.com. 
+------------------------------------------------------------------------------------------
+
+===========================
+SELECT(BF) TEMPLATING GUIDE
+===========================
+
+STARTUP NOTICE:
+----------------------------------------------
+| Templating select(bf) is VERY EASY. If you |
+| simply start by copying and editing the    |
+| default template. Don't be frightened by   |
+| the huge amount of infos in here. This is  |
+| just because I wanted to take care that    |
+| people can create template-sets from       |
+| scratch, if they wanted to                 |
+----------------------------------------------
+
+1. About
+
+After finishing the 0.2 I noticed that the design I chose was not very easy to understand
+cause I tried to make it look good and therefore had a lot of Tables and graphics in there.
+Also at that time the data-collection and designing resided in the same files, which was not
+very clean and made the sites even harder to understand (some people still manage to do so, right Adi *g*?)
+So I decided to rewrite the whole select(bf)-PHP part for version 0.3. Now select(bf) uses
+clean Templating technics to on the one hand collect the data and on the other display them 
+in a HTML-Page.
+
+
+2. Technics
+
+I didn't write the templating-system myself. I used a very good and easy to understand engine
+that is freely available which is called vLib-Template. I think that by simply looking through 
+the template-sets that come with select(bf) should give you an idea of how to write those 
+templates youself. If you get problems to understand the different <tmpl>-Tags, I'd like to
+point you to the very nice documentation that they offer on their page. They also offer their
+docs in different languages. 
+Please take a look here: http://vlib.activefish.com/docs/vlibTemplate.html
+
+
+3. Template-Sets that come with select(bf)
+
+There are two template-sets that come with select(bf):
+
+- "default": 	This is the template-set that I especially wrote to make deriving or own
+				design as easy as possible. It uses very few graphics and mostly creates
+				the design throught the use of CSS. So if you want to modify the whole look
+				simply modify the CSS-file and you should have a quick result.
+- "original":	As the name states this is the design of select(bf) in it's 0.2 look. 
+				PLEASE NOTE that this template-set does not use all of the 0.3 features yet.
+				I haven't had the time to add all of the new features to this template-set
+				cause I thought that I should rather concentrate on making an easier to 
+				understand template-set. Perhaps if I find the time in the future, I'll finish it.
+
+			
+4. Changing the active Template-Set
+
+Thats easy to do. Simply enter the Admin-mode on your webpage and change the active Template-Set
+in the corresponding Admin-section. A preview-frame will show you the actual look of the page
+after you changed the template. 
+PLEASE NOTE: At the moment the Admin-Mode will ALWAYS use the select(bf)-"default" template.
+Basically it is templatable like the rest of the page, but I thought until people get used to
+writing their own templates, it would be better to always have a working Admin-Mode. Throughout
+the Template-Writing process it is easily possible to mess up the pages that way that they 
+do not display anything anymore. Under this condition, simply access the 
+http://<your-select(bf)-website>/admin, log-in and change the template back to a working one.
+
+
+5. How to write your own Template
+
+As I already stated above, my suggestion for adjusting the design to your needs is: taking the 
+"default" template set and rewriting it the way you like. But for doing this, you'll need
+a few basics to know about the template-technics, so that you understand what you are editing.
+
+   5.1 Template-structure
+  As you probably already noticed: All the select(bf)-Templates reside in the "templates" subdir
+  of the PHPs. Every directory that lies here, is considered a "template" by select(bf). That it
+  really IS a usable template, of course is your job. 
+  There is basically two types of files, two important directories and one important graphic in 
+  the templates dir, that are used by default:
+  
+  		The "config.php" file - 		This file holds some configuration information for the
+  										template. All the graphics that are used dynamically by
+  										select(bf) are configured here. Also you specify the 
+  										CSS-file here.
+  		
+  		All ".html"-files	  - 		These files are actually the files that hold the HTML and
+  										template code that later on generate the final stats pages.
+  										If you know your way to HTML, you should be easily able
+  										to edit these pages. 
+  		
+  		The "images" dir	  - 		This directory should hold all the graphics for your template
+  										set. Of course you are able to put the graphics wherever
+  										you like, but the "config.php" is always configured by
+  										originating from this directory.
+  		
+  		The "include" dir	  - 		This directory should holf all the files that are included
+  										into other files. Especially the CSS-file is configured
+  										orignating from the directory.
+  		
+  		The "blank.gif"		  - 		Whener there is no graphic sepcified for a certain place in the
+  										stats, select(bf) uses a graphic called "blank.gif" from the
+  										"images"-subdir to display an empty spot. Please make this graphic
+  										a total transparent GIF.
+  										
+    5.2 The HTML-files
+  As already stated: These files are used to create the final HTML-code that shows you stats.
+  The HTML-files have to have certain name so that select(bf) can find them, and you get the
+  appropriate variables for the display.
+  
+  		"index.html" 		  -			This page is used for the index-page. It hold the Ranking,
+  										Last Games and Search.
+  		"character.html"	  -			The page shows which Character-Types are used most, and and
+  										Overview of the best Medics and Engineers.
+  		"weapon.html"		  -			Here all of your customized categories are available as 
+  										datasources. I'll explain this in more detail as soon
+  										as we get to the variables.
+  		"player.html"		  -			This is the detail-view for a given player
+  		"vehicle.html"		  -			This pages shows which vehicle is used most often
+  		"maps.html"			  -			Shows a quick overview of all maps that have been played
+  		 								throughout the logs.
+  		"map.html"			  -			Detail-view for one certain map
+  	  	"usage.html"		  -			Displays a 24h overview of the server-usage
+  	  	"search.html"		  -			Displays the results of a given search
+  	  	
+    5.3 Starting your own Template
+  You basically start a template by adding a new directory to your "templating"-subdir and creating
+  a "config.php" with some of the needed informations. I'd suggest you copy the "default"-template
+  to a new dir and start editing here
+  
+    5.4 The config.php-file
+  Here you configure the CSS file and some of the graphics that are dynamically used in select(bf).
+  Please see the config.php of the default-template for an explanation of the different variables 
+  that are shown here.
+  Whenever you see a variable with a number at the end ($variable[0]) you might add as much graphics
+  as you like. Always increase the number with a new graphic ($variable[0], $variable[1]...)
+  Whenever you see a variable with a certain mapping ($array["mapping"]), either use the exact mapping
+  as already used, or added mappings according to the specifications stated in the config file, e.g.
+  for Map-Graphics ($variable["mapname"]).
+  PLEASE NOTE: It is essential that you stick to the variable names and the certain mappings in the
+  hashmap-arrays, otherwise select(bf) will no be able to use your template at all, or will start to
+  behave very strange.
+  
+    5.5 The Variables
+  If you read through the vLib-Template-Documentation (please do so, or you might not be able to understand,
+  what the following lines are about) or took a look  into the "default"-template, you perhaps already noticed 
+  that there are two types of variables that hold the stats-data: variables and loops. Variables are basically
+  simple data that only have one certain value. Loops are a collection of variables that can be iterated. In
+  every iterationg (which is done automatically) the value of the variables change according to the certain
+  dataset that is is in, e.g. within the ranking, it changes from player to player. They are accessed by a 
+  certain name that you also see in the template-pages e.g. <tmpl_var name="name">.  If you see any <tmpl_if>s 
+  then the name they use is no different from variables. These variables are simply set in a certain way, so 
+  that you can use them in if-constructs. Of course you cannot use them, if you don't know their name.
+    
+  Ok, I have the ambitious plan to state a complete list of variable for every page in the following lines.
+  Please bear with me, if I forget some or only state the important ones. It is simply such a huge amount of
+  variables that I don't know if I get them all back together at this point.
+  
+  IMPORTANT: There are variables in the pages that are NOT always set, or only under certain circumstances.
+  e.g. the variables containing the links for the "next" and "previous"-buttons are only set, if there is
+  a reason to have them set ("previous" is not set, if there are no previous pages). You most likely don't
+  want to display anything that has no value. In this case simply check the variable through a <tmpl_if>.
+  If the variable has a value, it will react as "true" otherwise as "false".
+  
+  
+    5.5.1 General Variables
+  These variables are available on EVERY select(bf)-page:
+  ===========================================================================================
+  Variables
+  ===========================================================================================
+  "TITLE"				title of the current page
+  "CSS"					complete HTML-usable path to your CSS-file
+  "IMAGES_DIR"  		HTML-usable path to your "images"-subdir with ending "/"
+  "ADMINMODE_LINK"		the HTML-ready link to the admin-mode pages
+  "PROCESSTIME"			The total time in seconds it took select(bf) to render this page
+  ===========================================================================================
+  Loops
+  ===========================================================================================
+  "NAVBAR"				The Navigationbar, containg the links to all parts of the stats
+     ----------------------------------------------------------------------------------------  
+  	 | "link"   		link of the NavBar-item
+  	 | "text"    		text for the NavBar-item
+     ----------------------------------------------------------------------------------------    	   
+  "CONTEXTBAR"  		The Contextbar, that contains a hierachy, of where you are in the stats at the moment  
+     ----------------------------------------------------------------------------------------  
+  	 | "link"   		link of the ContextBar-item
+  	 | "text"    		text for the ContextBar-item
+     ----------------------------------------------------------------------------------------    	     
+  ===========================================================================================
+  
+  
+    5.5.2 Variables on the different pages
+    
+  Variables on the index.html:
+  ===========================================================================================
+  Variables
+  ===========================================================================================
+  "score_link"				Link for the "score"-column in Ranking	          
+  "kills_link"         	 	Link for the "kills"-column in Ranking
+  "deaths_link"        	 	Link for the "deaths"-column in Ranking
+  "kdrate_link"        	 	Link for the "kill-death-rate"-column in Ranking
+  "first_link"          	Link for the "gold-stars"-column in Ranking
+  "second_link"         	Link for the "silver-stars"-column in Ranking
+  "third_link"          	Link for the "bronze-stars"-column in Ranking
+  "tks_link"            	Link for the "tks"-column in Ranking
+  "attacks_link"        	Link for the "basepoint-conquers"-column in Ranking
+  "captures_link"       	Link for the "flag-captures"-column in Ranking
+  "objectives_link"     	Link for the "objectives"-column in Ranking
+  "rounds_link"         	Link for the "rounds-played"-column in Ranking
+  "heals_link"          	Link for the "heals"-column in Ranking
+  "repairs_link"        	Link for the "repairs"-column in Ranking
+  "desc"                	<tmpl_if>-variable: true, when the order is descending, false if not
+  "score_order"         	<tmpl_if>-variable: true, when the ranking is ordered by score
+  "kills_order"         	<tmpl_if>-variable: true, when the ranking is ordered by kills
+  "deaths_order"        	<tmpl_if>-variable: true, when the ranking is ordered by deaths
+  "kdrate_order"        	<tmpl_if>-variable: true, when the ranking is ordered by kill-death-rate
+  "first_order"         	<tmpl_if>-variable: true, when the ranking is ordered by gold-stars
+  "second_order"        	<tmpl_if>-variable: true, when the ranking is ordered by silver-stars
+  "third_order"         	<tmpl_if>-variable: true, when the ranking is ordered by bronze-stars
+  "tks_order"           	<tmpl_if>-variable: true, when the ranking is ordered by tks
+  "attacks_order"       	<tmpl_if>-variable: true, when the ranking is ordered by basepoint-conquers
+  "captures_order"      	<tmpl_if>-variable: true, when the ranking is ordered by flagcaptures
+  "objectives_order"    	<tmpl_if>-variable: true, when the ranking is ordered by objectives
+  "rounds_order"        	<tmpl_if>-variable: true, when the ranking is ordered by rounds-played
+  "heals_order"         	<tmpl_if>-variable: true, when the ranking is ordered by heals
+  "repairs_order"       	<tmpl_if>-variable: true, when the ranking is ordered by repairs
+  "RankPreviousButtonLink" 	containing a HTML-ready link for the ranking-previous-button
+  "RankNextButtonLink"  	containing a HTML-ready link for the ranking-next-button
+  "GamePreviousButtonLink" 	containing a HTML-ready link fot the Last-Games previous-button
+  "GameNextButtonLink"  	containing a HTML-ready link for the Last-Games next-button
+  "search_action"			the action for the search-form
+  "search_param_searchtype" the parameter-name for defining the search-type
+  "search_type_games"		the parameter-value for having a games-search
+  "search_type_players"		the parameter-value for having a player-search
+  "search_param_servername" the parameter-name for the server name
+  "search_param_day"		the parameter-name for the day that is searched in
+  "search_param_month"		the parameter-name for the month that is searched in
+  "search_param_year"		the parameter-name for the year that is searched in
+  "search_param_mod"		the parameter-name for mod
+  "search_param_playername" the parameter-name for playername
+  ===========================================================================================
+  Loops
+  ===========================================================================================
+  "ranking"				Containing the information to build up the ranking-table
+     ----------------------------------------------------------------------------------------  
+     | "name"				player's name
+     | "id"					player's id
+     | "score"				total score
+     | "kills"				total kills
+     | "deaths"				total deaths
+     | "tks"				total tks
+     | "captures"			total captures
+     | "attacks"			total attacks
+     | "objectives"			total objectives achieved
+     | "heals"				total number of non-self heals
+     | "selfheals"			total number of self-heals
+     | "repairs"			total number of repairs on empty vehicles
+     | "otherrepairs"		total number of times where the player repaired another player's vehicle
+     | "rounds"				rounds played by this player
+     | "kdrate"				kill-death rate
+     | "first"				number of gold-stars
+     | "second"				number of silver-stars
+     | "third"				number of bronze-stars
+     | "rank"				rank in the ranking
+     | "playerimg"			a HTML-ready link to an image for this player
+     | "playerdetaillink"	a HTML-ready link to the details of this player
+     | "awards"				the awards that this player achieved with start as HTML-ready code (set escape=none)
+     | "awards_withoutstars"the awards that this player achieved without the stars as HTML-ready code (set escape=none)
+     ----------------------------------------------------------------------------------------    	   
+  "navbarinforank"  	Contains the information need to build the Ranking-Navbar
+     ----------------------------------------------------------------------------------------  
+  	 | "link"   		link of the NavBar-item
+  	 | "text"   		text for the NavBar-item
+     ----------------------------------------------------------------------------------------    	     
+  "games"  				all infos about the last games played
+     ----------------------------------------------------------------------------------------  
+  	 | "servername" 	the server's name in this game
+  	 | "mod"    		the played mod in this game
+  	 | "game_mode"    	the played game-mode	 
+  	 | "map"    		the played map 	 
+  	 | "time"    		when the game started
+  	 | "rounds"    		how many rounds were played
+  	 | "modimg"    		a HTML-ready link to the mod-img
+  	 | "gamedetaillink"	a HTML-ready link to the game-details	 
+     ----------------------------------------------------------------------------------------    
+  "navbarinfogames"  	Contains the information need to build the Last-Games-Navbar
+     ----------------------------------------------------------------------------------------  
+  	 | "link"   		link of the NavBar-item
+  	 | "text"   		text for the NavBar-item
+     ----------------------------------------------------------------------------------------         	          
+  "search_mods"  		Contains all mods that can be searched for
+     ----------------------------------------------------------------------------------------  
+  	 | "name"   		The mod's name
+     ----------------------------------------------------------------------------------------         	               
+  ===========================================================================================  
+
+
+  Variables on the player.html:
+  ===========================================================================================
+  Variables
+  ===========================================================================================  
+  "name"         	 	name of the displayed player
+  "date"         	 	since when this player is monitored in the stats
+  "rounds"         	 	rounds the player played on the server 
+  "score"         	 	total score  
+  "kills"         	 	total kills
+  "deaths"         	 	total deaths
+  "tks"         	 	total tks
+  "first"         	 	number of gold stars
+  "second"         	 	number of silver stars
+  "third"         	 	number of bronze stars
+  "awards"				the awards that this player achieved with start as HTML-ready code (set escape=none)
+  "awards_withoutstars" the awards that this player achieved without the stars as HTML-ready code (set escape=none)  
+  "otherheals_time"		The time the player spend on healing other players
+  "otherheals_amount"   The amount the player healed to other players
+  "selfheals_time"      The time the player spend on healing himself
+  "selfheals_amount"    The amount this player healed to himself
+  "otherrepairs_time"   The time the player spend on reparing other player's vehicles.
+  "otherrepairs_amount" The amount the player repaired on other player's vehicles
+  "repairs_time"        The time the player spend on repairing empty vehicles
+  "repairs_amount"      The amount the player repaired on empty vehicles
+  ===========================================================================================
+  Loops
+  ===========================================================================================
+  "charactertypes"			Containing information about how often the player chose a specific kit
+     ----------------------------------------------------------------------------------------  
+     | "kit"				name of this character type's kit
+     | "count"				times used
+     | "modimg"				the modimg for this kit
+     | "bar"				the statistics-bar as HTML-ready code (set escape=none)
+     ----------------------------------------------------------------------------------------  
+  "weaponusage"				What weapon did the player use most often
+     ----------------------------------------------------------------------------------------  
+     | "weapon"				the weapon name
+     | "kills"				number of kills made with it
+     | "percentage"			percentage of all kills the player made
+     | "bar"				the statistics-bar as HTML-ready code (set escape=none)
+     ----------------------------------------------------------------------------------------  
+  "topvictims"				Which player did he kill most often
+     ----------------------------------------------------------------------------------------  
+     | "name"				victim's name
+     | "playerdetaillink"	link to the victim's details
+     | "count"				number of times the player killed the victim
+     | "percentage"			percentage of all kills made by the player, that is on this specific victim
+     | "playerimg"			a player-image for the victim as HTML-ready code
+     | "bar"				the statistics-bar as HTML-ready code (set escape=none)
+     ----------------------------------------------------------------------------------------  
+  "topassasins"				Whom was he most often killed by
+     ----------------------------------------------------------------------------------------  
+     | "name"				assasin's name
+     | "playerdetaillink"	link to the assasin's details
+     | "count"				number of times the player was killed by the assasin
+     | "percentage"			percentage of all player's deaths, that were caused by the assasin
+     | "playerimg"			a player-image for the assasin as HTML-ready code
+     | "bar"				the statistics-bar as HTML-ready code (set escape=none)
+     ----------------------------------------------------------------------------------------            
+  "favvehicles"				what vehicle did the player use most often
+     ----------------------------------------------------------------------------------------  
+     | "vehicle"			the vehicle name
+     | "time"				the time he spend driving this vehicle
+     | "percentage"			percentage of all drivetime
+     | "bar"				the statistics-bar as HTML-ready code (set escape=none)  
+     ----------------------------------------------------------------------------------------  
+  "mapperformance"			This player's best maps
+     ----------------------------------------------------------------------------------------  
+     | "map"				the map's name
+     | "mapdetaillink"		link to the map's details
+     | "score"				the score the player made on this map
+     | "percentage"			percentage of all score
+     | "bar"				the statistics-bar as HTML-ready code (set escape=none)  
+     ----------------------------------------------------------------------------------------  
+
+
+  Variables on the character.html:
+  ===========================================================================================
+  Variables
+  ===========================================================================================  
+  ...none...
+  ===========================================================================================
+  Loops
+  ===========================================================================================
+  "charactertypes"			The TOP15 list of used character-types
+     ----------------------------------------------------------------------------------------  
+     | "kit"				the character type's kitname
+     | "times_used"			times used
+     | "modimg"				the modimg for this kit
+     | "percentage"			percentage of all kits chosen
+     | "bar"				the statistics-bar as HTML-ready code (set escape=none)
+     ----------------------------------------------------------------------------------------  
+  "repairs"					The TOP15 list of the repairing Engineers (only considers repairs that repair other player's vehicles)
+     ----------------------------------------------------------------------------------------  
+     | "name"				player's name
+     | "playerdetaillink"	link to this player's details
+     | "time"				time the player spent on repairing
+     | "amount"				amount the player repaired
+     | "bar"				the statistics-bar as HTML-ready code (set escape=none)
+     ----------------------------------------------------------------------------------------       
+  "heals"					The TOP15 list of the healing Medics (only considers heals that heal other players)
+     ----------------------------------------------------------------------------------------  
+     | "name"				player's name
+     | "playerdetaillink"	link to this player's details
+     | "time"				time the player spent on healing
+     | "amount"				amount the player heald
+     | "bar"				the statistics-bar as HTML-ready code (set escape=none)
+     ----------------------------------------------------------------------------------------       
+     
+     
+  Variables on weapon.html:
+  NOW it is getting slightly tricky. This "weapon.html" is the most versatile and for you perhaps
+  most interesting page in the whole select(bf)-templating process. On this page you cannot only
+  specify the look of the page, no you can also specify the variables that are set. You can 
+  do this through the "Categories"-page in the Admin-Mode. Here you can create Weapon-Categories
+  and let them be gathered for the weapon.html page. Whenever you have the "collect data" option 
+  set to "yes", select(bf) will gather the configured data for you and makes them available on the
+  weapon.html page. The variables are made available under certain naming conventions that use your
+  configured datasource-name as basis.
+  
+  Naming-conventions:
+  ===========================================================================================
+  Variables
+  ===========================================================================================  
+  "<your datasourcename>_head"		the Category-Name you specified
+  ===========================================================================================
+  Loops
+  ===========================================================================================
+  "<your datasourcename>"			The TOP15 list of players for the weapons you specified for your category
+     ----------------------------------------------------------------------------------------  
+     | "name"						The player's name
+     | "playerdetaillink"			link to this player's details
+     | "playerimg"					a player-image for the player as HTML-ready code
+     | "count"						number of kills the player made with the configured weapons
+     | "bar"						the statistics-bar as HTML-ready code (set escape=none)
+     ----------------------------------------------------------------------------------------  
+  "datasources"						This loop is provided for convinience, in the case you don't want to template every single weapon different
+     ----------------------------------------------------------------------------------------  
+     | "head"						The datasources's title
+     | "data"						The datasources's data
+	 |   ------------------------------------------------------------------------------------ 
+	 |   | "name"						The player's name
+	 |   | "playerdetaillink"			link to this player's details
+	 |   | "playerimg"					a player-image for the player as HTML-ready code
+	 |   | "count"						number of kills the player made with the configured weapons
+	 |   | "bar"						the statistics-bar as HTML-ready code (set escape=none)
+	 |   ------------------------------------------------------------------------------------
+     ----------------------------------------------------------------------------------------  
+  ===========================================================================================  
+  
+  This concept allows you to create you own statistics for every kind of weapons. Like in the
+  0.2 the tables for "wings of fury" and "tiger-asses". BUt you can also create statistics for
+  "Helicopter" or "Sniper" basically, IT IS TOTALLY UP TO YOU :)
+
+  
+  Variables on vehicle.html:
+  ===========================================================================================
+  Variables
+  ===========================================================================================  
+  ...none...
+  ===========================================================================================
+  Loops
+  ===========================================================================================
+  "vehicle_usage"			The TOP25 list of vehicles used
+     ----------------------------------------------------------------------------------------  
+     | "vehicle" 			The vehicle's name
+     | "time"	 			Total time used
+     | "percentage_time"	% of the duration of all drives
+     | "times_used"			How often this vehicle has been used
+     | "percentage_usage"	% of all usages on this vehicle
+     | "kills"				all kills made with this vehicle
+     | "percentage_kills"	% of all kills made with this vehicle
+     | "bar"				the statistics-bar as HTML-ready code (set escape=none)
+     ----------------------------------------------------------------------------------------       
+  ===========================================================================================     
+
+  Variables on game.html:
+  ===========================================================================================
+  Variables
+  ===========================================================================================  
+  "servername"				servername during that game	
+  "mod"						played game
+  "mapid"					"mapid" servervariable
+  "map"						Map played
+  "game_mode"				game-mode played
+  "gametime"				Timelimit
+  "maxplayers"				"maxplayers" server-variable
+  "scorelimit"				Scorelimit
+  "spawntime"				server's respawn-time
+  "soldierff"				"soldierff" server variable
+  "vehicleff"				"vehilceff" server variable
+  "tkpunish"				Tks punished ?
+  "deathcamtype"			How was the deathcamtype ?
+  "date"					The date this game happened
+  "modimg"					The Image for the played mod as HTML-ready link
+  ===========================================================================================
+  Loops
+  ===========================================================================================
+  "rounds"					Containing all informations about the rounds 
+     ----------------------------------------------------------------------------------------  
+     | "id					This game select(bf)-ID
+     | "start_tickets_team1 Team1's start-tickets
+     | "start_tickets_team2	Team2's start-tickets
+     | "starttime			The Timestamp when the game started
+     | "end_tickets_team1	Team1's end-tickets
+     | "end_tickets_team2	Team2's end-tickets
+     | "endtime				The Timestamp when the game ended
+     | "winning_team		The number of the team, that won
+     | "isRegular			<tmpl_if>-variable: true, when the round had a definite end, false if not
+     | "isRestart			<tmpl_if>-variable: true, when the round was restarted, false if not
+     | "isForced			<tmpl_if>-variable: true, when the round end was guessed/forces by the parser, false if not
+     | "axis_won			<tmpl_if>-variable: true, when the round was won by the axis/team1, false if not
+     | "allies_won			<tmpl_if>-variable: true, when the round was won by the allies/team2, false if not
+     | "nobody_won			<tmpl_if>-variable: true, when the round was won by nobody/team0, false if not
+     |=======================================================================================
+     |  Inner-Loops
+     |=======================================================================================
+     | "topthree"			Containing the Top-Three for this rounds
+     |    -----------------------------------------------------------------------------------
+     |    | "name"			The player's name
+     |    | "score"			player's score in this round
+     |    | "kills"			player's kills in this round
+     |    | "deaths"		player's deaths in this round
+     |    | "tks"			player's tks in this round
+     |    | "captures"		player's flag-captures in this round
+     |    | "attacks"		player's basepoint conquers in this round
+     |    | "objectives"	player's objectives achieved in this round                                   
+     |    | "starimg"		a HTML-ready link to the image that shows the right star for this player                                   
+     |    | "TeamFlag"		a HTML-ready link to the player's team's flag
+     |    -----------------------------------------------------------------------------------
+     | "axis"				Contains the stats for the axis/team1
+     |    -----------------------------------------------------------------------------------
+     |    | "name"			The player's name
+     |    | "score"			player's score in this round
+     |    | "kills"			player's kills in this round
+     |    | "deaths"		player's deaths in this round
+     |    | "tks"			player's tks in this round
+     |    | "captures"		player's flag-captures in this round
+     |    | "attacks"		player's basepoint conquers in this round
+     |    | "objectives"	player's objectives achieved in this round                                   
+     |    | "starimg"		a HTML-ready link to the image that shows the right star for this player                                   
+     |    | "TeamFlag"		a HTML-ready link to the player's team's flag
+     |    -----------------------------------------------------------------------------------     
+     | "allies"				Contains the stats for the allies/team2
+     |    -----------------------------------------------------------------------------------
+     |    | "name"			The player's name
+     |    | "score"			player's score in this round
+     |    | "kills"			player's kills in this round
+     |    | "deaths"		player's deaths in this round
+     |    | "tks"			player's tks in this round
+     |    | "captures"		player's flag-captures in this round
+     |    | "attacks"		player's basepoint conquers in this round
+     |    | "objectives"	player's objectives achieved in this round                                   
+     |    | "starimg"		a HTML-ready link to the image that shows the right star for this player                                   
+     |    | "TeamFlag"		a HTML-ready link to the player's team's flag     
+     |    -----------------------------------------------------------------------------------          
+     |=======================================================================================     
+     ----------------------------------------------------------------------------------------       
+  ===========================================================================================       
+  
+  
+  Variables on maps.html:
+  ===========================================================================================
+  Variables
+  ===========================================================================================  
+  ...none...
+  ===========================================================================================
+  Loops
+  ===========================================================================================
+  "mapstats"				Containg an overview of the stas for all maps that are played on this server
+     ----------------------------------------------------------------------------------------  
+     | "map"							The map-name
+     | "wins_team1"						number of wins of team1 on this map
+     | "wins_team2"						number of wins of team2 on this map
+     | "win_team1_end_tickets_team1"    average tickets of team1 when team1 won
+     | "win_team1_end_tickets_team2"    average tickets of team2 when team1 won
+     | "win_team2_end_tickets_team1"    average tickets of team1 when team2 won
+     | "win_team2_end_tickets_team2"    average tickets of team2 when team2 won
+     | "score_team1"					total score that team1 achieved on this map
+     | "score_team2"					total score that team1 achieved on this map
+     | "kills_team1"					total kills that team1 made on this map
+     | "kills_team2"					total kills that team1 made on this map
+     | "deaths_team1"					total losses that team1 had on this map
+     | "deaths_team2"					total losses that team2 had on this map
+     | "attacks_team1"					total basepoint conquers that team1 achieved on this map
+     | "attacks_team2"   				total basepoint conquers that team2 achieved on this map
+     | "captures_team1"					total flag-captures conquers that team1 achieved on this map
+     | "captures_team2"					total flag-captures conquers that team1 achieved on this map
+     | "bar"							the statistics-bar as HTML-ready code (set escape=none)  
+     | "mapdetaillink"					a HTML-ready link to this map's details
+     | "screen"							a HTML-ready link to this map's image
+     ----------------------------------------------------------------------------------------  
+  ===========================================================================================          
+
+
+
+  Variables on map.html:
+  ===========================================================================================
+  Variables
+  ===========================================================================================  
+  "mapname"								The map-name     
+  "wins_team1"							number of wins of team1 on this map     
+  "wins_team2"					 		number of wins of team2 on this map     
+  "win_team1_end_tickets_team1" 	   	average tickets of team1 when team1 won     
+  "win_team1_end_tickets_team2"    		average tickets of team2 when team1 won     
+  "win_team2_end_tickets_team1"    		average tickets of team1 when team2 won     
+  "win_team2_end_tickets_team2"    		average tickets of team2 when team2 won     
+  "score_team1"							total score that team1 achieved on this map     
+  "score_team2"							total score that team1 achieved on this map     
+  "kills_team1"							total kills that team1 made on this map     
+  "kills_team2"							total kills that team1 made on this map     
+  "deaths_team1"						total losses that team1 had on this map     
+  "deaths_team2"						total losses that team2 had on this map     
+  "attacks_team1"						total basepoint conquers that team1 achieved on this map
+  "attacks_team2"   					total basepoint conquers that team2 achieved on this map
+  "captures_team1"						total flag-captures conquers that team1 achieved on this map
+  "captures_team2"						total flag-captures conquers that team1 achieved on this map
+  "screen"								a HTML-ready link to this map's image
+  "best_player"							the name of the player who played the best round on this map
+  "best_playerdetaillink"				the detaillink to the player who played the best round on this map
+  "best_score"						    the score of the player who played the best round on this map
+  "best_kills"							the kills of the player who played the best round on this map
+  "best_deaths"							the deaths of the player who played the best round on this map
+  "best_attacks"						the basepoint-captures of the player who played the best round on this map
+  "best_tks"							the tks of the player who played the best round on this map
+  "best_gamedetaillink"					the gamedetaillink to the game where the player played the best round
+  "best_gamename"						the game's name where the player played the best round
+  "best_time"							the time the game happened  
+  ===========================================================================================
+  Loops
+  ===========================================================================================
+  "kills"								The TOP15 killers on this map
+     ----------------------------------------------------------------------------------------  
+     | "name"							player's name
+     | "playerdetaillink"				HTML-ready link to the player's details     
+     | "count"							kills this player made on this map
+     | "playerimg"						an image for this player
+     | "bar"							the statistics-bar as HTML-ready code (set escape=none)  
+     ----------------------------------------------------------------------------------------       
+  "attacks"								The TOP15 basepoint conquerers on this map
+     ----------------------------------------------------------------------------------------  
+     | "name"							player's name
+     | "playerdetaillink"				HTML-ready link to the player's details     
+     | "count"							basepoint conquers this player made on this map
+     | "playerimg"						an image for this player
+     | "bar"							the statistics-bar as HTML-ready code (set escape=none)  
+     ----------------------------------------------------------------------------------------            
+  "deaths"								The TOP15 of the people that died most on this map
+     ----------------------------------------------------------------------------------------  
+     | "name"							player's name
+     | "playerdetaillink"				HTML-ready link to the player's details     
+     | "count"							deaths of this player on this map
+     | "playerimg"						an image for this player
+     | "bar"							the statistics-bar as HTML-ready code (set escape=none)  
+     ----------------------------------------------------------------------------------------              
+  "tks"									The TOP15 of the people that made the most tks on this map
+     ----------------------------------------------------------------------------------------  
+     | "name"							player's name
+     | "playerdetaillink"				HTML-ready link to the player's details     
+     | "count"							tks of this player on this map
+     | "playerimg"						an image for this player
+     | "bar"							the statistics-bar as HTML-ready code (set escape=none)  
+     ----------------------------------------------------------------------------------------                   
+  "drives"								The TOP15 of the vehicles used on this map
+     ----------------------------------------------------------------------------------------  
+     | "vehicle"						vehicle's name
+     | "time"							time this vehicle was driven on the map
+     | "bar"							the statistics-bar as HTML-ready code (set escape=none)  
+     ----------------------------------------------------------------------------------------                        
+  ===========================================================================================
+  
+
+
+  Variables on usage.html:
+  ===========================================================================================
+  Variables
+  ===========================================================================================  
+  ...none...
+  ===========================================================================================
+  Loops
+  ===========================================================================================
+  "server_usage"						Contains a 24-hours overview of the serverusage
+     ----------------------------------------------------------------------------------------  
+     | "time"							hour of the day
+     | "count"							number of server-joins
+     | "playtime"						total time spent playing during this hour on the server
+     | "percentage"						percentage of all playtime spent during this hour
+     | "bar"							the statistics-bar as HTML-ready code (set escape=none)    
+     ----------------------------------------------------------------------------------------                        
+  ===========================================================================================       
+
+
+6. Final Words
+
+OK, after this hopefully complete listing of variables, I again encourage you to take a look at
+the templating system. And again I hope that you find your way through and can make the stats look
+like you want. There's lots of posibilities and I hope you can make good use of them.
+One request: If you edit the Template-Sets and create your own one, please always attach a footer
+to the page that states what created and collected the stats. So that people are able to get
+select(bf) for themselves.
+
+
+Something like this:
+
+<center>generated by <a href="http://www.selectbf.org">select(bf)</a> in <tmpl_var name="PROCESSTIME"></center>
+<center>licensed under conditions of the <a href="http://www.gnu.org/licenses/gpl.txt" target="_blank">GeneralPublicLicense (GPL)</a></center> 
+
+
+Thank you and good luck with the templating!

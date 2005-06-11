@@ -1,0 +1,56 @@
+<html>
+<head>
+<title><tmpl_var name="title"></title>
+</head>
+
+<body>
+This is the 1st example of the 3 stage loop method:
+<table>
+    <tr bgcolor="#dddddd">
+        <td>ID:</td>
+        <td>Username:</td>
+        <td>Password:</td>
+    </tr>
+<tmpl_loop name="loop1">
+    <tr>
+        <td><tmpl_var name='id'></td>
+        <td><tmpl_var name='username'></td>
+        <td><tmpl_var name='password'></td>
+    </tr>
+</tmpl_loop>
+</table>
+
+<br><br>
+
+This is the 2nd example of the 3 stage loop method, identical to example 1, except in the code:
+<table>
+    <tr bgcolor="#dddddd">
+        <td>ID:</td>
+        <td>Username:</td>
+        <td>Password:</td>
+    </tr>
+<tmpl_loop name="loop2">
+    <tr>
+        <td><tmpl_var name='_0'></td>
+        <td><tmpl_var name='_1'></td>
+        <td><tmpl_var name='_2'></td>
+    </tr>
+</tmpl_loop>
+</table>
+
+<br><br>
+
+This is the 3rd very simple example of the 3 stage loop method:
+
+<br><br>
+<b>Here's a list of my favourite fuits:</b><br>
+<tmpl_loop name="loop3">
+    <tmpl_var name="__ROWNUM__">. <tmpl_var name="fruit"><br>
+</tmpl_loop>
+
+<br>
+<br>
+
+<a href="./vlibTemplate_basicloop.php?showsource=1">show source</a>|<a href="./vlibTemplate_basicloop.php?showsource=2">show template</a>
+</body>
+</html>

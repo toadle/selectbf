@@ -1,0 +1,33 @@
+<tmpl_include file="head.html">
+ <table width="95%" border="1" align="center">
+   <tr class="head">
+     <th colspan="16" class="super" scope="col">Vehicle Usage</th>
+   </tr>
+   <tr class=head>
+     <th class=number>Vehicle</th>
+     <th>Drivetime</th>
+     <th class=number>% of Drivetime</th>
+     <th class=number>Times used</th>
+     <th class=number>% of Usage</th>     
+     <th class=number>Kills</th>     
+     <th class=number>% of Kills</th>      
+     <th>&nbsp;</th>
+   </tr>  
+   <tmpl_loop name="vehicle_usage">
+   <tmpl_if name="__EVEN__">
+   <tr class="light">
+   <tmpl_else>
+   <tr class="dark">
+   </tmpl_if>
+     <td><tmpl_var name="vehicle"></td>
+     <td class=number><tmpl_var name="time"></td>
+     <td class=number><tmpl_var name="percentage_time"></td>     
+     <td class=number><tmpl_var name="times_used"></td>          
+     <td class=number><tmpl_var name="percentage_usage"></td>               
+     <td class=number><tmpl_var name="kills"></td>                    
+     <td class=number><tmpl_var name="percentage_kills"></td>  
+     <td><tmpl_var name="bar" escape="none"></td>                       
+   </tr>
+   </tmpl_loop>
+ </table>  
+<tmpl_include file="foot.html">

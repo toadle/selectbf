@@ -1,0 +1,133 @@
+<tmpl_include file="frame_head.html">
+      <p>
+        <h3>Mod Assignment</h3><p>
+        <tmpl_include name="messages.inc">
+        <table class=admin width=100%>
+         <tr>
+		  <td class=help_text>
+			Here you assign the specific <i>Mod</i> to all <b>Kits</b> and <b>Weapons</b>. <b>select(<i>bf</i>)</b> will use this information to display the origin of <b>Kits</b> and <b>Weapons</b> in the stats.
+		  </td>
+		 </tr>
+        </table>
+        <h1>Kits</h1>
+        <tmpl_if name="kits">
+         <table class=navbar width=50%>
+          <tr class=head>
+           <th>Kit</th>
+           <th>Mod</th>
+           <th>&nbsp;</th>
+          </tr>
+          <tmpl_loop name="kits">
+          <tmpl_if name="__EVEN__">
+           <tr class="light">
+          <tmpl_else>
+           <tr class="dark">
+          </tmpl_if>
+           <td class=admin><tmpl_var name="item"></td>
+           <td class=admin><tmpl_var name="mod"></td>
+           <td class=admin><a href="{tmpl_var name='deletelink'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_delete.gif"></a></td>
+          </tr>
+          </tmpl_loop>
+         </table> 
+        <tmpl_else>
+         <table class=navbar>
+          <tr class=head>
+           <th><i>No Mods assigned</i></th>
+          </tr>
+         </table>
+        </tmpl_if>
+        <tmpl_if name="unassigned_kits">
+        <p>
+        <table class=admin width=100%>
+		<form action="{tmpl_var name='form_action'}" method=post>
+		<input type="hidden" name="{tmpl_var name='param_todo'}" value="{tmpl_var name='todo_value_kit'}">                
+         <tr>
+		  <td class=help_text colspan=5>
+			Select a <b>Kit</b> and a <b>Mod</b> that it should be assigned to.
+		  </td>
+		 </tr>
+         <tr class=light>
+          <td class=admin_clear><nobr><b>Kit:</b></nobr></td>
+          <td class=admin_clear>
+           <select name="{tmpl_var name='param_item'}">
+            <tmpl_loop name="unassigned_kits">
+             <option value="{tmpl_var name="kit"}"><tmpl_var name="cleartext"></option>
+            </tmpl_loop>
+           </select>
+          </td>
+          <td class=admin_clear><nobr><b>assigned to Mod:</b></nobr></td>
+          <td class=admin_clear>
+           <select name="{tmpl_var name='param_mod'}">
+            <tmpl_loop name="mods">
+             <option value="<tmpl_var name="mod">"><tmpl_var name="mod"></option>
+            </tmpl_loop>
+           </select>
+          </td>          
+          <td class=admin_clear width=55%><input type="submit" value=Assign></td>                    
+         </tr>  
+        </table>
+        </form>
+        </tmpl_if>
+        
+        <hr>
+        
+        <h1>Weapons</h1> 
+        <tmpl_if name="weapons">
+         <table class=navbar width=50%>
+          <tr class=head>
+           <th>Weapon</th>
+           <th>Mod</th>
+           <th>&nbsp;</th>
+          </tr>
+          <tmpl_loop name="weapons">
+          <tmpl_if name="__EVEN__">
+           <tr class="light">
+          <tmpl_else>
+           <tr class="dark">
+          </tmpl_if>
+           <td class=admin><tmpl_var name="item"></td>
+           <td class=admin><tmpl_var name="mod"></td>
+           <td class=admin><a href="{tmpl_var name='deletelink'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_delete.gif"></a></td>
+          </tr>
+          </tmpl_loop>
+         </table> 
+        <tmpl_else>
+         <table class=navbar>
+          <tr class=head>
+           <th><i>No Weapons assigned</i></th>
+          </tr>
+         </table>
+        </tmpl_if>
+        <tmpl_if name="unassigned_weapons">
+        <p>
+        <table class=admin width=100%>
+		<form action="{tmpl_var name='form_action'}" method=post>
+		<input type="hidden" name="{tmpl_var name='param_todo'}" value="{tmpl_var name='todo_value_weapon'}">                
+         <tr>
+		  <td class=help_text colspan=5>
+			Select a <b>Weapon</b> and a <b>Mod</b> that it should be assigned to.
+		  </td>
+		 </tr>
+         <tr class=light>
+          <td class=admin_clear><nobr><b>Weapon:</b></nobr></td>
+          <td class=admin_clear>
+           <select name="{tmpl_var name='param_item'}">
+            <tmpl_loop name="unassigned_weapons">
+             <option {tmpl_var name="weapon"}><tmpl_var name="cleartext"></option>
+            </tmpl_loop>
+           </select>
+          </td>
+          <td class=admin_clear><nobr><b>assigned to Mod:</b></nobr></td>
+          <td class=admin_clear>
+           <select name="{tmpl_var name='param_mod'}">
+            <tmpl_loop name="mods">
+             <option value="<tmpl_var name="mod">"><tmpl_var name="mod"></option>
+            </tmpl_loop>
+           </select>
+          </td>          
+          <td class=admin_clear width=55%><input type="submit" value=Assign></td>                    
+         </tr>  
+        </table>
+        </form>
+        </tmpl_if>                     
+<tmpl_include file="frame_foot.html">	  

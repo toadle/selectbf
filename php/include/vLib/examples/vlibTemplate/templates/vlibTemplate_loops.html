@@ -1,0 +1,54 @@
+<html>
+<head>
+<title><tmpl_var name="title"></title>
+</head>
+
+<body>
+This is an example of a basic loops, it has only one loop structure:
+<table>
+    <tr bgcolor="#dddddd">
+        <td>Name:</td>
+        <td>Age:</td>
+        <td>Sex:</td>
+        <td>Height:</td>
+    </tr>
+<tmpl_loop name="basic_loop">
+    <tr>
+        <td><tmpl_var name='name'></td>
+        <td><tmpl_var name='age'></td>
+        <td><tmpl_var name='sex'></td>
+        <td><tmpl_var name='height'></td>
+    </tr>
+</tmpl_loop>
+</table>
+
+<br><br>
+
+
+
+This is an example of a more complicated loop with an inner loop:
+
+<form style="display:inline;">
+<table>
+    <tr bgcolor="#dddddd">
+        <td>Name:</td>
+        <td>Details (select):</td>
+    </tr>
+<tmpl_loop name="advanced_loop"><!-- this is the outer loop-->
+    <tr>
+        <td><tmpl_var name='name'></td>
+        <td>
+            <select>
+            <option>Below is a list of this person details:
+            <tmpl_loop name="details"> <!-- this is the inner loop -->
+            <option><tmpl_var name='detail'> -&gt; <tmpl_var name='value'> </option>
+            </tmpl_loop>
+            </select>
+        </td>
+    </tr>
+</tmpl_loop>
+</table>
+</form>
+<a href="./vlibTemplate_loops.php?showsource=1">show source</a>|<a href="./vlibTemplate_loops.php?showsource=2">show template</a>
+</body>
+</html>

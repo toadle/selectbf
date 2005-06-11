@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<bf:log version="1.1" xmlns:bf="http://www.dice.se/xmlns/bf/1.1">
+<bf:round timestamp="20.7304">
+<bf:server>
+  <bf:setting name="server name">DC 0.7 LostVillage &lt;S&gt;A&lt;S&gt; sv1</bf:setting>
+  <bf:setting name="port">14567</bf:setting>
+  <bf:setting name="dedicated">1</bf:setting>
+  <bf:setting name="modid">desertcombat</bf:setting>
+  <bf:setting name="mapid">Desertcombat</bf:setting>
+  <bf:setting name="map">dc_lostvillage</bf:setting>
+  <bf:setting name="game mode">GPM_CQ</bf:setting>
+  <bf:setting name="gametime">0</bf:setting>
+  <bf:setting name="maxplayers">38</bf:setting>
+  <bf:setting name="scorelimit">0</bf:setting>
+  <bf:setting name="norounds">10</bf:setting>
+  <bf:setting name="spawntime">10</bf:setting>
+  <bf:setting name="spawndelay">5</bf:setting>
+  <bf:setting name="gamestartdelay">14</bf:setting>
+  <bf:setting name="roundstartdelay">10</bf:setting>
+  <bf:setting name="soldierff">50</bf:setting>
+  <bf:setting name="vehicleff">50</bf:setting>
+  <bf:setting name="ticketratio">301</bf:setting>
+  <bf:setting name="internet">1</bf:setting>
+  <bf:setting name="alliedtr">1</bf:setting>
+  <bf:setting name="axistr">1</bf:setting>
+  <bf:setting name="coopskill">50</bf:setting>
+  <bf:setting name="coopcpu">100</bf:setting>
+  <bf:setting name="reservedslots">0</bf:setting>
+  <bf:setting name="allownosecam">1</bf:setting>
+  <bf:setting name="freecamera">0</bf:setting>
+  <bf:setting name="externalviews">0</bf:setting>
+  <bf:setting name="autobalance">0</bf:setting>
+  <bf:setting name="tagdistance">75</bf:setting>
+  <bf:setting name="tagdistancescope">150</bf:setting>
+  <bf:setting name="kickback">0.5</bf:setting>
+  <bf:setting name="kickbacksplash">0.5</bf:setting>
+  <bf:setting name="soldierffonsplash">50</bf:setting>
+  <bf:setting name="vehicleffonsplash">50</bf:setting>
+  <bf:setting name="hitindication">1</bf:setting>
+  <bf:setting name="tkpunish">0</bf:setting>
+  <bf:setting name="crosshairpoint">1</bf:setting>
+  <bf:setting name="deathcamtype">0</bf:setting>
+  <bf:setting name="contentcheck">0</bf:setting>
+  <bf:setting name="sv_punkbuster">1</bf:setting>
+</bf:server>
+<bf:event name="createPlayer" timestamp="33.4603">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">...</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="33.7801">
+    <bf:param type="int" name="player_id">0</bf:param>
+    <bf:param type="string" name="keyhash">ef215d3720db965a55d323d7533e416d</bf:param>
+</bf:event>
+<bf:event name="roundInit" timestamp="34.7105">
+    <bf:param type="int" name="tickets_team1">786</bf:param>
+    <bf:param type="int" name="tickets_team2">786</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="35.3303">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">[-NM-] -MaV-</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="35.3903">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">Chelly</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="35.7302">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="string" name="keyhash">fb3f31a99cc7af6a47cf1ce90ef08d81</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="35.7501">
+    <bf:param type="int" name="player_id">2</bf:param>
+    <bf:param type="string" name="keyhash">4814aee48dc5228197261cacce7bdd78</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="36.9304">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">|oR|Moranga</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="37.0703">
+    <bf:param type="int" name="player_id">3</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">sgt&lt;john</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="37.1702">
+    <bf:param type="int" name="player_id">3</bf:param>
+    <bf:param type="string" name="keyhash">581d22e12e68448c65ddd8cd6b1f9f18</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="37.3101">
+    <bf:param type="int" name="player_id">4</bf:param>
+    <bf:param type="string" name="keyhash">df2f36e54a435f06e63ba011ac58ecbf</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="37.4104">
+    <bf:param type="int" name="player_id">5</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">Sgt. Keroro</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="37.5101">
+    <bf:param type="int" name="player_id">5</bf:param>
+    <bf:param type="string" name="keyhash">79d36818e1be6fd1f0d0cb861dca50d2</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="37.9304">
+    <bf:param type="int" name="player_id">6</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">serg molpond  nl</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="38.4502">
+    <bf:param type="int" name="player_id">6</bf:param>
+    <bf:param type="string" name="keyhash">94f324951b10ecd2673453c098f195d8</bf:param>
+</bf:event>
+<bf:event name="disconnectPlayer" timestamp="39.1101">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="39.1104">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="vehicle">MultiPlayerFreeCamera</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyPlayer" timestamp="39.1106">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="string" name="player_location">(unknown)</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="40.0904">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">Pauze</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="40.1704">
+    <bf:param type="int" name="player_id">7</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">Wk</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="40.6302">
+    <bf:param type="int" name="player_id">1</bf:param>
+    <bf:param type="string" name="keyhash">d4ad8e2e4c7eacdf3a55284f1db508c6</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="40.6701">
+    <bf:param type="int" name="player_id">7</bf:param>
+    <bf:param type="string" name="keyhash">c8ef7f791fdca07e1d0b4f70693e6992</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="40.9305">
+    <bf:param type="int" name="player_id">8</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">&lt;S&gt;A&lt;S&gt; DOOBIE__!!!!.M</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="41.0301">
+    <bf:param type="int" name="player_id">8</bf:param>
+    <bf:param type="string" name="keyhash">3c82a96c1e3166fc05007b3ab0dacb34</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="41.2904">
+    <bf:param type="int" name="player_id">9</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">TheRookie</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="41.3501">
+    <bf:param type="int" name="player_id">9</bf:param>
+    <bf:param type="string" name="keyhash">456b89ade0bbe838e8e4d40a0a3795d3</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="41.8904">
+    <bf:param type="int" name="player_id">10</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">i_got_shot_again</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="42.5302">
+    <bf:param type="int" name="player_id">10</bf:param>
+    <bf:param type="string" name="keyhash">b65a17d4f5049c6977b7717347b6b1ff</bf:param>
+</bf:event>
+<bf:event name="disconnectPlayer" timestamp="47.1501">
+    <bf:param type="int" name="player_id">8</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+</bf:event>
+<bf:event name="exitVehicle" timestamp="47.1504">
+    <bf:param type="int" name="player_id">8</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="vehicle">MultiPlayerFreeCamera</bf:param>
+    <bf:param type="int" name="is_fake">0</bf:param>
+</bf:event>
+<bf:event name="destroyPlayer" timestamp="47.1506">
+    <bf:param type="int" name="player_id">8</bf:param>
+    <bf:param type="string" name="player_location">(unknown)</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="47.3603">
+    <bf:param type="int" name="player_id">8</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">steve</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="47.8603">
+    <bf:param type="int" name="player_id">8</bf:param>
+    <bf:param type="string" name="keyhash">564cc7f420c7f687a90cc9b727d67b39</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="48.4611">
+    <bf:param type="int" name="player_id">11</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">C.L.I.T. Commander</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="48.8404">
+    <bf:param type="int" name="player_id">12</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">Spectrum -= DLF =-</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="48.9201">
+    <bf:param type="int" name="player_id">11</bf:param>
+    <bf:param type="string" name="keyhash">ac92f111729b77110656b235965be195</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="49.3201">
+    <bf:param type="int" name="player_id">12</bf:param>
+    <bf:param type="string" name="keyhash">49394672ffb2a7811fc334fc982b1178</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="49.5421">
+    <bf:param type="int" name="player_id">13</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">broly1718</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="49.6203">
+    <bf:param type="int" name="player_id">13</bf:param>
+    <bf:param type="string" name="keyhash">d34ceb7738d9c339580f817d3331556a</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="51.0205">
+    <bf:param type="int" name="player_id">15</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">[DCW]DyNaMiTE</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="51.4614">
+    <bf:param type="int" name="player_id">15</bf:param>
+    <bf:param type="string" name="keyhash">bbe949e977cde5e596377384899f393c</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="51.5604">
+    <bf:param type="int" name="player_id">14</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">BigPoppa</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="51.642">
+    <bf:param type="int" name="player_id">14</bf:param>
+    <bf:param type="string" name="keyhash">b1ac7227da2a90b4ca2c36527042dc44</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="52.5604">
+    <bf:param type="int" name="player_id">16</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">EsTaBaN</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">2</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="52.7406">
+    <bf:param type="int" name="player_id">17</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">yeahMAMA[Rpg_Master]</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="createPlayer" timestamp="52.8804">
+    <bf:param type="int" name="player_id">18</bf:param>
+    <bf:param type="vec3" name="player_location">963.834/97.575/865.449</bf:param>
+    <bf:param type="string" name="name">{160th} MichaeL DuranT</bf:param>
+    <bf:param type="int" name="is_ai">0</bf:param>
+    <bf:param type="int" name="team">1</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="53.1403">
+    <bf:param type="int" name="player_id">17</bf:param>
+    <bf:param type="string" name="keyhash">36772a1e52fd775f6361f766f497b52c</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="53.1803">
+    <bf:param type="int" name="player_id">16</bf:param>
+    <bf:param type="string" name="keyhash">5bd5ff6ef3a34bb8a174a28175f7a94b</bf:param>
+</bf:event>
+<bf:event name="playerKeyHash" timestamp="53.4203">
+    <bf:param type="int" name="player_id">18</bf:param>
+    <bf:param type="string" name="keyhash">53527fdfd76bec771ba3493283ede476</bf:param>
+</bf:event>
+<bf:event name="restartMap" timestamp="54.0868">
+    <bf:param type="int" name="tickets_team1">786</bf:param>
+    <bf:param type="int" name="tickets_team2">786</bf:param>
+</bf:event>
+</bf:round>
+<bf:round timestamp="54.1329">
+<bf:server>
+  <bf:setting name="server name">DC 0.7 LostVillage &lt;S&gt;A&lt;S&gt; sv1</bf:setting>
+  <bf:setting name="port">14567</bf:setting>
+  <bf:setting name="dedicated">1</bf:setting>
+  <bf:setting name="modid">desertcombat</bf:setting>
+  <bf:setting name="mapid">Desertcombat</bf:setting>
+  <bf:setting name="map">dc_lostvillage</bf:setting>
+  <bf:setting name="game mode">GPM_CQ</bf:setting>
+  <bf:setting name="gametime">0</bf:setting>
+  <bf:setting name="maxplayers">38</bf:setting>
+  <bf:setting name="scorelimit">0</bf:setting>
+  <bf:setting name="norounds">10</bf:setting>
+  <bf:setting name="spawntime">10</bf:setting>
+  <bf:setting name="spawndelay">5</bf:setting>
+  <bf:setting name="gamestartdelay">14</bf:setting>
+  <bf:setting name="roundstartdelay">10</bf:setting>
+  <bf:setting name="soldierff">50</bf:setting>
+  <bf:setting name="vehicleff">50</bf:setting>
+  <bf:setting name="ticketratio">301</bf:setting>
+  <bf:setting name="internet">1</bf:setting>
+  <bf:setting name="alliedtr">1</bf:setting>
+  <bf:setting name="axistr">1</bf:setting>
+  <bf:setting name="coopskill">50</bf:setting>
+  <bf:setting name="coopcpu">100</bf:setting>
+  <bf:setting name="reservedslots">0</bf:setting>
+  <bf:setting name="allownosecam">1</bf:setting>
+  <bf:setting name="freecamera">0</bf:setting>
+  <bf:setting name="externalviews">0</bf:setting>
+  <bf:setting name="autobalance">0</bf:setting>
+  <bf:setting name="tagdistance">75</bf:setting>
+  <bf:setting name="tagdistancescope">150</bf:setting>
+  <bf:setting name="kickback">0.5</bf:setting>
+  <bf:setting name="kickbacksplash">0.5</bf:setting>
+  <bf:setting name="soldierffonsplash">50</bf:setting>
+  <bf:setting name="vehicleffonsplash">50</bf:setting>
+  <bf:setting name="hitindication">1</bf:setting>
+  <bf:setting name="tkpunish">0</bf:setting>
+  <bf:setting name="crosshairpoint">1</bf:setting>
+  <bf:setting name="deathcamtype">0</bf:setting>
+  <bf:setting name="contentcheck">0</bf:setting>
+  <bf:setting name="sv_punkbuster">1</bf:setting>
+</bf:server>
+</bf:round><!-- inserted by select(bf) consistency checker-->
+</bf:log><!-- inserted by select(bf) consistency checker-->

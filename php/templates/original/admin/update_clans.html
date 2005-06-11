@@ -1,0 +1,10 @@
+<tmpl_include file="frame_head.html">
+      <p>
+        <h3>Update Clan event</h3><p>
+        <tmpl_include name="messages.inc">
+        <tmpl_if name="update_method">
+			<tmpl_loop name="update_method">
+				<tmpl_var name="update_event"><br>
+			</tmpl_loop>
+		</tmpl_if>
+<tmpl_include file="frame_foot.html"> 

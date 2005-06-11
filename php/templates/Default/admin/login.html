@@ -1,0 +1,24 @@
+<tmpl_include file="head.html">
+ <table width="95%" border="1" align="center">
+   <tr class="head">
+     <th colspan="2" class="super" scope="col">Login</th>
+   </tr>
+   <tr>
+     <td colspan="2">
+       <tmpl_include name="messages.inc">
+     </td>
+   </tr>
+   <tr>
+     <td width=20%>
+       You are <b>NOT</b> logged in!<br>
+       Please enter your Admin password.
+     </td>
+    <form action="r_login.php" method="post">   
+     <td>
+       <input type=password size=30 name={tmpl_var name="param_password"}>
+       <input type=submit value=Login>
+     </td>
+    </form>
+  </tr>
+ </table>
+<tmpl_include file="foot.html">   

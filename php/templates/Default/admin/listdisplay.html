@@ -1,0 +1,133 @@
+<tmpl_include file="frame_head.html">
+
+      <p>
+        <h3>List Item Display Settings</h3><p>
+        <TMPL_INCLUDE name="messages.inc">
+		<p>
+		These items are to set the number or records returned for the list items on all pages. 
+<P>
+		<form action="{tmpl_var name='form_action'}" method=post>
+<TABLE>
+  
+  <TR>
+    <TD valign=top>
+      <TABLE>
+        
+        <TR>
+          <TH colspan=2>Ranking Page</TH>
+          </TR>
+        <TR>
+          <TD class=admin_clear>Player Ranking</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_ranking_player'} value="{tmpl_var name='ranking_player'}"></TD></TR>
+        <TR>
+          <TD class=admin_clear>Last Games</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_ranking_games'} value="{tmpl_var name='ranking_games'}"></TD></TR></TABLE></TD>
+    <TD><TABLE>
+        
+        <TR>
+          <th colspan=2>Character Types Page</th>
+          </TR>
+        <TR>
+          <TD class=admin_clear>Character Type Usage</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_character_type'} value="{tmpl_var name='character_type'}"></TD></TR>
+         <TR>
+          <TD class=admin_clear>Repairs</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_character_repairs'} value="{tmpl_var name='character_repairs'}"></TD></TR>
+		<TR>
+          <TD class=admin_clear>Heals</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_character_heals'} value="{tmpl_var name='character_heals'}"></TD></TR>
+       </TABLE>
+	
+		  </TD></TR>
+  <TR valign=top>
+    <TD><TABLE>
+        
+        <TR>
+          <th colspan=2>Players Page</th>
+          </TR>
+        <TR>
+          <TD class=admin_clear>Nicknames</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_player_nicknames'} value="{tmpl_var name='player_nicknames'}"></TD></TR>
+        <TR>
+          <TD class=admin_clear>Character Types</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_player_characters'} value="{tmpl_var name='player_characters'}"></TD></TR>
+        <TR>
+          <TD class=admin_clear>Weapons</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_player_weapons'} value="{tmpl_var name='player_weapons'}"></TD></TR>
+        <TR>
+          <TD class=admin_clear>Top Victims</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_player_victims'} value="{tmpl_var name='player_victims'}"></TD></TR>
+        <TR>
+          <TD class=admin_clear>Top Assasins</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_player_assasins'} value="{tmpl_var name='player_assasins'}"></TD></TR>
+        <TR>
+          <TD class=admin_clear>Favorite Vehicles</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_player_vehicles'} value="{tmpl_var name='player_vehicles'}"></TD></TR>
+        <TR>
+          <TD class=admin_clear>Map Performance</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_player_maps'} value="{tmpl_var name='player_maps'}"></TD></TR>
+        <TR>
+          <TD class=admin_clear>Last Games</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_player_games'} value="{tmpl_var name='player_games'}"></TD></TR></TABLE></TD>
+    <TD><TABLE>
+        
+        <TR>
+          <th colspan=2>Map Page</th>
+          </TR>
+        <TR>
+          <TD class=admin_clear>Best Rounds</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_map_rounds'} value="{tmpl_var name='map_rounds'}"></TD></TR>
+        <TR>
+          <TD class=admin_clear>Top Killers</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_map_killers'} value="{tmpl_var name='map_killers'}"></TD></TR>
+        <TR>
+          <TD class=admin_clear>Top Attacks</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_map_attacks'} value="{tmpl_var name='map_attacks'}"></TD></TR>
+        <TR>
+          <TD class=admin_clear>Most Deaths</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_map_deaths'} value="{tmpl_var name='map_deaths'}"></TD></TR>
+        <TR>
+          <TD class=admin_clear>Most TKS</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_map_tks'} value="{tmpl_var name='map_tks'}"></TD></TR></TABLE></TD></TR>
+  <TR valign=top>
+    <TD><TABLE>
+        
+        <TR>
+          <th colspan=2>Weapons Page</th>
+          </TR>
+        <TR>
+          <TD class=admin_clear>Weapons List</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_weapons_list'} value="{tmpl_var name='weapons_list'}"></TD></TR></TABLE></TD>
+    <TD><TABLE>
+        
+        <TR>
+          <th colspan=2>Vehicles Page</th>
+          </TR>
+        <TR>
+          <TD class=admin_clear>Vehicles List</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_vehicles_list'} value="{tmpl_var name='vehicles_list'}"></TD></TR></TABLE></TD></TR>
+  <TR valign=top>
+    <TD>
+	<TABLE>
+        
+        <TR>
+          <th colspan=2>Clan Ranking Page</th>
+          </TR>
+        <TR>
+          <TD class=admin_clear>Clan Ranking</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_clan_ranking'} value="{tmpl_var name='clan_ranking'}"></TD></TR></TABLE>
+	</TD>
+    <TD><TABLE>
+        
+        <TR>
+          <th colspan=2>Clan Members Page</th>
+          </TR>
+        <TR>
+          <TD class=admin_clear>Clan Members</TD>
+          <TD class=admin_clear><INPUT size=3 name={tmpl_var name='param_clan_members'} value="{tmpl_var name='clan_members'}"></TD></TR></TABLE></TD></TR>
+       <tr>
+          <td class=admin_clear colspan=3><input type=submit value="Save Settings"></td>
+         </tr>         
+   </TABLE>
+		                
+<tmpl_INCLUDE file="frame_foot.html"></P>

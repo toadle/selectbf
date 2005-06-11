@@ -1,0 +1,173 @@
+<tmpl_include file="head.html">
+<tmpl_if name="charactertypes">
+   <table width=85% align=center>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_left_up.gif" width="3" height="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"><img src="{tmpl_var name='IMAGES_DIR'}bridge_top.gif" width="3" height="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_right_up.gif" width="4" height="3"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_left.gif"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}icons/soldiers.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bridge_bar_vertical.gif"></td>
+       <td class="scoretable_header"><img src="{tmpl_var name='IMAGES_DIR'}text/char-types.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}bridge_left.gif" width="3" height="2"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bridge_bar_horizontal.gif" colspan="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif" width="4" height="2"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_left.gif"></td>  
+       <td class="rahmen" colspan="3">
+        <table class="scoretable">
+         <tr>
+					 <th class=scoretable_number>Rank</th>
+					 <th class=scoretable>Kit</th>
+					 <th class=scoretable_number>Times used</th>
+					 <th class=scoretable_number>%</th>     
+					 <th class=scoretable>&nbsp;</th>
+				 </tr>
+				 <tmpl_loop name="charactertypes">         
+				 <tmpl_if name="__EVEN__">
+				 <tr class="scoretable_hell">
+				 <tmpl_else>
+				 <tr class="scoretable_dunkel">
+				 </tmpl_if>
+					 <td class=number><tmpl_var name="__ROWNUM__"></td>
+					 <td><tmpl_var name="kit">&nbsp;<img src="{tmpl_var name='modimg'}" align=absmiddle hspace="2"></td>
+					 <td class=number><tmpl_var name="count"></td>
+					 <td class=number><tmpl_var name="percentage"></td>     
+					 <td><tmpl_var name="bar" escape="none"></td>
+				 </tr>
+				 </tmpl_loop>  
+        </table>
+       </td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}/bar_vertical_right.gif"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}/edge_left_down.gif" width="3" height="5"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}/bar_horizontal_down.gif" colspan="3"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}/edge_right_down.gif" width="4" height="5"></td>
+     </tr>
+   </table>
+ <p>
+</tmpl_if>
+<tmpl_if name="repairs">
+   <table width=85% align=center>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_left_up.gif" width="3" height="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"><img src="{tmpl_var name='IMAGES_DIR'}bridge_top.gif" width="3" height="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_right_up.gif" width="4" height="3"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_left.gif"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}icons/repair.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bridge_bar_vertical.gif"></td>
+       <td class="scoretable_header"><img src="{tmpl_var name='IMAGES_DIR'}text/repairs.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}bridge_left.gif" width="3" height="2"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bridge_bar_horizontal.gif" colspan="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif" width="4" height="2"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_left.gif"></td>  
+       <td class="rahmen" colspan="3">
+        <table class="scoretable">
+         <tr>
+					 <th class=scoretable_number>Rank</th>
+					 <th class=scoretable>Player</th>
+					 <th class=scoretable_number>Amount</th>
+					 <th class=scoretable_number>Time</th>
+					 <th class=scoretable>&nbsp;</th>
+				 </tr>
+				 <tmpl_loop name="repairs">         
+				 <tmpl_if name="__EVEN__">
+				 <tr class="scoretable_hell">
+				 <tmpl_else>
+				 <tr class="scoretable_dunkel">
+				 </tmpl_if>
+					 <td class=number><tmpl_var name="__ROWNUM__"></td>
+					 <td><a href="{tmpl_var name="playerdetaillink"}"><img src="{tmpl_var name='IMAGES_DIR'}symbols/top-repair.gif" align=absmiddle hspace=2><tmpl_var name="name"></a></td>
+					 <td class=number><tmpl_var name="amount"></td>
+					 <td class=number><tmpl_var name="time"></td>          
+					 <td><tmpl_var name="bar" escape="none"></td>
+				 </tr>
+				 </tmpl_loop>  
+			 </table>
+       </td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}/bar_vertical_right.gif"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}/edge_left_down.gif" width="3" height="5"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}/bar_horizontal_down.gif" colspan="3"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}/edge_right_down.gif" width="4" height="5"></td>
+     </tr>
+   </table>			 
+ <p>
+</tmpl_if>
+<tmpl_if name="heals">
+   <table width=85% align=center>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_left_up.gif" width="3" height="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"><img src="{tmpl_var name='IMAGES_DIR'}bridge_top.gif" width="3" height="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_horizontal_top.gif"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}edge_right_up.gif" width="4" height="3"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_left.gif"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}icons/heal.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bridge_bar_vertical.gif"></td>
+       <td class="scoretable_header"><img src="{tmpl_var name='IMAGES_DIR'}text/heals.gif"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}bridge_left.gif" width="3" height="2"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bridge_bar_horizontal.gif" colspan="3"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif" width="4" height="2"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_left.gif"></td>  
+       <td class="rahmen" colspan="3">
+        <table class="scoretable">
+         <tr>
+					 <th class=scoretable_number>Rank</th>
+					 <th class=scoretable>Player</th>
+					 <th class=scoretable_number>Amount</th>
+					 <th class=scoretable_number>Time</th>
+					 <th class=scoretable_number>&nbsp;</th>
+				 </tr>
+				 <tmpl_loop name="heals">         
+				 <tmpl_if name="__EVEN__">
+				 <tr class="scoretable_hell">
+				 <tmpl_else>
+				 <tr class="scoretable_hell">
+				 </tmpl_if>
+					 <td class=number><tmpl_var name="__ROWNUM__"></td>
+					 <td><a href="{tmpl_var name="playerdetaillink"}"><img src="{tmpl_var name='IMAGES_DIR'}symbols/top-heal.gif" align=absmiddle hspace=2><tmpl_var name="name"></a></td>
+					 <td class=number><tmpl_var name="amount"></td>
+					 <td class=number><tmpl_var name="time"></td>          
+					 <td><tmpl_var name="bar" escape="none"></td>
+				 </tr>
+				 </tmpl_loop>  
+			  </table>
+       </td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}/bar_vertical_right.gif"></td>
+     </tr>
+     <tr> 
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}/edge_left_down.gif" width="3" height="5"></td>
+       <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}/bar_horizontal_down.gif" colspan="3"></td>
+       <td class="rahmen"><img src="{tmpl_var name='IMAGES_DIR'}/edge_right_down.gif" width="4" height="5"></td>
+     </tr>
+   </table>				  
+ <p>
+</tmpl_if>
+<tmpl_include file="foot.html">

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<jsmoothproject>
+<JVMSearchPath>registry</JVMSearchPath>
+<JVMSearchPath>javahome</JVMSearchPath>
+<JVMSearchPath>jrepath</JVMSearchPath>
+<JVMSearchPath>jdkpath</JVMSearchPath>
+<JVMSearchPath>exepath</JVMSearchPath>
+<JVMSearchPath>jview</JVMSearchPath>
+<arguments></arguments>
+<classPath>..\..\build\win32\selectbf.jar</classPath>
+<classPath>..\..\build\win32\swt.jar</classPath>
+<classPath>..\..\build\win32\lib\commons-beanutils-1.7dev.jar</classPath>
+<classPath>..\..\build\win32\lib\commons-collections-3.1.jar</classPath>
+<classPath>..\..\build\win32\lib\commons-logging-1.0.4.jar</classPath>
+<classPath>..\..\build\win32\lib\commons-net-1.3.0.jar</classPath>
+<classPath>..\..\build\win32\lib\jakarta-oro-2.0.8.jar</classPath>
+<classPath>..\..\build\win32\lib\jdom.jar</classPath>
+<classPath>..\..\build\win32\lib\log4j-1.2.9.jar</classPath>
+<classPath>..\..\build\win32\lib\mysql-connector-java-3.1.7-bin.jar</classPath>
+<currentDirectory>.</currentDirectory>
+<embeddedJar>false</embeddedJar>
+<executableName>..\..\build\win32\select(bf).exe</executableName>
+<initialMemoryHeap>67108864</initialMemoryHeap>
+<mainClassName>org.selectbf.gui.SelectBfGui</mainClassName>
+<maximumMemoryHeap>536870912</maximumMemoryHeap>
+<maximumVersion></maximumVersion>
+<minimumVersion>1.4</minimumVersion>
+<skeletonName>Windowed Wrapper</skeletonName>
+<skeletonProperties>
+<key>Message</key>
+<value>You at least need Java 1.4.2 in order to run the select(bf) GUI. </value>
+</skeletonProperties>
+<skeletonProperties>
+<key>URL</key>
+<value>http://java.sun.com</value>
+</skeletonProperties>
+<skeletonProperties>
+<key>SingleProcess</key>
+<value>0</value>
+</skeletonProperties>
+<skeletonProperties>
+<key>Debug</key>
+<value>0</value>
+</skeletonProperties>
+</jsmoothproject>

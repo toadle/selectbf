@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="selectbf-config">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="database">
+					<xs:complexType>
+						<xs:attribute name="user" type="xs:string" use="required"/>
+						<xs:attribute name="password" type="xs:string" use="required"/>
+						<xs:attribute name="database" type="xs:string" use="required"/>
+						<xs:attribute name="port" type="xs:int" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="after-parsing"/>
+				<xs:element name="archive-folder"/>
+				<xs:element name="after-download"/>
+				<xs:element name="delete-decompressed-xml-files" type="xs:boolean"/>
+				<xs:element name="rename-at-error" type="xs:boolean"/>
+				<xs:element name="log-bots"/>
+				<xs:element name="trim-database">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:boolean">
+								<xs:attribute name="days" type="xs:int" use="required"/>
+								<xs:attribute name="keep-players" type="xs:boolean" use="required"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="skip-empty-rounds" type="xs:boolean"/>
+				<xs:element name="lan-mode" type="xs:boolean"/>				
+				<xs:element name="consistency-check" type="xs:boolean"/>
+				<xs:element name="memory-safer" type="xs:boolean"/>
+				<xs:element name="logs" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="dir" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:anyURI">
+											<xs:attribute name="live" type="xs:boolean" use="required"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ftp" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="host" type="xs:anyURI" use="required"/>
+									<xs:attribute name="port" type="xs:string" use="required"/>
+									<xs:attribute name="user" type="xs:string" use="required"/>
+									<xs:attribute name="password" type="xs:string" use="required"/>
+									<xs:attribute name="live" type="xs:boolean" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
