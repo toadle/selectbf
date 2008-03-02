@@ -1,7 +1,7 @@
 <?php
 $SQL_host = "localhost";
-$SQL_user = "root";
-$SQL_datenbank = "selectbf";
-$SQL_password = "";
+$SQL_user = "user";
+$SQL_datenbank = "database";
+$SQL_password = "password";
 $DBVerbindung = SQL_connect();
 ?>

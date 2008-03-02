@@ -130,7 +130,7 @@ function dropAllTables()
 
 
 //now start setting the variables for the Template
-$tmpl = new vlibTemplate("templates/Default/_setup.html");
+$tmpl = new vlibTemplate("templates/original/_setup.html");
 
 @$todo = $_REQUEST["todo"];
 

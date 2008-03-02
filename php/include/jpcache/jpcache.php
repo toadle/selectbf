@@ -34,7 +34,7 @@
  */
  
     // Set the includedir to the jpcache-directory
-    $includedir = "d:/Java/select(bf)/php_templated/include/jpcache";
+    $includedir = "<dir to jpcache-files>";
 
     // Configuration file
     require "$includedir/jpcache-config.php";

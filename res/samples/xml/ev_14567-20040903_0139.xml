@@ -1893,3 +1893,5 @@
     <bf:param type="int" name="tickets_team1">744</bf:param>
     <bf:param type="int" name="tickets_team2">744</bf:param>
 </bf:event>
+</bf:round><!-- inserted by select(bf) consistency checker-->
+</bf:log><!-- inserted by select(bf) consistency checker-->
