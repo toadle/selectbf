@@ -56,10 +56,31 @@
  	</copy>
  </target>
 
+ <target name="create_classic">
+	<ant target="create_base">
+		<property name="base_dir" value="classic" />
+	</ant>
+ 	<copy todir="./${build_dir}/classic/src">
+		<fileset dir="${src_dir}" />
+ 	</copy>
+ 	<copy todir="./${build_dir}/classic/bin">
+		<fileset dir="${resource_dir}/win32">
+			<include name="*.bat" />			
+			<include name="*.exe" />
+		</fileset>
+ 	</copy>
+ 	<copy todir="./${build_dir}/classic/bin">
+		<fileset dir="${resource_dir}/linux">
+			<include name="*.sh" />			
+		</fileset>
+ 	</copy> 	
+ </target>
+
  <target name="create_base" depends="jar_parser">
- 	<mkdir dir="./${build_dir}/${base_dir}"/> 	
- 	<copy todir="./${build_dir}/${base_dir}" file="./${resource_dir}/conf/config.xml"/> 	
- 	<copy todir="./${build_dir}/${base_dir}" file="./${build_dir}/selectbf.jar"/>
+ 	<mkdir dir="./${build_dir}/${base_dir}"/> 
+ 	<mkdir dir="./${build_dir}/${base_dir}/bin"/>  	
+ 	<copy todir="./${build_dir}/${base_dir}/bin" file="./${resource_dir}/conf/config.xml"/> 	
+ 	<copy todir="./${build_dir}/${base_dir}/bin" file="./${build_dir}/selectbf.jar"/>
  	<mkdir dir="./${build_dir}/${base_dir}/lib"/>
  	<copy todir="./${build_dir}/${base_dir}/lib">
  		<fileset dir="${lib_dir}">
@@ -80,8 +101,8 @@
  	</copy>  	
  </target>
 	
- <target name="zip" depends="create_win32" >
- 	<zip destfile="${build_dir}/${archive_name}.zip" basedir="${build_dir}/win32">
+ <target name="zip" depends="create_classic" >
+ 	<zip destfile="${build_dir}/${archive_name}.zip" basedir="${build_dir}/classic">
  		<include name="**/*"/>
  	</zip>
  </target>
@@ -92,7 +113,7 @@
  	 	<include name="*"/>
  	 </fileset>	
  	</delete>
- 	<delete dir="${build_dir}/win32"/>
+ 	<delete dir="${build_dir}/classic"/>
  </target>
 
  <target name="create_release" depends="clean, zip" />
