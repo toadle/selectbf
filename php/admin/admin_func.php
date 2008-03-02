@@ -266,7 +266,7 @@ function createCategory($name,$collectdata,$datasourcename,$type)
 
 function getMods()
 {
-	$res = SQL_query("Select distinct modid 'mod' from selectbf_games order by mod ASC");
+	$res = SQL_query("Select distinct modid 'mod' from selectbf_games order by 'mod' ASC");
 	$mods = array();
 	while($cols = SQL_fetchArray($res))
 	{
