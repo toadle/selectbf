@@ -1,2 +1,2 @@
 @ECHO OFF
-java -Xmx256m -Xms256m -cp .\selectbf.jar;..\lib\commons-net-1.3.0.jar;..\lib\mysql-connector-java-5.0.5-bin.jar;..\lib\jdom.jar;..\lib\log4j-1.2.9.jar; org.selectbf.SelectBf >> selectbf.out
+java -Xmx256m -Xms256m -cp .\selectbf.jar;..\lib\commons-net-1.3.0.jar;..\lib\jakarta-oro-2.0.8.jar;..\lib\jdom.jar;..\lib\commons-beanutils-1.7dev.jar;..\lib\commons-collections-3.1.jar;..\lib\commons-logging-1.0.4.jar;..\lib\log4j-1.2.9.jar;..\lib\swt.jar;..\lib\mysql-connector-java-5.0.5-bin.jar; org.selectbf.SelectBf >> selectbf.out
