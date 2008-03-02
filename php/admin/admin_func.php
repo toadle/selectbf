@@ -1,4 +1,7 @@
 <?
+//set error-level
+error_reporting(E_ERROR);
+
 function checkAdminPsw($psw)
 {
 	$Ergebnis = SQL_oneRowQuery("SELECT value from selectbf_admin where name='ADMIN_PSW'");	

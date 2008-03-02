@@ -1,4 +1,8 @@
 <?php
+//set error-level
+error_reporting(E_ERROR);
+
+
 //for random picture generation
 $start = (int) mktime(date("h"),date("i"),date("s"),date("d"),date("m"),date("Y"));
 mt_srand($start);
