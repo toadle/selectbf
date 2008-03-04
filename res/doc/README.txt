@@ -130,6 +130,7 @@ bin - Contains the binaries of select(bf), the config-file and batch-files to ru
 lib - Contains the "connector/j", "jdom" and "commons-net" libraries needed to run the selectbf-parser.
 php - Contains all the files that you later shoot into your webserver
 src - Contains the source-files of the select(bf)-parser
+doc - Contains the documentation and readme-files, but you already know that
 
 
 II. Step Two
@@ -259,6 +260,10 @@ Now you need to adjust one php-file so that the viewing pages can find the datab
 	$SQL_password = "<database password>";
 	
 - [NEW in 0.5] Configure the caching:
+  The location of the configuration of the PHP-cache is set to sensible defaults from the begining, and should work
+  instantly. BUT IF you should receive completely white pages after install or see PHP-errors in the page mentioning
+  jpcache. Got about an do the following.
+
   Go to the "php/include/jpcache"-directory and open "jpcache.php"
   Adjust the value for 
   	$includedir = "<jpcache-path>";
@@ -344,7 +349,7 @@ or missing informations (missing informations should only appear in very small f
 do something about that because the errors are made on BF-side and s(bf) skips those files to
 keep the data consistent.
 If you experience anything that doesn't look like it should be or you have any suggestions, 
-feel free to post them at http://www.selectbf.org/forum
+feel free to post them at http://forum.selectbf.org
 
 =========================
 Appendix

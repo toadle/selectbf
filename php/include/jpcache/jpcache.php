@@ -34,7 +34,7 @@
  */
  
     // Set the includedir to the jpcache-directory
-    $includedir = "<dir to jpcache-files>";
+    $includedir = "include/jpcache";
 
     // Configuration file
     require "$includedir/jpcache-config.php";

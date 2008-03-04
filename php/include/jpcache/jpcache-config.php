@@ -44,7 +44,7 @@
     /**
      * File based caching setting.
      */
-    $JPCACHE_DIR          = "<some writable dir>"; 
+    $JPCACHE_DIR          = "include/jpcache/tmp"; 
 								   // Directory where jpcache must store 
                                    // generated files. Please use a dedicated
                                    // directory, and make it writable
