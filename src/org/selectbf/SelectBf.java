@@ -614,7 +614,7 @@ public class SelectBf implements Runnable
 			FileOutputStream out = new FileOutputStream(source);
 			
 			int length;
-			while((length = zipin.read(buffer,0,blocksize))!=0)
+			while((length = zipin.read(buffer,0,blocksize))!=0 && length != -1)
 			{
 				out.write(buffer,0,length);
 			}
