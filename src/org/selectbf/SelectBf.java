@@ -189,6 +189,7 @@ public class SelectBf implements Runnable
 		try
 		{
 			FTPClient ftp = new FTPClient();
+			ftp.setRemoteVerificationEnabled(false);
 			log.info("[FTP] Connecting to "+ftpc.getHost()+":"+ftpc.getPort());
 			ftp.connect(ftpc.getHost(),ftpc.getPort());
             if(ftpc.isPassiveMode())
