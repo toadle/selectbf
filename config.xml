@@ -26,6 +26,6 @@
  --> 	
  <logs>
   <dir live="false">c:\battlefield\mods\bf1942\logs</dir>
-  <ftp host="127.0.0.1" port="21" user="user" password="password" live="false">/mods/bf1942/logs</ftp>
+  <ftp host="127.0.0.1" port="21" user="user" password="password" passive="false" live="false">/mods/bf1942/logs</ftp>
  </logs>
 </selectbf-config>
