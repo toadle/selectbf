@@ -90,8 +90,9 @@ Since the last release of select(bf) times have changed and even MySQL has gotte
 There it is more strict regarding values that are written into typed columns. Since the
 older releases of s(bf) had very strict column-settings, which were not very tightly matched
 by the data in the log-files, those settings have been losened in this release. So you
-either have to recreate your database using the _setup.php OR (warning, nerdstuff ahead) change
-all TINYINT(3) unsigned columns to INT(11) signed. That should do the trick. 
+either have to recreate your database using the _setup.php OR update your datamodell using the
+_setup.php. This method is undestructive, but your should always have a 
+backup handy :)!
 
 Due to the popular demand I have added or updated a few things to select(bf)
 in this little release. First of all: All MySQL-errors should be fixed. Means that all

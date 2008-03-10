@@ -128,6 +128,12 @@ function dropAllTables()
 		SQL_query("DROP TABLE `selectbf_tks` ");
 }
 
+function updateTables()
+{
+		SQL_query("ALTER TABLE `selectbf_cache_mapstats` CHANGE `score_team1` `score_team1` INT( 10 ) NULL DEFAULT NULL , CHANGE `score_team2` `score_team2` INT( 10 ) NULL DEFAULT NULL;");
+		SQL_query("ALTER TABLE `selectbf_cache_ranking` CHANGE `score` `score` INT( 10 ) NULL DEFAULT NULL , CHANGE `repairs` `repairs` INT( 10 ) SIGNED NULL DEFAULT NULL , CHANGE `otherrepairs` `otherrepairs` INT( 10 ) SIGNED NULL DEFAULT NULL , CHANGE `first` `first` INT( 10 ) SIGNED NULL DEFAULT NULL , CHANGE `second` `second` INT( 10 ) SIGNED NULL DEFAULT NULL , CHANGE `third` `third` INT( 10 ) SIGNED NULL DEFAULT NULL;");
+		SQL_query("ALTER TABLE `selectbf_playerstats` CHANGE `score` `score` INT( 10 ) NULL DEFAULT NULL , CHANGE `repairs` `repairs` INT( 10 ) SIGNED NULL DEFAULT NULL , CHANGE `otherrepairs` `otherrepairs` INT( 10 ) SIGNED NULL DEFAULT NULL , CHANGE `first` `first` INT( 10 ) SIGNED NULL DEFAULT NULL , CHANGE `second` `second` INT( 10 ) SIGNED NULL DEFAULT NULL , CHANGE `third` `third` INT( 10 ) SIGNED NULL DEFAULT NULL;");
+}
 
 //now start setting the variables for the Template
 $tmpl = new vlibTemplate("templates/original/_setup.html");
@@ -165,7 +171,13 @@ if(isset($todo))
 							{
 								$tmpl->setVar("error","Please first be <b>sure</b> and <b>really sure</b> before you push buttons!");
 							}
-							break;	
+							break;
+							
+		case "update":		updateTables();
+							$tmpl->setVar("msg","<b>All Tables updated!</b>");
+							$tmpl->setVar("done",true);
+
+							break;								
 	}
 }
 

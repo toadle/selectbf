@@ -72,6 +72,12 @@
     <td class=admin><input type=submit value="install datamodell" {tmpl_if name='done'}disabled{/tmpl_if}></td>    
   </tr>   
   </form>
+  <form action="_setup.php" method=post>
+  <input type="hidden" name=todo value=update>
+  <tr>
+    <td class=admin>Use this button to update any old s(bf)-model to 0.5beta! This update in <b>NOT destructive</b> but you should always have a backup handy!<br/><input type=submit value="update datamodell" {tmpl_if name='done'}disabled{/tmpl_if}></td>    
+  </tr>   
+  </form>  
   <tr class=darker>
     <th>remove <b>select(<i>bf</i>)</b> from the database</th
   </tr> 
