@@ -85,10 +85,13 @@ them making their software freely available this could never have been done.
 INSTALL/USE INSTRUCTIONS
 =========================
 
-0. About Updating and Changes in 0.5
-First of all, you DO NOT need to change anything in your database. All has stayed the same
-there in this release. You can simply start using the new stuff and all should be good.
-Especially the output-caching will help everyone with huge databases!
+0. About Updating and Changes in 0.5 beta
+Since the last release of select(bf) times have changed and even MySQL has gotten better ;)
+There it is more strict regarding values that are written into typed columns. Since the
+older releases of s(bf) had very strict column-settings, which were not very tightly matched
+by the data in the log-files, those settings have been losened in this release. So you
+either have to recreate your database using the _setup.php OR (warning, nerdstuff ahead) change
+all TINYINT(3) unsigned columns to INT(11) signed. That should do the trick. 
 
 Due to the popular demand I have added or updated a few things to select(bf)
 in this little release. First of all: All MySQL-errors should be fixed. Means that all
@@ -96,10 +99,12 @@ of the "Unexpected End of input-stream" and 'mod'-issues are hopefully gone. If 
 let me know, we'll track down those stupid little glitches.
 Perhaps even some FTP-issues are gone now, cause I added a new FTP-library version. I cannot
 test that, so plz give me feedback how the outcome is for you guys!
-Addiotinally I have added PHP-output caching to select(bf). For all of you guys out
+Additionally I have added PHP-output caching to select(bf). For all of you guys out
 there, who have CPU-trouble during database-requests. Sadly this means A LITTLE(!) more
 configuration work for you to do, but believe me, I tried that today, the outcome is really
-good.
+good (also, there are defaults in place, which should work from the start). The default
+caching time of the stats is 15 minutes. Therefore new data will NOT pop up immidiately.
+But you can disable caching completely through the config. See below. 
 
 
 1.What you need to run this thing
@@ -278,6 +283,8 @@ Now you need to adjust one php-file so that the viewing pages can find the datab
   and put some value in
       $JPCACHE_DIR = "<some valid directory, you created>";
   But if I understand the thing correctly, you may also use MySQL-based caching.
+  
+  After all, you can completely disable caching in the jpcache-config.php!
         
   
   
