@@ -181,10 +181,28 @@ public class ScoreManagementBase extends ManagementBase
 			ScoreEvent se = (ScoreEvent) i.next();
 			try
 			{		
+				// Clarification added by jrivett 2009Mar10
+				// If we're not logging bots and the kill was made by a bot, this next
+				// line will throw an exception and we won't write anything.
+				// If the kill was made by a human, or we're logging bots and the
+				// kill was made by a bot, then this line will return a valid player
+				// and we will process the kill as usual.
 				Player player = pmb.getPlayerForSlot(se.getPlayer_id(),se.getTime());
-				Player victim = pmb.getPlayerForSlot(se.getVictim_id(),se.getTime());
-					
-				writePlayerKillToDb(pmb.lookupDbId(player),pmb.lookupDbId(victim),se.getWeapon(),dc);
+
+				// Modification by jrivett 2009Mar05
+				// If this kill was a human player killing a bot player, AND we are NOT
+				// logging bots, write the kill details using a victim ID of zero, which
+				// is ignored by the web stats.  Otherwise, carry on as usual.  This way,
+				// all kills of bots by humans are recorded, making the kill details more
+				// likely to match the end of round (summary) kill totals.
+				if (!pmb.acceptBots && se.getPlayer_id() <= 127 && se.getVictim_id() >= 128)
+				{
+					writePlayerKillToDb(pmb.lookupDbId(player),0,se.getWeapon(),dc);
+				} else
+				{
+					Player victim = pmb.getPlayerForSlot(se.getVictim_id(),se.getTime());
+					writePlayerKillToDb(pmb.lookupDbId(player),pmb.lookupDbId(victim),se.getWeapon(),dc);
+				}
 	
 			}
 			catch(SelectBfException e)

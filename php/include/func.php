@@ -1820,7 +1820,10 @@ function getPlayerInfo($id)
 	
 	$infos = array();
 	
-	$aResult = SQL_oneRowQuery("select name,keyhash,CONCAT(TIME_FORMAT(inserttime,'%H:%i:%S '),DATE_FORMAT(inserttime,'%d|%m|%Y')) date, CONCAT(TIME_FORMAT(last_seen,'%H:%i:%S '),DATE_FORMAT(last_seen,'%d|%m|%Y')) last_seen from selectbf_players p, selectbf_playtimes pt where p.id=$id");
+    // Bug fixed by jrivett 2009-Feb-17
+    // Fixed bug where last_seen for player #1 was being reported as last_seen for ALL players.
+	//$aResult = SQL_oneRowQuery("select name,keyhash,CONCAT(TIME_FORMAT(inserttime,'%H:%i:%S '),DATE_FORMAT(inserttime,'%d|%m|%Y')) date, CONCAT(TIME_FORMAT(last_seen,'%H:%i:%S '),DATE_FORMAT(last_seen,'%d|%m|%Y')) last_seen from selectbf_players p, selectbf_playtimes pt where p.id=$id");
+	$aResult = SQL_oneRowQuery("select name,keyhash,CONCAT(TIME_FORMAT(inserttime,'%H:%i:%S '),DATE_FORMAT(inserttime,'%d|%m|%Y')) date, CONCAT(TIME_FORMAT(last_seen,'%H:%i:%S '),DATE_FORMAT(last_seen,'%d|%m|%Y')) last_seen from selectbf_players p, selectbf_playtimes pt where p.id=$id and pt.id=$id");
 	$infos["name"]=$aResult["name"];
 	$infos["keyhash"]=$aResult["keyhash"];	
 	$infos["date"]=$aResult["date"];

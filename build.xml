@@ -22,10 +22,18 @@
 	<target name="compile" description="Compiles the Parser">
 		<echo message="Building Parser"/>		
 		<mkdir dir="${build_dir}/classes" />
-		<javac srcdir="${src_dir}" destdir="${build_dir}" deprecation="on" debug="on">
+		<!-- Changed by jrivett 2009Feb26
+			 Changed destdir to classes_dir - build expects classes there. -->
+		<!-- <javac srcdir="${src_dir}" destdir="${build_dir}" deprecation="on" debug="on"> -->
+		<javac srcdir="${src_dir}" destdir="${classes_dir}" deprecation="on" debug="on">
 			<classpath refid="classpath" />
-			<compilerarg value="-target 1.4"/>
-			<compilerarg value="-source 1.4"/>			
+			<!-- Added by jrivett 2009Feb26
+				 Added to show more detailed warnings. -->
+				<compilerarg value="-Xlint:unchecked"/>
+			<!-- Removed by JDR 2009Feb26
+				 Causing compile errors and no longer needed. --> 
+			<!-- <compilerarg value="-target 1.4"/> -->
+			<!-- <compilerarg value="-source 1.4"/> -->			
 		</javac>
 	</target>
  

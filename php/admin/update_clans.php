@@ -2,8 +2,15 @@
 require("admin_func.php");
 require("update_sql.php");
 //read the needed vars
+// Bugs fixed by jrivett 2009Feb26
+// Look at admin_pass instead of html argument to see if we are operating
+// from the command line, since html argument is always used.
+// Also change condition to check whether admin_pass IS set, not whether it is NOT set.
+//$html = $_REQUEST["html"];
+$admin_pass = $_REQUEST["admin_pass"];
 $html = $_REQUEST["html"];
-if(!isset($html)){
+//if(!isset($html)){
+if(isset($admin_pass)){
 	$numargs = $_SERVER['argc'];
 	if($numargs == 3){
 		$fullpath = $_SERVER['argv'][0];

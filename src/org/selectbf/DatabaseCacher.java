@@ -53,11 +53,20 @@ public class DatabaseCacher
 		Statement s = dbConnection.createStatement();
 		s.executeUpdate("TRUNCATE selectbf_cache_vehicletime");
 		
-		ResultSet res = s.executeQuery("select sum(drivetime) time,count(*) count from selectbf_drives");
+        // SQL bug fixed by jrivett 2009-Feb-20
+		// We want a total count of all drives, not just the number of records in the drives table. 
+		// ResultSet res = s.executeQuery("select sum(drivetime) time,count(*) count from selectbf_drives");
+		ResultSet res = s.executeQuery("select sum(drivetime) time, sum(times_used) count from selectbf_drives");
 		res.next();
-		int time = res.getInt("time");
+		// Bug fixed by jrivett 2009-Feb-25
+		// Time is not an integer, it's a float.
+		//int time = res.getInt("time");
+		float time = res.getFloat("time");
 		int count = res.getInt("count");
-		s.executeUpdate("INSERT INTO selectbf_cache_vehicletime (vehicle,times_used,time,percentage_time,percentage_usage) select vehicle, count(*) count, sum(drivetime), (sum(drivetime)*100/"+time+"), (count(*)*100/"+count+") from selectbf_drives group by vehicle");
+		// SQL bug fixed by jrivett 2009-Feb-25
+		// As above, we want a total count of all drives for a vehicle, not the number of records.
+		//s.executeUpdate("INSERT INTO selectbf_cache_vehicletime (vehicle,times_used,time,percentage_time,percentage_usage) select vehicle, count(*) count, sum(drivetime), (sum(drivetime)*100/"+time+"), (count(*)*100/"+count+") from selectbf_drives group by vehicle");
+		s.executeUpdate("INSERT INTO selectbf_cache_vehicletime (vehicle,times_used,time,percentage_time,percentage_usage) select vehicle, sum(times_used) count, sum(drivetime), ((sum(drivetime)*100)/"+time+"), ((sum(times_used)*100)/"+count+") from selectbf_drives group by vehicle");
 		
 		Date ende = new Date();
 		
@@ -74,10 +83,16 @@ public class DatabaseCacher
 		Statement s = dbConnection.createStatement();
 		s.executeUpdate("TRUNCATE selectbf_cache_chartypeusage");
 		
-		ResultSet res = s.executeQuery("select count(*) count from selectbf_kits");
+        // SQL bug fixed by jrivett 2009-Feb-25
+		// We want a total count of all character uses, not the number of records. 
+		//ResultSet res = s.executeQuery("select count(*) count from selectbf_kits");
+		ResultSet res = s.executeQuery("select sum(times_used) count from selectbf_kits");
 		res.next();
 		int count = res.getInt("count");
-		s.executeUpdate("INSERT INTO selectbf_cache_chartypeusage (kit,times_used,percentage) select k.kit, count(*) count,(count(*)*100.0/"+count+")  from selectbf_kits k group by k.kit");
+		// SQL bug fixed by jrivett 2009-Feb-25
+		// As above, we want a total count of all character uses, not the number of records.
+		//s.executeUpdate("INSERT INTO selectbf_cache_chartypeusage (kit,times_used,percentage) select k.kit, count(*) count,(count(*)*100.0/"+count+")  from selectbf_kits k group by k.kit");
+		s.executeUpdate("INSERT INTO selectbf_cache_chartypeusage (kit,times_used,percentage) select k.kit, sum(times_used) count,(sum(times_used)*100.0/"+count+")  from selectbf_kits k group by k.kit");
 		
 		Date ende = new Date();
 		

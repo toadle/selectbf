@@ -330,7 +330,7 @@ public class SelectBf implements Runnable
 			for(int i = 0; i<dirlist.length;i++)
 			{
 				String file_to_process = dir.getAbsolutePath()+File.separatorChar+dirlist[i];
-				
+		
 				boolean delete_after_finish = false;
 				boolean was_zxml = false;
 				String org_filename = "";
@@ -355,6 +355,9 @@ public class SelectBf implements Runnable
 					boolean errors = false;
 					
 					log.info("-> processing File '"+src.getName()+"' ("+log_file_number+"/"+number_of_files+")");
+					// Added by jrivett 2009Mar10
+					// Just wanted to see some indication of progress in the output.
+					System.out.println("-> processing File '"+src.getName()+"' ("+log_file_number+"/"+number_of_files+")");
 					
 					try
 					{

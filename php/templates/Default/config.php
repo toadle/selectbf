@@ -99,4 +99,15 @@ $TMPL_CFG_MAP_IMG["cassino"] = "mapscreens/cassino.jpg";
 $TMPL_CFG_MAP_IMG["husky"] = "mapscreens/husky.jpg";
 $TMPL_CFG_MAP_IMG["salerno"] = "mapscreens/salerno.jpg";
 $TMPL_CFG_MAP_IMG["santo_croce"] = "mapscreens/santa-croce.jpg";
+// Added Secret Weapon maps (images were already in place)
+// jrivett 2009Feb26
+$TMPL_CFG_MAP_IMG["eagles_nest"] = "mapscreens/eagles-nest.jpg";
+$TMPL_CFG_MAP_IMG["essen"] = "mapscreens/essen.jpg";
+$TMPL_CFG_MAP_IMG["gothic_line"] = "mapscreens/gothic-line.jpg";
+$TMPL_CFG_MAP_IMG["hellendoorn"] = "mapscreens/hellendoorn.jpg";
+$TMPL_CFG_MAP_IMG["kbely_airfield"] = "mapscreens/kbelly-airfield.jpg";
+$TMPL_CFG_MAP_IMG["mimoyecques"] = "mapscreens/mimoyecques.jpg";
+$TMPL_CFG_MAP_IMG["peenemunde"] = "mapscreens/peenemunde.jpg";
+$TMPL_CFG_MAP_IMG["telemark"] = "mapscreens/telemark.jpg";
+
 ?>

@@ -73,11 +73,17 @@ if($search=="games")
 	$res = null;
 	if($year=="nothing" || $month=="nothing" || $day=="nothing")
     {
-    	$res = SQL_query("select id, servername,modid mod,map,game_mode, CONCAT(TIME_FORMAT(starttime,'%H:%i:%S '),DATE_FORMAT(starttime,'%d|%m|%Y')) time from selectbf_games WHERE servername LIKE '%$servername%' AND modid='$mod' ORDER BY starttime ASC");
+    	// Bug fixed by jrivett 2009Feb26
+		// Fixed server search by quoting mod.
+		//$res = SQL_query("select id, servername,modid mod,map,game_mode, CONCAT(TIME_FORMAT(starttime,'%H:%i:%S '),DATE_FORMAT(starttime,'%d|%m|%Y')) time from selectbf_games WHERE servername LIKE '%$servername%' AND modid='$mod' ORDER BY starttime ASC");
+    	$res = SQL_query("select id, servername,modid 'mod',map,game_mode, CONCAT(TIME_FORMAT(starttime,'%H:%i:%S '),DATE_FORMAT(starttime,'%d|%m|%Y')) time from selectbf_games WHERE servername LIKE '%$servername%' AND modid='$mod' ORDER BY starttime ASC");
     } 
     else
     {
-    	$res = SQL_query("select id, servername,modid mod,map,game_mode, CONCAT(TIME_FORMAT(starttime,'%H:%i:%S '),DATE_FORMAT(starttime,'%d|%m|%Y')) time from selectbf_games WHERE servername LIKE '%$servername%' AND starttime BETWEEN '$year-$month-$day 00:00:00' and '$year-$month-$day 23:59:59' and modid='$mod' ORDER BY starttime ASC");
+    	// Bug fixed by jrivett 2009Feb26
+		// Fixed server search by quoting mod.
+    	//$res = SQL_query("select id, servername,modid mod,map,game_mode, CONCAT(TIME_FORMAT(starttime,'%H:%i:%S '),DATE_FORMAT(starttime,'%d|%m|%Y')) time from selectbf_games WHERE servername LIKE '%$servername%' AND starttime BETWEEN '$year-$month-$day 00:00:00' and '$year-$month-$day 23:59:59' and modid='$mod' ORDER BY starttime ASC");
+    	$res = SQL_query("select id, servername,modid 'mod',map,game_mode, CONCAT(TIME_FORMAT(starttime,'%H:%i:%S '),DATE_FORMAT(starttime,'%d|%m|%Y')) time from selectbf_games WHERE servername LIKE '%$servername%' AND starttime BETWEEN '$year-$month-$day 00:00:00' and '$year-$month-$day 23:59:59' and modid='$mod' ORDER BY starttime ASC");
     }
     while($cols = SQL_fetchArray($res))
 	{
