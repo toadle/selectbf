@@ -85,6 +85,7 @@
  </target>
 
  <target name="create_base" depends="jar_parser">
+ 	<mkdir dir="./${build_dir}/"/>
  	<mkdir dir="./${build_dir}/${base_dir}"/> 
  	<mkdir dir="./${build_dir}/${base_dir}/bin"/>  	
  	<copy todir="./${build_dir}/${base_dir}/bin" file="./${resource_dir}/conf/config.xml"/> 	
@@ -116,7 +117,7 @@
  </target>
 
  <target name="clean">
- 	<delete>
+ 	<delete failonerror="no">
  	 <fileset dir="${build_dir}">
  	 	<include name="*"/>
  	 </fileset>	
