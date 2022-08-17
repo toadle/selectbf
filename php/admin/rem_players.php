@@ -1,5 +1,6 @@
 <?
 require_once("../include/vLib/vlibTemplate.php");
+use clausvb\vlib\vlibTemplate;
 require("../include/sql.php");
 require("admin_func.php");
 require_once("../templates/original/config.php");
@@ -31,7 +32,7 @@ if(isset($_REQUEST["search_name"]))
 {
 	$searchresults = array();
 	$playername = $_REQUEST["search_name"];
-	$playername = mysql_real_escape_string($playername); 
+	$playername = mysqli_real_escape_string(SQL_getconnection(), $playername); 
 	
 	$found = false;
 	$res = SQL_query("select id, name, CONCAT(TIME_FORMAT(inserttime,'%H:%i:%S '),DATE_FORMAT(inserttime,'%d|%m|%Y')) time from selectbf_players WHERE name LIKE '%$playername%' ORDER BY name ASC");

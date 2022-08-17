@@ -1,6 +1,7 @@
 <?
 require_once("include/jpcache/jpcache.php");
 require_once("include/vLib/vlibTemplate.php");
+use clausvb\vlib\vlibTemplate;
 require_once("include/sql.php");
 require_once("include/func.php");
 
@@ -67,7 +68,7 @@ if(!checkTemplateConsistency($TEMPLATE_DIR,"teamdetail.html"))
 $tmpl = new vlibTemplate("templates/$TEMPLATE_DIR/teamdetail.html");
 
 //set basic Template-Variables
-$tmpl->setVar("TITLE",getActiveTitlePrefix()." - Ranking Overview");
+$tmpl->setVar("TITLE",getActiveTitlePrefix()." - Player Ranking");
 $tmpl->setVar("CSS","templates/$TEMPLATE_DIR/include/$TMPL_CFG_CSS");
 $tmpl->setVar("IMAGES_DIR","templates/$TEMPLATE_DIR/images/");
 $tmpl->setVar("ADMINMODE_LINK","admin/index.php");
@@ -85,9 +86,9 @@ if(mysql_num_rows($resultset) > 0){
 }
 
 $contextbar = array();
-$contextbar = addContextItem($contextbar,getActiveTitlePrefix()."-statistics");
-$contextbar = addLinkedContextItem($contextbar,"clans.php","Clan Ranking");
-$contextbar = addContextItem($contextbar,clearUpText("$clanname Team Ranking","TEAM"));
+$contextbar = addContextItem($contextbar,getActiveTitlePrefix());
+$contextbar = addLinkedContextItem($contextbar,"clans.php","Clans");
+$contextbar = addContextItem($contextbar,clearUpText("$clanname Clan Ranking","TEAM"));
 $tmpl->setLoop("CONTEXTBAR",$contextbar);
 
 

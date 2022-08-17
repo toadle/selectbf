@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "--//W3C//DTD HTML 4.01 Transitional//EN">
+<!--dummy--><html>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/tutorial_simple_example.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="standard.css">
+<meta content="AurigaDoc" name="generator">
+<title>Simple example with two variables</title>
+</head>
+<body>
+<div class="document-header">
+   
+<table width="100%">
+      
+<tr>
+         
+<td align="left">
+<h1>vlibTemplate</h1>
+</td>
+         <td align="right"><img src="vlib_logo.gif" alt="vLib Logo" title="Logo von vLIB"></td>
+      
+</tr>
+   
+</table>
+
+   
+<hr>
+
+</div>
+<div class="navigation">
+<a name="tutorial_simple_example"></a> <a href="table_of_content.html">Table of Contents</a> | Up: <a href="sec04_introduction.html">4. Introduction and tutorial</a> | Next: <a href="tutorial_tmpl_if.html">4.2. TMPL_IF</a>
+<br>
+<br>
+</div>
+<div class="section-heading-2">
+<b>4.1. Simple example with two variables</b> 
+</div>
+<div class="section-body-2">
+   
+<div class="php_skript_kopf">PHP script</div>
+   
+<div class="php_skript_inhalt">
+   
+<pre>   require_once 'vlib/vlibTemplate.php';
+
+   $tmpl = new vlibTemplate('tmpl/basic.htm');
+
+   $tmpl-&gt;setvar('title_text', 'TITLE: This is the vLIB basic example ...');
+   $tmpl-&gt;setvar('body_text', 'BODY: This is the message set using setvar()');
+
+   $tmpl-&gt;pparse();</pre>
+</div>
+
+   
+<div class="template_kopf">Template</div>
+   
+<div class="template_inhalt">
+   
+<pre>   &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
+      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt;
+   &lt;html&gt;
+   &lt;head&gt;
+      &lt;title&gt;{tmpl_var name='title_text'}&lt;/title&gt;
+      &lt;meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /&gt;
+   &lt;/head&gt;
+
+   &lt;body&gt;
+
+   &lt;p&gt;{tmpl_var name='body_text'}&lt;/p&gt;
+
+   &lt;/body&gt;
+   &lt;/html&gt;</pre>
+</div>
+
+<br>
+<br>
+<hr noshade="true" size="1">
+</div>
+<div class="document-footer">
+
+<table width="100%">
+	
+<tr>
+		
+<td align="left">Updated: Saturday, 19th of November 2005</td>
+		<td align="right"><a href="http://vlib.clausvb.de/forum/index.php" target="_blank">vLIB forum and support</a></td>
+	
+</tr>
+
+</table> <!-- Seite: <page-number /> -->
+
+</div>
+</body>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/tutorial_simple_example.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+</html>

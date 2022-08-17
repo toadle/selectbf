@@ -6,62 +6,54 @@
    <tr class=head>
 	 <th colspan=2><nobr><tmpl_var name="servername"></nobr></th>         
    </tr> 
-   <tr class=dark>	 
-     <th colspan=2>Starttime: <tmpl_var name="date"></th>
-   </tr> 
    <tr class=light>
-     <th width=25%>Mod:</th>
+     <td width=25%>Mod:</td>
      <td><tmpl_var name="mod"> <img src="{tmpl_var name="modimg"}" align=absmiddle></td>
    </tr>
    <tr class="dark">
-     <th>GameID:</th>
+     <td>GameID:</td>
      <td><tmpl_var name="id"></td>
    </tr>         
    <tr class="light">
-     <th>Game-Mode:</th>
+     <td>Game-Mode:</td>
      <td><tmpl_var name="game_mode"></td>
    </tr> 
    <tr class="dark">
-     <th>Map:</th>
+     <td>Map:</td>
      <td><tmpl_var name="map"></td>
    </tr>          
    <tr class="light">
-     <th>Game-Time:</th>
+     <td>Game-Time:</td>
      <td><tmpl_var name="gametime"></td>
    </tr>                    
    <tr class="dark">
-     <th>Player-Limit:</th>
+     <td>Player-Limit:</td>
      <td><tmpl_var name="maxplayers"></td>
    </tr>
    <tr class="light">
-     <th>Score-Limit:</th>
+     <td>Score-Limit:</td>
      <td><tmpl_var name="scorelimit"></td>
    </tr>
    <tr class="dark">
-     <th>Spawn-Time:</th>
+     <td>Spawn-Time:</td>
      <td><tmpl_var name="spawntime"></td>
    </tr>
    <tr class="light">
-     <th>Friendly-Fire (Soldiers):</th>
+     <td>Friendly-Fire (Soldiers):</td>
      <td><tmpl_var name="soldierff"></td>
    </tr>
    <tr class="dark">
-     <th>Friendly-Fire (Vehicles):</th>
+     <td>Friendly-Fire (Vehicles):</td>
      <td><tmpl_var name="vehicleff"></td>
    </tr>
    <tr class="light">
-     <th>TKs punished?:</th>
+     <td>TK Punish:</td>
      <td><tmpl_var name="tkpunish"></td>
    </tr>
    <tr class="dark">
-     <th>Deathcam-Type:</th>
+     <td>Deathcam-Type:</td>
      <td><tmpl_var name="deathcamtype"></td>
    </tr>
-<tmpl_if name="chat">
-   <tr class="light">
-     <th colspan=2><a href="{tmpl_var name='chatloglink'}"><nobr>Chat Log</nobr></a></th>
-   </tr>   
-</tmpl_if>          
  </table>  
 <tmpl_loop name="rounds">
  <p>
@@ -74,19 +66,19 @@
      <th colspan=2>Starttime: <tmpl_var name="starttime"></nobr></th>         
    </tr>
    <tr class="dark">
-     <th class="axis" width=25%>Axis started with:</th>
+     <th class="axis" width=25%>Red team started with:</th>
      <td><tmpl_var name="start_tickets_team1"> Tickets</td>
    </tr>
    <tr class="light">
-     <th class="allied">Allied started with:</th>
+     <th class="allied">Blue team started with:</th>
      <td><tmpl_var name="start_tickets_team2"> Tickets</td>
    </tr>
    <tr class="dark">
-     <th class="axis">Axis finished with:</th>
+     <th class="axis">Red team finished with:</th>
      <td><tmpl_var name="end_tickets_team1"> Tickets</td>
    </tr>
    <tr class="light">
-     <th class="allied">Allied finished with:</th>
+     <th class="allied">Blue team finished with:</th>
      <td><tmpl_var name="end_tickets_team2"> Tickets</td>
    </tr>   
 <tmpl_if name="isForced">
@@ -101,23 +93,31 @@
 </tmpl_if> 
 <tmpl_if name="isRegular">
  <tmpl_if name="axis_won">
-   <tr class="light">
-     <th colspan=2 class=axis><img src="{tmpl_var name='IMAGES_DIR'}axis_flag.gif" align=absmiddle hspace=2>Axis won the round!</th>
+   <tr class="dark">
+     <th colspan=2 class=axis><img src="{tmpl_var name='IMAGES_DIR'}axis_flag.gif" align=absmiddle hspace=2>Red team won the round!</th>
    </tr>         	
  <tmpl_else>
  <tmpl_if name="allies_won">  
-   <tr class="light">
-     <th colspan=2 class=allied><img src="{tmpl_var name='IMAGES_DIR'}allied_flag.gif" align=absmiddle hspace=2>Allies won the round!</th>
+   <tr class="dark">
+     <th colspan=2 class=allied><img src="{tmpl_var name='IMAGES_DIR'}allied_flag.gif" align=absmiddle hspace=2>Blue team won the round!</th>
    </tr>         	
  <tmpl_else>
-    <tr class="light">
-     <th colspan=2>Nobody won the round!</b></th>
+    <tr class="dark">
+     <th colspan=2>Nobody won the round!</th>
    </tr>         	
  </tmpl_if>   
  </tmpl_if>
+   <tr class="light">
+     <td colspan=2> </td>
+   </tr>
+<tmpl_if name="chat">
    <tr class="dark">
-     <td colspan=2>&nbsp;</td>
-   </tr> 
+     <th colspan=2><strong><a href="{tmpl_var name='chatloglink'}"><nobr>Chat Log</nobr></a><strong></th>
+   </tr>
+</tmpl_if>
+   <tr class="light">
+     <td colspan=2> </td>
+   </tr>
 <tmpl_if name="topthree">
    <tr class="darker">
      <th colspan=2>Battlefield "End-of-Game"-Ranking</th>
@@ -133,7 +133,7 @@
            <th class=number>Kills</th>
            <th class=number>Deaths</th>
            <th class=number>TKs</th>
-           <th class=number><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Basepoint Conquers"></th>
+           <th class=number><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Conquests" title="Conquests"></th>
          </tr>
 <tmpl_loop name="topthree">
 <tmpl_if name="__EVEN__">
@@ -158,8 +158,8 @@
 <tmpl_if name="axis">
 <tmpl_if name="allied">
    <tr class="head">
-     <th class=axis width=50%>Axis</td>
-     <th class=allied>Allied</td>          
+     <th class=axis width=50%>Red Team</td>
+     <th class=allied>Blue Team</td>          
    </tr>
    <tr class="dark">
      <td valign=top>
@@ -169,7 +169,7 @@
            <th class=teamstats>Player</th>
            <th class=teamstats>Score</th>
            <th class=teamstats>Kills</th>
-	       <th class=teamstats>Deaths</th>
+	   <th class=teamstats>Deaths</th>
          </tr>   
 <tmpl_loop name="axis">
 <tmpl_if name="__EVEN__">

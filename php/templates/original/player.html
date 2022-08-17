@@ -68,7 +68,7 @@
          </tr>  
          <tr class="scoretable_hell">
           <th width=150>Awards:</th>
-          <td><tmpl_loop name="awards"><tmpl_if name="hasImg"><img src="{tmpl_var name='IMAGES_DIR'}{tmpl_var name='image'}" alt="{tmpl_var name='image_desc'}"></tmpl_if><tmpl_if name="hasText"><tmpl_var name="text"></tmpl_if></tmpl_loop></td>
+          <td><tmpl_var name="awards" escape=none></td>
          </tr>
          <tr class="scoretable_dunkel">
           <th>Heals:</th>
@@ -290,7 +290,7 @@
         <table class="scoretable">
          <tr>
           <th class=scoretable_number>#</th>
-          <th class=scoretable>Weapon</th>
+          <th class=scoretable>Player</th>
           <th class=scoretable_number>Kills</th>
           <th class=scoretable_number>%</th>
           <th class=scoretable>&nbsp;</th>
@@ -517,6 +517,7 @@
 				 <th class=scoretable><nobr>Game started</nobr></th>
 				 <th class=scoretable><nobr>Server Name</nobr></th>
 				 <th class=scoretable>Mod</th>
+				 <th class=scoretable>Map</th>
 				 <th class=scoretable_number>Score</th>
 				 <th class=scoretable_number>Kills</th>
 				 <th class=scoretable_number>Deaths</th>
@@ -527,9 +528,10 @@
 					<tmpl_else>
 					 <tr class="scoretable_dunkel">
 					</tmpl_if>
-						 <td><nobr><tmpl_var name="date"></nobr></td>
-						 <td><nobr><a href="{tmpl_var name="gamedetaillink"}"><tmpl_var name="servername"></a></nobr></td>
-						 <td><tmpl_var name="mod"><img src="{tmpl_var name='modimg'}" align=absmiddle hspace="2"></td>
+						 <td><nobr><a href="{tmpl_var name="gamedetaillink"}"><tmpl_var name="date"></a></nobr></td>
+						 <td><nobr><tmpl_var name="servername"></nobr></td>
+						 <td><tmpl_var name="mod"></td>
+						 <td><nobr><tmpl_var name="map"></nobr></td>
 						 <td><nobr><tmpl_var name="score"></nobr></td>
 						 <td><nobr><tmpl_var name="kills"></nobr></td>
 						 <td><nobr><tmpl_var name="deaths"></nobr></td>

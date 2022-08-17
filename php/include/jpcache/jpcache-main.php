@@ -75,7 +75,7 @@
         // way to determine the scriptname
         if ($name=="")
         {
-            $name="http://".$_SERVER["SERVER_NAME"].$_SERVER["SCRIPT_NAME"];
+            $name="https://".$_SERVER["SERVER_NAME"].$_SERVER["SCRIPT_NAME"];
         }
         
         jpcache_debug("Cache scriptkey is set to $name");        
@@ -179,7 +179,7 @@
         // Should we garbage collect ?
         if ($GLOBALS["JPCACHE_GC"]>0) 
         {
-            mt_srand(time(NULL));
+            mt_srand(time());
             $precision=100000;
             // Garbagecollection probability
             if (((mt_rand()%$precision)/$precision) <=

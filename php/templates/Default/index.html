@@ -6,22 +6,21 @@
    <tr class=head>
      <th>Rank</th>
      <th>Player</th>
-     <th><tmpl_if name="points_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='points_link'}">Points</a></th>     
-     <th><tmpl_if name="avgscore_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='avgscore_link'}">S/R</a></th>
+     <th><tmpl_if name="points_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='points_link'}">Skill</a></th>     
      <th><tmpl_if name="score_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='score_link'}">Score</a></th>
+     <th><tmpl_if name="avgscore_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='avgscore_link'}"><abbr title="Score per Round">S/R</abbr></a></th>
      <th><tmpl_if name="kills_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='kills_link'}">Kills</a></th>
      <th><tmpl_if name="deaths_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='deaths_link'}">Deaths</a></th>
-     <th><tmpl_if name="kdrate_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='kdrate_link'}">K/D</a></th>
-     <th><tmpl_if name="first_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='first_link'}"><img src="{tmpl_var name='IMAGES_DIR'}star_gold.gif"></a></th>
-     <th><tmpl_if name="second_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='second_link'}"><img src="{tmpl_var name='IMAGES_DIR'}star_silver.gif"></a></th>
-     <th><tmpl_if name="third_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='third_link'}"><img src="{tmpl_var name='IMAGES_DIR'}star_bronze.gif"></a></th>
-     <th><tmpl_if name="tks_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='tks_link'}">TKs</a></th>
-     <th><tmpl_if name="attacks_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='attacks_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Basepoint Conquers"></a></th>
-     <th><tmpl_if name="captures_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='captures_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_captures.gif" alt="Flag Captures"></a></th>
-     <th><tmpl_if name="objectives_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='objectives_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_objectives.gif" alt="Objectives achieved"></a></th>     
-     <th><tmpl_if name="rounds_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='rounds_link'}"><img src="{tmpl_var name='IMAGES_DIR'}joystick_icon.gif" alt="Rounds played"></a></th>
-     <th><tmpl_if name="heals_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='heals_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_heals.gif" alt="Heals"></a></th>
-     <th><tmpl_if name="repairs_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='repairs_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_repairs.gif" alt="Repairs"></a></th>
+     <th><tmpl_if name="kdrate_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='kdrate_link'}"><abbr title="Kills per Death">K/D</abbr></a></th>
+     <th><tmpl_if name="tks_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='tks_link'}"><abbr title="Team Kills">TKs</abbr></a></th>
+     <th><tmpl_if name="first_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='first_link'}"><img src="{tmpl_var name='IMAGES_DIR'}star_gold.gif" alt="Gold" title="Gold medals"></a></th>
+     <th><tmpl_if name="second_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='second_link'}"><img src="{tmpl_var name='IMAGES_DIR'}star_silver.gif" alt="Silver" title="Silver medals"></a></th>
+     <th><tmpl_if name="third_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='third_link'}"><img src="{tmpl_var name='IMAGES_DIR'}star_bronze.gif" alt="Bronze" title="Bronze medals"></a></th>
+     <th><tmpl_if name="attacks_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='attacks_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Conquests" title="Conquests"></a></th>
+     <th><tmpl_if name="captures_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='captures_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_captures.gif" alt="Captures" title="Captures"></a></th>
+     <th><tmpl_if name="rounds_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='rounds_link'}"><img src="{tmpl_var name='IMAGES_DIR'}joystick_icon.gif" align=absmiddle hspace="2" alt="Rounds" title="Rounds"></a></th>
+     <th><tmpl_if name="heals_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='heals_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_heals.gif" alt="Heals" title="Heals"></a></th>
+     <th><tmpl_if name="repairs_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='repairs_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_repairs.gif" alt="Repairs Assists" title="Repair Assists"></a></th>
    </tr>
 <tmpl_if name="ranking">
 <tmpl_loop name="ranking">
@@ -32,19 +31,18 @@
   </tmpl_if>
      <td class=number><tmpl_var name='rank'></td>
      <td><a href="{tmpl_var name='playerdetaillink'}"><nobr><img src="{tmpl_var name='playerimg'}" hspace=2 align=absmiddle><tmpl_var name='name'></nobr></a>&nbsp;<tmpl_var name="awards_withoutstars" escape="none"></td>
-	 <td class=important_number><tmpl_var name='points'></td>     
-	 <td class=important_number><tmpl_var name='avgscore'></td>
+     <td class=important_number><tmpl_var name='points'></td>     
      <td class=important_number><tmpl_var name='score'></td>
+     <td class=important_number><tmpl_var name='avgscore'></td>
      <td class=important_number><tmpl_var name='kills'></td>
      <td class=important_number><tmpl_var name='deaths'></td>
      <td class=important_number><tmpl_var name='kdrate'></td>
+     <td class=number><tmpl_var name='tks'></td>
      <td class=number><tmpl_var name='first'></td>
      <td class=number><tmpl_var name='second'></td>
      <td class=number><tmpl_var name='third'></td>
-     <td class=number><tmpl_var name='tks'></td>
      <td class=number><tmpl_var name='attacks'></td>
      <td class=number><tmpl_var name='captures'></td>
-     <td class=number><tmpl_var name='objectives'></td>     
      <td class=number><tmpl_var name='rounds'></td>
      <td class=number><tmpl_var name='heals'></td>
      <td class=number><tmpl_var name='otherrepairs'></td>
@@ -56,7 +54,7 @@
      <table class="navbar" width=100%>
       <tr class="head">
 	  <th width=15% class=navbar><tmpl_if name="RankPreviousButtonLink"><a href="{tmpl_var name="RankPreviousButtonLink"}" class="white"><img src="{tmpl_var name='IMAGES_DIR'}arrow_left.gif" hspace=2>previous</a><tmpl_else>&nbsp;</tmpl_if></th>
-	  <th colspan=14  width=70% class=navbar>
+	  <th colspan=13  width=70% class=navbar>
 	   <center>         
 	  <tmpl_loop name="navbarinforank">
 	   <tmpl_if name="link">
@@ -84,7 +82,7 @@
      <th>Mod</th>
      <th>Map</th>
      <th>GameMode</th>
-     <th><img src="{tmpl_var name='IMAGES_DIR'}joystick_icon.gif" align=absmiddle hspace="2" alt="Number of Rounds"></th>
+     <th><img src="{tmpl_var name='IMAGES_DIR'}joystick_icon.gif" align=absmiddle hspace="2" alt="Rounds" title="Rounds"></th>
    </tr>
 <tmpl_if name="games">
 <tmpl_loop name="games">
@@ -93,8 +91,8 @@
   <tmpl_else>
    <tr class="dark">
   </tmpl_if>
-     <td><tmpl_var name="date"></td>
-     <td><img src="{tmpl_var name='IMAGES_DIR'}joystick_icon.gif" align=absmiddle hspace="2"><a href="{tmpl_var name="gamedetaillink"}"><tmpl_var name="servername"></a></td>
+     <td><a href="{tmpl_var name="gamedetaillink"}"><tmpl_var name="date"></a></td>
+     <td><img src="{tmpl_var name='IMAGES_DIR'}joystick_icon.gif" align=absmiddle hspace="2"><tmpl_var name="servername"></td>
      <td><tmpl_var name="mod"><img src="{tmpl_var name='modimg'}" align=absmiddle hspace="2"></td>
      <td><tmpl_var name="map"></td>
      <td><tmpl_var name="game_mode"></td>
@@ -124,8 +122,8 @@
    </tr>
 </tmpl_if>
   </table>
-  <p>
-  <table width="95%" border="1" align="center">
+  <p></p>
+   <table width="95%" border="1" align="center">
    <tr class="head">
      <th class="super" scope="col" colspan=10>Search</th>
    </tr>
@@ -138,10 +136,7 @@
       <td colspan=9><input type="text" name=playername size=60 class=formelement><input type="hidden" name={tmpl_var name="search_param_searchtype"} value="{tmpl_var name="search_type_players"}" class=formelement></td>
     </form>
     </tr>
-    <tr class=head>
-     <th colspan=10>Search for Games</th>
-    </tr>
-     <form action="{tmpl_var name="search_action"}" method=get>
+	<form action="{tmpl_var name="search_action"}" method=get>
       <input type=hidden name={tmpl_var name="search_param_searchtype"} value="{tmpl_var name="search_type_games"}">
     <tr>
        <td class=important width=10%>
@@ -202,7 +197,7 @@
        <option value=07>July</option>
        <option value=08>August</option>
        <option value=09>September</option>
-       <option value=10>Oktober</option>
+       <option value=10>October</option>
        <option value=11>November</option>
        <option value=12>December</option>
       </select>
@@ -212,25 +207,39 @@
        </td>       
        <td>
       <select name={tmpl_var name="search_param_year"} class=formelement>
-       <option value=nothing selected>&nbsp;</option>
-       <option>2002</option>
-       <option>2003</option>
-       <option>2004</option>
-       <option>2005</option>
-       <option>2006</option>
-       <option>2007</option>
-       <option>2008</option>
-       <option>2009</option>
-       <option>2010</option>
-       <option>2011</option>
-       <option>2012</option>
-       <option>2013</option>
-       <option>2014</option>
-       <option>2015</option>
-       <option>2016</option>
-       <option>2017</option>
-       <option>2018</option>
-       <option>2019</option>
+        <option value=nothing selected>&nbsp;</option>
+        <option>2010</option>
+        <option>2011</option>
+        <option>2012</option>
+        <option>2013</option>
+        <option>2014</option>
+        <option>2015</option>
+        <option>2016</option>
+        <option>2017</option>
+        <option>2018</option>
+        <option>2019</option>
+        <option>2020</option>
+        <option>2021</option>
+        <option>2022</option>
+        <option>2023</option>
+        <option>2024</option>
+        <option>2025</option>
+        <option>2026</option>
+        <option>2027</option>
+        <option>2028</option>
+        <option>2029</option>
+        <option>2030</option>
+        <option>2030</option>
+        <option>2031</option>
+        <option>2032</option>
+        <option>2033</option>
+        <option>2034</option>
+        <option>2035</option>
+        <option>2036</option>
+        <option>2037</option>
+        <option>2038</option>
+        <option>2039</option>
+        <option>2040</option>
       </select>
        </td>
        <td class=important width=10%>
@@ -245,5 +254,5 @@
      </td>
     </tr>
    </form>
- </table> 
+ </table>
 <tmpl_include file="foot.html">

@@ -5,8 +5,8 @@ $DBVerbindung = SQL_connect();
 function SQL_connect()
 {
 	GLOBAL $SQL_host,$SQL_user,$SQL_datenbank,$SQL_password;
-	$con = mysql_connect($SQL_host,$SQL_user,$SQL_password) or die(mysql_error());
-	mysql_select_db($SQL_datenbank);
+	$con = mysqli_connect($SQL_host,$SQL_user,$SQL_password) or die(mysqli_error());
+	mysqli_select_db($con, $SQL_datenbank);
 	return $con;
 }
 
@@ -14,7 +14,7 @@ function SQL_connect()
 function SQL_query($sql)
 {
 	GLOBAL $DBVerbindung;
-	$res = mysql_query($sql,$DBVerbindung) or die(mysql_error());
+	$res = mysqli_query($DBVerbindung, $sql) or die(mysql_error($DBVerbindung));
 	
 	return $res;
 }
@@ -22,27 +22,27 @@ function SQL_query($sql)
 function SQL_oneRowQuery($sql)
 {
 	GLOBAL $DBVerbindung;
-	$res = mysql_query($sql,$DBVerbindung) or die(mysql_error());
+	$res = mysqli_query($DBVerbindung, $sql) or die(mysql_error($DBVerbindung));
 	$Zeile = SQL_fetchArray($res);
 	return $Zeile;
 }
 
 function SQL_fetchArray($ResultSet)
 {
-        $row = mysql_fetch_array($ResultSet,MYSQL_ASSOC);
+        $row = mysqli_fetch_array($ResultSet,MYSQL_ASSOC);
         return $row;
 }
 
 function SQL_resetResult($ResultSet)
 {
-	@mysql_data_seek($ResultSet,0); 
+	@mysqli_data_seek($ResultSet,0); 
 }
 
 function SQL_containsRows($ResultSet)
 {
-	if($row = mysql_fetch_array($ResultSet,MYSQL_ASSOC))
+	if($row = mysqli_fetch_array($ResultSet,MYSQL_ASSOC))
 	{
-		@mysql_data_seek($ResultSet,0); 
+		@mysqli_data_seek($ResultSet,0); 
 		return true;
 	}
 	else

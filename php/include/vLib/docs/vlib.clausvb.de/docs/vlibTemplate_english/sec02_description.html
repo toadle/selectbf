@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "--//W3C//DTD HTML 4.01 Transitional//EN">
+<!--dummy--><html>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/sec02_description.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="standard.css">
+<meta content="AurigaDoc" name="generator">
+<title>Description</title>
+</head>
+<body>
+<div class="document-header">
+   
+<table width="100%">
+      
+<tr>
+         
+<td align="left">
+<h1>vlibTemplate</h1>
+</td>
+         <td align="right"><img src="vlib_logo.gif" alt="vLib Logo" title="Logo von vLIB"></td>
+      
+</tr>
+   
+</table>
+
+   
+<hr>
+
+</div>
+<div class="navigation">
+<a name="sec02_description"></a> <a href="table_of_content.html">Table of Contents</a> | Previous: <a href="sec01_synopsis.html">1. Synopsis / Getting started</a> | Next: <a href="sec03_motivation.html">3. Motivation</a>
+<br>
+<br>
+</div>
+<div class="section-heading-1">
+<b>2. Description</b> 
+</div>
+<div class="section-body-1">
+   
+<p>It makes use of the following vlibTemplate markup tags (like html tags);
+   <b>&lt;tmpl_var&gt;, &lt;tmpl_loop&gt;, &lt;tmpl_include&gt;, &lt;tmpl_phpinclude&gt;, &lt;tmpl_comment&gt;, &lt;tmpl_if&gt;, &lt;tmpl_elseif&gt;, &lt;tmpl_else&gt;, &lt;tmpl_unless&gt;, &lt;tmpl_endloop&gt;, &lt;tmpl_endcomment&gt;, &lt;tmpl_endif&gt; and &lt;tmpl_endunless&gt;</b>.<br>
+   The file written with these style tags is called a template. A template can be an HTML file to use on the web, or perhaps a text file to use as an e-mail template... as you can guess there are many many possibilities.</p>
+
+   
+<p>The template file is always seperate from the php script that uses it, that way, a designer for example can change the template file without having to go through all of the php coding, thus saving the developer having to worry about it.<br>
+   Using this class you set the values for the variables, loops, if statements, etc. which are declared in the template. This enables you to seperate all of the design from the data, which you create using PHP.</p>
+
+   
+<p>vlibTemplate has three user accessible classes. vlibTemplate, vlibTemplateDebug and vlibTemplateCache. vlibTemplate is the main class which handles all of the passing and has the majority of the functions. vlibTemplateDebug and vlibTemplateCache both extend vlibTemplate and inherit it's functionality.<br>
+   You can therefore change the functionality of vlibTemplate just by appending Debug or Cache.<br>
+   The debug class requires no parametres to be set, it prints out the vlibTemplate debug module with debug data for the current page. The cache class has a few extra functions that are utilisable, the class saves the parsed file into the filesystem to allow much faster page accesses and a faster site. All are described in the following sections.</p>
+
+<br>
+<br>
+<hr noshade="true" size="1">
+</div>
+<div class="document-footer">
+
+<table width="100%">
+	
+<tr>
+		
+<td align="left">Updated: Saturday, 19th of November 2005</td>
+		<td align="right"><a href="http://vlib.clausvb.de/forum/index.php" target="_blank">vLIB forum and support</a></td>
+	
+</tr>
+
+</table> <!-- Seite: <page-number /> -->
+
+</div>
+</body>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/sec02_description.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+</html>

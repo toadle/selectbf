@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "--//W3C//DTD HTML 4.01 Transitional//EN">
+<!--dummy--><html>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/func_setdbloop.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="standard.css">
+<meta content="AurigaDoc" name="generator">
+<title>setDbLoop()</title>
+</head>
+<body>
+<div class="document-header">
+   
+<table width="100%">
+      
+<tr>
+         
+<td align="left">
+<h1>vlibTemplate</h1>
+</td>
+         <td align="right"><img src="vlib_logo.gif" alt="vLib Logo" title="Logo von vLIB"></td>
+      
+</tr>
+   
+</table>
+
+   
+<hr>
+
+</div>
+<div class="navigation">
+<a name="func_setdbloop"></a> <a href="table_of_content.html">Table of Contents</a> | Up: <a href="sec06_vlibtemplate.html">6. vlibTemplate</a> | Previous: <a href="func_setloop.html">6.8. setLoop()</a> | Next: <a href="func_newloop.html">6.10. newLoop()</a>
+<br>
+<br>
+</div>
+<div class="section-heading-2">
+<b>6.9. setDbLoop()</b> 
+</div>
+<div class="section-body-2">
+
+
+<br>
+
+<table width="100%" bgcolor="#EC7600">
+<tr>
+<td align="left"><font color="white">
+	Function Description
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#FFD7AE">
+<pre>
+ setDbLoop(string loopname, resource db_result [, db_type])
+</pre>
+</td>
+</tr>
+</table>
+
+<br>
+
+setDbLoop() builds an array for using with &lt;TMPL_LOOP&gt; from a Database
+
+    result resource or a statement for those databases where
+
+    it applies (see below).<br>
+
+    db_type is the name of the database that the result resource is associated
+
+    to, if it's not specified then MYSQL is the default.<br>
+
+    Below is a list of databases currently supported and information about the
+
+    db_result needed to be passed:<br>
+
+    
+<br>
+
+<blockquote>
+    
+<b>MYSQL</b> - a normal result resource<br>
+
+    
+<b>POSTGRESQL</b> - a normal result resource<br>
+
+    
+<b>INFORMIX</b> - resultid returned by ifx_query() or ifx_prepare()<br>
+
+    
+<b>INTERBASE</b> - result identifier<br>
+
+    
+<b>INGRES</b> - result identifier<br>
+
+    
+<b>MSSQL</b> - result resource<br>
+
+    
+<b>MSQL</b> - result resource<br>
+
+    
+<b>OCI8</b> - statement handle<br>
+
+    
+<b>ORACLE</b> - cursor handle<br>
+
+    
+<b>OVRIMOS</b> - resultid<br>
+
+    
+<b>SYBASE</b> - result resource<br>
+
+</blockquote>
+    
+<br>
+
+
+<br>
+<br>
+
+<table width="100%" bgcolor="#D00000">
+<tr>
+<td align="left"><font color="white">
+	Warning
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#fff0f0">
+    This function is curently experimental, so as much testing as possible needs
+    to be carried out. If you use any of these databases
+    either succesfully or unsuccefully, please provide feedback to help us improve
+    the function. Only MYSQL and INFORMIX have been tested.
+</td>
+</tr>
+</table>
+
+<br>
+
+
+<p>Please see the &lt;TMPL_LOOP&gt;
+  section for information on how to build a loop.
+</p>
+
+
+<br>
+<br>
+
+
+<br>
+<br>
+<hr noshade="true" size="1">
+</div>
+<div class="document-footer">
+
+<table width="100%">
+	
+<tr>
+		
+<td align="left">Updated: Saturday, 19th of November 2005</td>
+		<td align="right"><a href="http://vlib.clausvb.de/forum/index.php" target="_blank">vLIB forum and support</a></td>
+	
+</tr>
+
+</table> <!-- Seite: <page-number /> -->
+
+</div>
+</body>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/func_setdbloop.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+</html>

@@ -11,7 +11,7 @@
        <td width="15%" rowspan="18" align="center" valign="middle" class=lightgray><a href="{tmpl_var name='mapdetaillink'}"><img src="{tmpl_var name='screen'}" width=128 height=94></a></td>
      </tr>    
      <tr class=axis>
-       <td width="85%" colspan=2><b>Axis</b></td>
+       <td width="85%" colspan=2><b>Red Team</b></td>
      </tr>
      <tr class=axis_hell>
        <td width=15%>won rounds: </td>
@@ -26,25 +26,25 @@
        <td><tmpl_var name="deaths_team1"></td>
      </tr>
      <tr class=axis_hell>
-       <td><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Basepoint Conquers"></td>
+       <td><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Conquests" title="Conquests"></td>
        <td><tmpl_var name="attacks_team1"></td>
      </tr>
      <tr class=axis_dunkel>
-       <td colspan=2><u>on Axis win</u></td>
+       <td colspan=2><u>on Red team</u></td>
      </tr>
      <tr class=axis_hell>
-       <td class="axis">&Oslash; Tickets Axis</td>
+       <td class="axis">&Oslash; Red team's tickets</td>
        <td><tmpl_var name="win_team1_end_tickets_team1"></td>
      </tr>
      <tr class=axis_hell>
-       <td class="allied">&Oslash; Tickets Allies</td>
+       <td class="allied">&Oslash; Blue team's tickets</td>
        <td><tmpl_var name="win_team1_end_tickets_team2"></td>
      </tr>
      <tr>
 	  <td colspan="2"><tmpl_var name="bar" escape="none"></td>
 	 </tr>
      <tr class=allied colspan=2>
-       <td><b>Allies</b></td>
+       <td><b>Blue Team</b></td>
        <td></td>
      </tr>
      <tr class=allied_hell>
@@ -60,18 +60,18 @@
        <td><tmpl_var name="deaths_team2"></td>
      </tr>
      <tr class=allied_hell>
-       <td><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Basepoint Conquers"></td>
+       <td><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Conquests" title="Conquests"></td>
        <td><tmpl_var name="attacks_team2"></td>
      </tr>
      <tr class=allied_dunkel>
-       <td colspan=2><u>on Allies win</u></td>
+       <td colspan=2><u>on Blue team</u></td>
      </tr>
      <tr class=allied_hell>
-       <td class=axis>&Oslash; Tickets Axis</td>
+       <td class=axis>&Oslash; Red team's tickets</td>
        <td><tmpl_var name="win_team2_end_tickets_team1"></td>
      </tr>
      <tr class=allied_hell>
-       <td class=allied><span class="axis_blue">&Oslash; Tickets Allies</td>
+       <td class=allied><span class="axis_blue">&Oslash; Blue team's tickets</td>
        <td><tmpl_var name="win_team2_end_tickets_team2"></td>
      </tr>
    </tmpl_loop>

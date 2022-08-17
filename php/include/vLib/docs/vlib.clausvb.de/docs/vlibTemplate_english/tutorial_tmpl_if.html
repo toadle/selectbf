@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "--//W3C//DTD HTML 4.01 Transitional//EN">
+<!--dummy--><html>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/tutorial_tmpl_if.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="standard.css">
+<meta content="AurigaDoc" name="generator">
+<title>TMPL_IF</title>
+</head>
+<body>
+<div class="document-header">
+   
+<table width="100%">
+      
+<tr>
+         
+<td align="left">
+<h1>vlibTemplate</h1>
+</td>
+         <td align="right"><img src="vlib_logo.gif" alt="vLib Logo" title="Logo von vLIB"></td>
+      
+</tr>
+   
+</table>
+
+   
+<hr>
+
+</div>
+<div class="navigation">
+<a name="tutorial_tmpl_if"></a> <a href="table_of_content.html">Table of Contents</a> | Up: <a href="sec04_introduction.html">4. Introduction and tutorial</a> | Previous: <a href="tutorial_simple_example.html">4.1. Simple example with two variables</a> | Next: <a href="tutorial_simple_loop.html">4.3. Simple LOOP</a>
+<br>
+<br>
+</div>
+<div class="section-heading-2">
+<b>4.2. TMPL_IF</b> 
+</div>
+<div class="section-body-2">
+   
+<div class="php_skript_kopf">PHP script</div>
+   
+<div class="php_skript_inhalt">
+   
+<pre>   require_once 'vlib/vlibTemplate.php';
+
+   $tmpl = new vlibTemplate('tmpl/tmpl_if.htm');
+
+   $boolean = (isset($_GET['if_condition'])) ? 1 : 0;
+
+   $tmpl-&gt;setvar('boolean', $boolean);
+   $tmpl-&gt;setvar('if_condition', $_GET['if_condition']);
+
+   $tmpl-&gt;pparse();</pre>
+</div>
+
+   
+<div class="template_kopf">Template</div>
+   
+<div class="template_inhalt">
+   
+<pre>   (...)
+         &lt;style type="text/css"&gt;
+         body
+         { 
+            font-family: Arial;
+            font-size: 0.9em;
+            color: &lt;tmpl_if name='boolean'&gt;purple&lt;tmpl_else&gt;gray&lt;/tmpl_if&gt;;
+         }
+         pre { color: black; font-size: 1.1em; }
+      &lt;/style&gt;
+   &lt;/head&gt;
+   
+   &lt;body&gt;
+   
+   &lt;p&gt;This text is gray without "if_condition" set. Click
+   &lt;a href="tmpl_if.php?if_condition=1"&gt;here&lt;/a&gt; to make it purple. 
+   &lt;tmpl_if name='if_condition' op='&gt;' value='5'&gt;&lt;span 
+   style="color: green"&gt;"if_condition" is more than 5.&lt;/span&gt;&lt;tmpl_else&gt;
+   "if_condition" is not set or below (equal to) 5.&lt;/tmpl_if&gt;&lt;/p&gt;</pre>
+</div>
+
+<br>
+<br>
+<hr noshade="true" size="1">
+</div>
+<div class="document-footer">
+
+<table width="100%">
+	
+<tr>
+		
+<td align="left">Updated: Saturday, 19th of November 2005</td>
+		<td align="right"><a href="http://vlib.clausvb.de/forum/index.php" target="_blank">vLIB forum and support</a></td>
+	
+</tr>
+
+</table> <!-- Seite: <page-number /> -->
+
+</div>
+</body>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/tutorial_tmpl_if.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+</html>

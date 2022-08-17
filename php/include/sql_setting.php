@@ -1,7 +1,6 @@
 <?php
-$SQL_host = "localhost";
-$SQL_user = "user";
-$SQL_datenbank = "database";
-$SQL_password = "password";
-$DBVerbindung = SQL_connect();
+$SQL_host = 'your mysql server (e.g. localhost)';
+$SQL_user = 'database_user';
+$SQL_password = 'database_password';
+$SQL_datenbank = 'selectbf database which is used by the parser';
 ?>

@@ -34,8 +34,8 @@ if($DEBUG) echo "<b><u>DEBUG</b>-Informations:</u><br>";
 function getNavBar()
 {
 	$navbar = array();
-	array_push($navbar,array("link"=>"index.php","name"=>"Ranking"));
-	array_push($navbar,array("link"=>"clans.php","name"=>"Clan Ranking")); 
+	array_push($navbar,array("link"=>"index.php","name"=>"Players"));
+	array_push($navbar,array("link"=>"clans.php","name"=>"Clans")); 
 	array_push($navbar,array("link"=>"character.php","name"=>"Character-Types"));
 	array_push($navbar,array("link"=>"weapon.php","name"=>"Weapons"));
 	array_push($navbar,array("link"=>"vehicle.php","name"=>"Vehicles"));
@@ -633,7 +633,7 @@ function sec2time($str)
 
 function timer() 
 {
-	list($low, $high) = split(" ", microtime());
+	list($low, $high) = preg_split("/ /", microtime());
     	$t = $high + $low;
 	return $t;
 }
@@ -681,7 +681,7 @@ function getTopAttackerId()
 function getTopRounds($map)
 {
 	$numrounds = $_SESSION["LIST-MAP-ROUNDS"];
-	$res= SQL_Query("select player_id, p.name, score, kills, deaths, attacks, tks, g.id, g.servername,CONCAT(TIME_FORMAT(r.starttime,'%H:%i:%S '),DATE_FORMAT(r.starttime,'%d|%m|%Y')) time from selectbf_playerstats ps, selectbf_players p, selectbf_rounds r, selectbf_games g where ps.player_id = p.id and ps.round_id = r.id and r.game_id = g.id and g.map = '$map' order by score DESC LIMIT 0,$numrounds");
+	$res= SQL_Query("select player_id, p.name, score, kills, deaths, attacks, tks, g.id, g.servername,CONCAT(DATE_FORMAT(r.starttime,'%Y-%m-%d '),TIME_FORMAT(r.starttime,'%H:%i:%S')) time from selectbf_playerstats ps, selectbf_players p, selectbf_rounds r, selectbf_games g where ps.player_id = p.id and ps.round_id = r.id and r.game_id = g.id and g.map = '$map' order by score DESC LIMIT 0,$numrounds");
 	$rounds = array();
 	while($cols = SQL_fetchArray($res))
 	{
@@ -739,23 +739,23 @@ function getAwards($player_id,$first,$second,$third,$toprepair,$topheal,$topscor
 	
 	if($topheal==$player_id)
 	{
-		$awards_withstars = $awards_withstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_HEAL_IMG\" align=absmiddle alt=\"TOP-Medic\">";
-		$awards_withoutstars = $awards_withoutstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_HEAL_IMG\" align=absmiddle alt=\"TOP-Medic\">";
+		$awards_withstars = $awards_withstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_HEAL_IMG\" align=absmiddle alt=\"Top-Heals\" title=\"Top Heals\">";
+		$awards_withoutstars = $awards_withoutstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_HEAL_IMG\" align=absmiddle alt=\"Top-Heals\" title=\"Top Heals\">";
 	}
 	if($toprepair==$player_id)
 	{
-		$awards_withstars = $awards_withstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_REPAIR_IMG\" align=absmiddle alt=\"TOP-Engineer\">";
-		$awards_withoutstars = $awards_withoutstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_REPAIR_IMG\" align=absmiddle alt=\"TOP-Engineer\">";
+		$awards_withstars = $awards_withstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_REPAIR_IMG\" align=absmiddle alt=\"Top-Repairs\" title=\"Top Repairs\">";
+		$awards_withoutstars = $awards_withoutstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_REPAIR_IMG\" align=absmiddle alt=\"Top-Repairs\" title=\"Top Repairs\">";
 	}
 	if($topscore==$player_id)
 	{
-		$awards_withstars = $awards_withstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_SCORE_IMG\" align=absmiddle alt=\"TOP-Scorer\">";
-		$awards_withoutstars = $awards_withoutstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_SCORE_IMG\" align=absmiddle alt=\"TOP-Scorer\">";
+		$awards_withstars = $awards_withstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_SCORE_IMG\" align=absmiddle alt=\"Top-Scorer\" title=\"Top Scorer\">";
+		$awards_withoutstars = $awards_withoutstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_SCORE_IMG\" align=absmiddle alt=\"Top-Scorer\" title=\"Top Scorer\">";
 	}		
 	if($topattack==$player_id)
 	{
-		$awards_withstars = $awards_withstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_ATTACK_IMG\" align=absmiddle alt=\"TOP-Scorer\">";
-		$awards_withoutstars = $awards_withoutstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_ATTACK_IMG\" align=absmiddle alt=\"TOP-Attacker\">";
+		$awards_withstars = $awards_withstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_ATTACK_IMG\" align=absmiddle alt=\"Top-Conquests\" title=\"Top Conquests\">";
+		$awards_withoutstars = $awards_withoutstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_ATTACK_IMG\" align=absmiddle alt=\"Top-Conquests\" title=\"Top Conquests\">";
 	}		
 
 	$awards["awards_withstars"] =  $awards_withstars;
@@ -978,7 +978,7 @@ function getLastGames($start)
 	GLOBAL $DEBUG;
 	$starttime=timer();
 	$numgames = $_SESSION["LIST-RANKING-GAMES"];
-	$res = SQL_query("select servername,modid 'mod',game_mode,map,g.id,CONCAT(TIME_FORMAT(g.starttime,'%H:%i:%S '),DATE_FORMAT(g.starttime,'%d|%m|%Y')) date, count(*) rounds from selectbf_games g, selectbf_rounds r where g.id = r.game_id group by g.id order by g.starttime desc LIMIT $start,$numgames");
+	$res = SQL_query("select servername,modid 'mod',game_mode,map,g.id,CONCAT(DATE_FORMAT(g.starttime,'%Y-%m-%d '),TIME_FORMAT(g.starttime,'%H:%i:%S')) date, count(*) rounds from selectbf_games g, selectbf_rounds r where g.id = r.game_id group by g.id order by g.starttime desc LIMIT $start,$numgames");
 	$games = array();
 	while($cols = SQL_fetchArray($res))
 	{
@@ -1000,7 +1000,7 @@ function getAllGamesPlayer($start,$id)
 	GLOBAL $DEBUG;
 	$starttime=timer();
 	
-	$res = SQL_query("select servername,modid 'mod',game_mode,map,g.id,CONCAT(TIME_FORMAT(g.starttime,'%H:%i:%S '),DATE_FORMAT(g.starttime,'%d|%m|%Y')) date, count(*) rounds from selectbf_games g, selectbf_rounds r, selectbf_playerstats p where g.id = r.game_id and p.player_id = $id and r.id = p.round_id group by g.id order by g.starttime desc LIMIT $start,15");
+	$res = SQL_query("select servername,modid 'mod',game_mode,map,g.id,CONCAT(DATE_FORMAT(g.starttime,'%Y-%m-%d '),TIME_FORMAT(g.starttime,'%H:%i:%S')) date, count(*) rounds from selectbf_games g, selectbf_rounds r, selectbf_playerstats p where g.id = r.game_id and p.player_id = $id and r.id = p.round_id group by g.id order by g.starttime desc LIMIT $start,15");
 	$games = array();
 	while($cols = SQL_fetchArray($res))
 	{
@@ -1023,7 +1023,7 @@ function getLastGamesPlayer($id)
 	$starttime=timer();
 	
 	$usage = $_SESSION["LIST-PLAYER-GAMES"];
-	$res = SQL_query("select servername,modid 'mod',game_mode,map,g.id,CONCAT(TIME_FORMAT(g.starttime,'%H:%i:%S '),DATE_FORMAT(g.starttime,'%d|%m|%Y')) date, count(*) rounds, score, kills, deaths, tks, attacks from selectbf_games g, selectbf_rounds r, selectbf_playerstats p where g.id = r.game_id and r.id = p.round_id and p.player_id = $id group by g.id order by g.starttime desc LIMIT 0,$usage");
+	$res = SQL_query("select servername,modid 'mod',game_mode,map,g.id,CONCAT(DATE_FORMAT(g.starttime,'%Y-%m-%d '),TIME_FORMAT(g.starttime,'%H:%i:%S')) date, count(*) rounds, score, kills, deaths, tks, attacks from selectbf_games g, selectbf_rounds r, selectbf_playerstats p where g.id = r.game_id and r.id = p.round_id and p.player_id = $id group by g.id order by g.starttime desc LIMIT 0,$usage");
 	$games = array();
 	while($cols = SQL_fetchArray($res))
 	{
@@ -1146,7 +1146,7 @@ function getCharacterTypeUsage($id)
    	$starttime=timer();	
    	
 	$listsize = $_SESSION["LIST-PLAYER-CHARACTERS"];
-    $res = SQL_query("select kit,times_used count from selectbf_kits where player_id=$id group by kit order by count desc limit 0,$listsize");
+    $res = SQL_query("select kit,times_used count from selectbf_kits where player_id=$id group by kit,times_used order by count desc limit 0,$listsize");
     $max = getMaxForField($res,"count");
    	
    	$types = array();
@@ -1407,7 +1407,7 @@ function getGameInfo($id)
 	GLOBAL $DEBUG,$gametypeLookupArray;
    	$starttime=timer();	
 	
-	$cols = SQL_oneRowQuery("select servername,modid 'mod',mapid,map,game_mode,gametime,maxplayers,scorelimit,spawntime,soldierff,vehicleff,tkpunish,deathcamtype,CONCAT(TIME_FORMAT(starttime,'%H:%i:%S '),DATE_FORMAT(starttime,'%d|%m|%Y')) date from selectbf_games where id=$id");
+	$cols = SQL_oneRowQuery("select servername,modid 'mod',mapid,map,game_mode,gametime,maxplayers,scorelimit,spawntime,soldierff,vehicleff,tkpunish,deathcamtype,CONCAT(DATE_FORMAT(starttime,'%Y-%m-%d '),TIME_FORMAT(starttime,'%H:%i:%S')) date from selectbf_games where id=$id");
 	$cols["map"] = clearUpText($cols['map'],"MAP");
 	$cols['game_mode'] = clearUpText($cols['game_mode'],"GAME-MODE");
 	$cols['modimg'] = getModSymbolForName($cols['mod']);
@@ -1423,7 +1423,7 @@ function getChatLogForRound($id)
 	GLOBAL $DEBUG;
    	$starttime=timer();
    		
-	$res = SQL_query("select c.player_id,p.name,c.text, CONCAT(TIME_FORMAT(c.inserttime,'%H:%i:%S '),DATE_FORMAT(c.inserttime,'%d|%m|%Y')) inserttime from selectbf_chatlog c, selectbf_players p, selectbf_rounds r where c.player_id = p.id and c.round_id = r.id and r.game_id = $id order by inserttime ASC");
+	$res = SQL_query("select c.player_id,p.name,c.text, CONCAT(DATE_FORMAT(c.inserttime,'%Y-%m-%d '),TIME_FORMAT(c.inserttime,'%H:%i:%S')) inserttime from selectbf_chatlog c, selectbf_players p, selectbf_rounds r where c.player_id = p.id and c.round_id = r.id and r.game_id = $id order by inserttime ASC");
 	$content = false;
 	
 	$chats = array();
@@ -1453,7 +1453,7 @@ function getChatLogCount($id)
 	GLOBAL $DEBUG;
    	$starttime=timer();
 
-	$res = SQL_query("select c.player_id,p.name,c.text, CONCAT(TIME_FORMAT(c.inserttime,'%H:%i:%S '),DATE_FORMAT(c.inserttime,'%d|%m|%Y')) inserttime from selectbf_chatlog c, selectbf_players p, selectbf_rounds r where c.player_id = p.id and c.round_id = r.id and r.game_id = $id order by inserttime ASC");
+	$res = SQL_query("select c.player_id,p.name,c.text, CONCAT(DATE_FORMAT(c.inserttime,'%Y-%m-%d '),TIME_FORMAT(c.inserttime,'%H:%i:%S')) inserttime from selectbf_chatlog c, selectbf_players p, selectbf_rounds r where c.player_id = p.id and c.round_id = r.id and r.game_id = $id order by inserttime ASC");
 	$content = false;
 	
 	while($cols = SQL_fetchArray($res))
@@ -1480,7 +1480,7 @@ function getRoundsForGame($id)
 	GLOBAL $DEBUG;
    	$starttime=timer();
    		
-	$res = SQL_query("select id,start_tickets_team1,start_tickets_team2,CONCAT(TIME_FORMAT(starttime,'%H:%i:%S '),DATE_FORMAT(starttime,'%d|%m|%Y')) starttime,end_tickets_team1,end_tickets_team2,CONCAT(TIME_FORMAT(endtime,'%H:%i:%S '),DATE_FORMAT(endtime,'%d|%m|%Y')) endtime,endtype,winning_team from selectbf_rounds where game_id=$id order by selectbf_rounds.starttime ASC");
+	$res = SQL_query("select id,start_tickets_team1,start_tickets_team2,CONCAT(DATE_FORMAT(starttime,'%Y-%m-%d '),TIME_FORMAT(starttime,'%H:%i:%S')) starttime,end_tickets_team1,end_tickets_team2,CONCAT(DATE_FORMAT(endtime,'%Y-%m-%d '),TIME_FORMAT(endtime,'%H:%i:%S')) endtime,endtype,winning_team from selectbf_rounds where game_id=$id order by selectbf_rounds.starttime ASC");
 	
 	$rounds = array();
 	while($cols = SQL_fetchArray($res))
@@ -1820,10 +1820,7 @@ function getPlayerInfo($id)
 	
 	$infos = array();
 	
-    // Bug fixed by jrivett 2009-Feb-17
-    // Fixed bug where last_seen for player #1 was being reported as last_seen for ALL players.
-	//$aResult = SQL_oneRowQuery("select name,keyhash,CONCAT(TIME_FORMAT(inserttime,'%H:%i:%S '),DATE_FORMAT(inserttime,'%d|%m|%Y')) date, CONCAT(TIME_FORMAT(last_seen,'%H:%i:%S '),DATE_FORMAT(last_seen,'%d|%m|%Y')) last_seen from selectbf_players p, selectbf_playtimes pt where p.id=$id");
-	$aResult = SQL_oneRowQuery("select name,keyhash,CONCAT(TIME_FORMAT(inserttime,'%H:%i:%S '),DATE_FORMAT(inserttime,'%d|%m|%Y')) date, CONCAT(TIME_FORMAT(last_seen,'%H:%i:%S '),DATE_FORMAT(last_seen,'%d|%m|%Y')) last_seen from selectbf_players p, selectbf_playtimes pt where p.id=$id and pt.id=$id");
+	$aResult = SQL_oneRowQuery("select name,keyhash,CONCAT(DATE_FORMAT(inserttime,'%Y-%m-%d '),TIME_FORMAT(inserttime,'%H:%i:%S')) date, CONCAT(DATE_FORMAT(last_seen,'%Y-%m-%d '),TIME_FORMAT(last_seen,'%H:%i:%S')) last_seen from selectbf_players p, selectbf_playtimes pt where pt.id=p.id and p.id=$id");
 	$infos["name"]=$aResult["name"];
 	$infos["keyhash"]=$aResult["keyhash"];	
 	$infos["date"]=$aResult["date"];

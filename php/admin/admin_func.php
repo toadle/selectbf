@@ -19,11 +19,11 @@ function createData($dbTable, $check, $dataArray){
 	for($i=0; $i < count($dataArray); $i++){
 		$dataValue = $dataArray[$i][$check];
 		$res = SQL_query("SELECT * from $dbTable where $check = '$dataValue'");
-		if(mysql_num_rows($res) > 0){}else{
+		if(mysqli_num_rows($res) > 0){}else{
 			foreach($dataArray[$i] as $key=>$value){
 				$dataValue = $dataArray[$i][$check];
 				$res = SQL_query("SELECT * from $dbTable where $check = '$dataValue'");
-				if(mysql_num_rows($res) > 0){
+				if(mysqli_num_rows($res) > 0){
 					if($value == 'now()'){
 						SQL_query("UPDATE $dbTable SET $key=$value where $check = '$dataValue'");
 					}else{
@@ -671,9 +671,8 @@ function getUnClearedKits()
 
 function registerAdminLogin($psw)
 {
-	$session_psw = $psw;
-	session_register("session_psw");
-	$_SESSION["session_psw"] = $session_psw;
+        @session_start();
+	$_SESSION["session_psw"] = $psw;
 }
 
 function killmysession()
@@ -718,7 +717,7 @@ function getValueForParameter($str)
 
 function setValueForParameter($value, $parameter)
 {
-	$value = mysql_real_escape_string($value);
+	$value = mysqli_real_escape_string(SQL_getconnection(), $value);
 	SQL_query("update selectbf_params SET value='$value',inserttime=now() WHERE name='$parameter'");
 	$_SESSION["$parameter"] = $value;
 }
@@ -804,7 +803,7 @@ function setClanTag($str)
 {
 	$value = clear_special_char($str,false);
 	$res = SQL_query("select * from selectbf_clan_tags where clan_tag = '$value'");
-	if(mysql_num_rows($res) > 0){}else{
+	if(mysqli_num_rows($res) > 0){}else{
 		SQL_query("INSERT INTO selectbf_clan_tags (clan_tag) VALUES('$value')");
 	}
 }
@@ -876,7 +875,7 @@ function logoutAdmin()
 
 function timer() 
 {
-	list($low, $high) = split(" ", microtime());
+	list($low, $high) = preg_split("/ /", microtime());
     	$t = $high + $low;
 	return $t;
 }

@@ -3,20 +3,13 @@
    <tr class="head">
      <th colspan="3" class="super" scope="col">Chatlog</th>
    </tr>
-    <tr class=head>
-      <th>Player</th>
-      <th>Text</th>             
-      <th class=number>Time</th>                          
-    </tr>     
     <tmpl_loop name="chatlog">
 	  <tmpl_if name="__EVEN__">
         <tr class="light">
       <tmpl_else>
         <tr class="dark">
       </tmpl_if>
-          <td><a href="{tmpl_var name='playerdetaillink'}"><nobr><img src="{tmpl_var name='playerimg'}" align=absmiddle hspace=2><tmpl_var name="name"></a></td>
-          <td><tmpl_var name="text"></td>             
-          <td class=number><tmpl_var name="inserttime"></td>                          
+          <td>[<tmpl_var name="inserttime">] <a href="{tmpl_var name='playerdetaillink'}"><nobr><img src="{tmpl_var name='playerimg'}" align=absmiddle hspace=2><b><tmpl_var name="name"></b></a>: <tmpl_var name="text"></td>
         </tr>
     </tmpl_loop>      
   </table>
