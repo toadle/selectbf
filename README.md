@@ -4,6 +4,9 @@
 
 **This project is from 2005. It has NOT been maintained or properly developed for about 10 years now.** It has **several servere ⚠️ security issues** like SQL-injection problem that have not been fixed. Use at you own discretion. Know this especially when you are still running an instance of select(bf). We are happy to include fixes for these problems, if YOU would still like to contribute.
 
+In 2022 PHP8-compatibility was added by [htn](https://github.com/htn1491) of [HelloClan](https://www.helloclan.eu). They still run serves and select(bf) based statistics.
+So if YOU want to run this code on PHP 8. You can clone this repo and use the PHP-code provided here.
+
 That time I had to set up a Battlefield server for a LAN-Party and I wanted to have some Stats for the players to see. Unfortunately I found nothing that came close to what I was searching for. So I decided to create a tool of my own. Having features that people are used to from watching CounterStrike-statistic pages. The Battlefield Logs at the time anyhow contained some more information, so that it is possible to even keeptrack of specific games and round infos. But see for yourself.
 
 ## For your consideration
