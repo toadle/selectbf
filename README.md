@@ -1,14 +1,10 @@
 # select(bf) A Battlefield 1942 XML Log Parsing Tool and Statistics generator
 
-## Foreword
+## Foreword / Disclaimer
 
-In the first place Thanks for downloading and using select(bf). I hope it will be useful.
-I started this little program of about three months ago. That time I had to set up a Battlefield
-server for a LAN-Party and I wanted to have some Stats for the players to see. Unfortunately
-I found nothing that came close to what I was searching for. So I decided to create a tool
-of my own. Having features that people are used to from watching CS-statistic pages. The
-Battlefield Logs anyhow contain some more information, so that it is possible to even keep
-track of specific games and round infos. But see yourself.
+**This project is from 2005. It has NOT been maintained or properly developed for about 10 years now.** It has **several servere ⚠️ security issues** like SQL-injection problem that have not been fixed. Use at you own discretion. Know this especially when you are still running an instance of select(bf). We are happy to include fixes for these problems, if YOU would still like to contribute.
+
+That time I had to set up a Battlefield server for a LAN-Party and I wanted to have some Stats for the players to see. Unfortunately I found nothing that came close to what I was searching for. So I decided to create a tool of my own. Having features that people are used to from watching CounterStrike-statistic pages. The Battlefield Logs at the time anyhow contained some more information, so that it is possible to even keeptrack of specific games and round infos. But see for yourself.
 
 ## For your consideration
 
