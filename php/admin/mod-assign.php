@@ -1,5 +1,6 @@
 <?
 require_once("../include/vLib/vlibTemplate.php");
+use clausvb\vlib\vlibTemplate;
 require("../include/sql.php");
 require("admin_func.php");
 require_once("../templates/original/config.php");

@@ -1,6 +1,8 @@
 <?php
 require("sql_setting.php");
 
+$DBVerbindung = SQL_connect();
+
 function SQL_error($msg,$sql)
 {
 	?>
@@ -18,8 +20,7 @@ function SQL_error($msg,$sql)
    <tr>
     <td class=admin>
      <b>There was an database-error.</b><br>
-     Please report this error in the forums at <a href="http://www.selectbf.org">www.selectbf.org</a> or send mail to <a href="mailto:selectbf@s-h-i-n-y.com">selectbf@s-h-i-n-y.com</a>! <b>Also</b> provide the following information and the <b>page of the stats</b> you were trying to access.<p>
-     <u><b>MySQL-Error-Message:</b></u>
+     <u><b>mysql-Error-Message:</b></u>
      <i><?echo $msg;?></i><br>
      <p>
      <u><b>SQL-Command:</b></u>
@@ -36,16 +37,21 @@ function SQL_error($msg,$sql)
 function SQL_connect()
 {
 	GLOBAL $SQL_host,$SQL_user,$SQL_datenbank,$SQL_password;
-	$con = mysql_connect($SQL_host,$SQL_user,$SQL_password) or die(SQL_error(mysql_error(),"at connect"));
-	mysql_select_db($SQL_datenbank);
+	$con = mysqli_connect($SQL_host,$SQL_user,$SQL_password) or die(SQL_error(mysqli_error(),"at connect"));
+	mysqli_select_db($con, $SQL_datenbank);
 	return $con;
+}
+
+function SQL_getconnection() {
+	GLOBAL $DBVerbindung;
+	return $DBVerbindung;
 }
 
 
 function SQL_query($sql)
 {
 	GLOBAL $DBVerbindung;
-	$res = mysql_query($sql,$DBVerbindung) or die(SQL_error(mysql_error(),$sql));
+	$res = mysqli_query($DBVerbindung, $sql) or die(SQL_error(mysqli_error($DBVerbindung),$sql));
 	
 	return $res;
 }
@@ -53,27 +59,27 @@ function SQL_query($sql)
 function SQL_oneRowQuery($sql)
 {
 	GLOBAL $DBVerbindung;
-	$res = mysql_query($sql,$DBVerbindung) or die(SQL_error(mysql_error(),$sql));
+	$res = mysqli_query($DBVerbindung, $sql) or die(SQL_error(mysqli_error($DBVerbindung),$sql));
 	$Zeile = SQL_fetchArray($res);
 	return $Zeile;
 }
 
 function SQL_fetchArray($ResultSet)
 {
-        $row = mysql_fetch_array($ResultSet,MYSQL_ASSOC);
+        $row = mysqli_fetch_array($ResultSet,MYSQLI_ASSOC);
         return $row;
 }
 
 function SQL_resetResult($ResultSet)
 {
-	@mysql_data_seek($ResultSet,0); 
+	@mysqli_data_seek($ResultSet,0); 
 }
 
 function SQL_containsRows($ResultSet)
 {
-	if($row = mysql_fetch_array($ResultSet,MYSQL_ASSOC))
+	if($row = mysqli_fetch_array($ResultSet,MYSQLI_ASSOC))
 	{
-		@mysql_data_seek($ResultSet,0); 
+		@mysqli_data_seek($ResultSet,0); 
 		return true;
 	}
 	else

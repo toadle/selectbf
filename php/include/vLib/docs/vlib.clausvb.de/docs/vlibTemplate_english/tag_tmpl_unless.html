@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "--//W3C//DTD HTML 4.01 Transitional//EN">
+<!--dummy--><html>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/tag_tmpl_unless.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="standard.css">
+<meta content="AurigaDoc" name="generator">
+<title>&lt;TMPL_UNLESS name='BOOL'&gt;</title>
+</head>
+<body>
+<div class="document-header">
+   
+<table width="100%">
+      
+<tr>
+         
+<td align="left">
+<h1>vlibTemplate</h1>
+</td>
+         <td align="right"><img src="vlib_logo.gif" alt="vLib Logo" title="Logo von vLIB"></td>
+      
+</tr>
+   
+</table>
+
+   
+<hr>
+
+</div>
+<div class="navigation">
+<a name="tag_tmpl_unless"></a> <a href="table_of_content.html">Table of Contents</a> | Up: <a href="sec05_tags.html">5. The Tags</a> | Previous: <a href="tag_tmpl_else.html">5.6. TMPL_ELSE</a>
+<br>
+<br>
+</div>
+<div class="section-heading-2">
+<b>5.7. &lt;TMPL_UNLESS name='BOOL'&gt;</b> 
+</div>
+<div class="section-body-2">
+
+<br>
+  
+<P>This tag is the opposite of &lt;TMPL_IF&gt;. The block is output if the CONTROL_PARAMETER
+
+    is set to false or not defined. You can use &lt;TMPL_ELSE&gt; and &lt;TMPL_ELSEIF&gt;
+
+    with &lt;TMPL_UNLESS&gt; just as you can with &lt;TMPL_IF&gt;, however there
+
+    is no &lt;TMPL_ELSEUNLESS&gt; tag.</P>
+
+
+<br>
+<br>
+
+<table width="100%" bgcolor="#676767">
+<tr>
+<td align="left"><font color="white">
+	Example
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#E8E8E8">
+<pre>
+
+  &lt;TMPL_UNLESS BOOL&gt;
+
+    Some text that is output only if BOOL is FALSE.
+
+  &lt;TMPL_ELSE&gt;
+
+    Some text that is output only if BOOL is TRUE.
+
+  &lt;/TMPL_UNLESS&gt;
+
+</pre>
+</td>
+</tr>
+</table>
+
+<br>
+
+  
+<P>If the name of a TMPL_LOOP is used in a TMPL_UNLESS, the UNLESS block is
+
+    output if the loop has zero rows. Please see the OPTION
+
+    section regarding &lt;TMPL_IF/UNLESS&gt; statements within loops.</P>
+
+
+<br>
+<br>
+
+<table width="100%" bgcolor="#676767">
+<tr>
+<td align="left"><font color="white">
+	Example
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#E8E8E8">
+<pre>
+
+  &lt;TMPL_UNLESS LOOP_ONE&gt;
+
+    This will output if the loop is empty.
+
+  &lt;/TMPL_UNLESS&gt;
+
+</pre>
+</td>
+</tr>
+</table>
+
+
+<br>
+<br>
+
+
+<br>
+<br>
+<hr noshade="true" size="1">
+</div>
+<div class="document-footer">
+
+<table width="100%">
+	
+<tr>
+		
+<td align="left">Updated: Saturday, 19th of November 2005</td>
+		<td align="right"><a href="http://vlib.clausvb.de/forum/index.php" target="_blank">vLIB forum and support</a></td>
+	
+</tr>
+
+</table> <!-- Seite: <page-number /> -->
+
+</div>
+</body>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/tag_tmpl_unless.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+</html>

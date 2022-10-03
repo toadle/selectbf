@@ -1,0 +1,133 @@
+body
+{
+	background-color: white;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.9em;
+	margin-top: 0px;
+	margin-left: 10px;
+   color: #000000;
+}
+
+/***** ANFANG: Definitionen von CVB *****/
+
+hr
+{
+   color: #b0b0b0;
+}
+
+pre, tt { font: normal 1.1em Courier, sans-serif; }
+dt { font: bold 1.1em Arial, sans-serif; }
+
+.php_skript_kopf
+{
+	color: #000;
+	margin: 15px 20px 0px 20px;
+	font-weight: bold;
+	line-height: 21px;
+	padding: 3px;
+	background-color: #E4EAF2;
+	border-left: 4px solid #8394B2;
+	border-top: 1px dotted #000;
+	border-right: 1px dotted #000;
+}
+
+.php_skript_inhalt
+{
+	color: #465584;
+	margin: 0px 20px 15px 20px;
+	background-color: #FAFCFE;
+	border-left: 4px solid #8394B2;
+	border-right: 1px dotted #000;
+	border-bottom: 1px dotted #000;
+	padding: 4px;
+}
+
+.template_kopf
+{
+	color: white;
+	margin: 15px 20px 0px 20px;
+	font-weight: bold;
+	line-height: 21px;
+	padding: 3px;
+	background-color: #808080;
+	border-left: 4px solid #606060;
+	border-top: 1px dotted #606060;
+	border-right: 1px dotted #606060;
+}
+
+.template_inhalt
+{
+	color: black;
+	margin: 0px 20px 15px 20px;
+	background-color: #f0f0f0;
+	border-left: 4px solid #606060;
+	border-right: 1px dotted #606060;
+	border-bottom: 1px dotted #606060;
+	padding: 4px;
+}
+
+.document-title
+{
+	font-size : 2.5em;
+	font-weight : bold;
+}
+
+.document-attributes
+{
+  	font-size : 1.2em;
+	color: #000000;
+}
+
+.document-attributes a
+{
+   text-decoration: underline;
+   color: #505050;
+}
+
+.document-attributes a:hover
+{
+   text-decoration: underline;
+   color: #C00000;
+}
+
+.document-header
+{
+   padding-top: 5px;
+   padding-bottom: 5px;
+}
+
+.document-header h1
+{
+   text-align: left;
+}
+
+.document-header img
+{
+   float: right;
+}
+
+/***** ENDE: Definitionen von CVB *****/
+
+.navigation
+{
+	text-align: left;
+	width: 100%;
+	height: 15;
+	font-weight: bold;
+	color: #000000;
+	background-color: #F0F0F0;
+   padding-top: 5px;
+}
+
+.document-footer
+{
+	text-align: right;
+}
+
+.note {
+	border: 1px;
+	border-style: solid;
+	padding: 1px;
+	background-color: #F0F0F0;
+	color: #000000;
+}

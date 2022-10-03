@@ -2,25 +2,24 @@
 <tmpl_if name="ranking">
  <table width="95%" border="1" align="center">
    <tr class="head">
-     <th colspan="16" class="super" scope="col">Clan Ranking</th>
+     <th colspan="15" class="super" scope="col">Clan Ranking</th>
    </tr>
    <tr class=head>
      <th>Rank</th>
      <th>Clan Tags</th>
      <th>Members</th>
-     <th><tmpl_if name="points_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='points_link'}">Points</a></th>
-     <th><tmpl_if name="avgscore_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='avgscore_link'}">S/R</a></th>
+     <th><tmpl_if name="points_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='points_link'}">Skill</a></th>
      <th><tmpl_if name="score_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='score_link'}">Score</a></th>
+     <th><tmpl_if name="avgscore_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='avgscore_link'}"><abbr title="Score per Round">S/R</abbr></a></th>
      <th><tmpl_if name="kills_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='kills_link'}">Kills</a></th>
      <th><tmpl_if name="deaths_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='deaths_link'}">Deaths</a></th>
-     <th><tmpl_if name="kdrate_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='kdrate_link'}">K/D</a></th>
-     <th><tmpl_if name="tks_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='tks_link'}">TKs</a></th>
-     <th><tmpl_if name="attacks_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='attacks_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Basepoint Conquers"></a></th>
-     <th><tmpl_if name="captures_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='captures_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_captures.gif" alt="Flag Captures"></a></th>
-     <th><tmpl_if name="objectives_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='objectives_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_objectives.gif" alt="Objectives achieved"></a></th>     
-     <th><tmpl_if name="rounds_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='rounds_link'}"><img src="{tmpl_var name='IMAGES_DIR'}joystick_icon.gif" alt="Rounds played"></a></th>
-     <th><tmpl_if name="heals_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='heals_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_heals.gif" alt="Heals"></a></th>
-     <th><tmpl_if name="repairs_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='repairs_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_repairs.gif" alt="Repairs"></a></th>
+     <th><tmpl_if name="kdrate_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='kdrate_link'}"><abbr title="Kills per Death">K/D</abbr></a></th>
+     <th><tmpl_if name="tks_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='tks_link'}"><abbr title="Team Kills">TKs</abbr></a></th>
+     <th><tmpl_if name="attacks_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='attacks_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Conquests" title="Conquests"></a></th>
+     <th><tmpl_if name="captures_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='captures_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_captures.gif" alt="Captures" title="Captures"></a></th>
+     <th><tmpl_if name="rounds_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='rounds_link'}"><img src="{tmpl_var name='IMAGES_DIR'}joystick_icon.gif" alt="Rounds" title="Rounds"></a></th>
+     <th><tmpl_if name="heals_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='heals_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_heals.gif" alt="Heals" title="Heals"></a></th>
+     <th><tmpl_if name="repairs_order"><img src="{tmpl_var name='IMAGES_DIR'}<tmpl_if name="desc">arrow_up.gif<tmpl_else>arrow_down.gif</tmpl_if>" align=absmiddle></tmpl_if><a class=white href="{tmpl_var name='repairs_link'}"><img src="{tmpl_var name='IMAGES_DIR'}icon_repairs.gif" alt="Repairs" title="Repair Assists"></a></th>
    </tr>
 <tmpl_loop name="ranking">
   <tmpl_if name="__EVEN__">
@@ -31,26 +30,25 @@
      <td class=number><tmpl_var name='rank'></td>
      <td><a href="{tmpl_var name='teamdetaillink'}"><nobr><img src="{tmpl_var name='playerimg'}" hspace=2 align=absmiddle><tmpl_var name='name'></nobr></a>&nbsp;<tmpl_var name="awards_withoutstars" escape="none"></td>
      <td class=important_number><tmpl_var name='members'></td>
-	 <td class=important_number><tmpl_var name='points'></td>     
-	 <td class=important_number><tmpl_var name='avgscore'></td>
+     <td class=important_number><tmpl_var name='points'></td>     
      <td class=important_number><tmpl_var name='score'></td>
+     <td class=important_number><tmpl_var name='avgscore'></td>
      <td class=important_number><tmpl_var name='kills'></td>
      <td class=important_number><tmpl_var name='deaths'></td>
      <td class=important_number><tmpl_var name='kdrate'></td>
      <td class=number><tmpl_var name='tks'></td>
      <td class=number><tmpl_var name='attacks'></td>
      <td class=number><tmpl_var name='captures'></td>
-     <td class=number><tmpl_var name='objectives'></td>     
      <td class=number><tmpl_var name='rounds'></td>
      <td class=number><tmpl_var name='heals'></td>
      <td class=number><tmpl_var name='otherrepairs'></td>
    </tr>
 </tmpl_loop>
    <tr class=number> 
-    <th colspan="16" class="dark" scope="col" align="left" valign="top"> 
-      <div align="left"><font color=blue>
-	  [Clan Tag] must meet the minimum requirements on this server.<br>
-	  Minimum Members: <tmpl_var name="min_clan_members"> , Minimum Rounds: <tmpl_var name="min_clan_rounds"><br>
+    <th colspan="15" class="dark" scope="col" align="left" valign="top"> 
+      <div align="left"><font color=black>
+	  Clans must meet the minimum requirements on this server:<br>
+	  <tmpl_var name="min_clan_members"> members with <tmpl_var name="min_clan_rounds"> rounds played.<br>
 	  </font></div>
     </th>
    </tr>  

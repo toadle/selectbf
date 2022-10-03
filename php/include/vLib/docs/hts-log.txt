@@ -1,0 +1,11 @@
+HTTrack3.48-22+htsswf+htsjava launched on Fri, 03 Jun 2016 15:27:14 at http://vlib.clausvb.de/docs/vlibTemplate_english/table_of_content.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwr10%e0C2%Ps2u1%s%uN0%I0p3DaK0c3H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" http://vlib.clausvb.de/docs/vlibTemplate_english/table_of_content.html -O1 "C:\Users\osiam\Documents\vLIB-Template\vlibTemplate_ Tutorial, quick reference, function list and documentation" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+
+HTTrack Website Copier/3.48-22 mirror complete in 17 seconds : 66 links scanned, 65 files written (190035 bytes overall) [111767 bytes received at 6574 bytes/sec], 169858 bytes transferred using HTTP compression in 61 files, ratio 41%, 22.0 requests per connection
+(No errors, 0 warnings, 0 messages)

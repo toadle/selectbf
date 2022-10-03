@@ -3,7 +3,7 @@ require("../include/sql.php");
 require("admin_func.php");
 
 //read the needed vars
-@$psw= $_REQUEST["password"];
+@$psw= $_POST["password"];
 
 if(checkAdminPsw($psw))
 {

@@ -4,20 +4,20 @@ body {
 	font-style: normal;
 	font-weight: normal;
 	color: #FFFFFF;
-	background-color: #123150;
-	background-image: url(../images/camouflage.gif);
+	background-color: #131313;
+	background-image: url(camouflage.gif);
 }
 table {
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	font-style: normal;
 	font-weight: normal;
-	color: #FFFFFF;
+	color: #000000;
 	padding: 1px;
 	text-align: center;
 	background-color: #CCCCCC;
 	margin: 0px;
-	border: 3px solid #000000;
+	border: 3px solid #FFFFFF;
 	border-collapse: collapse;
 }
 table.navbar
@@ -41,14 +41,14 @@ table.admin
 	}	
 td {
 	text-align: left;
-	border: 1px solid #FFFFFF;
+	border: 1px solid #000000;
 	padding: 2px;
 }
 td.clear {
 	text-align: left;
 	border: 0px none #FFFFFF;
 	padding: 0px;
-	background-color: #E0E0E0;
+	background-color: #CFCFCF;
 }
 td.admin {
 	text-align: left;
@@ -99,31 +99,31 @@ h1 {
 	font-size: 14px;
 	font-style: normal;
 	font-weight: bold;
-	color: #123150;
+	color: #131313;
 }
 h2 {
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size: 16px;
 	font-style: normal;
 	font-weight: bold;
-	color: #123150;
+	color: #131313;
 }
 h3 {
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size: 18px;
 	font-style: normal;
 	font-weight: bolder;
-	color: #123150;
+	color: #131313;
 }
 td.navbar {
 	padding: 0px;
 }
 td.blue {
-	background-color: #123150;
+	background-color: #131313;
 	vertical-align: top;
 }
 td.lightgray {
-	background-color: #E0E0E0;
+	background-color: #CFCFCF;
 	vertical-align: middle;	
 	text-align: center;	
 }
@@ -141,28 +141,29 @@ td.number {
 tr {
 }
 tr.light {
-	background-color: #E0E0E0;
+	background-color: #F0F0F0;
 }
 tr.dark {
-	background-color: #BCBCBC;
+	background-color: #D0D0D0;
 }
 tr.darker {
-	background-color: #898989;
+	background-color: #B0B0B0;
 }
 tr.head {
 
-	background-color: #215487;
+	background-color: #980000;
 }
 th {
 	text-align: center;
-	border: 1px solid #0C1F32;
+	border: 1px solid #3B0909;
+	color: #FFFFFF;
 }
 th.navbar {
 	font-weight: normal;
 }
 th.super {
 	text-align: left;
-	border: 1px solid #0C1F32;
+	border: 1px solid #3B0909;
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: bold;
@@ -171,7 +172,7 @@ th.super {
 	font-style: normal;
 	line-height: 25px;
 	color: #FFFFFF;
-	background-color: #BACCDE;
+	background-color: #606060;
 	letter-spacing: 15px;
 	padding-right: 15px;
 	padding-left: 15px;
@@ -180,7 +181,7 @@ th.super {
 }
 h1.stats
 {
-	color: #BACCDE;
+	color: #606060;
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: bold;
@@ -194,28 +195,28 @@ h1.stats
 a {
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	color: #215487;
+	color: #980000;
 	font-weight: bold;
 	text-decoration: none;
 }
 a:hover			{ text-decoration: underline }
-a:visited		{ color: #326498; }
+a:visited		{ color: #B51313; }
 a.white			{ color: #FFFFFF; }
 a.white:hover	{ color: #FFFFFF; text-decoration: none }
 a.white:visited	{ color: #FFFFFF; }
 img			{ border-width: 0px; }
 
-a.button		{ color: #BACCDE; font-weight: bold;}
-a.button:hover	{ color: #BACCDE; font-weight: bold; text-decoration: underline }
-a.button:visited{ color: #BACCDE; font-weight: bold;}
+a.button		{ color: #FFFFFF; font-weight: bold;}
+a.button:hover	{ color: #FFFFFF; font-weight: bold; text-decoration: underline }
+a.button:visited{ color: #FFFFFF; font-weight: bold;}
 
 .buttonInActive {
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	font-weight: normal;
-	color: #BACCDE;
-	border: 1px solid #BACCDE;
-	background-color: #123150;
+	color: #FFFFFF;
+	border: 1px solid #606060;
+	background-color: #131313;
 	text-align: center;
 	vertical-align: middle;
 	padding: 3px;
@@ -224,9 +225,9 @@ a.button:visited{ color: #BACCDE; font-weight: bold;}
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	font-weight: bold;
-	color: #5281B1;
-	border: 1px solid #BACCDE;
-	background-color: #5281B1;
+	color: #FFFFFF;
+	border: 1px solid #606060;
+	background-color: #4F4F4F;
 	text-align: center;
 	vertical-align: middle;
 	padding: 3px;
@@ -237,8 +238,8 @@ a.button:visited{ color: #BACCDE; font-weight: bold;}
 	font-size: 12px;
 	font-weight: normal;
 	color: #FFFFFF;
-	border: 1px solid #BACCDE;
-	background-color: #5281B1;
+	border: 1px solid #606060;
+	background-color: #4F4F4F;
 	text-align: left;
 	vertical-align: middle;
 	padding: 3px;
@@ -247,7 +248,7 @@ table.buttonMenu {
 	padding: 4px;
 	border: 1px none;
 	border-collapse:separate;
-	background-color: #123150;
+	background-color: #131313;
 	border-spacing: 4px
 }
 tr.axis_hell { background-color: #FEBBB8; }
@@ -262,14 +263,14 @@ td.allied_blue {
 	font-weight: bold; 
 	color: #528DE6;	
 	text-align: left;
-	background-color: #123150;
+	background-color: #131313;
 	vertical-align: top;
 }
 td.axis_blue {
 	font-weight: bold; 
 	color: #D32C2C;	
 	text-align: left;
-	background-color: #123150;
+	background-color: #131313;
 	vertical-align: top;
 }
 

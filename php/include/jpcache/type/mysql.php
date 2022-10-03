@@ -6,7 +6,7 @@
      */
     function jpcache_db_connect()
     {
-        $GLOBALS["sql_link"] = @mysql_connect($GLOBALS["JPCACHE_DB_HOST"], 
+        $GLOBALS["sql_link"] = @mysqli_connect($GLOBALS["JPCACHE_DB_HOST"], 
                                               $GLOBALS["JPCACHE_DB_USERNAME"],
                                               $GLOBALS["JPCACHE_DB_PASSWORD"]);
     }
@@ -17,7 +17,9 @@
      */
     function jpcache_db_disconnect()
     {
-        mysql_close($GLOBALS["sql_link"]);
+        if($GLOBALS["sql_link"] !== null) {
+        	mysqli_close($GLOBALS["sql_link"]);
+	}
     }
     
     /* jpcache_db_query($query)
@@ -26,10 +28,10 @@
      */    
     function jpcache_db_query($query)
     {
+	jpcache_db_connect();
         // jpcache_debug("Executing SQL-query $query");
-        $ret = @mysql_db_query($GLOBALS["JPCACHE_DB_DATABASE"],
-                               $query, 
-                               $GLOBALS["sql_link"]);
+        @mysqli_select_db($GLOBALS["sql_link"], $GLOBALS["JPCACHE_DB_DATABASE"]);
+        $ret = @mysqli_query($GLOBALS["sql_link"], $query);
         return $ret;
     }
     
@@ -48,9 +50,9 @@
                                 " or CACHEEXPIRATION=0)"
                                );
                                 
-        if ($res && mysql_num_rows($res))
+        if ($res && mysqli_num_rows($res))
         {
-            if ($row = mysql_fetch_array($res))
+            if ($row = mysqli_fetch_array($res))
             {
                 // restore data into global scope from found row
                 $GLOBALS["jpcachedata_gzdata"]   = $row["GZDATA"];
@@ -80,7 +82,7 @@
                                );
         
         
-        if (!$res || mysql_num_rows($res) < 1) 
+        if (!$res || mysqli_num_rows($res) < 1) 
         {
             // Key not found, so insert
             $res = jpcache_db_query("insert into $dbtable".

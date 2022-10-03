@@ -71,18 +71,13 @@
           <td><tmpl_var name="vehicleff"></td>
          </tr>
          <tr class="scoretable_hell">
-          <th>TKs punished?:</th>
+          <th>TKs Forgive:</th>
           <td><tmpl_var name="tkpunish"></td>
          </tr>
          <tr class="scoretable_dunkel">
           <th>Deathcam-Type:</th>
           <td><tmpl_var name="deathcamtype"></td>
          </tr> 
-<tmpl_if name="chat">
-         <tr class="scoretable_hell">
-          <th colspan=2><a href="{tmpl_var name='chatloglink'}"><nobr>Chat Log</nobr></a></th>           
-		 </tr>
-</tmpl_if> 		 
         </table>
        </td>
        <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif"></td>
@@ -153,10 +148,18 @@
          </tr>   
          </tmpl_if>
          <tmpl_if name="isRegular">
-         <tr class="scoretable_hell">
-          <td colspan=2><b>Team <tmpl_var name="winning_team"></b> won the game!</td>
-         </tr>         	
          <tr class="scoretable_dunkel">
+          <td colspan=2><b>Team <tmpl_var name="winning_team"></b> won the game!</td>
+         </tr>
+         <tr class="scoretable_hell">
+          <td colspan=2>&nbsp;</td>
+         </tr>
+	 <tmpl_if name="chat">
+          <tr class="scoretable_dunkel">
+           <th colspan=2><h3><a href="{tmpl_var name='chatloglink'}"><nobr>Chat Log</nobr></a></h3></th>           
+	  </tr>
+	 </tmpl_if> 		 
+         <tr class="scoretable_hell">
           <td colspan=2>&nbsp;</td>
          </tr> 
          <tr class="scoretable_hell">

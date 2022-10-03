@@ -7,7 +7,7 @@
      <td colspan=8><center><img src="{tmpl_var name='screen'}"></center></td>
    </tr>
      <tr class=axis>
-       <td width="85%" colspan=8><b>Axis</b></td>
+       <td width="85%" colspan=8><b>Red Team</b></td>
      </tr>
      <tr class=axis_hell>
        <td width=15%>won rounds: </td>
@@ -22,22 +22,22 @@
        <td colspan=7><tmpl_var name="deaths_team1"></td>
      </tr>
      <tr class=axis_hell>
-       <td><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Basepoint Conquers"></td>
+       <td><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Conquests" title="Conquests"></td>
        <td colspan=7><tmpl_var name="attacks_team1"></td>
      </tr>
      <tr class=axis_dunkel>
-       <td colspan=8><u>on Axis win</u></td>
+       <td colspan=8><u>on Red Team Won!</u></td>
      </tr>
      <tr class=axis_hell>
-       <td class="axis">&Oslash; Tickets Axis</td>
+       <td class="axis">&Oslash; Red team's tickets</td>
        <td colspan=7><tmpl_var name="win_team1_end_tickets_team1"></td>
      </tr>
      <tr class=axis_hell>
-       <td class="allied">&Oslash; Tickets Allies</td>
+       <td class="allied">&Oslash; Blue team's tickets</td>
        <td colspan=7><tmpl_var name="win_team1_end_tickets_team2"></td>
      </tr>
      <tr class=allied colspan=2>
-       <td colspan=8><b>Allies</b></td>
+       <td colspan=8><b>Blue Team</b></td>
      </tr>
      <tr class=allied_hell>
        <td width=15%>won rounds: </td>
@@ -52,18 +52,18 @@
        <td colspan=7><tmpl_var name="deaths_team2"></td>
      </tr>
      <tr class=allied_hell>
-       <td><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Basepoint Conquers"></td>
+       <td><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Conquests" title="Conquests"></td>
        <td colspan=7><tmpl_var name="attacks_team2"></td>
      </tr>
      <tr class=allied_dunkel>
-       <td colspan=8><u>on Allies win</u></td>
+       <td colspan=8><u>on Blue Team Won!</u></td>
      </tr>
      <tr class=allied_hell>
-       <td class=axis>&Oslash; Tickets Axis</td>
+       <td class=axis>&Oslash; Red team's tickets</td>
        <td colspan=7><tmpl_var name="win_team2_end_tickets_team1"></td>
      </tr>
      <tr class=allied_hell>
-       <td class=allied><span class="axis_blue">&Oslash; Tickets Axis</td>
+       <td class=allied><span class="axis_blue">&Oslash; Blue team's tickets</td>
        <td colspan=7><tmpl_var name="win_team2_end_tickets_team2"></td>
      </tr>
 
@@ -75,10 +75,10 @@
      <th>Score</th>
      <th class=number>Kills</th>
      <th>Deaths</th>
-     <th><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Basepoint Conquers"></th>
      <th>TKs</th>
+     <th>Conquests</th>
      <th>Game</th>     
-     <th>time</th>     
+     <th>Time</th>     
    </tr> 
 <tmpl_loop name="BestRounds">
    <tr>
@@ -86,8 +86,8 @@
      <td class=number><tmpl_var name="score"></td>
      <td class=number><tmpl_var name="kills"></td>
      <td class=number><tmpl_var name="deaths"></td>
-     <td class=number><tmpl_var name="attacks"></td>
      <td class=number><tmpl_var name="tks"></td>
+     <td class=number><tmpl_var name="attacks"></td>
      <td><a href="game.php?id={tmpl_var name='id'}"><tmpl_var name="servername"></a></td>
      <td class=number><tmpl_var name="time"></td>
    </tr>    
@@ -97,7 +97,7 @@
  <tmpl_if name="kills">
  <table width="95%" border="1" align="center">
    <tr class="head">
-     <th colspan="18" class="super" scope="col">TOP Killers</th>
+     <th colspan="18" class="super" scope="col">Top Killers</th>
    </tr>
    <tr class=head>
      <th class=number>Rank</th>
@@ -123,12 +123,12 @@
  <tmpl_if name="attacks">
   <table width="95%" border="1" align="center">
    <tr class="head">
-     <th colspan="18" class="super" scope="col">TOP Basepoint Conquerers</th>
+     <th colspan="18" class="super" scope="col">Top Basepoint Conquerors</th>
    </tr>
    <tr class=head>
      <th class=number>Rank</th>
      <th>Player</th>
-     <th class=number><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Basepoint Conquers"></th>
+     <th class=number>Conquests</th>
      <th>&nbsp;</th>
    </tr>   
    <tmpl_loop name="attacks">

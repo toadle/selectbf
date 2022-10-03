@@ -1,6 +1,7 @@
 <?
 require_once("include/jpcache/jpcache.php");
 require_once("include/vLib/vlibTemplate.php");
+use clausvb\vlib\vlibTemplate;
 require_once("include/sql.php");
 require_once("include/func.php");
 
@@ -34,8 +35,7 @@ $tmpl->setVar("ADMINMODE_LINK","admin/index.php");
 $tmpl->setLoop("NAVBAR",getNavBar());
 
 $contextbar = array();
-$contextbar = addContextItem($contextbar,getActiveTitlePrefix()."-statistics");
-$contextbar = addLinkedContextItem($contextbar,"index.php","Ranking");
+$contextbar = addContextItem($contextbar,getActiveTitlePrefix());
 $contextbar = addContextItem($contextbar,"Character-Types");
 $tmpl->setLoop("CONTEXTBAR",$contextbar);
 

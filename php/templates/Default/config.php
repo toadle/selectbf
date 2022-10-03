@@ -99,15 +99,23 @@ $TMPL_CFG_MAP_IMG["cassino"] = "mapscreens/cassino.jpg";
 $TMPL_CFG_MAP_IMG["husky"] = "mapscreens/husky.jpg";
 $TMPL_CFG_MAP_IMG["salerno"] = "mapscreens/salerno.jpg";
 $TMPL_CFG_MAP_IMG["santo_croce"] = "mapscreens/santa-croce.jpg";
-// Added Secret Weapon maps (images were already in place)
-// jrivett 2009Feb26
-$TMPL_CFG_MAP_IMG["eagles_nest"] = "mapscreens/eagles-nest.jpg";
-$TMPL_CFG_MAP_IMG["essen"] = "mapscreens/essen.jpg";
-$TMPL_CFG_MAP_IMG["gothic_line"] = "mapscreens/gothic-line.jpg";
-$TMPL_CFG_MAP_IMG["hellendoorn"] = "mapscreens/hellendoorn.jpg";
-$TMPL_CFG_MAP_IMG["kbely_airfield"] = "mapscreens/kbelly-airfield.jpg";
-$TMPL_CFG_MAP_IMG["mimoyecques"] = "mapscreens/mimoyecques.jpg";
-$TMPL_CFG_MAP_IMG["peenemunde"] = "mapscreens/peenemunde.jpg";
-$TMPL_CFG_MAP_IMG["telemark"] = "mapscreens/telemark.jpg";
-
+$TMPL_CFG_MAP_IMG["hue"] = "mapscreens/hue1968.jpg";
+$TMPL_CFG_MAP_IMG["ho_chi_minh_trail"] = "mapscreens/hochiminhtrail-b.jpg";
+$TMPL_CFG_MAP_IMG["ia_drang"] = "mapscreens/iadrangvalley-d.jpg";
+$TMPL_CFG_MAP_IMG["khe_sahn"] = "mapscreens/siegeofkhesahn-a.jpg";
+$TMPL_CFG_MAP_IMG["landing_zone_albany"] = "mapscreens/landingzonealbany-c.jpg";
+$TMPL_CFG_MAP_IMG["lang_vei"] = "mapscreens/falloflangvei-d.jpg";
+$TMPL_CFG_MAP_IMG["operation_flaming_dart"] = "mapscreens/operationflamingdart-a.jpg";
+$TMPL_CFG_MAP_IMG["Operation_Game_Warden"] = "mapscreens/operationgamewarden-a.jpg";
+$TMPL_CFG_MAP_IMG["operation_hastings"] = "mapscreens/operationhastings-d.jpg";
+$TMPL_CFG_MAP_IMG["quang_tri"] = "mapscreens/quangtri1968.jpg";
+$TMPL_CFG_MAP_IMG["defense_of_con_thien"] = "mapscreens/defenceofconthien.jpg";
+$TMPL_CFG_MAP_IMG["saigon68"] = "mapscreens/saigon68.jpg";
+$TMPL_CFG_MAP_IMG["quang_tri_alt"] = "mapscreens/quangtri1972.jpg";
+$TMPL_CFG_MAP_IMG["operation_irving"] = "mapscreens/irving.jpg";
+$TMPL_CFG_MAP_IMG["operation_game_warden"] = "mapscreens/gamewarden.jpg";
+$TMPL_CFG_MAP_IMG["operation_cedar_falls"] = "mapscreens/cedarfalls.jpg";
+$TMPL_CFG_MAP_IMG["hue_alt"] = "mapscreens/reclaiminghue.jpg";
+$TMPL_CFG_MAP_IMG["ho_chi_minh_trail_alt"] = "mapscreens/cambodianincursion.jpg";
+$TMPL_CFG_MAP_IMG["fall_of_saigon"] = "mapscreens/fallofsaigon.jpg";
 ?>

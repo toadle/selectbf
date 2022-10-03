@@ -1,0 +1,293 @@
+<!DOCTYPE HTML PUBLIC "--//W3C//DTD HTML 4.01 Transitional//EN">
+<!--dummy--><html>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/sec09_options.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:31 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="standard.css">
+<meta content="AurigaDoc" name="generator">
+<title>Options</title>
+</head>
+<body>
+<div class="document-header">
+   
+<table width="100%">
+      
+<tr>
+         
+<td align="left">
+<h1>vlibTemplate</h1>
+</td>
+         <td align="right"><img src="vlib_logo.gif" alt="vLib Logo" title="Logo von vLIB"></td>
+      
+</tr>
+   
+</table>
+
+   
+<hr>
+
+</div>
+<div class="navigation">
+<a name="sec09_options"></a> <a href="table_of_content.html">Table of Contents</a> | Previous: <a href="sec08_vlibtemplatecache.html">8. vlibTemplateCache</a> | Next: <a href="sec10_security.html">10. Security</a>
+<br>
+<br>
+</div>
+<div class="section-heading-1">
+<b>9. Options</b> 
+</div>
+<div class="section-body-1">
+
+<br>
+Below I'll describe the options that you can use when configuring vlibTemplate to work to your needs.
+All of the following options detailed below can be edited in your vlibIni.php file (called vlibIni.php-dist in the archive).
+<br>
+<br>
+Each option can be set in the vlibIni.php file which will mean that this value is taken as a default for each template file you use, or they can be set in an array as the second parameter to vlibTemplate() the main class constructor.
+
+<ul>
+    
+<li>
+<b><FONT COLOR="#336699">TEMPLATE_DIR</FONT></b>
+            - the default include path to you where you store your templates.
+            This option can make it easier for you to access your templates when scripting.<br>
+<br>
+    
+</li>
+    
+<li>
+<b><FONT COLOR="#336699">MAX_INCLUDES</FONT></b>
+            - to avoid recursive includes using &lt;tmpl_include&gt;,
+            this options sets the include depth that vlibTemplate will drill down when including files. Defaults to 10.<br>
+<br>
+    
+</li>
+    
+<li>
+<b><FONT COLOR="#336699">GLOBAL_VARS</FONT></b>
+            - When you use a &lt;tmpl_var&gt; tag inside a loop and the loop variable is null vlibTemplate will
+              check the global scope as well, if this option is set to 1.<br>
+<br>
+    
+</li>
+    
+<li>
+<b><FONT COLOR="#336699">GLOBAL_CONTEXT_VARS</FONT></b>
+            - when set to 1, the following variables are made available in the global scope.
+              NB: more variables may be added in the future. All variable start and end with 2 underscores.
+
+            <ol>
+                
+<li>
+<b>__SELF__</b> - this variable value is the value of $PHP_SELF.</li>
+                
+<li>
+<b>__REQUEST_URI__</b> - same as __SELF__ but appends any GET method parameters.</li>
+                
+<li>
+<b>__PARSE_TIME__</b> - time taken to parse template. Only used when TIME_PARSE option is set to 1.</li>
+            
+</ol>
+            
+<br>
+<br>
+    
+</li>
+
+    
+<li>
+<b><FONT COLOR="#336699">GLOBAL_CONTEXT_VARS</FONT></b>
+            - when set to 1, the following variables are made available within the scope of each &lt;tmpl_loop&gt;.
+            NB: more variables may be added in the future.
+
+            <ol>
+                
+<li>
+<b>__FIRST__</b> - is true when you are currently on the first row of the loop.</li>
+                
+<li>
+<b>__LAST__</b> - is true when you are on the last row of the loop.</li>
+                
+<li>
+<b>__INNER__</b> - is true when you are on neither the first or last row of the loop.</li>
+                
+<li>
+<b>__EVEN__</b> - is true when you are on an even row of the loop.</li>
+                
+<li>
+<b>__ODD__</b> - is true when you are on an odd row of the loop.</li>
+                
+<li>
+<b>__ROWNUM__</b> - an integer of the current row number starting at 1.</li>
+            
+</ol>
+            
+<br>
+<br>
+    
+</li>
+
+    
+<li>
+<b><FONT COLOR="#336699">SET_LOOP_VAR</FONT></b>
+            - because global variables and loop variables are handled seperately in vlibTemplate, to use a
+            &lt;tmpl_if/unless/elseif&gt; on a loop you must set this option to 1. This will in turn set a variable to
+            true in the global scope with the same name as the loop only if the loop is not empty.<br>
+<br>
+    
+</li>
+    
+<li>
+<b><FONT COLOR="#336699">DEFAULT_ESCAPE</FONT></b>
+            - when using the template in an html-based application you should escape most of the string passed into
+              the template using htmlspecialchars(). This option will allow you to specify a default escape type for all
+              of your &lt;tmpl_var&gt;'s. To overwrite this option, you can either use a different setting when instantiating
+              vlibTemplate using the options array, or on per tag basis i.e. &lt;tmpl_var name="varname" escape="url"&gt;.
+              The following values are all possible escape values.
+              NB: more escape attributes may be added in the future.
+
+            <ol>
+                
+<li>
+<b>HTML</b> - html escapes a string.</li>
+                
+<li>
+<b>URL</b> - url escapes a string.</li>
+                
+<li>
+<b>RAWURL</b> - rawurl escapes a string.</li>
+                
+<li>
+<b>SQ</b> - escapes single quotes in a string.</li>
+                
+<li>
+<b>DQ</b> - escapes double quotes in a string.</li>
+                
+<li>
+<b>NONE</b> - turns off escaping.</li>
+                
+<li>
+<b>1</b> - alias for html escaping.</li>
+                
+<li>
+<b>0</b> - alias for NONE. (1 and 0 are for compatibility with Perl's HTML::Template).</li>
+                
+<li>
+<b>HEX</b> - hex encodes a string.</li>
+                
+<li>
+<b>HEXENTITY</b> - encodes a string to hex entities.</li>
+            
+</ol>
+            
+<br>
+<br>
+    
+</li>
+    
+<li>
+<b><FONT COLOR="#336699">STRICT</FONT></b>
+            - when set to 1, vlibTemplate will die() upon finding an incorrect &lt;tmpl&gt;'esque tag. i.e.
+            &lt;tmpl_vat name="varname"&gt;<br>
+<br>
+    
+</li>
+    
+<li>
+<b><FONT COLOR="#336699">CASELESS</FONT></b>
+        - when set to 1, vlibTemplate will become case-INSENSITIVE. setVar('myvar1') will be called even using
+          &lt;tmpl_var name="mYvAr1"&gt;.
+          <br>
+<br>
+          NB: All &lt;tmpl_*&gt; tags are case INSENSITIVE, this option refers to the variable and loop names.
+          <br>
+<br>
+    
+</li>
+    
+<li>
+<b><FONT COLOR="#336699">UNKNOWNS</FONT></b>
+            - will define how variables like &lt;tmpl_var name="myvar"&gt; are handled if they have not been set using setVar().
+
+            <ol>
+                
+<li>
+<b>IGNORE</b> - (default) completely ignores the unfound variable.</li>
+                
+<li>
+<b>REMOVE</b> - removes the &lt;tmpl_var&gt; tag, but notes the tag for use with the unknown functions.</li>
+                
+<li>
+<b>LEAVE</b> - will leave the tag as it is, and note it.</li>
+                
+<li>
+<b>PRINT</b> - escapes the actual unknown tag using html encoding.</li>
+                
+<li>
+<b>COMMENT</b> - comments out the tag using html style comments, and note it.</li>
+            
+</ol>
+            
+<br>
+<br>
+    
+</li>
+    
+<li>
+<b><FONT COLOR="#336699">TIME_PARSE</FONT></b>
+            - when set to 1, vlibTemplate will time how long it takes to parse the template. see getParseTime().
+               If <b>TIME_PARSE</b> and <b>GLOBAL_CONTEXT_VARS</b> are both set to 1, then a Global var
+               called <b>__PARSE_TIME__</b> is set with the time it took to parse the template.<br>
+<br>
+    
+</li>
+    
+<li>
+<b><FONT COLOR="#336699">ENABLE_PHPINCLUDE</FONT></b>
+            - Will allow template to include a php file using &lt;TMPL_PHPINCLUDE&gt;<br>
+<br>
+    
+</li>
+    
+<li>
+<b><FONT COLOR="#336699">CACHE_LIFETIME</FONT></b>
+            - lifetime of the cached file in seconds. Defaults to 604800 seconds (1 week).<br>
+<br>
+    
+</li>
+    
+<li>
+<b><FONT COLOR="#336699">CACHE_EXTENSION</FONT></b>
+            - extension used when caching files.<br>
+<br>
+    
+</li>
+
+</ul>
+
+<br>
+<br>
+
+
+<br>
+<br>
+<hr noshade="true" size="1">
+</div>
+<div class="document-footer">
+
+<table width="100%">
+	
+<tr>
+		
+<td align="left">Updated: Saturday, 19th of November 2005</td>
+		<td align="right"><a href="http://vlib.clausvb.de/forum/index.php" target="_blank">vLIB forum and support</a></td>
+	
+</tr>
+
+</table> <!-- Seite: <page-number /> -->
+
+</div>
+</body>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/sec09_options.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:31 GMT -->
+</html>

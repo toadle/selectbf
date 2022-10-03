@@ -6,9 +6,9 @@ th.scoretable 		{ color: #CCCCCC; background: url("../images/scoretable_th_back.
 th.scoretable_dark	{ color: #CCCCCC; background: url("../images/scoretable_th_dark.gif"); padding: 0px;}
 th.scoretable_number    { color: #CCCCCC; background: url("../images/scoretable_th_back.gif"); text-align: right; }
 td 			{ font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; padding: 2px; vertical-align:top}
-td.h_center		{ vertical-align:middle; }
-td.search		{ vertical-align:middle}
-td.number		{ text-align: right; }
+td.h_center		{ vertical-align:middle }
+td.search		{ vertical-align:middle }
+td.number		{ text-align: right }
 td.scoretable_header    { width: 100%; text-align: right; background: url("../images/camouflage.gif") }
 tr.scoretable_hell 	{ background-color: #EFEFEF}
 tr.scoretable_dunkel 	{ background-color: #E0E0E0}

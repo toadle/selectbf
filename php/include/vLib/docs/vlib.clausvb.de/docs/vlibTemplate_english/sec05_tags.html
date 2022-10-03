@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "--//W3C//DTD HTML 4.01 Transitional//EN">
+<!--dummy--><html>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/sec05_tags.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="standard.css">
+<meta content="AurigaDoc" name="generator">
+<title>Tags</title>
+</head>
+<body>
+<div class="document-header">
+   
+<table width="100%">
+      
+<tr>
+         
+<td align="left">
+<h1>vlibTemplate</h1>
+</td>
+         <td align="right"><img src="vlib_logo.gif" alt="vLib Logo" title="Logo von vLIB"></td>
+      
+</tr>
+   
+</table>
+
+   
+<hr>
+
+</div>
+<div class="navigation">
+<a name="sec05_tags"></a> <a href="table_of_content.html">Table of Contents</a> | Previous: <a href="sec04_introduction.html">4. Introduction and tutorial</a> | Next: <a href="sec06_vlibtemplate.html">6. vlibTemplate</a>
+<br>
+<br>
+</div>
+<div class="section-heading-1">
+<b>5. Tags</b> 
+</div>
+<div class="section-body-1">
+   
+<p>Note: even though these tags look like HTML they are a little different as they're allowed to "break the rules". Something like:</p>
+
+   
+<div class="template_kopf">Template</div>
+   
+<div class="template_inhalt">
+   
+<pre>   &lt;p&gt;&lt;tmpl_var name='body_text'&gt;&lt;/p&gt;</pre>
+</div>
+
+   
+<p>In Dreamweaver or other editors it might be more convenient to see the vLIB markup tags. You can use "{}" instead of "&lt;&gt;". Most examples use this alternative syntax.</p>
+
+   
+<div class="template_kopf">Template</div>
+   
+<div class="template_inhalt">
+   
+<pre>   &lt;p&gt;{tmpl_var name='body_text'}&lt;/p&gt;</pre>
+</div>
+
+   
+<p>These markup tags are not really valid HTML (or XHTML), but it will work as planned. TMPL_VAR specifies a template variable. The attribute "name" is necessary to create the interface between the PHP script and the template.</p>
+
+   
+<p>The "TMPL_" bit of the tag is optional, and can be omitted if you prefer to use the shorter versions, i.e.: &lt;LOOP name="LOOP_NAME"&gt;.</p>
+
+   
+<p>If you're a fanatic about valid HTML and would like your templates to conform to valid HTML syntax, you may optionally type template tags in the form of HTML comments. This may be of use to HTML authors who would like to validate their templates' HTML syntax prior to vlibTemplate parsing, or who use DTD-savvy editing tools. You can also use " instead of ' or you can disable it completly, but I would not recommend it.</p>
+
+   
+<div class="template_kopf">Template</div>
+   
+<div class="template_inhalt">
+   
+<pre>   &lt;p&gt;&lt;!-- tmpl_var name='param1' --&gt;&lt;/p&gt;</pre>
+</div>
+
+   
+<p>You can also use a curly bracket syntax '{tmpl_var}' for use within comments (as to not break them with the comment style tag), or within html tags (as to not break the tag in your editor).</p>
+
+   
+<div class="template_kopf">Template</div>
+   
+<div class="template_inhalt">
+   
+<pre>   &lt;p&gt;{tmpl_var name=param1}&lt;/p&gt;</pre>
+</div>
+
+   
+<p>All shown brackets should work with all vLIB markup tags.</p>
+
+<br>
+<br>
+<table border="0" cellspacing="0" cellpadding="1">
+<tr>
+<td align="right" width="50">5.1. </td><td><a href="tag_tmpl_var.html">TMPL_VAR name='VARNAME'</a></td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="1">
+<tr>
+<td align="right" width="50">5.2. </td><td><a href="tag_tmpl_loop.html">TMPL_LOOP name='LOOP_NAME'</a></td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="1">
+<tr>
+<td align="right" width="50">5.3. </td><td><a href="tag_tmpl_include.html">TMPL_INCLUDE name='filename.html'</a></td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="1">
+<tr>
+<td align="right" width="50">5.4. </td><td><a href="tag_tmpl_phpinclude.html">TMPL_PHPINCLUDE name='filename.html'</a></td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="1">
+<tr>
+<td align="right" width="50">5.5. </td><td><a href="tag_tmpl_if.html">TMPL_[ELSE]IF name='BOOL'</a></td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="1">
+<tr>
+<td align="right" width="50">5.6. </td><td><a href="tag_tmpl_else.html">TMPL_ELSE</a></td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="1">
+<tr>
+<td align="right" width="50">5.7. </td><td><a href="tag_tmpl_unless.html">TMPL_UNLESS name='BOOL'</a></td>
+</tr>
+</table>
+<br>
+<br>
+<hr noshade="true" size="1">
+</div>
+<div class="document-footer">
+
+<table width="100%">
+	
+<tr>
+		
+<td align="left">Updated: Saturday, 19th of November 2005</td>
+		<td align="right"><a href="http://vlib.clausvb.de/forum/index.php" target="_blank">vLIB forum and support</a></td>
+	
+</tr>
+
+</table> <!-- Seite: <page-number /> -->
+
+</div>
+</body>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/sec05_tags.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+</html>

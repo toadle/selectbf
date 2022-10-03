@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "--//W3C//DTD HTML 4.01 Transitional//EN">
+<!--dummy--><html>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/sec01_synopsis.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:29 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="standard.css">
+<meta content="AurigaDoc" name="generator">
+<title>Synopsis</title>
+</head>
+<body>
+<div class="document-header">
+
+<table width="100%">
+
+<tr>
+
+<td align="left">
+<h1>vlibTemplate</h1>
+</td>
+         <td align="right"><img src="vlib_logo.gif" alt="vLib Logo" title="Logo von vLIB"></td>
+
+</tr>
+
+</table>
+
+
+<hr>
+
+</div>
+<div class="navigation">
+<a name="sec01_synopsis"></a> <a href="table_of_content.html">Table of Contents</a> | Next: <a href="sec02_description.html">2. Description</a>
+<br>
+<br>
+</div>
+<div class="section-heading-1">
+<b>1. Synopsis</b>
+</div>
+<div class="section-body-1">
+
+<p>vlibTemplate is a <a href="http://en.wikipedia.org/wiki/Template_engine" title="Template engine" target="_blank">template engine</a> written in <a href="http://en.wikipedia.org/wiki/PHP" title="PHP" target="_blank">PHP</a>. Programmers and web developers may use it for <a href="http://en.wikipedia.org/wiki/Web_development" title="Web development" target="_blank">Web development</a>. vlibTemplate is a PHP <a href="http://en.wikipedia.org/wiki/Class_(computer_science)" title="Class (computer science)" target="_blank">class (computer science)</a> that is intended to make splitting PHP from HTML a simple and natural task. Benefits of using vlibTemplate:</p>
+
+<ul>
+
+<li>Your applications will be developed faster.</li>
+
+<li>Your code will be more organized, more clean and clearer to read.</li>
+
+<li>Teamwork is a lot easier. Programmers can edit their (PHP)code and artists or HTML specialists can create beautiful templates and layouts.</li>
+
+<li>Templates can be created with a WYSIWYG editors.</li>
+
+</ul>
+
+
+<p>The following images and explanations were created by Skrol for <a href="http://www.tinybutstrong.com/" target="_blank">TinyButStrong</a> another template engine.</p>
+
+
+<table width="100%" border="0" cellspacing="6">
+
+<tr>
+
+<td colspan="3" align="left" valign="top">
+<hr>
+</td>
+
+</tr>
+
+<tr>
+
+<td width="172" align="left" valign="top">Without a template engine, your PHP program looks like this:</td>
+       <td width="180" align="left" valign="top"><img src="template_pic1.gif"></td>
+       <td align="left" valign="bottom">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td colspan="2">HTML and PHP are embedded with each other in the same
+                page.</td>
+
+</tr>
+
+<tr>
+
+<td width="10" valign="top">-</td>
+                <td>It takes a long time to code.</td>
+
+</tr>
+
+<tr>
+
+<td valign="top">-</td>
+                <td>It's hard to read.</td>
+
+</tr>
+
+<tr>
+
+<td valign="top">-</td>
+                <td>It's not simple to perform maintenance.</td>
+
+</tr>
+
+<tr>
+
+<td valign="top">-</td>
+                <td>It's complicated to manage several pages in one program.</td>
+
+</tr>
+
+<tr>
+
+<td valign="top">-</td>
+                <td>It needs a programmer, who is good at coding HTML.</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="3" align="left" valign="top">
+<hr>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top">With a template engine, your program looks like
+         this:</td>
+       <td align="left" valign="top"><img src="template_pic2.gif"></td>
+       <td align="left" valign="bottom">
+
+<p>There is one program with pure PHP and one template with pure HTML.</p>
+
+
+<p>The template engine (vlibTemplate) enables you to merge the HTML page with data from your program. If you don't know HTML, your template can be designed without problem using a visual editor such as Dreamweaver or Frontpage.</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td colspan="3" align="left" valign="top">
+<hr>
+</td>
+</tr>
+
+<tr>
+
+<td align="left" valign="top">But there are more benefits:</td>
+       <td align="left" valign="top"><img src="template_pic3.gif"></td>
+       <td align="left" valign="bottom">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td colspan="2">The Template Engine also enables you to easily manage:</td>
+
+</tr>
+
+<tr>
+
+<td width="10" valign="top">-</td>
+             <td>The choice of a page among a set of possible pages.</td>
+
+</tr>
+
+<tr>
+
+<td valign="top">-</td>
+             <td>The inclusion of a page inside another like frames.</td>
+
+</tr>
+
+<tr>
+
+<td valign="top">-</td>
+             <td>The presentation of data coming from databases such as MySQL, PostgreSQL, Oracle, Informix, ODBC or SQL Server.</td>
+
+</tr>
+
+<tr>
+
+<td valign="top">-</td>
+             <td>Display or hide an area based on the value of a PHP variable.</td>
+
+</tr>
+
+</table>
+
+
+<p>And a template engine is very much appreciated by professionals because the PHP development can be given to one person and HTML development to another. Page design can be changed without programming changes, making re-designs a lot easier.</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td colspan="3" align="left" valign="top">
+<hr>
+</td>
+</tr>
+
+</table>
+
+
+<p>The most important benefit is structure and clean code. Mosts scripts contain lines like</p>
+
+<pre>echo "&lt;table width='80%'&gt;\n\t&lt;tr bgcolor='$color'&gt;";</pre>
+
+<p>or a mixture of PHP and HTML code. You can avoid such code using a template engine like vlibTemplate.</p>
+
+<br>
+<br>
+<hr noshade="true" size="1">
+</div>
+<div class="document-footer">
+
+<table width="100%">
+
+<tr>
+
+<td align="left">Updated: Saturday, 13th of July 2013</td>
+		<td align="right"><a href="http://vlib.clausvb.de/" target="_blank">vLIB wiki and support</a></td>
+
+</tr>
+
+</table> <!-- Seite: <page-number /> -->
+
+</div>
+</body>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/sec01_synopsis.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+</html>

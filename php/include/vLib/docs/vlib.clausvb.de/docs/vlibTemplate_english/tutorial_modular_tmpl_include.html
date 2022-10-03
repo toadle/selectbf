@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "--//W3C//DTD HTML 4.01 Transitional//EN">
+<!--dummy--><html>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/tutorial_modular_tmpl_include.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="standard.css">
+<meta content="AurigaDoc" name="generator">
+<title>Modular programming with TMPL_INCLUDE</title>
+</head>
+<body>
+<div class="document-header">
+   
+<table width="100%">
+      
+<tr>
+         
+<td align="left">
+<h1>vlibTemplate</h1>
+</td>
+         <td align="right"><img src="vlib_logo.gif" alt="vLib Logo" title="Logo von vLIB"></td>
+      
+</tr>
+   
+</table>
+
+   
+<hr>
+
+</div>
+<div class="navigation">
+<a name="tutorial_modular_tmpl_include"></a> <a href="table_of_content.html">Table of Contents</a> | Up: <a href="sec04_introduction.html">4. Introduction and tutorial</a> | Previous: <a href="tutorial_simple_loop.html">4.3. Simple LOOP</a>
+<br>
+<br>
+</div>
+<div class="section-heading-2">
+<b>4.4. Modular programming with TMPL_INCLUDE</b> 
+</div>
+<div class="section-body-2">
+   
+<p>If you want to create complex designs a modular structure is useful. You can do it with:</p>
+   
+<ol>
+      
+<li>TMPL_INCLUDE parameters</li>
+      
+<li>several PHP scripts, which all got one template</li>
+   
+</ol>
+   
+<p>Which solution you choose, depends on your style of programming. Advantages and disadvantages might differ from one person to the other. I prefer solution 2, because all logic is placed "in the hands" of PHP and your PHP script is one unit, a small part of a big complex website. But perhaps this is possible with solution one, too. First of all I will explain solution 1.</p>
+
+   
+<div class="php_skript_kopf">PHP script</div>
+   
+<div class="php_skript_inhalt">
+   
+<pre>   require_once 'vlib/vlibTemplate.php';
+
+   $tmpl = new vlibTemplate('tmpl/modular_tmpl_include.htm');
+
+   $tmpl-&gt;setvar('header', 'modular_tmpl_include_header.htm');
+   $tmpl-&gt;setvar('body', 'modular_tmpl_include_body.htm');
+   $tmpl-&gt;setvar('title_text', 'TITLE: Modular programming with TMPL_INCLUDE');
+   $tmpl-&gt;setvar('body_text', 'BODY: Modular programming with TMPL_INCLUDE');
+
+   $tmpl-&gt;pparse();</pre>
+</div>
+
+   
+<p>All methods are known and as you can see we divide our template in 2 parts: <em>Header</em>- and <em>Body</em> part, just like the tags <a href="http://en.wikipedia.org/wiki/HTML_element#Header_elements_defined_in_HTML_4.01" target="_blank">&lt;head&gt;&lt;/head&gt;</a> and <a href="http://en.wikipedia.org/wiki/HTML_element#Header_elements_defined_in_HTML_4.01" target="_blank">&lt;body&gt;&lt;/body&gt;</a> do it in HTML. What happens here will clarify when we look at the template.</p>
+
+   
+<div class="template_kopf">Template: modular_tmpl_include_header.htm</div>
+   
+<div class="template_inhalt">
+   
+<pre>   &lt;tmpl_include file='{var:header}'&gt;
+   &lt;tmpl_include file='{var:body}'&gt;</pre>
+</div>
+
+   
+<p>In the PHP script we set "header" and "body". They will include the specified template. Therefore you can make complex navigations with <tt>$_GET</tt> or get your variables from a database.</p>
+
+   
+<div class="template_kopf">Template: modular_tmpl_include_header.htm</div>
+   
+<div class="template_inhalt">
+   
+<pre>   &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
+      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt;
+   &lt;html&gt;
+   &lt;head&gt;
+      &lt;title&gt;{tmpl_var name='title_text'}&lt;/title&gt;
+      &lt;meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /&gt;
+   &lt;/head&gt;</pre>
+</div>
+
+   
+<p>The template is identical with the first example in this tutorial, but it's seperated in 2 different files. More complex structures are also possible.</p>
+
+   
+<div class="template_kopf">Template: modular_tmpl_include_body.htm</div>
+   
+<div class="template_inhalt">
+   
+<pre>   &lt;body&gt;
+
+   &lt;p&gt;{tmpl_var name='body_text'}&lt;/p&gt;
+
+   &lt;/body&gt;
+   &lt;/html&gt;</pre>
+</div>
+
+<br>
+<br>
+<hr noshade="true" size="1">
+</div>
+<div class="document-footer">
+
+<table width="100%">
+	
+<tr>
+		
+<td align="left">Updated: Saturday, 19th of November 2005</td>
+		<td align="right"><a href="http://vlib.clausvb.de/forum/index.php" target="_blank">vLIB forum and support</a></td>
+	
+</tr>
+
+</table> <!-- Seite: <page-number /> -->
+
+</div>
+</body>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/tutorial_modular_tmpl_include.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+</html>

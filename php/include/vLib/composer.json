@@ -1,0 +1,13 @@
+{
+    "name": "clausvb/vlib",
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "version": "4.2.1-p2",
+    "license": "Artistic License 2.0",
+    "autoload": {
+        "psr-4": {
+            "clausvb\\vlib\\": ""
+        }
+    }
+}

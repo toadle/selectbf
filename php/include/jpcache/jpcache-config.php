@@ -15,8 +15,8 @@
      * Uncomment only the one you want to use in the following lines! 
      */
      
-    $JPCACHE_TYPE = "file";
-    //$JPCACHE_TYPE = "mysql";
+    //$JPCACHE_TYPE = "file";
+    $JPCACHE_TYPE = "mysql";
     //$JPCACHE_TYPE = "dbm"; -- Not yet
 
     // DOH! Strip out this check for performance if you are sure you did set it.
@@ -29,9 +29,9 @@
      * General configuration options. 
      */
     $JPCACHE_TIME         =   900; // Default number of seconds to cache a page
-    $JPCACHE_DEBUG        =   0;   // Turn debugging on/off
+    $JPCACHE_DEBUG        =   1;   // Turn debugging on/off
     $JPCACHE_IGNORE_DOMAIN=   1;   // Ignore domain name in request(single site)
-    $JPCACHE_ON           =   1;   // Turn caching on/off
+    $JPCACHE_ON           =   0;   // Turn caching on/off
     $JPCACHE_USE_GZIP     =   1;   // Whether or not to use GZIP
     $JPCACHE_POST         =   0;   // Should POST's be cached (default OFF)
     $JPCACHE_GC           =   1;   // Probability % of garbage collection
@@ -55,10 +55,10 @@
     /**
      * DB based caching settings. 
      */
-    $JPCACHE_DB_HOST      = "localhost"; // Database Server
-    $JPCACHE_DB_DATABASE  = "jpcache";   // Database-name to use
-    $JPCACHE_DB_USERNAME  = "sqluser";   // Username 
-    $JPCACHE_DB_PASSWORD  = "passwd";    // Password
+    $JPCACHE_DB_HOST      = "your mysql server (e.g. localhost)"; // Database Server
+    $JPCACHE_DB_DATABASE  = "selectbf database which is used by the parser";   // Database-name to use
+    $JPCACHE_DB_USERNAME  = "database_user";   // Username 
+    $JPCACHE_DB_PASSWORD  = "database_password";    // Password
     $JPCACHE_DB_TABLE     = "CACHEDATA"; // Table that holds the data
     $JPCACHE_OPTIMIZE     = 1;           // If 'OPTIMIZE TABLE' after garbage
                                          // collection is executed. Please check 

@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "--//W3C//DTD HTML 4.01 Transitional//EN">
+<!--dummy--><html>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/tag_tmpl_phpinclude.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="standard.css">
+<meta content="AurigaDoc" name="generator">
+<title>&lt;TMPL_PHPINCLUDE NAME/FILE='filename.php'&gt;</title>
+</head>
+<body>
+<div class="document-header">
+   
+<table width="100%">
+      
+<tr>
+         
+<td align="left">
+<h1>vlibTemplate</h1>
+</td>
+         <td align="right"><img src="vlib_logo.gif" alt="vLib Logo" title="Logo von vLIB"></td>
+      
+</tr>
+   
+</table>
+
+   
+<hr>
+
+</div>
+<div class="navigation">
+<a name="tag_tmpl_phpinclude"></a> <a href="table_of_content.html">Table of Contents</a> | Up: <a href="sec05_tags.html">5. The Tags</a> | Previous: <a href="tag_tmpl_include.html">5.3. TMPL_INCLUDE name='filename.html'</a> | Next: <a href="tag_tmpl_if.html">5.5. TMPL_[ELSE]IF name='BOOL'</a>
+<br>
+<br>
+</div>
+<div class="section-heading-2">
+<b>5.4. &lt;TMPL_PHPINCLUDE NAME/FILE='filename.php'&gt;</b> 
+</div>
+<div class="section-body-2">
+
+<br>
+  
+<p>It is encouraged that you use this tag only in circumstances that you need
+
+    to. It will basically execute the php code inside of the template file as
+
+    if it were executed within the actual vlibTemplate class.</p>
+
+
+<br>
+<br>
+
+<table width="100%" bgcolor="#676767">
+<tr>
+<td align="left"><font color="white">
+	Example
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#E8E8E8">
+<pre>
+
+&lt;?php
+  echo $GLOBALS['PHP_SELF'];
+?&gt;
+
+</pre>
+</td>
+</tr>
+</table>
+
+<br>
+
+
+<table width="100%" bgcolor="#7099C5">
+<tr>
+<td align="left"><font color="white">
+	Note
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#f0f0ff">
+The use of this tag is strongly discouraged as it goes against the reasons for using a template system. <br>
+The only reason it is here is because I thought it would be asked for.
+
+</td>
+</tr>
+</table>
+
+
+<br>
+<br>
+
+<br>
+<br>
+<hr noshade="true" size="1">
+</div>
+<div class="document-footer">
+
+<table width="100%">
+	
+<tr>
+		
+<td align="left">Updated: Saturday, 19th of November 2005</td>
+		<td align="right"><a href="http://vlib.clausvb.de/forum/index.php" target="_blank">vLIB forum and support</a></td>
+	
+</tr>
+
+</table> <!-- Seite: <page-number /> -->
+
+</div>
+</body>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/tag_tmpl_phpinclude.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+</html>

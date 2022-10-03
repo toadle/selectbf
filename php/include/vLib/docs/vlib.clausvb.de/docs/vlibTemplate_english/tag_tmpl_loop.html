@@ -1,0 +1,527 @@
+<!DOCTYPE HTML PUBLIC "--//W3C//DTD HTML 4.01 Transitional//EN">
+<!--dummy--><html>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/tag_tmpl_loop.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="standard.css">
+<meta content="AurigaDoc" name="generator">
+<title>&lt;TMPL_LOOP name='LOOP_NAME'&gt;</title>
+</head>
+<body>
+<div class="document-header">
+   
+<table width="100%">
+      
+<tr>
+         
+<td align="left">
+<h1>vlibTemplate</h1>
+</td>
+         <td align="right"><img src="vlib_logo.gif" alt="vLib Logo" title="Logo von vLIB"></td>
+      
+</tr>
+   
+</table>
+
+   
+<hr>
+
+</div>
+<div class="navigation">
+<a name="tag_tmpl_loop"></a> <a href="table_of_content.html">Table of Contents</a> | Up: <a href="sec05_tags.html">5. The Tags</a> | Previous: <a href="tag_tmpl_var.html">5.1. TMPL_VAR name='VARNAME'</a> | Next: <a href="tag_tmpl_include.html">5.3. TMPL_INCLUDE name='filename.html'</a>
+<br>
+<br>
+</div>
+<div class="section-heading-2">
+<b>5.2. &lt;TMPL_LOOP name='LOOP_NAME'&gt;</b> 
+</div>
+<div class="section-body-2">
+
+<br>
+
+<P>
+<b>There are 3 ways of assigning a vlibTemplate loop in PHP. The first way
+    is the most complicated using the function setLoop(). <br>
+
+    This will be described first, and then the more recent methods, the 3 stage
+    method and the Db result method.<br>
+    All methods use 'exactly' the same template tags. They're just programmed
+    differently in PHP.</b>
+<br>
+
+    
+<br>
+    The &lt;TMPL_LOOP&gt; tag is a bit more complicated. The &lt;TMPL_LOOP&gt;
+    tag allows you to delimit a section of text and give it a name. Inside the
+    &lt;TMPL_LOOP&gt; you place &lt;TMPL_VAR&gt;s. <br>
+    Now you pass an array to setLoop() with a list of variable assignments. <br>
+    The loop iterates over this list and produces output from the text block for
+    each pass. Here's an example:</P>
+
+
+<br>
+<br>
+
+<table width="100%" bgcolor="#676767">
+<tr>
+<td align="left"><font color="white">
+	Example
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#E8E8E8">
+<pre>
+
+   In the template:
+
+
+
+   &lt;TMPL_LOOP NAME='EMPLOYEE_INFO'&gt;
+
+         Name: &lt;TMPL_VAR NAME='NAME'&gt;
+
+         Job: &lt;TMPL_VAR NAME='JOB'&gt;
+
+   &lt;/TMPL_LOOP&gt;
+
+
+
+   In the script:
+
+   $employee_array = array();
+
+   array_push ($employee_arr, array('NAME' =&gt; 'Sam', 'JOB' =&gt; 'programmer' ));
+
+   array_push ($employee_arr, array('NAME' =&gt; 'Steve', 'JOB' =&gt; 'designer' ));
+
+
+
+   $tmpl-&gt;setLoop('EMPLOYEE_INFO', $employee_array);
+
+   $tmpl-&gt;pparse();
+
+
+
+   The output:
+
+   Name: Sam
+   Job: programmer
+
+   Name: Steve
+   Job: designer
+
+</pre>
+</td>
+</tr>
+</table>
+
+<br>
+
+  
+<P>As you can see above the &lt;TMPL_LOOP&gt; takes a list of variable assignments
+
+    and then iterates over the loop body producing output.</P>
+
+  
+<P>Often you'll want to generate a &lt;TMPL_LOOP&gt;'s contents programmatically.
+
+    Here's an example of how this can be done (many other ways are possible!):</P>
+
+
+<br>
+<br>
+
+<table width="100%" bgcolor="#676767">
+<tr>
+<td align="left"><font color="white">
+	Example
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#E8E8E8">
+<pre>
+
+   // a couple of arrays of data to put in a loop:
+
+   $words = array('I', 'Am', 'Cool');
+
+   $numbers = array(1, 2, 3);
+
+
+
+   $loop_data = array();  // initialize an array to hold your loop
+
+
+
+   for ($i=0; $i &lt; count($words); $i++) {
+
+     array_push($loop_data, array('
+
+                                 'WORD' =&gt; $words[$i],
+
+                                 'NUMBER' =&gt; $numbers[$i]
+
+                                ));
+
+   }
+
+
+
+   // finally, assign the loop data to the loop variable
+
+   $template-&gt;setLoop('THIS_LOOP', $loop_data);
+
+</pre>
+</td>
+</tr>
+</table>
+
+<br>
+
+
+<P>The above example would work with a template like:</P>
+
+
+<br>
+<br>
+
+<table width="100%" bgcolor="#676767">
+<tr>
+<td align="left"><font color="white">
+	Example
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#E8E8E8">
+<pre>
+
+   &lt;TMPL_LOOP NAME="THIS_LOOP"&gt;
+
+      Word: &lt;TMPL_VAR NAME="WORD"&gt;&lt;BR&gt;
+
+      Number: &lt;TMPL_VAR NAME="NUMBER"&gt;&lt;BR&gt;
+
+   &lt;/TMPL_LOOP&gt;
+
+</pre>
+</td>
+</tr>
+</table>
+
+<br>
+
+
+<P>It would produce output like:</P>
+
+
+<br>
+<br>
+
+<table width="100%" bgcolor="#676767">
+<tr>
+<td align="left"><font color="white">
+	Example
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#E8E8E8">
+<pre>
+
+   Word: I
+
+   Number: 1
+
+
+
+   Word: Am
+
+   Number: 2
+
+
+
+   Word: Cool
+
+   Number: 3
+
+</pre>
+</td>
+</tr>
+</table>
+
+<br>
+
+  
+<P>&lt;TMPL_LOOP&gt;s within &lt;TMPL_LOOP&gt;s are fine and work as you would
+
+    expect. If the syntax for the setLoop() call has you stumped, here's an example
+
+    of a setLoop() call with one nested loop:</P>
+
+
+<br>
+<br>
+
+<table width="100%" bgcolor="#676767">
+<tr>
+<td align="left"><font color="white">
+	Example
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#E8E8E8">
+<pre>
+
+  $template-&gt;setLoop('OUTER',array(
+
+            0 =&gt; array(
+
+                'name' =&gt; 'Steve',
+
+                'surname' =&gt; 'Owen'
+
+                'owns' =&gt; array(
+
+                            0 =&gt; array(
+
+                                    'est' =&gt; 'E20'),
+
+                            1 =&gt; array(
+
+                                    'est' =&gt; 'Flat 42B')
+
+                            ),
+
+            1 =&gt; array(
+
+                'name' =&gt; 'Phil',
+
+                'surname' =&gt; 'Mitchel'
+
+                'owns' =&gt; array(
+
+                            0 =&gt; array(
+
+                                    'est' =&gt; 'The Vic'),
+
+                                            1 =&gt; array(
+
+                                    'est' =&gt; 'The Arches'),
+
+                            2 =&gt; array(
+
+                                    'est' =&gt; 'Snooker Club')
+
+                            )
+
+                 );
+
+</pre>
+</td>
+</tr>
+</table>
+
+<br>
+
+  
+<p>Basically, the loop must consist of an array where each array row represents
+
+    a row of a loop. Therefore the values of each array must be an associative
+
+    array of.. $variable_name =&gt; $variable_value.<br>
+
+    If you build an inner loop, the $variable_name becomes the name of the loop,
+
+    and you start again with the same structure.</p>
+
+  
+<p>NB: There is no limit to the amount of nested loops. Be aware that many loops
+
+    (as in any php code), may slow down performance.</p>
+
+  
+<P>Inside a &lt;TMPL_LOOP&gt;, the only variables available are those defined
+
+    within the setLoop() call. There are however work arounds to getting variables
+
+    outside of the scope of the current loop.<br>
+
+    If you wish to access a variable in a parent loop, you can prepend the variable
+
+    name with the name of the loop, i.e.:</P>
+
+
+<br>
+<br>
+
+<table width="100%" bgcolor="#676767">
+<tr>
+<td align="left"><font color="white">
+	Example
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#E8E8E8">
+<pre>
+
+  &lt;TMPL_LOOP name="outer"&gt;
+      &lt;TMPL_VAR name="__ROWNUM__"&gt;
+
+      &lt;TMPL_LOOP name="inner"&gt;
+          Inner loop row number is: &lt;TMPL_VAR name="__ROWNUM__"&gt;,
+          the outer loop row number is: &lt;TMPL_VAR name="outer.__ROWNUM__"&gt;
+      &lt;/TMPL_LOOP&gt;
+  &lt;/TMPL_LOOP&gt;
+
+</pre>
+</td>
+</tr>
+</table>
+
+<br>
+
+  
+<P>To access the variables within the global namespace, you can either set the
+
+    OPTION 'GLOBAL_VARS' to 1, or you can use the above syntax but use the vlibTemplate
+    reserved word 'global' (always lowercase) like &lt;TMPL_VAR name="global.TITLE"&gt;.</P>
+
+  
+<P>NB: '__ROWNUM__' is one of many vlibTemplate variables which is set when the
+    OPTION 'LOOP_CONTEXT_VARS' is set to 1. See the OPTIONS section to see other variable and their meanings.</P>
+
+  
+<hr size="1">
+
+  
+<P>The second method for adding loops is the 3 stage method, a later addition
+
+    to the class, using newLoop(), addRow() and addLoop() functions.<br>
+
+    It uses the same template as before but the PHP side is much more simple.
+  </P>
+
+
+<br>
+<br>
+
+<table width="100%" bgcolor="#676767">
+<tr>
+<td align="left"><font color="white">
+	Example
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#E8E8E8">
+<pre>
+
+&lt;?php
+    [assign template .......]
+
+   // a couple of arrays of data to put in a loop:
+
+   $words = array('I', 'Am', 'Cool');
+
+   $numbers = array(1, 2, 3);
+
+
+
+   $tmpl-&gt;newLoop('THIS_LOOP');  // initialize a new loop
+
+
+   for ($i=0; $i &lt; count($words); $i++) {
+
+     $tmpl-&gt;addRow(array('WORD' =&gt; $words[$i],'NUMBER' =&gt; $numbers[$i])); //adds a row
+
+   }
+
+   $tmpl-&gt;addLoop(); // adds the loop to the template
+
+    [parse template .....]
+?&gt;
+
+</pre>
+</td>
+</tr>
+</table>
+
+<br>
+
+
+<p>To see a working example have a look at the 'vlibTemplate_basicloop.php' example
+  in the <b>EXAMPLES</b> folder of your vLIB distribution.<br>
+
+</p>
+
+
+<hr size="1">
+
+  
+<p>The third method for adding loops is an experimental function which takes
+    the result resource of a database call, and generates the output.
+    The PHP-side is even simpler than the 3 stage method. Here's an example:</p>
+
+
+<br>
+<br>
+
+<table width="100%" bgcolor="#676767">
+<tr>
+<td align="left"><font color="white">
+	Example
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#E8E8E8">
+<pre>
+
+&lt;?php
+    [assign template .......]
+   $cnx = mysql_connect('localhost','user','pass');
+   mysql_select_db('test');
+
+   $r = mysql_query('SELECT * FROM test_table LIMIT 0, 50', $cnx);
+
+
+   $tmpl-&gt;setDbLoop('THIS_LOOP', $r, 'MYSQL');  // initialize a new loop
+
+
+    [parse template .....]
+?&gt;
+
+</pre>
+</td>
+</tr>
+</table>
+
+<br>
+
+How simple was that!
+
+
+<br>
+<br>
+
+
+<br>
+<br>
+<hr noshade="true" size="1">
+</div>
+<div class="document-footer">
+
+<table width="100%">
+	
+<tr>
+		
+<td align="left">Updated: Saturday, 19th of November 2005</td>
+		<td align="right"><a href="http://vlib.clausvb.de/forum/index.php" target="_blank">vLIB forum and support</a></td>
+	
+</tr>
+
+</table> <!-- Seite: <page-number /> -->
+
+</div>
+</body>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/tag_tmpl_loop.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+</html>

@@ -186,8 +186,8 @@
     {
         $return = FALSE;
         // Lock file, ignore warnings as we might be creating this file
-        $fpt = @fopen($filename, "rb");
-        @flock($fpt, LOCK_EX);
+        $fpt = fopen($filename, "rb");
+        flock($fpt, LOCK_EX);
         
         // php.net suggested I should use wb to make it work under Windows
         $fp=@fopen($filename, "wb+");

@@ -5,7 +5,7 @@ Copyright (C) 2003-2005 Tim Adler
 
 Version 0.5
 
-http://www.selectbf.org
+https://github.com/toadle/selectbf
 ------------------------------------------------------------------------------------------
 select(bf) is published under the conditions of the General Public License (GPL)
 Therefore this program is distributed in the hope that it will be useful, but 
@@ -74,7 +74,7 @@ completely new Battlefields :)!
 Thanks to Andreas Fredriksson of DICE of the Battlefield development team who wrote the XML
 Logging system and supplied some valuable answers on this one.
 
-Thanks to everybody else that submitted errors and suggestions at http://www.selectbf.org.
+Thanks to everybody else that submitted errors and suggestions at https://github.com/toadle/selectbf.
 Especially to the guys who modded s(bf) to fit their needs and some that wrote little code-bits
 to help others making good use of this little thing.
 

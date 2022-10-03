@@ -57,19 +57,19 @@ function getAwards($player_id,$first,$second,$third)
 	}	
 	if($topheal==$player_id)
 	{
-		$str = "$str <img src=images/symbols/top-heal.gif alt=\"TOP-Medic\">";
+		$str = "$str<img src=images/symbols/top-heal.gif alt=\"Top-Heals\" title=\"Top Heals\">";
 	}
 	if($toprepair==$player_id)
 	{
-		$str = "$str <img src=images/symbols/top-repair.gif alt=\"TOP-Engineer\">";
+		$str = "$str <img src=images/symbols/top-repair.gif alt=\"Top-Repairs\" title=\"Top Repairs\">";
 	}
 	if($toppoint==$player_id)
 	{
-		$str = "$str <img src=images/symbols/top-point.gif alt=\"TOP-Point\">";
+		$str = "$str <img src=images/symbols/top-point.gif alt=\"Top-Points\" title=\"Top Points\">";
 	}
 	if($topscore==$player_id)
 	{
-		$str = "$str <img src=images/symbols/top-score.gif alt=\"TOP-Score\">";
+		$str = "$str <img src=images/symbols/top-score.gif alt=\"Top-Score\" title=\"Top Points\">";
 	}		
 	
 	echo $str;	

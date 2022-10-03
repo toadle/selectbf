@@ -4,65 +4,49 @@
      <th class="super" scope="col" colspan=2>Player-Details</th>
    </tr>
    <tr class=light>
-     <th width=10%>Playername:</th>
+     <td width=10%>Playername:</td>
      <td><tmpl_var name="name"></td>
    </tr>
-   <tr class=dark>
-     <th>Stats-ID:</th>
-     <td><tmpl_var name="id"></td>
-   </tr>   
    <tr class=light>
-     <th>KeyHash:</th>
-     <td><tmpl_var name="keyhash"></td>
-   </tr>  
-   <tr class=dark>
-     <th>Last Seen:</th>
+     <td>Last Seen:</td>
      <td><tmpl_var name="last_seen"></td>
    </tr>      
-   <tr class=light>
-     <th>Rounds played:</th>
-     <td><tmpl_var name="rounds"></td>
-   </tr>
    <tr class=dark>
-     <th width=10%>Logged since:</th>
-     <td><tmpl_var name="date"></td>
+     <td>Rounds played:</td>
+     <td><tmpl_var name="rounds"></td>
    </tr>      
    <tr class=light>
-     <th width=10%>Total Score:</th>
+     <td width=10%>Total Score:</td>
      <td><tmpl_var name="score"></td>
    </tr>   
    <tr class=dark>
-     <th width=10%>Total Kills:</th>
+     <td width=10%>Total Kills:</td>
      <td><tmpl_var name="kills"></td>
    </tr>   
    <tr class=light>
-     <th width=10%>Total Deaths:</th>
-     <td><tmpl_var name="deaths"><img src="{tmpl_var name='IMAGES_DIR'}icon_deaths.gif" align=absmiddle hspace=2></td>
+     <td width=10%>Total Deaths:</td>
+     <td><tmpl_var name="deaths"></td>
    </tr>   
    <tr class=dark>
-     <th width=10%>Total TKs:</th>
+     <td width=10%>Total TKs:</td>
      <td><tmpl_var name="tks"></td>
    </tr>   
    <tr class=light>
-     <th width=10%>Awards:</th>
+     <td width=10%>Awards:</td>
      <td><tmpl_var name="awards" escape=none></td>
    </tr>
    <tr class=dark>
-     <th>Heals:</th>
-     <td><tmpl_var name="name"> spent <tmpl_var name="otherheals_time"> on healing <tmpl_var name="otherheals_amount"> Heal-Points to other Players<br></td>
+     <td>Heals:</td>
+     <td><tmpl_var name="name"> spent <tmpl_var name="selfheals_time"> on healing <tmpl_var name="selfheals_amount"> Heal-Points to himself</td>
    </tr>                                            
    <tr class=light>
-     <th><img src="{tmpl_var name='IMAGES_DIR'}icon_heals.gif" align=absmiddle hspace=2></th>
-     <td><tmpl_var name="name"> spent <tmpl_var name="selfheals_time"> on healing <tmpl_var name="selfheals_amount"> Heal-Points to himself</td>
+     <td><img src="{tmpl_var name='IMAGES_DIR'}icon_heals.gif" align=absmiddle hspace=2></td>
+     <td><tmpl_var name="name"> spent <tmpl_var name="otherheals_time"> on healing <tmpl_var name="otherheals_amount"> Heal-Points to other Players<br></td>
    </tr>
    <tr class=dark>
-     <th>Repairs:</th>
+     <td>Repairs:</td>
      <td><tmpl_var name="name"> spent <tmpl_var name="repairs_time"> on repairing <tmpl_var name="repairs_amount"> Repair-Points</td>
    </tr>                                            
-   <tr class=light>
-     <th><img src="{tmpl_var name='IMAGES_DIR'}icon_repairs.gif" align=absmiddle hspace=2></th>
-     <td></td>
-   </tr>   
  </table>
  <p>
  <table width="95%" border="1" align="center">
@@ -269,8 +253,8 @@
   <tmpl_else>
    <tr class="dark">
   </tmpl_if>
-     <td><tmpl_var name="date"></td>
-     <td><img src="{tmpl_var name='IMAGES_DIR'}joystick_icon.gif" align=absmiddle hspace="2"><a href="{tmpl_var name="gamedetaillink"}"><tmpl_var name="servername"></a></td>
+     <td><a href="{tmpl_var name="gamedetaillink"}"><tmpl_var name="date"></a></td>
+     <td><img src="{tmpl_var name='IMAGES_DIR'}joystick_icon.gif" align=absmiddle hspace="2"><tmpl_var name="servername"></td>
      <td><tmpl_var name="mod"><img src="{tmpl_var name='modimg'}" align=absmiddle hspace="2"></td>
      <td><tmpl_var name="map"></td>
      <td><tmpl_var name="game_mode"></td>
