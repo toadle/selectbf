@@ -1,4 +1,4 @@
-<?
+<?php
 /************************************************
 * Config file for select(bf)-Template Set       *
 *                                               *

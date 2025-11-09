@@ -1,4 +1,4 @@
-<?
+<?php
 $Erg = SQL_oneRowQuery("select p.id,p.name, sum(amount) amount, sum(repairtime) repairtime from selectbf_repairs r, selectbf_players p where player_id!=repair_player_id and r.player_id = p.id group by player_id order by amount DESC,repairtime DESC LIMIT 0,1");
 $toprepair = $Erg["id"];
 

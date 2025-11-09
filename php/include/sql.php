@@ -31,7 +31,7 @@ function SQL_error($msg,$sql)
   </table>
   </center>
   </html>
-	<?
+	<?php
 }
 
 function SQL_connect()

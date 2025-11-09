@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("include/vLib/vlibTemplate.php");
 use clausvb\vlib\vlibTemplate;
 require_once("include/sql.php");

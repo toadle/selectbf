@@ -472,7 +472,7 @@ function Template_error($msg)
   </table>
   </center>
   </html>
-	<?
+	<?php
 }
 
 function getActiveDebugLevel()

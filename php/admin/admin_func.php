@@ -1,4 +1,4 @@
-<?
+<?php
 //set error-level
 error_reporting(E_ERROR);
 

@@ -1,4 +1,4 @@
-<?
+<?php
 require("admin_func.php");
 
 logoutAdmin();
