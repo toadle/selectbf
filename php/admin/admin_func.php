@@ -16,6 +16,9 @@ function checkAdminPsw($psw)
 
 //Added by Gary Chiu
 function createData($dbTable, $check, $dataArray){
+	if(!is_countable($dataArray)){
+		$dataArray = array();
+	}
 	for($i=0; $i < count($dataArray); $i++){
 		$dataValue = $dataArray[$i][$check];
 		$res = SQL_query("SELECT * from $dbTable where $check = '$dataValue'");
@@ -145,15 +148,24 @@ function addUnCategorized($categories)
 		array_push($weapons,$cols);
 	}
 	
+	if(!is_countable($categories)){
+		$categories = array();
+	}
 	for($i = 0; $i<count($categories); $i++)
 	{
 		$members = $categories[$i]["members"];
 		
 		$uncategorized = array();
 		
+		if(!is_countable($weapons)){
+			$weapons = array();
+		}
 		for($j = 0; $j<count($weapons); $j++)
 		{
 			$found = false;
+			if(!is_countable($members)){
+				$members = array();
+			}
 			for($k = 0; $k<count($members) && $found==false; $k++)
 			{
 				if($weapons[$j]["weapon"]==$members[$k]["member"])
@@ -308,9 +320,15 @@ function getUnAssignedWeapons()
 	}
 	
 	$weapons = array();
+	if(!is_countable($total_weapons)){
+		$total_weapons = array();
+	}
 	for($i=0;$i<count($total_weapons);$i++)
 	{
 		$found = false;
+		if(!is_countable($cleared_weapons)){
+			$cleared_weapons = array();
+		}
 		for($j=0;$j<count($cleared_weapons) && $found!=true;$j++)
 		{
 			if($total_weapons[$i]["weapon"] == $cleared_weapons[$j]["weapon"])
@@ -345,9 +363,15 @@ function getUnAssignedKits()
 	}
 	
 	$kits = array();
+	if(!is_countable($total_kits)){
+		$total_kits = array();
+	}
 	for($i=0;$i<count($total_kits);$i++)
 	{
 		$found = false;
+		if(!is_countable($cleared_kits)){
+			$cleared_kits = array();
+		}
 		for($j=0;$j<count($cleared_kits) && $found!=true;$j++)
 		{
 			if($total_kits[$i]["kit"] == $cleared_kits[$j]["kit"])
@@ -449,9 +473,15 @@ function getUnClearedGameModes()
 	}
 	
 	$gamemodes = array();
+	if(!is_countable($total_gamemodes)){
+		$total_gamemodes = array();
+	}
 	for($i=0;$i<count($total_gamemodes);$i++)
 	{
 		$found = false;
+		if(!is_countable($cleared_gamemodes)){
+			$cleared_gamemodes = array();
+		}
 		for($j=0;$j<count($cleared_gamemodes) && $found!=true;$j++)
 		{
 			if($total_gamemodes[$i]["gamemode"] == $cleared_gamemodes[$j]["gamemode"])
@@ -499,9 +529,15 @@ function getUnClearedWeapons()
 	}
 	
 	$weapons = array();
+	if(!is_countable($total_weapons)){
+		$total_weapons = array();
+	}
 	for($i=0;$i<count($total_weapons);$i++)
 	{
 		$found = false;
+		if(!is_countable($cleared_weapons)){
+			$cleared_weapons = array();
+		}
 		for($j=0;$j<count($cleared_weapons) && $found!=true;$j++)
 		{
 			if($total_weapons[$i]["weapon"] == $cleared_weapons[$j]["weapon"])
@@ -549,9 +585,15 @@ function getUnClearedVehicles()
 	}
 	
 	$vehicles = array();
+	if(!is_countable($total_vehicles)){
+		$total_vehicles = array();
+	}
 	for($i=0;$i<count($total_vehicles);$i++)
 	{
 		$found = false;
+		if(!is_countable($cleared_vehicles)){
+			$cleared_vehicles = array();
+		}
 		for($j=0;$j<count($cleared_vehicles) && $found!=true;$j++)
 		{
 			if($total_vehicles[$i]["vehicle"] == $cleared_vehicles[$j]["vehicle"])
@@ -599,9 +641,15 @@ function getUnClearedMaps()
 	}
 	
 	$maps = array();
+	if(!is_countable($total_maps)){
+		$total_maps = array();
+	}
 	for($i=0;$i<count($total_maps);$i++)
 	{
 		$found = false;
+		if(!is_countable($cleared_maps)){
+			$cleared_maps = array();
+		}
 		for($j=0;$j<count($cleared_maps) && $found!=true;$j++)
 		{
 			if($total_maps[$i]["map"] == $cleared_maps[$j]["map"])
@@ -649,9 +697,15 @@ function getUnClearedKits()
 	}
 	
 	$kits = array();
+	if(!is_countable($total_kits)){
+		$total_kits = array();
+	}
 	for($i=0;$i<count($total_kits);$i++)
 	{
 		$found = false;
+		if(!is_countable($cleared_kits)){
+			$cleared_kits = array();
+		}
 		for($j=0;$j<count($cleared_kits) && $found!=true;$j++)
 		{
 			if($total_kits[$i]["kit"] == $cleared_kits[$j]["kit"])

@@ -149,6 +149,10 @@ function createWhereClause($arraymember,$colname)
 {
 	$str = "( $colname = ";
 	
+	if (!is_countable($arraymember)) {
+		$arraymember = []; // Initialize as an empty array if not countable
+	}
+	
 	for($i = 0; $i<count($arraymember); $i++)
 	{	
 		$member = $arraymember[$i]["member"];

@@ -153,6 +153,9 @@
         }
 
         // Force cache off when POST occured when you don't want it cached
+        if(!is_countable($_POST)) {
+            $_POST = array();
+        } 
         if (!$GLOBALS["JPCACHE_POST"] && (count($_POST) > 0)) 
         {
             $GLOBALS["JPCACHE_ON"] = 0;

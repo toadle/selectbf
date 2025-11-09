@@ -256,7 +256,7 @@ if (!defined('vlibMimeMailClassLoaded')) {
          * Sets the Body of the message.
          * If you're sending a mail with special characters, be sure to define the
          * charset.
-         *  i.e. $mail->body('ce message est en français.', 'iso-8859-1');
+         *  i.e. $mail->body('ce message est en franï¿½ais.', 'iso-8859-1');
          *
          * @param string $body plain text as the body
          * @param string $charset
@@ -280,7 +280,7 @@ if (!defined('vlibMimeMailClassLoaded')) {
          *
          * If you're sending a mail with special characters, be sure to define the
          * charset.
-         *  i.e. $mail->htmlbody('ce message est en français.', 'iso-8859-1');
+         *  i.e. $mail->htmlbody('ce message est en franï¿½ais.', 'iso-8859-1');
          *
          * @param string $htmlbody html text as the body
          * @param string $charset
@@ -535,6 +535,10 @@ if (!defined('vlibMimeMailClassLoaded')) {
             $ata = array();
             $k=0;
 
+            if(!is_countable($this->attachments)) {
+                $this->attachments = array();
+            }
+
             for ($i=0; $i < count( $this->attachments); $i++) {
                 $filename = $this->attachments[$i];
                 $basename = basename($filename);
@@ -551,6 +555,9 @@ if (!defined('vlibMimeMailClassLoaded')) {
                 	if (!empty($upart['path'])) {
                 		$upart['path'] = substr($upart['path'], 1);
                 		$newpath = explode('/', $upart['path']);
+                        if(!is_countable($newpath)) {
+                            $newpath = array();
+                        }
                 		for($i=0; $i<count($newpath); $i++) $newpath[$i] = rawurlencode($newpath[$i]);
                 		$newfilename .= implode('/',$newpath);
                 	}

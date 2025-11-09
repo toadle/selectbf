@@ -63,6 +63,10 @@ function update_clan($is_html){
 	$second = 0 ;
 	$third = 0 ;
 
+	if(!is_countable($clanname)){
+		$clanname = array();
+	}
+
 	for ($i=0 ; $i < count($clanname) ; $i++){
 		$clantag = $clanname[$i]["clan_tag"];
 		if(stristr($_ENV["TERM"],"linux"))
