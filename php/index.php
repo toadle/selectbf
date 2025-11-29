@@ -133,7 +133,7 @@ $tmpl->setLoop("ranking",$res);
 
 //the Ranking-navbar information
 $minrounds = getActiveMinRoundsValue();
-$res = SQL_query("select player_id, count(*) rounds from selectbf_playerstats group by player_id having rounds >= $minrounds order by rounds desc");
+$res = SQL_query("select player_id, count(*) rounds from selectbf_playerstats group by player_id having rounds >= ? order by rounds desc", array($minrounds));
 $totalplayercount = mysqli_num_rows($res);
 
 $res = getRankingNavBar($totalplayercount,$start,$orderby,$direction);

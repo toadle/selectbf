@@ -76,8 +76,8 @@ $tmpl->setLoop("NAVBAR",getNavBar());
 
 //Added by Gary Chiu
 //Looking for Clan Tags in Database only
-$resultset = SQL_query("select clanname from selectbf_clan_ranking where clanname='".clear_special_char($clanname,false)."'");
-if(mysql_num_rows($resultset) > 0){
+$resultset = SQL_query("select clanname from selectbf_clan_ranking where clanname=?", array($clanname));
+if(mysqli_num_rows($resultset) > 0){
 	if(stristr($_ENV["TERM"],"linux"))
 		$clanname = str_replace("\\","",$clanname);
 }else{

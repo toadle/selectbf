@@ -50,8 +50,7 @@ if($search=="players")
 {
 	$tmpl->setVar("isPlayerSearch",true);
 	$playername = $_REQUEST["playername"];
-	$playername = mysqli_real_escape_string(SQL_getconnection(), $playername);
-	$res = SQL_query("select id, name, CONCAT(DATE_FORMAT(inserttime,'%Y-%m-%d '),TIME_FORMAT(inserttime,'%H:%i:%S')) time from selectbf_players WHERE name LIKE '%$playername%' ORDER BY name ASC");
+	$res = SQL_query("select id, name, CONCAT(DATE_FORMAT(inserttime,'%Y-%m-%d '),TIME_FORMAT(inserttime,'%H:%i:%S')) time from selectbf_players WHERE name LIKE ? ORDER BY name ASC", array('%'.$playername.'%'));
 	while($cols = SQL_fetchArray($res))
 	{
 		$cols["playerdetaillink"] = "player.php?id=".$cols["id"];
@@ -64,7 +63,6 @@ if($search=="games")
 {
 	$tmpl->setVar("isGameSearch",true);
 	$servername = $_REQUEST["servername"];
-	$servername = mysqli_real_escape_string(SQL_getconnection(), $servername);
 	$day = $_REQUEST["day"];
 	$month = $_REQUEST["month"];
 	$year = $_REQUEST["year"];
@@ -73,11 +71,11 @@ if($search=="games")
 	$res = null;
 	if($year=="nothing" || $month=="nothing" || $day=="nothing")
     {
-    	$res = SQL_query("select id, servername,modid,map,game_mode, CONCAT(TIME_FORMAT(starttime,'%H:%i:%S '),DATE_FORMAT(starttime,'%d|%m|%Y')) time from selectbf_games WHERE servername LIKE '%$servername%' AND modid='$mod' ORDER BY starttime ASC LIMIT 100");
+    	$res = SQL_query("select id, servername,modid,map,game_mode, CONCAT(TIME_FORMAT(starttime,'%H:%i:%S '),DATE_FORMAT(starttime,'%d|%m|%Y')) time from selectbf_games WHERE servername LIKE ? AND modid=? ORDER BY starttime ASC LIMIT 100", array('%'.$servername.'%', $mod));
     } 
     else
     {
-    	$res = SQL_query("select id, servername,modid,map,game_mode, CONCAT(TIME_FORMAT(starttime,'%H:%i:%S '),DATE_FORMAT(starttime,'%d|%m|%Y')) time from selectbf_games WHERE servername LIKE '%$servername%' AND starttime BETWEEN '$year-$month-$day 00:00:00' and '$year-$month-$day 23:59:59' and modid='$mod' ORDER BY starttime ASC");
+    	$res = SQL_query("select id, servername,modid,map,game_mode, CONCAT(TIME_FORMAT(starttime,'%H:%i:%S '),DATE_FORMAT(starttime,'%d|%m|%Y')) time from selectbf_games WHERE servername LIKE ? AND starttime BETWEEN ? and ? and modid=? ORDER BY starttime ASC", array('%'.$servername.'%', "$year-$month-$day 00:00:00", "$year-$month-$day 23:59:59", $mod));
     }
     while($cols = SQL_fetchArray($res))
 	{

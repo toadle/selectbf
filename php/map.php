@@ -58,7 +58,7 @@ else
 $tmpl->setVar("TopRoundsS","");
 }
 
-$cols = SQL_oneRowQuery("SELECT map, wins_team1, wins_team2,win_team1_tickets_team1 win_team1_end_tickets_team1,win_team1_tickets_team2 win_team1_end_tickets_team2,win_team2_tickets_team1 win_team2_end_tickets_team1,win_team2_tickets_team2 win_team2_end_tickets_team2,score_team1,score_team2,kills_team1,kills_team2,deaths_team1,deaths_team2,attacks_team1,attacks_team2,captures_team1,captures_team2 from selectbf_cache_mapstats WHERE map='$map'");
+$cols = SQL_oneRowQuery("SELECT map, wins_team1, wins_team2,win_team1_tickets_team1 win_team1_end_tickets_team1,win_team1_tickets_team2 win_team1_end_tickets_team2,win_team2_tickets_team1 win_team2_end_tickets_team1,win_team2_tickets_team2 win_team2_end_tickets_team2,score_team1,score_team2,kills_team1,kills_team2,deaths_team1,deaths_team2,attacks_team1,attacks_team2,captures_team1,captures_team2 from selectbf_cache_mapstats WHERE map=?", array($map));
 $cols['mapname'] = clearUpText($cols['map'],"MAP");
 
 $tmpl->setVar($cols);

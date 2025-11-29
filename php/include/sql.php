@@ -48,18 +48,46 @@ function SQL_getconnection() {
 }
 
 
-function SQL_query($sql)
+function SQL_query($sql, $params = [])
 {
 	GLOBAL $DBVerbindung;
-	$res = mysqli_query($DBVerbindung, $sql) or die(SQL_error(mysqli_error($DBVerbindung),$sql));
-	
+    if (empty($params)) {
+	    $res = mysqli_query($DBVerbindung, $sql) or die(SQL_error(mysqli_error($DBVerbindung),$sql));
+	    return $res;
+    }
+    
+    $stmt = mysqli_prepare($DBVerbindung, $sql);
+    if (!$stmt) {
+        die(SQL_error(mysqli_error($DBVerbindung), $sql));
+    }
+
+    $types = "";
+    $values = [];
+    foreach ($params as $param) {
+        if (is_int($param)) {
+            $types .= "i";
+        } elseif (is_double($param)) {
+            $types .= "d";
+        } else {
+            $types .= "s";
+        }
+        $values[] = $param;
+    }
+    
+    if (!empty($values)) {
+        mysqli_stmt_bind_param($stmt, $types, ...$values);
+    }
+
+    mysqli_stmt_execute($stmt) or die(SQL_error(mysqli_stmt_error($stmt), $sql));
+    $res = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
+    
 	return $res;
 }
 
-function SQL_oneRowQuery($sql)
+function SQL_oneRowQuery($sql, $params = [])
 {
-	GLOBAL $DBVerbindung;
-	$res = mysqli_query($DBVerbindung, $sql) or die(SQL_error(mysqli_error($DBVerbindung),$sql));
+	$res = SQL_query($sql, $params);
 	$Zeile = SQL_fetchArray($res);
 	return $Zeile;
 }
