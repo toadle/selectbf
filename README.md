@@ -2,7 +2,7 @@
 
 ## Foreword / Disclaimer
 
-**This project is from 2005. Full scale development has ceased for about 10 years now.**  Use at you own discretion. Know 
+**This project is from 2005. Full scale development has ceased for about 10 years now.**  Use at you own discretion.
 
 In 2022 PHP8-compatibility was [added](https://github.com/toadle/selectbf/pull/1) by [htn](https://github.com/htn1491) through of [HelloClan](https://www.helloclan.eu). He also fixed a lot of SQL-injection problems. They still run BF Vietnam servers and select(bf) based statistics.
 So if YOU want to run this code on PHP 8. You can clone this repo and use the PHP-code provided here.
