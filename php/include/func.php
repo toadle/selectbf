@@ -34,8 +34,8 @@ if($DEBUG) echo "<b><u>DEBUG</b>-Informations:</u><br>";
 function getNavBar()
 {
 	$navbar = array();
-	array_push($navbar,array("link"=>"index.php","name"=>"Ranking"));
-	array_push($navbar,array("link"=>"clans.php","name"=>"Clan Ranking")); 
+	array_push($navbar,array("link"=>"index.php","name"=>"Players"));
+	array_push($navbar,array("link"=>"clans.php","name"=>"Clans")); 
 	array_push($navbar,array("link"=>"character.php","name"=>"Character-Types"));
 	array_push($navbar,array("link"=>"weapon.php","name"=>"Weapons"));
 	array_push($navbar,array("link"=>"vehicle.php","name"=>"Vehicles"));
@@ -88,7 +88,7 @@ function clearUpText($text,$type)
 	}
 	else
 	{
-		$res = SQL_query("select original, custom from selectbf_cleartext where type='$type' order by original ");
+		$res = SQL_query("select original, custom from selectbf_cleartext where type=? order by original ", array($type));
 		$lookup = array();
 		while($cols = SQL_fetchArray($res))
 		{
@@ -126,7 +126,7 @@ function getModFor($text,$type)
 	}
 	else
 	{
-		$res = SQL_query("select item, 'mod' from selectbf_modassignment where type='$type' order by item ");
+		$res = SQL_query("select item, 'mod' from selectbf_modassignment where type=? order by item ", array($type));
 		$lookup = array();
 		while($cols = SQL_fetchArray($res))
 		{
@@ -148,6 +148,10 @@ function getModFor($text,$type)
 function createWhereClause($arraymember,$colname)
 {
 	$str = "( $colname = ";
+	
+	if (!is_countable($arraymember)) {
+		$arraymember = []; // Initialize as an empty array if not countable
+	}
 	
 	for($i = 0; $i<count($arraymember); $i++)
 	{	
@@ -175,7 +179,7 @@ function getMapTKs($map)
 	$starttime=timer();
 	
 	$usage = $_SESSION["LIST-MAP-TKS"];
-	$res = SQL_query("select p.name,p.id, sum(k.tks) count from selectbf_playerstats k, selectbf_players p, selectbf_rounds r, selectbf_games g where k.player_id = p.id and k.round_id = r.id and r.game_id = g.id and g.map = '$map' group by p.name order by count DESC LIMIT 0,$usage");
+	$res = SQL_query("select p.name,p.id, sum(k.tks) count from selectbf_playerstats k, selectbf_players p, selectbf_rounds r, selectbf_games g where k.player_id = p.id and k.round_id = r.id and r.game_id = g.id and g.map = ? group by p.name order by count DESC LIMIT 0,?", array($map, $usage));
 	$max = getMaxForField($res,"count");
 	
 	$maptks = array();
@@ -198,7 +202,7 @@ function getMapDeaths($map)
 	$starttime=timer();
 	
 	$usage = $_SESSION["LIST-MAP-DEATHS"];
-	$res = SQL_query("select p.name,p.id, sum(k.deaths) count from selectbf_playerstats k, selectbf_players p, selectbf_rounds r, selectbf_games g where k.player_id = p.id and k.round_id = r.id and r.game_id = g.id and g.map = '$map' group by p.name order by count DESC LIMIT 0,$usage");
+	$res = SQL_query("select p.name,p.id, sum(k.deaths) count from selectbf_playerstats k, selectbf_players p, selectbf_rounds r, selectbf_games g where k.player_id = p.id and k.round_id = r.id and r.game_id = g.id and g.map = ? group by p.name order by count DESC LIMIT 0,?", array($map, $usage));
 	$max = getMaxForField($res,"count");
 	
 	$mapdeaths = array();
@@ -222,7 +226,7 @@ function getMapAttacks($map)
 	$starttime=timer();
 	
 	$usage = $_SESSION["LIST-MAP-ATTACKS"];
-	$res = SQL_query("select p.name,p.id, sum(k.attacks) count from selectbf_playerstats k, selectbf_players p, selectbf_rounds r, selectbf_games g where k.player_id = p.id and k.round_id = r.id and r.game_id = g.id and g.map = '$map' group by p.name order by count DESC LIMIT 0,$usage");
+	$res = SQL_query("select p.name,p.id, sum(k.attacks) count from selectbf_playerstats k, selectbf_players p, selectbf_rounds r, selectbf_games g where k.player_id = p.id and k.round_id = r.id and r.game_id = g.id and g.map = ? group by p.name order by count DESC LIMIT 0,?", array($map, $usage));
 	$max = getMaxForField($res,"count");
 	
 	$mapattacks = array();
@@ -246,8 +250,8 @@ function getMapKills($map)
 	$starttime=timer();
 	
 	$usage = $_SESSION["LIST-MAP-KILLERS"];
-	$sql = "select p.name,p.id, sum(k.kills) count from selectbf_playerstats k, selectbf_players p, selectbf_rounds r, selectbf_games g where k.player_id = p.id and k.round_id = r.id and r.game_id = g.id and g.map = '$map' group by p.name order by count DESC LIMIT 0,$usage";
-	$res = SQL_query($sql);
+	$sql = "select p.name,p.id, sum(k.kills) count from selectbf_playerstats k, selectbf_players p, selectbf_rounds r, selectbf_games g where k.player_id = p.id and k.round_id = r.id and r.game_id = g.id and g.map = ? group by p.name order by count DESC LIMIT 0,?";
+	$res = SQL_query($sql, array($map, $usage));
 	$max = getMaxForField($res,"count");
 	
 	
@@ -323,14 +327,14 @@ function getVehicleUsage()
 	$starttime=timer();	
 	
 	$usage = $_SESSION["LIST-VEHICLES-LIST"];
-	$res = SQL_query("select vehicle, time, percentage_time, times_used, percentage_usage from selectbf_cache_vehicletime order by time DESC LIMIT 0,$usage");
+	$res = SQL_query("select vehicle, time, percentage_time, times_used, percentage_usage from selectbf_cache_vehicletime order by time DESC LIMIT 0,?", array($usage));
 	$max = getMaxForField($res,"time");
 	
 	$vehusage = array();
 	while($cols = SQL_fetchArray($res))
 	{
 		$vehicle = $cols["vehicle"];
-		$res2 = SQL_query("select kills, percentage from selectbf_cache_weaponkills where weapon='$vehicle'");
+		$res2 = SQL_query("select kills, percentage from selectbf_cache_weaponkills where weapon=?", array($vehicle));
 		if($cols2 = SQL_fetchArray($res2))
 		{
 			$cols["kills"] = $cols2["kills"];
@@ -364,7 +368,7 @@ function getDataForWeaponCategory($categoryid)
 	$starttime=timer();	
 	
 	$usage = $_SESSION["LIST-WEAPONS-LIST"];
-	$res = SQL_query("select member from selectbf_categorymember where category = $categoryid");
+	$res = SQL_query("select member from selectbf_categorymember where category = ?", array($categoryid));
 	$members = array();
 	$content = false;
 	while($cols = SQL_fetchArray($res))
@@ -377,8 +381,8 @@ function getDataForWeaponCategory($categoryid)
    	if($content)
    	{	
     	$whereclause = createWhereClause($members,"k.weapon");
-    	$sql = "select p.name,p.id,sum(times_used) count from selectbf_kills_weapon k, selectbf_players p where k.player_id = p.id and $whereclause group by p.name,p.id order by count DESC LIMIT 0,$usage";
-    	$res = SQL_query($sql);
+    	$sql = "select p.name,p.id,sum(times_used) count from selectbf_kills_weapon k, selectbf_players p where k.player_id = p.id and $whereclause group by p.name,p.id order by count DESC LIMIT 0,?";
+    	$res = SQL_query($sql, array($usage));
        	$max = getMaxForField($res,"count");
        	
     
@@ -468,7 +472,7 @@ function Template_error($msg)
   </table>
   </center>
   </html>
-	<?
+	<?php
 }
 
 function getActiveDebugLevel()
@@ -633,7 +637,7 @@ function sec2time($str)
 
 function timer() 
 {
-	list($low, $high) = split(" ", microtime());
+	list($low, $high) = preg_split("/ /", microtime());
     	$t = $high + $low;
 	return $t;
 }
@@ -647,7 +651,7 @@ function getMaxStarNumber()
 function getTopScorerId()
 {
 	$minrounds = getActiveMinRoundsValue();
-	$Erg = SQL_oneRowQuery("select ps.player_id id, sum(ps.score) score from selectbf_playerstats ps, selectbf_cache_ranking cr where ps.player_id = cr.player_id and cr.rounds_played >= $minrounds group by ps.player_id order by score DESC LIMIT 0,1");
+	$Erg = SQL_oneRowQuery("select ps.player_id id, sum(ps.score) score from selectbf_playerstats ps, selectbf_cache_ranking cr where ps.player_id = cr.player_id and cr.rounds_played >= ? group by ps.player_id order by score DESC LIMIT 0,1", array($minrounds));
 	return $Erg["id"];	
 }
 
@@ -660,28 +664,28 @@ function getTopPointerId()
 function getTopMedicId()
 {
 	$minrounds = getActiveMinRoundsValue();
-	$Erg = SQL_oneRowQuery("select p.id,p.name, sum(amount) amount, sum(healtime) healtime from selectbf_heals h, selectbf_players p, selectbf_cache_ranking cr where h.player_id!=healed_player_id and h.player_id = p.id and cr.player_id = h.player_id and cr.rounds_played >= $minrounds group by h.player_id order by amount DESC,healtime DESC LIMIT 0,1");
+	$Erg = SQL_oneRowQuery("select p.id,p.name, sum(amount) amount, sum(healtime) healtime from selectbf_heals h, selectbf_players p, selectbf_cache_ranking cr where h.player_id!=healed_player_id and h.player_id = p.id and cr.player_id = h.player_id and cr.rounds_played >= ? group by h.player_id order by amount DESC,healtime DESC LIMIT 0,1", array($minrounds));
 	return $Erg["id"];	
 }
 
 function getTopEngineerId()
 {
 	$minrounds = getActiveMinRoundsValue();
-	$Erg = SQL_oneRowQuery("select p.id,p.name, sum(amount) amount, sum(repairtime) repairtime from selectbf_repairs r, selectbf_players p, selectbf_cache_ranking cr where r.player_id = p.id and r.player_id = cr.player_id and cr.rounds_played >= $minrounds group by r.player_id order by amount DESC,repairtime DESC LIMIT 0,1");
+	$Erg = SQL_oneRowQuery("select p.id,p.name, sum(amount) amount, sum(repairtime) repairtime from selectbf_repairs r, selectbf_players p, selectbf_cache_ranking cr where r.player_id = p.id and r.player_id = cr.player_id and cr.rounds_played >= ? group by r.player_id order by amount DESC,repairtime DESC LIMIT 0,1", array($minrounds));
 	return $Erg["id"];	
 }
 
 function getTopAttackerId()
 {
 	$minrounds = getActiveMinRoundsValue();
-	$Erg = SQL_oneRowQuery("select ps.player_id id, sum(ps.attacks) score from selectbf_playerstats ps, selectbf_cache_ranking cr where ps.player_id = cr.player_id and cr.rounds_played >= $minrounds group by ps.player_id order by score DESC LIMIT 0,1");
+	$Erg = SQL_oneRowQuery("select ps.player_id id, sum(ps.attacks) score from selectbf_playerstats ps, selectbf_cache_ranking cr where ps.player_id = cr.player_id and cr.rounds_played >= ? group by ps.player_id order by score DESC LIMIT 0,1", array($minrounds));
 	return $Erg["id"];	
 }
 
 function getTopRounds($map)
 {
 	$numrounds = $_SESSION["LIST-MAP-ROUNDS"];
-	$res= SQL_Query("select player_id, p.name, score, kills, deaths, attacks, tks, g.id, g.servername,CONCAT(TIME_FORMAT(r.starttime,'%H:%i:%S '),DATE_FORMAT(r.starttime,'%d|%m|%Y')) time from selectbf_playerstats ps, selectbf_players p, selectbf_rounds r, selectbf_games g where ps.player_id = p.id and ps.round_id = r.id and r.game_id = g.id and g.map = '$map' order by score DESC LIMIT 0,$numrounds");
+	$res= SQL_Query("select player_id, p.name, score, kills, deaths, attacks, tks, g.id, g.servername,CONCAT(DATE_FORMAT(r.starttime,'%Y-%m-%d '),TIME_FORMAT(r.starttime,'%H:%i:%S')) time from selectbf_playerstats ps, selectbf_players p, selectbf_rounds r, selectbf_games g where ps.player_id = p.id and ps.round_id = r.id and r.game_id = g.id and g.map = ? order by score DESC LIMIT 0,?", array($map, $numrounds));
 	$rounds = array();
 	while($cols = SQL_fetchArray($res))
 	{
@@ -739,23 +743,23 @@ function getAwards($player_id,$first,$second,$third,$toprepair,$topheal,$topscor
 	
 	if($topheal==$player_id)
 	{
-		$awards_withstars = $awards_withstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_HEAL_IMG\" align=absmiddle alt=\"TOP-Medic\">";
-		$awards_withoutstars = $awards_withoutstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_HEAL_IMG\" align=absmiddle alt=\"TOP-Medic\">";
+		$awards_withstars = $awards_withstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_HEAL_IMG\" align=absmiddle alt=\"Top-Heals\" title=\"Top Heals\">";
+		$awards_withoutstars = $awards_withoutstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_HEAL_IMG\" align=absmiddle alt=\"Top-Heals\" title=\"Top Heals\">";
 	}
 	if($toprepair==$player_id)
 	{
-		$awards_withstars = $awards_withstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_REPAIR_IMG\" align=absmiddle alt=\"TOP-Engineer\">";
-		$awards_withoutstars = $awards_withoutstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_REPAIR_IMG\" align=absmiddle alt=\"TOP-Engineer\">";
+		$awards_withstars = $awards_withstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_REPAIR_IMG\" align=absmiddle alt=\"Top-Repairs\" title=\"Top Repairs\">";
+		$awards_withoutstars = $awards_withoutstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_REPAIR_IMG\" align=absmiddle alt=\"Top-Repairs\" title=\"Top Repairs\">";
 	}
 	if($topscore==$player_id)
 	{
-		$awards_withstars = $awards_withstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_SCORE_IMG\" align=absmiddle alt=\"TOP-Scorer\">";
-		$awards_withoutstars = $awards_withoutstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_SCORE_IMG\" align=absmiddle alt=\"TOP-Scorer\">";
+		$awards_withstars = $awards_withstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_SCORE_IMG\" align=absmiddle alt=\"Top-Scorer\" title=\"Top Scorer\">";
+		$awards_withoutstars = $awards_withoutstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_SCORE_IMG\" align=absmiddle alt=\"Top-Scorer\" title=\"Top Scorer\">";
 	}		
 	if($topattack==$player_id)
 	{
-		$awards_withstars = $awards_withstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_ATTACK_IMG\" align=absmiddle alt=\"TOP-Scorer\">";
-		$awards_withoutstars = $awards_withoutstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_ATTACK_IMG\" align=absmiddle alt=\"TOP-Attacker\">";
+		$awards_withstars = $awards_withstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_ATTACK_IMG\" align=absmiddle alt=\"Top-Conquests\" title=\"Top Conquests\">";
+		$awards_withoutstars = $awards_withoutstars."<img src=\"templates/$TEMPLATE_DIR/images/$TMPL_CFG_TOP_ATTACK_IMG\" align=absmiddle alt=\"Top-Conquests\" title=\"Top Conquests\">";
 	}		
 
 	$awards["awards_withstars"] =  $awards_withstars;
@@ -772,7 +776,7 @@ function getRanking($orderby,$direction,$start)
 	$numranking = $_SESSION["LIST-RANKING-PLAYER"];
 	$minrounds = getActiveMinRoundsValue();
 	$formula = getRankingFormula();
-	$res = SQL_query("select playername name,player_id id, score, tks, kills, deaths, captures, attacks, objectives, heals, selfheals, repairs, otherrepairs, rounds_played rounds, kdrate, first, second, third, playtime, score_per_minute, (score/rounds_played) avgscore, ($formula) points from selectbf_cache_ranking having rounds >= $minrounds order by $orderby $direction LIMIT $start,$numranking");
+	$res = SQL_query("select playername name,player_id id, score, tks, kills, deaths, captures, attacks, objectives, heals, selfheals, repairs, otherrepairs, rounds_played rounds, kdrate, first, second, third, playtime, score_per_minute, (score/rounds_played) avgscore, ($formula) points from selectbf_cache_ranking having rounds >= ? order by $orderby $direction LIMIT ?,?", array($minrounds, $start, $numranking));
 	$rounding = getRankingRounding();
 	$roundingnumber = getRankingRoundingNumber();
 	
@@ -843,7 +847,7 @@ function getTeamRanking($orderby,$direction,$start,$clanname)
 	$formula = getRankingFormula();
 
 	$minrounds = getActiveMinClanRoundsValue();
-	$res = SQL_query("select playername name,player_id id, score, tks, kills, deaths, captures, attacks, objectives, heals, selfheals, repairs, otherrepairs, rounds_played rounds, kdrate, first, second, third, playtime, score_per_minute, $formula points, (score/rounds_played) avgscore from selectbf_cache_ranking where playername like '%".clear_special_char($clanname,true)."%' having rounds >= $minrounds order by $orderby $direction LIMIT $start,50");
+	$res = SQL_query("select playername name,player_id id, score, tks, kills, deaths, captures, attacks, objectives, heals, selfheals, repairs, otherrepairs, rounds_played rounds, kdrate, first, second, third, playtime, score_per_minute, $formula points, (score/rounds_played) avgscore from selectbf_cache_ranking where playername like ? having rounds >= ? order by $orderby $direction LIMIT ?,50", array('%'.clear_special_char($clanname,true).'%', $minrounds, $start));
 
 	$topattack = getTopAttackerId();
 	$toprepair = getTopEngineerId();
@@ -895,7 +899,7 @@ function getClansRanking($orderby,$direction,$start)
 	$formula = getRankingFormula();
 
 	$minrounds = getActiveMinClanRoundsValue();
-	$res = SQL_query("select clanname name, members, score, tks, kills, deaths, captures, attacks, objectives, heals, selfheals, repairs, otherrepairs, rounds_played rounds, kdrate, $formula points, (score/rounds_played) avgscore from selectbf_clan_ranking having rounds >= $minrounds order by $orderby $direction LIMIT $start,50");
+	$res = SQL_query("select clanname name, members, score, tks, kills, deaths, captures, attacks, objectives, heals, selfheals, repairs, otherrepairs, rounds_played rounds, kdrate, $formula points, (score/rounds_played) avgscore from selectbf_clan_ranking having rounds >= ? order by $orderby $direction LIMIT ?,50", array($minrounds, $start));
 	$rounding = getRankingRounding();
 	$roundingnumber = getRankingRoundingNumber();
 
@@ -978,7 +982,7 @@ function getLastGames($start)
 	GLOBAL $DEBUG;
 	$starttime=timer();
 	$numgames = $_SESSION["LIST-RANKING-GAMES"];
-	$res = SQL_query("select servername,modid 'mod',game_mode,map,g.id,CONCAT(TIME_FORMAT(g.starttime,'%H:%i:%S '),DATE_FORMAT(g.starttime,'%d|%m|%Y')) date, count(*) rounds from selectbf_games g, selectbf_rounds r where g.id = r.game_id group by g.id order by g.starttime desc LIMIT $start,$numgames");
+	$res = SQL_query("select servername,modid 'mod',game_mode,map,g.id,CONCAT(DATE_FORMAT(g.starttime,'%Y-%m-%d '),TIME_FORMAT(g.starttime,'%H:%i:%S')) date, count(*) rounds from selectbf_games g, selectbf_rounds r where g.id = r.game_id group by g.id order by g.starttime desc LIMIT ?,?", array($start, $numgames));
 	$games = array();
 	while($cols = SQL_fetchArray($res))
 	{
@@ -1000,7 +1004,7 @@ function getAllGamesPlayer($start,$id)
 	GLOBAL $DEBUG;
 	$starttime=timer();
 	
-	$res = SQL_query("select servername,modid 'mod',game_mode,map,g.id,CONCAT(TIME_FORMAT(g.starttime,'%H:%i:%S '),DATE_FORMAT(g.starttime,'%d|%m|%Y')) date, count(*) rounds from selectbf_games g, selectbf_rounds r, selectbf_playerstats p where g.id = r.game_id and p.player_id = $id and r.id = p.round_id group by g.id order by g.starttime desc LIMIT $start,15");
+	$res = SQL_query("select servername,modid 'mod',game_mode,map,g.id,CONCAT(DATE_FORMAT(g.starttime,'%Y-%m-%d '),TIME_FORMAT(g.starttime,'%H:%i:%S')) date, count(*) rounds from selectbf_games g, selectbf_rounds r, selectbf_playerstats p where g.id = r.game_id and p.player_id = ? and r.id = p.round_id group by g.id order by g.starttime desc LIMIT ?,15", array($id, $start));
 	$games = array();
 	while($cols = SQL_fetchArray($res))
 	{
@@ -1023,7 +1027,7 @@ function getLastGamesPlayer($id)
 	$starttime=timer();
 	
 	$usage = $_SESSION["LIST-PLAYER-GAMES"];
-	$res = SQL_query("select servername,modid 'mod',game_mode,map,g.id,CONCAT(TIME_FORMAT(g.starttime,'%H:%i:%S '),DATE_FORMAT(g.starttime,'%d|%m|%Y')) date, count(*) rounds, score, kills, deaths, tks, attacks from selectbf_games g, selectbf_rounds r, selectbf_playerstats p where g.id = r.game_id and r.id = p.round_id and p.player_id = $id group by g.id order by g.starttime desc LIMIT 0,$usage");
+	$res = SQL_query("select servername,modid 'mod',game_mode,map,g.id,CONCAT(DATE_FORMAT(g.starttime,'%Y-%m-%d '),TIME_FORMAT(g.starttime,'%H:%i:%S')) date, count(*) rounds, score, kills, deaths, tks, attacks from selectbf_games g, selectbf_rounds r, selectbf_playerstats p where g.id = r.game_id and r.id = p.round_id and p.player_id = ? group by g.id order by g.starttime desc LIMIT 0,?", array($id, $usage));
 	$games = array();
 	while($cols = SQL_fetchArray($res))
 	{
@@ -1069,7 +1073,7 @@ function getRepairs()
    	$starttime=timer();	
 	
 	$usage = $_SESSION["LIST-CHARACTER-REPAIRS"];
-	$res = SQL_query("select p.id,p.name, sum(amount) amount, sum(repairtime) repairtime from selectbf_repairs r, selectbf_players p where r.player_id = p.id group by player_id order by amount DESC,repairtime DESC LIMIT 0,$usage");
+	$res = SQL_query("select p.id,p.name, sum(amount) amount, sum(repairtime) repairtime from selectbf_repairs r, selectbf_players p where r.player_id = p.id group by player_id order by amount DESC,repairtime DESC LIMIT 0,?", array($usage));
 	$max = getMaxForField($res,"amount");
    	
    	$repairs = array();
@@ -1094,7 +1098,7 @@ function getHeals()
    	$starttime=timer();	
 	
 	$usage = $_SESSION["LIST-CHARACTER-HEALS"];
-	$res = SQL_query("select p.id,p.name, sum(amount) amount, sum(healtime) healtime from selectbf_heals h, selectbf_players p where player_id!=healed_player_id and h.player_id = p.id group by player_id order by amount DESC,healtime DESC LIMIT 0,$usage");
+	$res = SQL_query("select p.id,p.name, sum(amount) amount, sum(healtime) healtime from selectbf_heals h, selectbf_players p where player_id!=healed_player_id and h.player_id = p.id group by player_id order by amount DESC,healtime DESC LIMIT 0,?", array($usage));
 	$max = getMaxForField($res,"amount");
    	
    	$heals = array();
@@ -1119,10 +1123,10 @@ function getWeaponUsage($id)
    	$starttime=timer();	
 	
 	$usage = $_SESSION["LIST-PLAYER-WEAPONS"];
-    $res = SQL_oneRowQuery("select sum(times_killed) kills from selectbf_kills_player WHERE player_id = $id");
+    $res = SQL_oneRowQuery("select sum(times_killed) kills from selectbf_kills_player WHERE player_id = ?", array($id));
     $totalkills = $res["kills"];
  
-    $res = SQL_query("select weapon, times_used count from selectbf_kills_weapon WHERE player_id = $id ORDER BY times_used DESC LIMIT 0,$usage");
+    $res = SQL_query("select weapon, times_used count from selectbf_kills_weapon WHERE player_id = ? ORDER BY times_used DESC LIMIT 0,?", array($id, $usage));
     $max = getMaxForField($res,"count"); 
    	
    	$types = array();
@@ -1146,7 +1150,7 @@ function getCharacterTypeUsage($id)
    	$starttime=timer();	
    	
 	$listsize = $_SESSION["LIST-PLAYER-CHARACTERS"];
-    $res = SQL_query("select kit,times_used count from selectbf_kits where player_id=$id group by kit order by count desc limit 0,$listsize");
+    $res = SQL_query("select kit,times_used count from selectbf_kits where player_id=? group by kit,times_used order by count desc limit 0,?", array($id, $listsize));
     $max = getMaxForField($res,"count");
    	
    	$types = array();
@@ -1169,7 +1173,7 @@ function getCharacterTypes()
    	$starttime=timer();	
 	
 	$usage = $_SESSION["LIST-CHARACTER-TYPE"];
-    $res = SQL_query("select kit, times_used count, percentage from selectbf_cache_chartypeusage order by times_used desc Limit 0,$usage");
+    $res = SQL_query("select kit, times_used count, percentage from selectbf_cache_chartypeusage order by times_used desc Limit 0,?", array($usage));
     $max = getMaxForField($res,"count");
    	
    	$types = array();
@@ -1194,11 +1198,11 @@ function getTopVictims($id)
    	$starttime=timer();	
 	
 	$usage = $_SESSION["LIST-PLAYER-VICTIMS"];
-    $Ergebnisse = SQL_oneRowQuery("select sum(times_killed) kills from selectbf_kills_player WHERE player_id = $id");
+    $Ergebnisse = SQL_oneRowQuery("select sum(times_killed) kills from selectbf_kills_player WHERE player_id = ?", array($id));
     $totalkills = $Ergebnisse["kills"];
           
           
-    $res = SQL_query("select victim_id id,p.name,times_killed count from selectbf_kills_player k, selectbf_players p where player_id=$id and k.victim_id = p.id order by times_killed desc Limit 0,$usage");    
+    $res = SQL_query("select victim_id id,p.name,times_killed count from selectbf_kills_player k, selectbf_players p where player_id=? and k.victim_id = p.id order by times_killed desc Limit 0,?", array($id, $usage));    
     $max = getMaxForField($res,"count");
    	
    	$victims = array();
@@ -1223,11 +1227,11 @@ function getNickNames($id)
    	$starttime=timer();	
 	
  	$usage = $_SESSION["LIST-PLAYER-NICKNAMES"];
-    $Ergebnisse = SQL_oneRowQuery("select sum(times_used) count from selectbf_nicknames WHERE player_id = $id");
+    $Ergebnisse = SQL_oneRowQuery("select sum(times_used) count from selectbf_nicknames WHERE player_id = ?", array($id));
     $totaluses = $Ergebnisse["count"];
           
           
-    $res = SQL_query("select nickname,times_used count from selectbf_nicknames WHERE player_id = $id order by times_used desc Limit 0,$usage");    
+    $res = SQL_query("select nickname,times_used count from selectbf_nicknames WHERE player_id = ? order by times_used desc Limit 0,?", array($id, $usage));    
     $max = getMaxForField($res,"count");
    	
    	$nicknames = array();
@@ -1249,11 +1253,11 @@ function getTopAssasins($id)
    	$starttime=timer();	
 	
 	$usage = $_SESSION["LIST-PLAYER-ASSASINS"];
-    $Ergebnisse = SQL_oneRowQuery("select sum(times_killed) kills from selectbf_kills_player where victim_id=$id");
+    $Ergebnisse = SQL_oneRowQuery("select sum(times_killed) kills from selectbf_kills_player where victim_id=?", array($id));
     $totalkills = $Ergebnisse["kills"];
           
           
-    $res = SQL_query("select victim_id id,p.name,times_killed count,player_id from selectbf_kills_player k, selectbf_players p where victim_id=$id and k.player_id = p.id order by times_killed desc Limit 0,$usage");
+    $res = SQL_query("select victim_id id,p.name,times_killed count,player_id from selectbf_kills_player k, selectbf_players p where victim_id=? and k.player_id = p.id order by times_killed desc Limit 0,?", array($id, $usage));
     $max = getMaxForField($res,"count");
    	
    	$assasins = array();
@@ -1279,10 +1283,10 @@ function getFavVehicles($id)
    	$starttime=timer();	
 	
 	$usage = $_SESSION["LIST-PLAYER-VEHICLES"];
-    $Ergebnisse = SQL_oneRowQuery("select sum(drivetime) drivetime from selectbf_drives where player_id=$id");
+    $Ergebnisse = SQL_oneRowQuery("select sum(drivetime) drivetime from selectbf_drives where player_id=?", array($id));
     $totaltime = $Ergebnisse["drivetime"];
           
-    $res = SQL_query("select vehicle,sum(drivetime) drivetime from selectbf_drives where player_id = $id group by vehicle order by drivetime DESC Limit 0,$usage");
+    $res = SQL_query("select vehicle,sum(drivetime) drivetime from selectbf_drives where player_id = ? group by vehicle order by drivetime DESC Limit 0,?", array($id, $usage));
     $max = getMaxForField($res,"drivetime");
    	
    	$vehicles = array();
@@ -1306,10 +1310,10 @@ function getMapPerformance($id)
    	$starttime=timer();	
 	
 	$usage = $_SESSION["LIST-PLAYER-MAPS"];
-    $Ergebnisse = SQL_oneRowQuery("select sum(score) score from selectbf_playerstats where player_id = $id");
+    $Ergebnisse = SQL_oneRowQuery("select sum(score) score from selectbf_playerstats where player_id = ?", array($id));
     $totalscore = $Ergebnisse["score"];
  
-    $res = SQL_query("select sum(ps.score) score, g.map from selectbf_playerstats ps, selectbf_rounds r, selectbf_games g where player_id=$id and ps.round_id = r.id and r.game_id = g.id group by g.map having score != 0 order by score desc Limit 0,$usage");
+    $res = SQL_query("select sum(ps.score) score, g.map from selectbf_playerstats ps, selectbf_rounds r, selectbf_games g where player_id=? and ps.round_id = r.id and r.game_id = g.id group by g.map having score != 0 order by score desc Limit 0,?", array($id, $usage));
     $max = getMaxForField($res,"score");
    	
    	$maps = array();
@@ -1334,7 +1338,7 @@ function getHealTimes($id)
 	
 	$healtimes = array();
 	
-	$res = SQL_query("select sum(amount) amount, sum(healtime) healtime from selectbf_heals where player_id!=healed_player_id and player_id=$id");
+	$res = SQL_query("select sum(amount) amount, sum(healtime) healtime from selectbf_heals where player_id!=healed_player_id and player_id=?", array($id));
     if($Ergebnisse = SQL_fetchArray($res))
     {
     	$amount = $Ergebnisse["amount"];
@@ -1350,7 +1354,7 @@ function getHealTimes($id)
     	$healtimes["otherheals"] = array("amount"=>$amount,"time"=>sec2time($time));         	
     }
     
-    $res = SQL_query("select sum(amount) amount, sum(healtime) healtime from selectbf_heals where player_id=healed_player_id and player_id=$id");
+    $res = SQL_query("select sum(amount) amount, sum(healtime) healtime from selectbf_heals where player_id=healed_player_id and player_id=?", array($id));
     if($Ergebnisse = SQL_fetchArray($res))
     {
     	$amount = $Ergebnisse["amount"];
@@ -1379,7 +1383,7 @@ function getRepairTimes($id)
 	
 	$repairtimes = array();
 	
-    $res = SQL_query("select sum(amount) amount, sum(repairtime) repairtime from selectbf_repairs where player_id=$id");
+    $res = SQL_query("select sum(amount) amount, sum(repairtime) repairtime from selectbf_repairs where player_id=?", array($id));
     if($Ergebnisse = SQL_fetchArray($res))
     {
     	$amount = $Ergebnisse["amount"];
@@ -1407,7 +1411,7 @@ function getGameInfo($id)
 	GLOBAL $DEBUG,$gametypeLookupArray;
    	$starttime=timer();	
 	
-	$cols = SQL_oneRowQuery("select servername,modid 'mod',mapid,map,game_mode,gametime,maxplayers,scorelimit,spawntime,soldierff,vehicleff,tkpunish,deathcamtype,CONCAT(TIME_FORMAT(starttime,'%H:%i:%S '),DATE_FORMAT(starttime,'%d|%m|%Y')) date from selectbf_games where id=$id");
+	$cols = SQL_oneRowQuery("select servername,modid 'mod',mapid,map,game_mode,gametime,maxplayers,scorelimit,spawntime,soldierff,vehicleff,tkpunish,deathcamtype,CONCAT(DATE_FORMAT(starttime,'%Y-%m-%d '),TIME_FORMAT(starttime,'%H:%i:%S')) date from selectbf_games where id=?", array($id));
 	$cols["map"] = clearUpText($cols['map'],"MAP");
 	$cols['game_mode'] = clearUpText($cols['game_mode'],"GAME-MODE");
 	$cols['modimg'] = getModSymbolForName($cols['mod']);
@@ -1423,7 +1427,7 @@ function getChatLogForRound($id)
 	GLOBAL $DEBUG;
    	$starttime=timer();
    		
-	$res = SQL_query("select c.player_id,p.name,c.text, CONCAT(TIME_FORMAT(c.inserttime,'%H:%i:%S '),DATE_FORMAT(c.inserttime,'%d|%m|%Y')) inserttime from selectbf_chatlog c, selectbf_players p, selectbf_rounds r where c.player_id = p.id and c.round_id = r.id and r.game_id = $id order by inserttime ASC");
+	$res = SQL_query("select c.player_id,p.name,c.text, CONCAT(DATE_FORMAT(c.inserttime,'%Y-%m-%d '),TIME_FORMAT(c.inserttime,'%H:%i:%S')) inserttime from selectbf_chatlog c, selectbf_players p, selectbf_rounds r where c.player_id = p.id and c.round_id = r.id and r.game_id = ? order by inserttime ASC", array($id));
 	$content = false;
 	
 	$chats = array();
@@ -1453,7 +1457,7 @@ function getChatLogCount($id)
 	GLOBAL $DEBUG;
    	$starttime=timer();
 
-	$res = SQL_query("select c.player_id,p.name,c.text, CONCAT(TIME_FORMAT(c.inserttime,'%H:%i:%S '),DATE_FORMAT(c.inserttime,'%d|%m|%Y')) inserttime from selectbf_chatlog c, selectbf_players p, selectbf_rounds r where c.player_id = p.id and c.round_id = r.id and r.game_id = $id order by inserttime ASC");
+	$res = SQL_query("select c.player_id,p.name,c.text, CONCAT(DATE_FORMAT(c.inserttime,'%Y-%m-%d '),TIME_FORMAT(c.inserttime,'%H:%i:%S')) inserttime from selectbf_chatlog c, selectbf_players p, selectbf_rounds r where c.player_id = p.id and c.round_id = r.id and r.game_id = ? order by inserttime ASC", array($id));
 	$content = false;
 	
 	while($cols = SQL_fetchArray($res))
@@ -1480,7 +1484,7 @@ function getRoundsForGame($id)
 	GLOBAL $DEBUG;
    	$starttime=timer();
    		
-	$res = SQL_query("select id,start_tickets_team1,start_tickets_team2,CONCAT(TIME_FORMAT(starttime,'%H:%i:%S '),DATE_FORMAT(starttime,'%d|%m|%Y')) starttime,end_tickets_team1,end_tickets_team2,CONCAT(TIME_FORMAT(endtime,'%H:%i:%S '),DATE_FORMAT(endtime,'%d|%m|%Y')) endtime,endtype,winning_team from selectbf_rounds where game_id=$id order by selectbf_rounds.starttime ASC");
+	$res = SQL_query("select id,start_tickets_team1,start_tickets_team2,CONCAT(DATE_FORMAT(starttime,'%Y-%m-%d '),TIME_FORMAT(starttime,'%H:%i:%S')) starttime,end_tickets_team1,end_tickets_team2,CONCAT(DATE_FORMAT(endtime,'%Y-%m-%d '),TIME_FORMAT(endtime,'%H:%i:%S')) endtime,endtype,winning_team from selectbf_rounds where game_id=? order by selectbf_rounds.starttime ASC", array($id));
 	
 	$rounds = array();
 	while($cols = SQL_fetchArray($res))
@@ -1529,7 +1533,7 @@ function getTopThreeForRound($id)
 	GLOBAL $DEBUG,$TMPL_CFG_GOLD_STAR_IMG,$TMPL_CFG_SILVER_STAR_IMG,$TMPL_CFG_BRONZE_STAR_IMG,$TEMPLATE_DIR,$TMPL_CFG_AXIS_IMG,$TMPL_CFG_ALLIED_IMG;
    	$starttime=timer();
    	
-   	$res = SQL_query("select p.name, p.id, team, score, kills, deaths, tks, captures, attacks, defences, objectives, objectivetks, heals,selfheals,repairs,otherrepairs,first, second, third from selectbf_playerstats ps, selectbf_players p where ps.player_id = p.id and ps.round_id=$id order by score DESC LIMIT 0,3");
+   	$res = SQL_query("select p.name, p.id, team, score, kills, deaths, tks, captures, attacks, defences, objectives, objectivetks, heals,selfheals,repairs,otherrepairs,first, second, third from selectbf_playerstats ps, selectbf_players p where ps.player_id = p.id and ps.round_id=? order by score DESC LIMIT 0,3", array($id));
    	
    	$topthree = array();
    	
@@ -1563,7 +1567,7 @@ function getTeamStatsForRoundAndTeam($id,$team)
 	GLOBAL $DEBUG,$TMPL_CFG_GOLD_STAR_IMG,$TMPL_CFG_SILVER_STAR_IMG,$TMPL_CFG_BRONZE_STAR_IMG,$TEMPLATE_DIR,$TMPL_CFG_AXIS_IMG,$TMPL_CFG_ALLIED_IMG;
    	$starttime=timer();
    	
-   	$res = SQL_query("select p.name, p.id, team, score, kills, deaths, tks, captures, attacks, defences, objectives, objectivetks, heals,selfheals,repairs,otherrepairs,first, second, third from selectbf_playerstats ps, selectbf_players p where ps.player_id = p.id and ps.round_id=$id and team=$team order by score DESC");
+   	$res = SQL_query("select p.name, p.id, team, score, kills, deaths, tks, captures, attacks, defences, objectives, objectivetks, heals,selfheals,repairs,otherrepairs,first, second, third from selectbf_playerstats ps, selectbf_players p where ps.player_id = p.id and ps.round_id=? and team=? order by score DESC", array($id, $team));
    	
    	$topthree = array();
    	
@@ -1820,19 +1824,16 @@ function getPlayerInfo($id)
 	
 	$infos = array();
 	
-    // Bug fixed by jrivett 2009-Feb-17
-    // Fixed bug where last_seen for player #1 was being reported as last_seen for ALL players.
-	//$aResult = SQL_oneRowQuery("select name,keyhash,CONCAT(TIME_FORMAT(inserttime,'%H:%i:%S '),DATE_FORMAT(inserttime,'%d|%m|%Y')) date, CONCAT(TIME_FORMAT(last_seen,'%H:%i:%S '),DATE_FORMAT(last_seen,'%d|%m|%Y')) last_seen from selectbf_players p, selectbf_playtimes pt where p.id=$id");
-	$aResult = SQL_oneRowQuery("select name,keyhash,CONCAT(TIME_FORMAT(inserttime,'%H:%i:%S '),DATE_FORMAT(inserttime,'%d|%m|%Y')) date, CONCAT(TIME_FORMAT(last_seen,'%H:%i:%S '),DATE_FORMAT(last_seen,'%d|%m|%Y')) last_seen from selectbf_players p, selectbf_playtimes pt where p.id=$id and pt.id=$id");
+	$aResult = SQL_oneRowQuery("select name,keyhash,CONCAT(DATE_FORMAT(inserttime,'%Y-%m-%d '),TIME_FORMAT(inserttime,'%H:%i:%S')) date, CONCAT(DATE_FORMAT(last_seen,'%Y-%m-%d '),TIME_FORMAT(last_seen,'%H:%i:%S')) last_seen from selectbf_players p, selectbf_playtimes pt where pt.id=p.id and p.id=?", array($id));
 	$infos["name"]=$aResult["name"];
 	$infos["keyhash"]=$aResult["keyhash"];	
 	$infos["date"]=$aResult["date"];
 	$infos["last_seen"]=$aResult["last_seen"];	
 	
-	$Ergebnisse = SQL_oneRowQuery("select count(*)count from selectbf_playerstats where player_id=$id");
+	$Ergebnisse = SQL_oneRowQuery("select count(*)count from selectbf_playerstats where player_id=?", array($id));
 	$infos["rounds"]=$Ergebnisse["count"];
 	
-	$Ergebnisse = SQL_oneRowQuery("select p.name,ps.player_id id, sum(score) score ,sum(kills) kills ,sum(deaths) deaths ,sum(tks) tks ,sum(captures) captures ,sum(attacks) attacks ,sum(defences) defences ,sum(objectives) objetives,sum(objectivetks) objetivetks,sum(heals) heals,sum(selfheals) selfheals ,sum(repairs) repairs ,sum(otherrepairs) otherrepairs,count(*) rounds, sum(first) first, sum(second) second, sum(third) third from selectbf_playerstats ps, selectbf_players p where ps.player_id = p.id and p.id = $id group by p.name,ps.player_id ");
+	$Ergebnisse = SQL_oneRowQuery("select p.name,ps.player_id id, sum(score) score ,sum(kills) kills ,sum(deaths) deaths ,sum(tks) tks ,sum(captures) captures ,sum(attacks) attacks ,sum(defences) defences ,sum(objectives) objetives,sum(objectivetks) objetivetks,sum(heals) heals,sum(selfheals) selfheals ,sum(repairs) repairs ,sum(otherrepairs) otherrepairs,count(*) rounds, sum(first) first, sum(second) second, sum(third) third from selectbf_playerstats ps, selectbf_players p where ps.player_id = p.id and p.id = ? group by p.name,ps.player_id ", array($id));
 	$infos["score"]=$Ergebnisse["score"];
 	$infos["kills"]=$Ergebnisse["kills"];
 	$infos["deaths"]=$Ergebnisse["deaths"];

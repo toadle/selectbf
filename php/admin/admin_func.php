@@ -1,4 +1,4 @@
-<?
+<?php
 //set error-level
 error_reporting(E_ERROR);
 
@@ -16,21 +16,25 @@ function checkAdminPsw($psw)
 
 //Added by Gary Chiu
 function createData($dbTable, $check, $dataArray){
+	if(!is_countable($dataArray)){
+		$dataArray = array();
+	}
 	for($i=0; $i < count($dataArray); $i++){
 		$dataValue = $dataArray[$i][$check];
-		$res = SQL_query("SELECT * from $dbTable where $check = '$dataValue'");
-		if(mysql_num_rows($res) > 0){}else{
+		
+		$res = SQL_query("SELECT * from $dbTable where $check = ?", array($dataValue));
+		if(mysqli_num_rows($res) > 0){}else{
 			foreach($dataArray[$i] as $key=>$value){
 				$dataValue = $dataArray[$i][$check];
-				$res = SQL_query("SELECT * from $dbTable where $check = '$dataValue'");
-				if(mysql_num_rows($res) > 0){
+				$res = SQL_query("SELECT * from $dbTable where $check = ?", array($dataValue));
+				if(mysqli_num_rows($res) > 0){
 					if($value == 'now()'){
-						SQL_query("UPDATE $dbTable SET $key=$value where $check = '$dataValue'");
+						SQL_query("UPDATE $dbTable SET $key=$value where $check = ?", array($dataValue));
 					}else{
-						SQL_query("UPDATE $dbTable SET $key='$value' where $check = '$dataValue'");
+						SQL_query("UPDATE $dbTable SET $key=? where $check = ?", array($value, $dataValue));
 					}
 				}else{
-					SQL_query("INSERT INTO $dbTable ($check) VALUES('$dataValue')");
+					SQL_query("INSERT INTO $dbTable ($check) VALUES(?)", array($dataValue));
 				}
 			}
 		}
@@ -67,7 +71,7 @@ function checkFilePathConsistency($filepath,$check)
 function deleteGame($id)
 {
 	//fetch all rounds that happened during that game
-	$res = SQL_query("SELECT id FROM selectbf_rounds WHERE game_id=$id");
+	$res = SQL_query("SELECT id FROM selectbf_rounds WHERE game_id=?", array($id));
 	
 	while($Ergebnis = SQL_fetchArray($res))
 	{
@@ -78,62 +82,60 @@ function deleteGame($id)
 function deleteRound($id)
 {
 	//first check if this is the last round of the game to not leave any lonely games in the DB
-	$Ergebnis = SQL_oneRowQuery("SELECT game_id from selectbf_rounds where id=$id");	
+	$Ergebnis = SQL_oneRowQuery("SELECT game_id from selectbf_rounds where id=?", array($id));	
 	$gameid = $Ergebnis["game_id"];
 	
-	$Ergebnis = SQL_oneRowQuery("SELECT count(*) count from selectbf_rounds where game_id=$gameid");
+	$Ergebnis = SQL_oneRowQuery("SELECT count(*) count from selectbf_rounds where game_id=?", array($gameid));
 	$count = $Ergebnis["count"];
 	
 	//terminate lonely games from DB
 	if($count=="1")
 	{
-		SQL_query("DELETE FROM selectbf_games WHERE id=$gameid");
+		SQL_query("DELETE FROM selectbf_games WHERE id=?", array($gameid));
 	}
 
 	//delete depending events
-	SQL_query("DELETE FROM selectbf_chatlog WHERE round_id=$id");
-	SQL_query("DELETE FROM selectbf_playerstats WHERE round_id=$id");
+	SQL_query("DELETE FROM selectbf_chatlog WHERE round_id=?", array($id));
+	SQL_query("DELETE FROM selectbf_playerstats WHERE round_id=?", array($id));
 	
 	//then delete the round
-	SQL_query("DELETE FROM selectbf_rounds WHERE id=$id");
+	SQL_query("DELETE FROM selectbf_rounds WHERE id=?", array($id));
 }
 
 function changePassword($str)
 {
-	SQL_query("UPDATE selectbf_admin SET value='".md5($str)."' where name='ADMIN_PSW'");
+	SQL_query("UPDATE selectbf_admin SET value=? where name='ADMIN_PSW'", array(md5($str)));
 }
 
 function addClearedText($uncleared,$cleared,$type)
 {
-	$uncleared = addslashes($uncleared);
-	$cleared = addslashes($cleared);
-	SQL_query("INSERT INTO selectbf_cleartext (original,custom,type,inserttime) VALUES ('$uncleared','$cleared','$type',now())");
+	SQL_query("INSERT INTO selectbf_cleartext (original,custom,type,inserttime) VALUES (?,?,?,now())", array($uncleared, $cleared, $type));
 }
 
 function deleteClearText($id)
 {
-	SQL_query("DELETE FROM selectbf_cleartext where id=$id");
+	SQL_query("DELETE FROM selectbf_cleartext where id=?", array($id));
 }
 
 function addMember($id,$member)
 {
-	SQL_query("INSERT INTO selectbf_categorymember (member,category) VALUES ('$member',$id)");
+	SQL_query("INSERT INTO selectbf_categorymember (member,category) VALUES (?,?)", array($member, $id));
 }
 
 function deleteCategory($id)
 {
-	SQL_query("DELETE FROM selectbf_category where id = $id");
-	SQL_query("DELETE FROM selectbf_categorymember where category = $id");
+	SQL_query("DELETE FROM selectbf_category where id = ?", array($id));
+	SQL_query("DELETE FROM selectbf_categorymember where category = ?", array($id));
 }
 
 function changeCollectData($collect_data,$id)
 {
-	SQL_query("UPDATE selectbf_category SET collect_data=$collect_data where id=$id");
+	SQL_query("UPDATE selectbf_category SET collect_data=? where id=?", array($collect_data, $id));
 }
 
 function deleteMember($id,$member)
 {
-	SQL_query("DELETE FROM selectbf_categorymember WHERE member='$member' AND category=$id");
+	SQL_query("DELETE FROM selectbf_categorymember WHERE member=? AND category=?", array($member, $id));
 }
 
 function addUnCategorized($categories)
@@ -145,15 +147,24 @@ function addUnCategorized($categories)
 		array_push($weapons,$cols);
 	}
 	
+	if(!is_countable($categories)){
+		$categories = array();
+	}
 	for($i = 0; $i<count($categories); $i++)
 	{
 		$members = $categories[$i]["members"];
 		
 		$uncategorized = array();
 		
+		if(!is_countable($weapons)){
+			$weapons = array();
+		}
 		for($j = 0; $j<count($weapons); $j++)
 		{
 			$found = false;
+			if(!is_countable($members)){
+				$members = array();
+			}
 			for($k = 0; $k<count($members) && $found==false; $k++)
 			{
 				if($weapons[$j]["weapon"]==$members[$k]["member"])
@@ -198,7 +209,7 @@ function getCategories()
 		$deletelink = "r_categories.php?todo=delete_category&id=".$id;
 		
 		$member = array();
-		$resultset = SQL_query("select member from selectbf_categorymember where category = $id");
+		$resultset = SQL_query("select member from selectbf_categorymember where category = ?", array($id));
 		$i = 0;
 		while($columns = SQL_fetchArray($resultset))
 		{
@@ -232,12 +243,12 @@ function setRankingRounding($rounding)
     
 function setRankingRoundingNumber($roundingnumber)   
 {   
-        SQL_query("UPDATE selectbf_params set value='$roundingnumber' WHERE name='RANK-ROUND-NUMBER'");   
+        SQL_query("UPDATE selectbf_params set value=? WHERE name='RANK-ROUND-NUMBER'", array($roundingnumber));   
 }   
 
 function setTopRoundsValue($toprounds)   
 {   
-        SQL_query("UPDATE selectbf_params set value='$toprounds' WHERE name='TOP-ROUNDS'");   
+        SQL_query("UPDATE selectbf_params set value=? WHERE name='TOP-ROUNDS'", array($toprounds));   
 }   
    
 function getRankingRounding()   
@@ -258,13 +269,11 @@ function getRankingRoundingNumber()
 
 function createCategory($name,$collectdata,$datasourcename,$type)
 {
-	$name = addslashes($name);
-	$datasourcename = addslashes($datasourcename);
 	if($collectdata!="1" && $collectdata!="0")
 	{
 		$collectdata = "0";
 	}
-	SQL_query("INSERT INTO selectbf_category (name,collect_data,datasource_name,type,inserttime) VALUES ('$name',$collectdata,'$datasourcename','$type',now())");
+	SQL_query("INSERT INTO selectbf_category (name,collect_data,datasource_name,type,inserttime) VALUES (?,?,?,?,now())", array($name, $collectdata, $datasourcename, $type));
 }
 
 function getMods()
@@ -281,14 +290,12 @@ function getMods()
 
 function addAssignment($item,$mod,$type)
 {
-	$item = addslashes($item);
-	$mod = addslashes($mod);
-	SQL_query("INSERT INTO selectbf_modassignment (item,mod,type,inserttime) VALUES ('$item','$mod','$type',now())");
+	SQL_query("INSERT INTO selectbf_modassignment (item,mod,type,inserttime) VALUES (?,?,?,now())", array($item, $mod, $type));
 }
 
 function deleteAssignment($id)
 {
-	SQL_query("DELETE FROM selectbf_modassignment where id=$id");
+	SQL_query("DELETE FROM selectbf_modassignment where id=?", array($id));
 }
 
 function getUnAssignedWeapons()
@@ -308,9 +315,15 @@ function getUnAssignedWeapons()
 	}
 	
 	$weapons = array();
+	if(!is_countable($total_weapons)){
+		$total_weapons = array();
+	}
 	for($i=0;$i<count($total_weapons);$i++)
 	{
 		$found = false;
+		if(!is_countable($cleared_weapons)){
+			$cleared_weapons = array();
+		}
 		for($j=0;$j<count($cleared_weapons) && $found!=true;$j++)
 		{
 			if($total_weapons[$i]["weapon"] == $cleared_weapons[$j]["weapon"])
@@ -345,9 +358,15 @@ function getUnAssignedKits()
 	}
 	
 	$kits = array();
+	if(!is_countable($total_kits)){
+		$total_kits = array();
+	}
 	for($i=0;$i<count($total_kits);$i++)
 	{
 		$found = false;
+		if(!is_countable($cleared_kits)){
+			$cleared_kits = array();
+		}
 		for($j=0;$j<count($cleared_kits) && $found!=true;$j++)
 		{
 			if($total_kits[$i]["kit"] == $cleared_kits[$j]["kit"])
@@ -385,7 +404,7 @@ function clearUpText($text,$type)
 	}
 	else
 	{
-		$res = SQL_query("select original, custom from selectbf_cleartext where type='$type' order by original ");
+		$res = SQL_query("select original, custom from selectbf_cleartext where type=? order by original ", array($type));
 		$lookup = array();
 		while($cols = SQL_fetchArray($res))
 		{
@@ -406,7 +425,7 @@ function clearUpText($text,$type)
 
 function getAssignments($type)
 {
-	$res = SQL_query("select id,item, 'mod' from selectbf_modassignment where type='$type'");
+	$res = SQL_query("select id,item, 'mod' from selectbf_modassignment where type=?", array($type));
 	
 	$assignments = array();
 	while($cols = SQL_fetchArray($res))
@@ -449,9 +468,15 @@ function getUnClearedGameModes()
 	}
 	
 	$gamemodes = array();
+	if(!is_countable($total_gamemodes)){
+		$total_gamemodes = array();
+	}
 	for($i=0;$i<count($total_gamemodes);$i++)
 	{
 		$found = false;
+		if(!is_countable($cleared_gamemodes)){
+			$cleared_gamemodes = array();
+		}
 		for($j=0;$j<count($cleared_gamemodes) && $found!=true;$j++)
 		{
 			if($total_gamemodes[$i]["gamemode"] == $cleared_gamemodes[$j]["gamemode"])
@@ -499,9 +524,15 @@ function getUnClearedWeapons()
 	}
 	
 	$weapons = array();
+	if(!is_countable($total_weapons)){
+		$total_weapons = array();
+	}
 	for($i=0;$i<count($total_weapons);$i++)
 	{
 		$found = false;
+		if(!is_countable($cleared_weapons)){
+			$cleared_weapons = array();
+		}
 		for($j=0;$j<count($cleared_weapons) && $found!=true;$j++)
 		{
 			if($total_weapons[$i]["weapon"] == $cleared_weapons[$j]["weapon"])
@@ -549,9 +580,15 @@ function getUnClearedVehicles()
 	}
 	
 	$vehicles = array();
+	if(!is_countable($total_vehicles)){
+		$total_vehicles = array();
+	}
 	for($i=0;$i<count($total_vehicles);$i++)
 	{
 		$found = false;
+		if(!is_countable($cleared_vehicles)){
+			$cleared_vehicles = array();
+		}
 		for($j=0;$j<count($cleared_vehicles) && $found!=true;$j++)
 		{
 			if($total_vehicles[$i]["vehicle"] == $cleared_vehicles[$j]["vehicle"])
@@ -599,9 +636,15 @@ function getUnClearedMaps()
 	}
 	
 	$maps = array();
+	if(!is_countable($total_maps)){
+		$total_maps = array();
+	}
 	for($i=0;$i<count($total_maps);$i++)
 	{
 		$found = false;
+		if(!is_countable($cleared_maps)){
+			$cleared_maps = array();
+		}
 		for($j=0;$j<count($cleared_maps) && $found!=true;$j++)
 		{
 			if($total_maps[$i]["map"] == $cleared_maps[$j]["map"])
@@ -649,9 +692,15 @@ function getUnClearedKits()
 	}
 	
 	$kits = array();
+	if(!is_countable($total_kits)){
+		$total_kits = array();
+	}
 	for($i=0;$i<count($total_kits);$i++)
 	{
 		$found = false;
+		if(!is_countable($cleared_kits)){
+			$cleared_kits = array();
+		}
 		for($j=0;$j<count($cleared_kits) && $found!=true;$j++)
 		{
 			if($total_kits[$i]["kit"] == $cleared_kits[$j]["kit"])
@@ -671,9 +720,8 @@ function getUnClearedKits()
 
 function registerAdminLogin($psw)
 {
-	$session_psw = $psw;
-	session_register("session_psw");
-	$_SESSION["session_psw"] = $session_psw;
+        @session_start();
+	$_SESSION["session_psw"] = $psw;
 }
 
 function killmysession()
@@ -712,20 +760,19 @@ function error($str)
 
 function getValueForParameter($str)
 {
-	$Ergebnis = SQL_oneRowQuery("select value from selectbf_params where name='$str'");
+	$Ergebnis = SQL_oneRowQuery("select value from selectbf_params where name=?", array($str));
 	return $Ergebnis["value"];
 }
 
 function setValueForParameter($value, $parameter)
 {
-	$value = mysql_real_escape_string($value);
-	SQL_query("update selectbf_params SET value='$value',inserttime=now() WHERE name='$parameter'");
+	SQL_query("update selectbf_params SET value=?,inserttime=now() WHERE name=?", array($value, $parameter));
 	$_SESSION["$parameter"] = $value;
 }
 
 function getTimeForParameter($str)
 {
-	$Ergebnis = SQL_oneRowQuery("select inserttime from selectbf_admin where name='$str'");
+	$Ergebnis = SQL_oneRowQuery("select inserttime from selectbf_admin where name=?", array($str));
 	return $Ergebnis["inserttime"];
 }
 
@@ -803,9 +850,9 @@ function setMinClanRounds($str)
 function setClanTag($str)
 {
 	$value = clear_special_char($str,false);
-	$res = SQL_query("select * from selectbf_clan_tags where clan_tag = '$value'");
-	if(mysql_num_rows($res) > 0){}else{
-		SQL_query("INSERT INTO selectbf_clan_tags (clan_tag) VALUES('$value')");
+	$res = SQL_query("select * from selectbf_clan_tags where clan_tag = ?", array($value));
+	if(mysqli_num_rows($res) > 0){}else{
+		SQL_query("INSERT INTO selectbf_clan_tags (clan_tag) VALUES(?)", array($value));
 	}
 }
 //
@@ -827,7 +874,7 @@ function setTitlePrefix($str)
 
 function getParameterInfo($str)
 {
-	$Ergebnis = SQL_oneRowQuery("select name, value, inserttime from selectbf_admin where name='$str'");
+	$Ergebnis = SQL_oneRowQuery("select name, value, inserttime from selectbf_admin where name=?", array($str));
 	return $Ergebnis;
 }
 
@@ -876,7 +923,7 @@ function logoutAdmin()
 
 function timer() 
 {
-	list($low, $high) = split(" ", microtime());
+	list($low, $high) = preg_split("/ /", microtime());
     	$t = $high + $low;
 	return $t;
 }
@@ -900,17 +947,17 @@ function getDebugLevel()
 
 function changeDebugLevel($str)
 {
-	SQL_query("UPDATE selectbf_params set value='$str' WHERE name='DEBUG-LEVEL'");
+	SQL_query("UPDATE selectbf_params set value=? WHERE name='DEBUG-LEVEL'", array($str));
 }
 
 function setParamValues($paramvalue,$param)
 {
-	SQL_query("update selectbf_params set value='$paramvalue' where name='$param'");
+	SQL_query("update selectbf_params set value=? where name=?", array($paramvalue, $param));
 	$_SESSION["$param"] = $paramvalue;
 }
 function getParamValue($param)
 {
-	$cols = SQL_oneRowQuery("select value from selectbf_params where name ='$param'");
+	$cols = SQL_oneRowQuery("select value from selectbf_params where name =?", array($param));
 	return $cols["value"];
 }
 function clear_special_char($clan_name,$update_clan){

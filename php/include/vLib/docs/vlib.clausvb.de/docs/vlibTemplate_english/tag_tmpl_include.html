@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "--//W3C//DTD HTML 4.01 Transitional//EN">
+<!--dummy--><html>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/tag_tmpl_include.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="standard.css">
+<meta content="AurigaDoc" name="generator">
+<title>&lt;TMPL_INCLUDE NAME/FILE='filename.html'&gt;</title>
+</head>
+<body>
+<div class="document-header">
+   
+<table width="100%">
+      
+<tr>
+         
+<td align="left">
+<h1>vlibTemplate</h1>
+</td>
+         <td align="right"><img src="vlib_logo.gif" alt="vLib Logo" title="Logo von vLIB"></td>
+      
+</tr>
+   
+</table>
+
+   
+<hr>
+
+</div>
+<div class="navigation">
+<a name="tag_tmpl_include"></a> <a href="table_of_content.html">Table of Contents</a> | Up: <a href="sec05_tags.html">5. The Tags</a> | Previous: <a href="tag_tmpl_loop.html">5.2. TMPL_LOOP name='LOOP_NAME'</a> | Next: <a href="tag_tmpl_phpinclude.html">5.4. TMPL_PHPINCLUDE name='filename.html'</a>
+<br>
+<br>
+</div>
+<div class="section-heading-2">
+<b>5.3. &lt;TMPL_INCLUDE NAME/FILE='filename.html'&gt;</b> 
+</div>
+<div class="section-body-2">
+
+<br>
+  
+<P>This tag includes a template directly into the current template at the point
+
+    where the tag is found. The included template contents are used exactly as
+
+    if its contents were physically included in the master template.<br>
+
+    (it acts more as a php-style require than an include)<br>
+
+  
+</P>
+
+  
+<P>The file specified can be a full path - beginning with a '/'. If it isn't
+
+    a full path, the path to the enclosing file is tried first. After that each
+
+    of the 'additional' paths set in OPTIONS
+
+    are tried. After that the OPTION 'TEMPLATE_DIR'
+
+    is tried next, if it exists. Next, the relative path from the php script is
+
+    consulted. As a final attempt, vlibTemplate tries from the directory where vlibTemplate
+
+    is installed.</P>
+
+  
+<P>As a protection against infinitly recursive includes, an arbitary limit of
+
+    10 levels deep is imposed. You can alter this limit with the "MAX_INCLUDES"
+
+    OPTION. See the entry for this option below for more details.<br>
+
+  
+</P>
+
+
+
+
+<br>
+<br>
+
+
+<br>
+<br>
+<hr noshade="true" size="1">
+</div>
+<div class="document-footer">
+
+<table width="100%">
+	
+<tr>
+		
+<td align="left">Updated: Saturday, 19th of November 2005</td>
+		<td align="right"><a href="http://vlib.clausvb.de/forum/index.php" target="_blank">vLIB forum and support</a></td>
+	
+</tr>
+
+</table> <!-- Seite: <page-number /> -->
+
+</div>
+</body>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/tag_tmpl_include.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+</html>

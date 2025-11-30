@@ -1,0 +1,36 @@
+<html>
+<head>
+<title><tmpl_var name="TITLE"></title>
+<link rel="stylesheet" href="{tmpl_var name='CSS'}" type="text/css">
+</head>
+<body>
+<table width="95%" border="1" align="center">
+  <tr class="head">
+    <th colspan="12" class="super" scope="col">Battlefield Vietnam Server Stats</th>
+  </tr>
+  <tr>
+   <td width=150></td>
+   <td width=100%>
+     <p>&nbsp;</p>
+     <p><b>Welcome to the stats page Battlefield Vietnam server!</b></p>
+	 </td>
+</table>
+<p>
+<table class=buttonmenu width=95% align=center>
+  <tr>
+     <td class=contextbar colspan=15><b>Statistics</b>
+    <tmpl_loop name="CONTEXTBAR">
+       <img src="{tmpl_var name='IMAGES_DIR'}arrow_right.gif">
+       <tmpl_if name="link"><a href="{tmpl_var name='link'}" class=white></tmpl_if>
+       <tmpl_var name="name">
+       <tmpl_if name="link"></a></tmpl_if>
+    </tmpl_loop>
+    </td>
+  </tr>
+  <tr>
+    <tmpl_loop name="NAVBAR">
+     <td width=16% class=buttonInActive onClick="javascript: window.location.href='{tmpl_var name='link'}';" onMouseOver="this.className='buttonActive'; this.style.cursor='hand';" onMouseOut="this.className='buttonInActive';"><a href="{tmpl_var name='link'}" class=button><tmpl_var name='name'></a></td>
+    </tmpl_loop>
+  </tr>
+</table>
+<p>

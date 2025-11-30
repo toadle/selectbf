@@ -1,9 +1,9 @@
-<?
+<?php
 require_once("../include/vLib/vlibTemplate.php");
+use clausvb\vlib\vlibTemplate;
 require("../include/sql.php");
 require("admin_func.php");
 require_once("../templates/original/config.php");
-
 if(isAdmin())
 {
 	Header("Location: index.php");
@@ -23,7 +23,7 @@ $tmpl->setVar("TITLE","select(bf) - Admin Panel");
 $tmpl->setVar("CSS","../templates/original/include/$TMPL_CFG_CSS");
 $tmpl->setVar("IMAGES_DIR","../templates/original/images/");   
 
-$tmpl->setVar("formaction","r_login.php");
+$tmpl->setVar("form_action","r_login.php");
 $tmpl->setVar("param_password","password");
 
 //now finish the processtime timer

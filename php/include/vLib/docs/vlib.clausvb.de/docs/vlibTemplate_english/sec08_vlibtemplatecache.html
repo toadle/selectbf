@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "--//W3C//DTD HTML 4.01 Transitional//EN">
+<!--dummy--><html>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/sec08_vlibtemplatecache.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:31 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="standard.css">
+<meta content="AurigaDoc" name="generator">
+<title>vlibTemplateCache()</title>
+</head>
+<body>
+<div class="document-header">
+   
+<table width="100%">
+      
+<tr>
+         
+<td align="left">
+<h1>vlibTemplate</h1>
+</td>
+         <td align="right"><img src="vlib_logo.gif" alt="vLib Logo" title="Logo von vLIB"></td>
+      
+</tr>
+   
+</table>
+
+   
+<hr>
+
+</div>
+<div class="navigation">
+<a name="sec08_vlibtemplatecache"></a> <a href="table_of_content.html">Table of Contents</a> | Previous: <a href="sec07_vlibtemplatedebug.html">7. vlibTemplateDebug</a> | Next: <a href="sec09_options.html">9. Options</a>
+<br>
+<br>
+</div>
+<div class="section-heading-1">
+<b>8. vlibTemplateCache()</b> 
+</div>
+<div class="section-body-1">
+
+<br>
+This class is best used once you have created your template and are happy with it.
+The class will basically save the compiled template code to a file for subsequent accesses.
+This saves a lot of time skipping the entire compile phase.
+If you then need to make a change to the template, you must clear the cache.
+
+<br>
+<br>
+
+
+<br>
+<br>
+
+<table width="100%" bgcolor="#676767">
+<tr>
+<td align="left"><font color="white">
+	Example
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#E8E8E8">
+<pre>
+
+To use vlibTemplateCache, you just need to alter your class instantiaton to:
+$tmpl = vlibTemplateCache('mytemplates/mytemplatefile.html', $options);
+
+</pre>
+</td>
+</tr>
+</table>
+
+<br>
+
+vlibTemplateCache will recache itself if either the compiled file has been deleted,
+the compiled file has passed the expiry
+date set by the OPTION 'CACHE_LIFETIME' or if you use clearCache() or recache() to do it manually.
+<br>
+<br>
+
+Please see the OPTIONS section for further details of how you can configure your own cache system.
+
+<br>
+<br>
+
+<table width="100%" bgcolor="#7099C5">
+<tr>
+<td align="left"><font color="white">
+	Note
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#f0f0ff">
+vlibTemplateCache caches a template once all of the &lt;tmpl_include&gt;'s have been parsed.
+Therefore if you change one of the included files, you must recache for the changes to be taken into account.
+
+</td>
+</tr>
+</table>
+
+
+<br>
+<br>
+
+
+<br>
+<br>
+<table border="0" cellspacing="0" cellpadding="1">
+<tr>
+<td align="right" width="50">8.1. </td><td><a href="func_clearcache.html">clearCache()</a></td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="1">
+<tr>
+<td align="right" width="50">8.2. </td><td><a href="func_recache.html">recache()</a></td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="1">
+<tr>
+<td align="right" width="50">8.3. </td><td><a href="func_setcachelifetime.html">setCacheLifeTime()</a></td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="1">
+<tr>
+<td align="right" width="50">8.4. </td><td><a href="func_setcacheextension.html">setCacheExtension()</a></td>
+</tr>
+</table>
+<br>
+<br>
+<hr noshade="true" size="1">
+</div>
+<div class="document-footer">
+
+<table width="100%">
+	
+<tr>
+		
+<td align="left">Updated: Saturday, 19th of November 2005</td>
+		<td align="right"><a href="http://vlib.clausvb.de/forum/index.php" target="_blank">vLIB forum and support</a></td>
+	
+</tr>
+
+</table> <!-- Seite: <page-number /> -->
+
+</div>
+</body>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/sec08_vlibtemplatecache.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:31 GMT -->
+</html>

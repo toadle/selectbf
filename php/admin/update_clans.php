@@ -1,16 +1,11 @@
 <?php
 require("admin_func.php");
 require("update_sql.php");
+require_once("../include/vLib/vlibTemplate.php");
+use clausvb\vlib\vlibTemplate;
 //read the needed vars
-// Bugs fixed by jrivett 2009Feb26
-// Look at admin_pass instead of html argument to see if we are operating
-// from the command line, since html argument is always used.
-// Also change condition to check whether admin_pass IS set, not whether it is NOT set.
-//$html = $_REQUEST["html"];
-$admin_pass = $_REQUEST["admin_pass"];
 $html = $_REQUEST["html"];
-//if(!isset($html)){
-if(isset($admin_pass)){
+if(!isset($html)){
 	$numargs = $_SERVER['argc'];
 	if($numargs == 3){
 		$fullpath = $_SERVER['argv'][0];
@@ -68,13 +63,17 @@ function update_clan($is_html){
 	$second = 0 ;
 	$third = 0 ;
 
+	if(!is_countable($clanname)){
+		$clanname = array();
+	}
+
 	for ($i=0 ; $i < count($clanname) ; $i++){
 		$clantag = $clanname[$i]["clan_tag"];
 		if(stristr($_ENV["TERM"],"linux"))
 			$clantag = str_replace("\\","",$clantag);
 		//At least 1(Default Value) round played for each member
 		$res = SQL_query("SELECT * from selectbf_cache_ranking where playername like '%".clear_special_char($clantag,true)."%' and rounds_played >= $minround");
-		$members = mysql_num_rows($res);
+		$members = mysqli_num_rows($res);
 		$clantag = str_replace("%","",$clanname[$i]["clan_tag"]);
 		//At least 3(Default Value) members for each team (clan)
 		if($members >= $minmember){
@@ -99,11 +98,11 @@ function update_clan($is_html){
 			}
 			$kdrate = round($kills / $deaths, 2);
 			$clanres = SQL_query("SELECT * from selectbf_clan_ranking where clanname = '".clear_special_char($clantag,true)."'");
-			if(mysql_num_rows($clanres) > 0){
+			if(mysqli_num_rows($clanres) > 0){
 				SQL_query("update selectbf_clan_ranking SET members='$members', score='$score', kills='$kills', deaths='$deaths', kdrate='$kdrate', tks='$tks', captures='$captures', attacks='$attacks', defences='$defences', objectives='$objectives', objectivetks='$objectivetks', heals='$heals', selfheals='$selfheals', repairs='$repairs', otherrepairs='$otherrepairs', rounds_played='$rounds_played', first='$first', second='$second', third='$third' where clanname = '".clear_special_char($clantag,true)."'");
 				$update_method = "Updated ";
 			}else{
-				SQL_query("INSERT INTO selectbf_clan_ranking (ranks, clanname, members, score, kills, deaths, kdrate, tks, captures, attacks, defences, objectives, objectivetks, heals, selfheals, repairs, otherrepairs, rounds_played, first, second, third) VALUES('NULL', '".clear_special_char($clantag,true)."', '$members', '$score', '$kills', '$deaths', '$kdrate', '$tks', '$captures', '$attacks', '$defences', '$objectives', '$objectivetks', '$heals', '$selfheals', '$repairs', '$otherrepairs', '$rounds_played', '$first', '$second', '$third')");
+				SQL_query("INSERT INTO selectbf_clan_ranking (ranks, clanname, members, score, kills, deaths, kdrate, tks, captures, attacks, defences, objectives, objectivetks, heals, selfheals, repairs, otherrepairs, rounds_played, first, second, third) VALUES(NULL, '".clear_special_char($clantag,true)."', '$members', '$score', '$kills', '$deaths', '$kdrate', '$tks', '$captures', '$attacks', '$defences', '$objectives', '$objectivetks', '$heals', '$selfheals', '$repairs', '$otherrepairs', '$rounds_played', '$first', '$second', '$third')");
 				$update_method = "Inserted ";
 			}
 			//
@@ -116,7 +115,7 @@ function update_clan($is_html){
 			}
 		}else{
 			$clanres = SQL_query("SELECT * from selectbf_clan_ranking where clanname = '".clear_special_char($clantag,true)."'");
-			if(mysql_num_rows($clanres) > 0){
+			if(mysqli_num_rows($clanres) > 0){
 				SQL_query("DELETE FROM selectbf_clan_ranking where clanname = '".clear_special_char($clantag,true)."'");
 				$update_method = " is deleted caused by there is no enough Member or Round Played!";
 			}else{
@@ -156,7 +155,7 @@ function update_clan($is_html){
 //Main
 if(is_numeric($html) && $html == 1){
 	require("../include/sql_setting.php");
-	require_once("../include/vLib/vlibTemplate.php");
+
 	require_once("../templates/original/config.php");
 	if(!isAdmin()){
 		Header("Location: login.php");

@@ -1,6 +1,7 @@
-<?
-require_once("include/jpcache/jpcache.php");
+<?php
+//require_once("include/jpcache/jpcache.php");
 require_once("include/vLib/vlibTemplate.php");
+use clausvb\vlib\vlibTemplate;
 require_once("include/sql.php");
 require_once("include/func.php");
 
@@ -45,8 +46,8 @@ $tmpl->setVar("id",$id);
 
 //set the Context-Bar here to have the Player-Infos available
 $contextbar = array();
-$contextbar = addContextItem($contextbar,getActiveTitlePrefix()."-statistics");
-$contextbar = addLinkedContextItem($contextbar,"index.php","Ranking");
+$contextbar = addContextItem($contextbar,getActiveTitlePrefix());
+$contextbar = addLinkedContextItem($contextbar,"index.php","Players");
 $contextbar = addContextItem($contextbar,$infos["name"]);
 $tmpl->setLoop("CONTEXTBAR",$contextbar);
 
@@ -86,7 +87,7 @@ $tmpl->setLoop("games",getLastGamesPlayer($id));
 $totaltime = timer()- $starttime;
 $tmpl->setVar("PROCESSTIME",sprintf ("%01.2f seconds",$totaltime));
 
-@$tmpl->pparse();
+$tmpl->pparse();
 ?>
 
 

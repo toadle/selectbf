@@ -1,4 +1,4 @@
-<?
+<?php
 require("../include/sql.php");
 require("admin_func.php");
 

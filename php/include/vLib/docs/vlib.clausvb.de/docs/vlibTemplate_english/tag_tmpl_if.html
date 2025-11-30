@@ -1,0 +1,287 @@
+<!DOCTYPE HTML PUBLIC "--//W3C//DTD HTML 4.01 Transitional//EN">
+<!--dummy--><html>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/tag_tmpl_if.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="standard.css">
+<meta content="AurigaDoc" name="generator">
+<title>&lt;TMPL_[ELSE]IF name='BOOL'&gt;</title>
+</head>
+<body>
+<div class="document-header">
+   
+<table width="100%">
+      
+<tr>
+         
+<td align="left">
+<h1>vlibTemplate</h1>
+</td>
+         <td align="right"><img src="vlib_logo.gif" alt="vLib Logo" title="Logo von vLIB"></td>
+      
+</tr>
+   
+</table>
+
+   
+<hr>
+
+</div>
+<div class="navigation">
+<a name="tag_tmpl_if"></a> <a href="table_of_content.html">Table of Contents</a> | Up: <a href="sec05_tags.html">5. The Tags</a> | Previous: <a href="tag_tmpl_phpinclude.html">5.4. TMPL_PHPINCLUDE name='filename.html'</a> | Next: <a href="tag_tmpl_else.html">5.6. TMPL_ELSE</a>
+<br>
+<br>
+</div>
+<div class="section-heading-2">
+<b>5.5. &lt;TMPL_[ELSE]IF name='BOOL'&gt;</b> 
+</div>
+<div class="section-body-2">
+
+<br>
+  
+<P>The &lt;TMPL_IF&gt; tag allows you to include or not include a block of the
+
+    template based on the value of a given parameter name. If the parameter is
+
+    given a value that is equal to TRUE for PHP - like '1' - then the block is
+
+    included in the output. If it is not defined, or given a false value - like
+
+    '0' - then it is skipped. The parameters are specified the same way as with
+
+    TMPL_VAR.</P>
+
+  
+<P>Example Template:</P>
+
+
+<br>
+<br>
+
+<table width="100%" bgcolor="#676767">
+<tr>
+<td align="left"><font color="white">
+	Example
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#E8E8E8">
+<pre>
+
+   &lt;TMPL_IF NAME="BOOL"&gt;
+
+     Some text that only gets displayed if BOOL is true!
+
+   &lt;/TMPL_IF&gt;
+
+</pre>
+</td>
+</tr>
+</table>
+
+<br>
+
+  
+<P>Now if you call $template-&gt;setVar('BOOL', 1) then the above block will
+
+    be included in the output. </P>
+
+  
+<P>&lt;TMPL_IF&gt; [&lt;TMPL_ELSEIF&gt;] &lt;/TMPL_[END]IF&gt; blocks can include
+
+    any valid vlibTemplate construct - VARs and LOOPs and other IF/ELSE blocks.
+
+    Note, however, that intersecting a &lt;TMPL_IF&gt; and a &lt;TMPL_LOOP&gt;
+
+    is invalid.</P>
+
+
+<br>
+<br>
+
+<table width="100%" bgcolor="#676767">
+<tr>
+<td align="left"><font color="white">
+	Example
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#E8E8E8">
+<pre>
+
+   Invalid syntax:
+
+   &lt;TMPL_IF BOOL&gt;
+
+      &lt;TMPL_LOOP SOME_LOOP&gt;
+
+   &lt;/TMPL_IF&gt;
+
+      &lt;/TMPL_LOOP&gt;
+
+</pre>
+</td>
+</tr>
+</table>
+
+<br>
+
+  
+<p>
+    Loops are kept in a different namespace to global variables. So if you want
+
+    to access loop names from your if statements you must have the OPTION
+
+    'SET_LOOP_VAR' set to 1. This will ensure that when you set a loop that is
+
+    not empty using setLoop(), a variable with that loop name is set using setVar().<br>
+
+    This is true except when using &lt;TMPL_IF&gt; from within a loop where this
+
+    is not a problem.</p>
+
+  
+<P>If the name of a TMPL_LOOP is used in a TMPL_IF, the IF block will output
+
+    if the loop has at least one row. Example:</P>
+
+
+
+
+<br>
+<br>
+
+<table width="100%" bgcolor="#676767">
+<tr>
+<td align="left"><font color="white">
+	Example
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#E8E8E8">
+<pre>
+
+  &lt;TMPL_IF LOOP_ONE&gt;
+
+    This will output if the loop is not empty.
+
+      &lt;TMPL_LOOP LOOP_ONE&gt;
+
+        ....
+
+      &lt;/TMPL_LOOP&gt;
+
+  &lt;/TMPL_IF&gt;
+
+</pre>
+</td>
+</tr>
+</table>
+
+<br>
+
+
+<table width="100%" bgcolor="#D00000">
+<tr>
+<td align="left"><font color="white">
+	Warning
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#fff0f0">
+WARNING: Much of the benefit of vlibTemplate is in decoupling your PHP and HTML.
+If you introduce numerous cases where you have TMPL_IFs and matching PHP if()s,
+you will create a maintenance problem in keeping the two synchronized. I suggest
+you adopt the practice of only using TMPL_IF if you can do so without requiring
+a matching if() in your PHP code. <br>
+Of course, this isn't always possible, it's just something that you should aim for.
+</td>
+</tr>
+</table>
+
+<br>
+
+
+<hr size="1">
+
+
+<p> vlibTemplate now supports an extended TMPL_IF syntax. The new OPTIONAL syntax
+  gives you the opportunity to compare the value of a var name to a number or
+  string. There are 2 attributes that apply to the new functionality; OP and VALUE.
+  OP is the comparison OPerator that you want to use. <br>
+  The default is '==' and the supported operators are '==', '!=', '&lt;&gt;',
+  '&lt;', '&gt;', '&lt;=' and '&gt;='. VALUE is the string or number that you
+  want to compare to (containing any characters except quotes), i.e.:
+</p>
+
+
+<br>
+<br>
+
+<table width="100%" bgcolor="#676767">
+<tr>
+<td align="left"><font color="white">
+	Example
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#E8E8E8">
+<pre>
+
+Thank you for purchasing: &lt;TMPL_VAR NAME="product_qty"&gt; &lt;TMPL_VAR NAME="product_name"&gt;.&lt;br&gt;&lt;br&gt;
+
+&lt;TMPL_IF NAME="product_price" OP="&gt;" VALUE="20.00"&gt;
+   Your order comes with free shipment.
+&lt;TMPL_ELSE&gt;
+   Shipment: additional 10 GPB.
+&lt;/TMPL_IF&gt;
+
+</pre>
+</td>
+</tr>
+</table>
+
+<br>
+
+
+<table width="100%" bgcolor="#7099C5">
+<tr>
+<td align="left"><font color="white">
+	Note
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#f0f0ff">
+To avoid any errors, always encapsulate the values of OP and VALUE in quotes.
+</td>
+</tr>
+</table>
+
+
+<br>
+<br>
+
+
+<br>
+<br>
+<hr noshade="true" size="1">
+</div>
+<div class="document-footer">
+
+<table width="100%">
+	
+<tr>
+		
+<td align="left">Updated: Saturday, 19th of November 2005</td>
+		<td align="right"><a href="http://vlib.clausvb.de/forum/index.php" target="_blank">vLIB forum and support</a></td>
+	
+</tr>
+
+</table> <!-- Seite: <page-number /> -->
+
+</div>
+</body>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/tag_tmpl_if.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+</html>

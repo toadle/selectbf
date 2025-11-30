@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "--//W3C//DTD HTML 4.01 Transitional//EN">
+<!--dummy--><html>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/tag_tmpl_var.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="standard.css">
+<meta content="AurigaDoc" name="generator">
+<title>&lt;TMPL_VAR name='VARNAME'&gt;</title>
+</head>
+<body>
+<div class="document-header">
+   
+<table width="100%">
+      
+<tr>
+         
+<td align="left">
+<h1>vlibTemplate</h1>
+</td>
+         <td align="right"><img src="vlib_logo.gif" alt="vLib Logo" title="Logo von vLIB"></td>
+      
+</tr>
+   
+</table>
+
+   
+<hr>
+
+</div>
+<div class="navigation">
+<a name="tag_tmpl_var"></a> <a href="table_of_content.html">Table of Contents</a> | Up: <a href="sec05_tags.html">5. The Tags</a> | Next: <a href="tag_tmpl_loop.html">5.2. TMPL_LOOP name='LOOP_NAME'</a>
+<br>
+<br>
+</div>
+<div class="section-heading-2">
+<b>5.1. &lt;TMPL_VAR name='VARNAME'&gt;</b> 
+</div>
+<div class="section-body-2">
+
+<br>
+
+<p>The &lt;TMPL_VAR&gt; tag is very simple. For each &lt;TMPL_VAR&gt; tag in
+the template you call $tmpl-&gt;setvar('VARNAME', "VALUE"). </p>
+
+<p>When the template is output the &lt;TMPL_VAR&gt; is replaced with the VALUE
+text you specified.</p>
+
+<p>Optionally there are 2 more attributes that you can add to this tag:</p>
+
+
+<P> 1) Escape .. value may be:</P>
+
+  
+<blockquote>
+
+    
+<p>i) html -&gt; html escapes the variable, i.e. exchanging '&lt;' with '&amp;lt;'
+
+      , '&gt;' with '&amp;gt;' and '&amp;' with '&amp;amp;'.</p>
+
+    
+<p>ii) url -&gt; url escpaes the string, i.e. exchanging ' ' with '+' and
+
+      '/' with '%2F.</p>
+
+    
+<p>iii) sq -&gt; escapes single quotes within a string, i.e. "I can't"
+
+      becomes "I can\'t".</p>
+
+    
+<p>iv) dq -&gt; escapes doubles quotes within a string, i.e. 'she said: "Hello!".'
+
+      becomes 'she said: \"Hello!\".'</p>
+
+    
+<p>v) none -&gt; turns off any escaping for this particular variable.</p>
+
+  
+</blockquote>
+
+  
+<p>2) Format .. value may be:</p>
+
+  
+<blockquote>
+
+    
+<p>i) strtoupper -&gt; transforms var to upper case.</p>
+
+    
+<p>ii) uc -&gt; same as strtoupper (upper case).</p>
+
+    
+<p>iii) strtolower -&gt; transforms var to lower case.</p>
+
+    
+<p>iv) lc -&gt; same as strtolower (lower case).</p>
+
+    
+<p>v) ucfirst -&gt; makes the first character of the var uppercase.</p>
+
+    
+<p>vi) lcucfirst -&gt; first transforms the var to lower case, then does a
+
+      ucfirst on it.</p>
+
+    
+<p>vii) ucwords -&gt; makes the first character of every word in the var upper
+
+      case.</p>
+
+    
+<p>viii) lcucwords -&gt; first transforms var to lower case, then does a ucwords
+
+      on it.</p>
+
+  
+</blockquote>
+
+  
+<p>Both of these tags may have extra elements added at any time. If in the future you need something added, then visit <a href="http://vlib.clausvb.de/forum/index.php" target="_blank">vLIB support</a> and if we think it's feasable, we'll add it.</p>
+
+  
+<p>Here's an example of a complete tag:</p>
+
+
+<table width="100%" bgcolor="#676767">
+<tr>
+<td align="left"><font color="white">
+	Example
+</font></td>
+</tr>
+<tr>
+<td valign="middle" align="left" bgcolor="#E8E8E8">
+<pre>
+
+   My e-mail is: &lt;TMPL_VAR NAME='email' escape='html' format='lc'&gt;.
+
+</pre>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+<hr noshade="true" size="1">
+</div>
+<div class="document-footer">
+
+<table width="100%">
+	
+<tr>
+		
+<td align="left">Updated: Saturday, 19th of November 2005</td>
+		<td align="right"><a href="http://vlib.clausvb.de/forum/index.php" target="_blank">vLIB forum and support</a></td>
+	
+</tr>
+
+</table> <!-- Seite: <page-number /> -->
+
+</div>
+</body>
+
+<!-- Mirrored from vlib.clausvb.de/docs/vlibTemplate_english/tag_tmpl_var.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Jun 2016 13:27:30 GMT -->
+</html>

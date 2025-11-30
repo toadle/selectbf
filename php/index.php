@@ -1,9 +1,9 @@
-<?
+<?php
 require_once("include/jpcache/jpcache.php");
 require_once("include/vLib/vlibTemplate.php");
+use clausvb\vlib\vlibTemplate;
 require_once("include/sql.php");
 require_once("include/func.php");
-
 //start the processtime-timer
 $starttime=timer();
 
@@ -59,15 +59,15 @@ if(!checkTemplateConsistency($TEMPLATE_DIR,"index.html"))
 $tmpl = new vlibTemplate("templates/$TEMPLATE_DIR/index.html");
 
 //set basic Template-Variables
-$tmpl->setVar("TITLE",getActiveTitlePrefix()." - Ranking Overview");
+$tmpl->setVar("TITLE",getActiveTitlePrefix()." - Player Ranking");
 $tmpl->setVar("CSS","templates/$TEMPLATE_DIR/include/$TMPL_CFG_CSS");
 $tmpl->setVar("IMAGES_DIR","templates/$TEMPLATE_DIR/images/");
 $tmpl->setVar("ADMINMODE_LINK","admin/index.php");
 $tmpl->setLoop("NAVBAR",getNavBar());
 
 $contextbar = array();
-$contextbar = addContextItem($contextbar,getActiveTitlePrefix()."-statistics");
-$contextbar = addLinkedContextItem($contextbar,"index.php","Ranking");
+$contextbar = addContextItem($contextbar,getActiveTitlePrefix());
+$contextbar = addLinkedContextItem($contextbar,"index.php","Players");
 $tmpl->setLoop("CONTEXTBAR",$contextbar);
 
 
@@ -133,8 +133,8 @@ $tmpl->setLoop("ranking",$res);
 
 //the Ranking-navbar information
 $minrounds = getActiveMinRoundsValue();
-$res = SQL_query("select player_id, count(*) rounds from selectbf_playerstats group by player_id having rounds >= $minrounds order by rounds desc");
-$totalplayercount = mysql_num_rows($res);
+$res = SQL_query("select player_id, count(*) rounds from selectbf_playerstats group by player_id having rounds >= ? order by rounds desc", array($minrounds));
+$totalplayercount = mysqli_num_rows($res);
 
 $res = getRankingNavBar($totalplayercount,$start,$orderby,$direction);
 $tmpl->setLoop("navbarinforank",$res);
@@ -185,14 +185,13 @@ else
 	$tmpl->setVar("GameNextButtonLink","");	
 }	 	
 
-
 $Res = SQL_query("select DISTINCT modid from selectbf_games");
 $mods = array();
 while($Erg = SQL_fetchArray($Res))
 {
   	array_push($mods,array("name"=>$Erg["modid"]));
-}	
-  
+}
+
 $tmpl->setVar("search_action","search.php");
   
 $tmpl->setVar("search_type_games","games");
@@ -211,7 +210,7 @@ $tmpl->setLoop("search_mods",$mods);
 $totaltime = timer()- $starttime;
 $tmpl->setVar("PROCESSTIME",sprintf ("%01.2f seconds",$totaltime));
 
-@$tmpl->pparse();
+$tmpl->pparse();
 ?>
 
 

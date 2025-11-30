@@ -57,26 +57,26 @@
        <td class="rahmen" width=100%>
         <table class="scoretable" width=100%>
          <tr>
-         	<th class=scoretable>Navigation</th>       	
-			    <tmpl_loop name="CONTEXTBAR">
-			    <th class=scoretable>
-  			   <nobr>
-					 <img src="{tmpl_var name='IMAGES_DIR'}arrow_right.gif">
-				   <tmpl_if name="link"><a href="{tmpl_var name='link'}" class=scoretable></tmpl_if>
-		       <tmpl_var name="name">
-		       <tmpl_if name="link"></a></tmpl_if>
-		       </nobr>
-          </th>		       
-			   </tmpl_loop>
-				    <th class=scoretable width=100%></th>		   
-  		   </table>			   	
-			   <table width=100%>
-	  		   	<tr>
-			   <tmpl_loop name="NAVBAR">
-	  		   		<td class="navbarbutton"><a href="{tmpl_var name='link'}"><tmpl_var name='name'></a></td>
-         </tmpl_loop>			 
-           </tr>
-         </table>  
+          <th class=scoretable>Statistics</th>   
+	  <tmpl_loop name="CONTEXTBAR">
+	   <th class=scoretable>
+  	    <nobr>
+	    <img src="{tmpl_var name='IMAGES_DIR'}arrow_right.gif">
+	    <tmpl_if name="link"><a href="{tmpl_var name='link'}" class=scoretable></tmpl_if>
+	    <tmpl_var name="name">
+	    <tmpl_if name="link"></a></tmpl_if>
+	    </nobr>
+           </th>		       
+	  </tmpl_loop>
+	   <th class=scoretable width=100%></th>		   
+  	</table>			   	
+	<table width=100%>
+	 <tr>
+	  <tmpl_loop name="NAVBAR">
+	   <td class="navbarbutton"><a href="{tmpl_var name='link'}"><tmpl_var name='name'></a></td>
+          </tmpl_loop>			 
+         </tr>
+        </table>  
        </td>
        <td class="rahmen" background="{tmpl_var name='IMAGES_DIR'}bar_vertical_right.gif"></td>
      </tr>     

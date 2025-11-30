@@ -1,6 +1,7 @@
-<?
+<?php
 require_once("include/jpcache/jpcache.php");
 require_once("include/vLib/vlibTemplate.php");
+use clausvb\vlib\vlibTemplate;
 require_once("include/sql.php");
 require_once("include/func.php");
 
@@ -59,7 +60,7 @@ if(!checkTemplateConsistency($TEMPLATE_DIR,"clans.html"))
 $tmpl = new vlibTemplate("templates/$TEMPLATE_DIR/clans.html");
 
 //set basic Template-Variables
-$tmpl->setVar("TITLE",getActiveTitlePrefix()." - Ranking Overview");
+$tmpl->setVar("TITLE",getActiveTitlePrefix()." - Clan Ranking");
 $tmpl->setVar("CSS","templates/$TEMPLATE_DIR/include/$TMPL_CFG_CSS");
 $tmpl->setVar("IMAGES_DIR","templates/$TEMPLATE_DIR/images/");
 $tmpl->setVar("ADMINMODE_LINK","admin/index.php");
@@ -67,9 +68,9 @@ $tmpl->setLoop("NAVBAR",getNavBar());
 
 
 $contextbar = array();
-$contextbar = addContextItem($contextbar,getActiveTitlePrefix()."-statistics");
+$contextbar = addContextItem($contextbar,getActiveTitlePrefix());
 //Added by Gary Chiu
-$contextbar = addContextItem($contextbar,clearUpText("Clan Ranking","CLANS"));
+$contextbar = addContextItem($contextbar,clearUpText("Clans","CLANS"));
 
 $tmpl->setLoop("CONTEXTBAR",$contextbar);
 

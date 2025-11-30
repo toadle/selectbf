@@ -1,4 +1,4 @@
-<?
+<?php
 header("Content-Type: image/png");
 
 require_once("sql.php");

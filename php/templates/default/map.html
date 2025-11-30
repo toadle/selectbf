@@ -1,0 +1,227 @@
+<tmpl_include file="head.html">
+ <table width="95%" border="1" align="center">
+   <tr class="head">
+     <th  colspan=8 class="super" scope="col"><tmpl_var name="mapname"></th>
+   </tr>
+   <tr>
+     <td colspan=8><center><img src="{tmpl_var name='screen'}"></center></td>
+   </tr>
+     <tr class=axis>
+       <td width="85%" colspan=8><b>Red Team</b></td>
+     </tr>
+     <tr class=axis_hell>
+       <td width=15%>won rounds: </td>
+       <td colspan=7><tmpl_var name="wins_team1"></td>
+     </tr>
+     <tr class=axis_hell>
+       <td><b>Kills:</b></td>
+       <td colspan=7><tmpl_var name="kills_team1"></td>
+     </tr>
+     <tr class=axis_hell>
+       <td><b>Deaths:</b></td>
+       <td colspan=7><tmpl_var name="deaths_team1"></td>
+     </tr>
+     <tr class=axis_hell>
+       <td><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Conquests" title="Conquests"></td>
+       <td colspan=7><tmpl_var name="attacks_team1"></td>
+     </tr>
+     <tr class=axis_dunkel>
+       <td colspan=8><u>on Red Team Won!</u></td>
+     </tr>
+     <tr class=axis_hell>
+       <td class="axis">&Oslash; Red team's tickets</td>
+       <td colspan=7><tmpl_var name="win_team1_end_tickets_team1"></td>
+     </tr>
+     <tr class=axis_hell>
+       <td class="allied">&Oslash; Blue team's tickets</td>
+       <td colspan=7><tmpl_var name="win_team1_end_tickets_team2"></td>
+     </tr>
+     <tr class=allied colspan=2>
+       <td colspan=8><b>Blue Team</b></td>
+     </tr>
+     <tr class=allied_hell>
+       <td width=15%>won rounds: </td>
+       <td colspan=7><tmpl_var name="wins_team2"></td>
+     </tr>
+     <tr class=allied_hell>
+       <td><b>Kills:</b></td>
+       <td colspan=7><tmpl_var name="kills_team2"></td>
+     </tr>
+     <tr class=allied_hell>
+       <td><b>Deaths:</b></td>
+       <td colspan=7><tmpl_var name="deaths_team2"></td>
+     </tr>
+     <tr class=allied_hell>
+       <td><img src="{tmpl_var name='IMAGES_DIR'}icon_attacks.gif" alt="Conquests" title="Conquests"></td>
+       <td colspan=7><tmpl_var name="attacks_team2"></td>
+     </tr>
+     <tr class=allied_dunkel>
+       <td colspan=8><u>on Blue Team Won!</u></td>
+     </tr>
+     <tr class=allied_hell>
+       <td class=axis>&Oslash; Red team's tickets</td>
+       <td colspan=7><tmpl_var name="win_team2_end_tickets_team1"></td>
+     </tr>
+     <tr class=allied_hell>
+       <td class=allied><span class="axis_blue">&Oslash; Blue team's tickets</td>
+       <td colspan=7><tmpl_var name="win_team2_end_tickets_team2"></td>
+     </tr>
+
+   <tr class=darker>
+     <th colspan=8>Best {tmpl_var name='TopRoundsValue'} Round{tmpl_var name='TopRoundsS'} on this map</th>
+   </tr>
+   <tr class=head>
+     <th class=number>Player</th>
+     <th>Score</th>
+     <th class=number>Kills</th>
+     <th>Deaths</th>
+     <th>TKs</th>
+     <th>Conquests</th>
+     <th>Game</th>     
+     <th>Time</th>     
+   </tr> 
+<tmpl_loop name="BestRounds">
+   <tr>
+     <td><nobr><img src="{tmpl_var name='IMAGES_DIR'}soldier_icon.gif" align=absmiddle hspace=2><a href="player.php?id={tmpl_var name='player_id'}"><tmpl_var name="name"></a></nobr></td>
+     <td class=number><tmpl_var name="score"></td>
+     <td class=number><tmpl_var name="kills"></td>
+     <td class=number><tmpl_var name="deaths"></td>
+     <td class=number><tmpl_var name="tks"></td>
+     <td class=number><tmpl_var name="attacks"></td>
+     <td><a href="game.php?id={tmpl_var name='id'}"><tmpl_var name="servername"></a></td>
+     <td class=number><tmpl_var name="time"></td>
+   </tr>    
+</tmpl_loop>   
+ </table>  
+ <p>
+ <tmpl_if name="kills">
+ <table width="95%" border="1" align="center">
+   <tr class="head">
+     <th colspan="18" class="super" scope="col">Top Killers</th>
+   </tr>
+   <tr class=head>
+     <th class=number>Rank</th>
+     <th>Player</th>
+     <th class=number>Kills</th>
+     <th>&nbsp;</th>
+   </tr>   
+   <tmpl_loop name="kills">
+   <tmpl_if name="__EVEN__">
+   <tr class="light">
+   <tmpl_else>
+   <tr class="dark">
+   </tmpl_if>   
+     <td class=number><tmpl_var name="__ROWNUM__"></td>
+     <td><img src="{tmpl_var name='playerimg'}" align=absmiddle hspace=2><a href="{tmpl_var name='playerdetaillink'}"><tmpl_var name="name"></a></td>
+     <td class=number><tmpl_var name="count"></td>
+     <td><tmpl_var name="bar" escape="none"></td>
+   </tr>
+   </tmpl_loop>
+ </table>  
+ <p>
+ </tmpl_if>
+ <tmpl_if name="attacks">
+  <table width="95%" border="1" align="center">
+   <tr class="head">
+     <th colspan="18" class="super" scope="col">Top Basepoint Conquerors</th>
+   </tr>
+   <tr class=head>
+     <th class=number>Rank</th>
+     <th>Player</th>
+     <th class=number>Conquests</th>
+     <th>&nbsp;</th>
+   </tr>   
+   <tmpl_loop name="attacks">
+   <tmpl_if name="__EVEN__">
+   <tr class="light">
+   <tmpl_else>
+   <tr class="dark">
+   </tmpl_if>   
+     <td class=number><tmpl_var name="__ROWNUM__"></td>
+     <td><img src="{tmpl_var name='playerimg'}" align=absmiddle hspace=2><a href="{tmpl_var name='playerdetaillink'}"><tmpl_var name="name"></a></td>
+     <td class=number><tmpl_var name="count"></td>
+     <td><tmpl_var name="bar" escape="none"></td>
+   </tr>
+   </tmpl_loop>
+ </table>   
+ <p>
+ </tmpl_if>
+ <tmpl_if name="deaths">
+  <table width="95%" border="1" align="center">
+   <tr class="head">
+     <th colspan="18" class="super" scope="col">Most Deaths</th>
+   </tr>
+   <tr class=head>
+     <th class=number>Rank</th>
+     <th>Player</th>
+     <th class=number>Deaths</th>
+     <th>&nbsp;</th>
+   </tr>   
+   <tmpl_loop name="deaths">
+   <tmpl_if name="__EVEN__">
+   <tr class="light">
+   <tmpl_else>
+   <tr class="dark">
+   </tmpl_if>   
+     <td class=number><tmpl_var name="__ROWNUM__"></td>
+     <td><img src="{tmpl_var name='playerimg'}" align=absmiddle hspace=2><a href="{tmpl_var name='playerdetaillink'}"><tmpl_var name="name"></a></td>
+     <td class=number><tmpl_var name="count"></td>
+     <td><tmpl_var name="bar" escape="none"></td>
+   </tr>
+   </tmpl_loop>
+ </table>    
+ <p>
+ </tmpl_if>
+ <tmpl_if name="tks">
+  <table width="95%" border="1" align="center">
+   <tr class="head">
+     <th colspan="18" class="super" scope="col">Most TKs</th>
+   </tr>
+   <tr class=head>
+     <th class=number>Rank</th>
+     <th>Player</th>
+     <th class=number>TKs</th>
+     <th>&nbsp;</th>
+   </tr>   
+   <tmpl_loop name="tks">
+   <tmpl_if name="__EVEN__">
+   <tr class="light">
+   <tmpl_else>
+   <tr class="dark">
+   </tmpl_if>   
+     <td class=number><tmpl_var name="__ROWNUM__"></td>
+     <td><img src="{tmpl_var name='playerimg'}" align=absmiddle hspace=2><a href="{tmpl_var name='playerdetaillink'}"><tmpl_var name="name"></a></td>
+     <td class=number><tmpl_var name="count"></td>
+     <td><tmpl_var name="bar" escape="none"></td>
+   </tr>
+   </tmpl_loop>
+ </table>    
+ <p> 
+ </tmpl_if>
+ <tmpl_if name="drives">
+ <table width="95%" border="1" align="center">
+   <tr class="head">
+     <th colspan="18" class="super" scope="col">Most used Vehicles</th>
+   </tr>
+   <tr class=head>
+     <th class=number>Rank</th>
+     <th>Player</th>
+     <th class=number>Time driven</th>
+     <th>&nbsp;</th>
+   </tr>   
+   <tmpl_loop name="drives">
+   <tmpl_if name="__EVEN__">
+   <tr class="light">
+   <tmpl_else>
+   <tr class="dark">
+   </tmpl_if>   
+     <td class=number><tmpl_var name="__ROWNUM__"></td>
+     <td><tmpl_var name="vehicle"></td>
+     <td class=number><tmpl_var name="time"></td>
+     <td><tmpl_var name="bar" escape="none"></td>
+   </tr>
+   </tmpl_loop>
+ </table> 
+ </tmpl_if>   
+
+<tmpl_include file="foot.html">

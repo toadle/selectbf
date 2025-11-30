@@ -75,7 +75,7 @@
         // way to determine the scriptname
         if ($name=="")
         {
-            $name="http://".$_SERVER["SERVER_NAME"].$_SERVER["SCRIPT_NAME"];
+            $name="https://".$_SERVER["SERVER_NAME"].$_SERVER["SCRIPT_NAME"];
         }
         
         jpcache_debug("Cache scriptkey is set to $name");        
@@ -153,6 +153,9 @@
         }
 
         // Force cache off when POST occured when you don't want it cached
+        if(!is_countable($_POST)) {
+            $_POST = array();
+        } 
         if (!$GLOBALS["JPCACHE_POST"] && (count($_POST) > 0)) 
         {
             $GLOBALS["JPCACHE_ON"] = 0;
@@ -179,7 +182,7 @@
         // Should we garbage collect ?
         if ($GLOBALS["JPCACHE_GC"]>0) 
         {
-            mt_srand(time(NULL));
+            mt_srand(time());
             $precision=100000;
             // Garbagecollection probability
             if (((mt_rand()%$precision)/$precision) <=
